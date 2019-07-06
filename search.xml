@@ -52,8 +52,8 @@
     <url>%2F2017%2F11%2F29%2F20171129webinmobile%2F</url>
     <content type="text"><![CDATA[记录一下web页面在移动端出现的bug以及解决方法。 ios发现其实好多问题都出现在ios呢。 position:fixed极为严重的bug，现在看到fixed我都不敢用了。问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。 -webkit-overflow-scrolling: touch; ios8中css3的兼容性问题之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。兼容性写法 12345display: -webkit-box;display: -moz-box;display: -webkit-flex;display: -ms-flexbox;display: flex; 也可以用autoprefixer来处理。 在safari无痕模式不支持localstorage 点击input后页面向上滚动一定位置 android fetch兼容性问题：使用fetch请求数据的过程中，发现在一些安卓机上请求失败。查了一下，发现fetch有兼容性问题，其实在ios低版本也有这个问题，不过我测的手机版本较高，当时就没发现。解决：使用了whatwg-fetch，即不是引入fetch，而是引入whatwg-fetch。 共同 -webkit-tap-highlight-color问题：有时我们点击时会发现出现不知名的颜色，但其实我们想点击时不出现颜色。这时就需要用到这个css样式。解决： 1-webkit-tap-highlight-color:rgba(255,255,255,0); 点击穿透问题：有时我们会要有一个全屏的遮罩层，而滑动该遮罩层时，位于其底部的页面是不需要滑动的，然而因为点击穿透，底部的页面往往也会滑动。解决：首先先假设A页面为展示滚动页面，B页面为遮罩层。先写个公共方法 123touchMoveHandler(e)&#123; e.preventDefault();&#125; 当弹出遮罩层时： 1234//第一步，修改样式$(&apos;A页面滚动区域&apos;).css(&apos;overflow&apos;, &apos;hidden&apos;);//第二步，阻止默认行为document.addEventListener(&quot;touchmove&quot;, touchMoveHandler, false); 当隐藏遮罩层时： 1234//第一步，修改样式$(&quot;body&quot;).css(&quot;overflow&quot;, &quot;auto&quot;);//第二步，不阻止默认行为document.removeEventListener(&quot;touchmove&quot;, touchMoveHandler, false); 发现如果要实现点击穿透的效果，还是有兼容问题。如果要实现滑动B页面，A页面滑动的话，iOS需要 1$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;absolute&apos;); android需要 1$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;fixed&apos;); 可见fixed在ios中会阻止点击穿透。 后续再说吧]]></content>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -332,9 +332,9 @@
         <category>毕设</category>
       </categories>
       <tags>
-        <tag>mongodb</tag>
         <tag>nodejs</tag>
         <tag>express</tag>
+        <tag>mongodb</tag>
       </tags>
   </entry>
   <entry>
@@ -458,8 +458,8 @@
         <category>前端试题</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
