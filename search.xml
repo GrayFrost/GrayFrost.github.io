@@ -23,7 +23,7 @@
   <entry>
     <title><![CDATA[搭建react-native环境]]></title>
     <url>%2F2018%2F12%2F31%2F20181231reactNative%2F</url>
-    <content type="text"><![CDATA[开发平台 windows 目标平台Android 安装node、react native 命令行工具、python2、jdk、Android Studio node版本要高于8.3 react native 命令行工具 npm install -g react-native-cli python版本必须为2.x jdk版本必须为1.8 下载地址 安装完jdk配置环境变量系统变量：新建JAVA_HOME，然后填写jdk安装目录（本人：D:\jdk） 系统变量：找到Path编辑，在最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; （注意原来Path的变量值末尾有没有;号，如果没有，先输入；号再输入上面的代码） 系统变量：新建 CLASSPATH，填写.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar （注意最前面有一点） 运行cmd,查看是否安装成功，输入java -version Android开发环境安装Android Studio 下载地址 确保一下选项选中 Android SDK Android SDK Platform Performance (Intel ® HAXM) Android Virtual Device 安装Android SDK Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是Android 8.0 (Oreo)版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK 配置环境变量 系统变量：新建ANDROID_HOME，然后填写android sdk安装目录（本人为D:\AndroidSDK） 系统变量：找到Path编辑，在最后添加 （%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools） 打开Android Studio 找到sdk manager选项，选择sdk platforms选项卡，在右下角勾选show package details, 展开 Android 8.0(oreo),确保勾选 Android SDK Platform 26 Intel x86 Atom_64 System Image 然后点击”SDK Tools”选项卡，同样勾中右下角的”Show Package Details”。展开”Android SDK Build-Tools”选项，确保选中了 React Native 所必须的26.0.3版本。你可以同时安装多个其他版本，然后还要勾选最底部的Android Support Repository 创建新项目react-native init AwesomeProject 在Android Studio创建新的虚拟设备，创建完，可以打开cmd，输入adb devices查看设备 编译运行项目cd AwesomeProject react-native run-android 过程中遇到的问题 Could not find tools.jar 在项目的android目录下找到local.properties，添加 1sdk.dir=D\:\\AndroidSDK 后面的值为自己android sdk安装目录 1Could not install the app on the device, read the error above for details. Make sure you have an Android emulator running or a device connected and have set up your Android development environment 检查有没有开启虚拟设备，或连接真机，然后运行 adb devices看下能不能看到设备]]></content>
+    <content type="text"><![CDATA[开发平台 windows 目标平台 Android 安装 node。 node版本要高于8 .3 react native 命令行工具。 1npm install -g react-native-cli python2。 python版本必须为2.x jdk。 jdk版本必须为1 .8。 [下载地址](https: //www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) Android Studio 安装完jdk配置环境变量系统变量： 新建JAVA_HOME， 然后填写jdk安装目录（本人： D:\jdk） 系统变量： 找到Path编辑， 在最后输入 %JAVA_HOME%\bin; %JAVA_HOME%\jre\bin; （注意原来Path的变量值末尾有没有; 号， 如果没有， 先输入； 号再输入上面的代码） 系统变量： 新建 CLASSPATH， 填写.; %JAVA_HOME%\lib; %JAVA_HOME%\lib\tools.jar （注意最前面有一点） 运行cmd, 查看是否安装成功， 输入java -version Android开发环境安装Android Studio 下载地址 确保一下选项选中 Android SDK Android SDK Platform Performance (Intel ® HAXM) Android Virtual Device 安装Android SDK Android Studio 默认会安装最新版本的 Android SDK。 目前编译 React Native 应用需要的是Android 8.0 (Oreo)版本的 SDK。 你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK 配置环境变量 系统变量： 新建ANDROID_HOME， 然后填写android sdk安装目录（本人为D:\AndroidSDK） 系统变量： 找到Path编辑， 在最后添加 （%ANDROID_HOME%\tools; %ANDROID_HOME%\platform-tools） 打开Android Studio 找到sdk manager选项， 选择sdk platforms选项卡， 在右下角勾选show package details, 展开 Android 8.0(oreo), 确保勾选 Android SDK Platform 26 Intel x86 Atom_64 System Image 然后点击”SDK Tools”选项卡， 同样勾中右下角的”Show Package Details”。 展开”Android SDK Build-Tools”选项， 确保选中了 React Native 所必须的26.0.3版本。 你可以同时安装多个其他版本， 然后还要勾选最底部的Android Support Repository 创建新项目react-native init AwesomeProject 在Android Studio创建新的虚拟设备， 创建完， 可以打开cmd， 输入adb devices查看设备 编译运行项目cd AwesomeProject react-native run-android 过程中遇到的问题 Could not find tools.jar 在项目的android目录下找到local.properties， 添加 1sdk.dir = D\: \\AndroidSDK 后面的值为自己android sdk安装目录 12Could not install the app on the device, read the error abovefor details.Make sure you have an Android emulator running or a device connected and have set up your Android development environment 检查有没有开启虚拟设备， 或连接真机， 然后运行 adb devices看下能不能看到设备]]></content>
       <tags>
         <tag>javascript</tag>
       </tags>
@@ -319,8 +319,8 @@
       </categories>
       <tags>
         <tag>vue</tag>
-        <tag>webpack</tag>
         <tag>bootstrap</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -331,9 +331,9 @@
         <category>npm</category>
       </categories>
       <tags>
+        <tag>webpack</tag>
         <tag>node</tag>
         <tag>npm</tag>
-        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
