@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F07%2F06%2F20190706hexoInMac%2F</url>
-    <content type="text"><![CDATA[hexo 从windows转移到mac 1.所需环境的安装 git、node 2.安装hexo 1npm install hexo-cli -g 选择某一个目录，新建博客文件夹 1234hexo i blog // blog是自定义的文件夹名字cd bloghexo ghexo s // 本地起服务器预览 设置博客主题 沿用之前的主题Next 在blog目录下 1git clone https://github.com/iissnan/hexo-theme-next themes/next 之后的一些配置，直接官网查看。 迁移 把原来在windows上的博客目录下的一些文件直接拷贝过来。具体有用的文件夹有以下： _config.yml theme source scaffolds package.json .gitignore 拷贝完之后，最好npm install以下，因为我也记不清之前装了什么。 然后再一次 123hexo cleanhexo ghexo s 如果本地没什么问题，我们就可以hexo d推到github上。当然，前提是本地已事先生成SSH密钥，并与github关联。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[升级webpack4]]></title>
     <url>%2F2018%2F12%2F31%2F20181231webpack4%2F</url>
-    <content type="text"><![CDATA[首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos; Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found. 升级html-webpack-plugin 1"html-webpack-plugin": "^4.0.0-beta.2", 在webpack.config.dev.js中，调整plugin顺序 123456new HtmlWebpackPlugin(&#123; inject: true, template: paths.appHtml, chunkSortMode: 'none'&#125;),new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw), Cannot read property ‘context’ of undefined 升级url-loader file-loader 12"file-loader": "^1.1.11","url-loader": "0.6.2", missingDeps.some is not a function 升级react-dev-utils 1"react-dev-utils": "6.1.1", this.htmlWebpackPlugin.getHooks is not a function 同1. 在webpack.config.dev.js中 1new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw) 然后升级html-webpack-plugin 1npm install html-webpack-plugin@next --save-dev 移除webpack的UglifyJsPlugin Tapable.plugin is deprecated. Use new API on .hooks instead 1npm install --save-dev extract-text-webpack-plugin 更详细的，之后再学习。]]></content>
+    <content type="text"><![CDATA[首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: 'development'mode: 'production' Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found. 升级html-webpack-plugin 1"html-webpack-plugin": "^4.0.0-beta.2", 在webpack.config.dev.js中，调整plugin顺序 123456new HtmlWebpackPlugin(&#123; inject: true, template: paths.appHtml, chunkSortMode: 'none'&#125;),new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw), Cannot read property ‘context’ of undefined 升级url-loader file-loader 12"file-loader": "^1.1.11","url-loader": "0.6.2", missingDeps.some is not a function 升级react-dev-utils 1"react-dev-utils": "6.1.1", this.htmlWebpackPlugin.getHooks is not a function 同1. 在webpack.config.dev.js中 1new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw) 然后升级html-webpack-plugin 1npm install html-webpack-plugin@next --save-dev 移除webpack的UglifyJsPlugin Tapable.plugin is deprecated. Use new API on .hooks instead 1npm install --save-dev extract-text-webpack-plugin 更详细的，之后再学习。]]></content>
       <tags>
         <tag>javascript</tag>
       </tags>
@@ -24,7 +19,7 @@
   <entry>
     <title><![CDATA[一些浏览器兼容问题]]></title>
     <url>%2F2018%2F08%2F04%2F20180804webBug%2F</url>
-    <content type="text"><![CDATA[图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;time=&apos;+time); 在IE浏览器中，flash播放器遮挡内容flash播放器添加params即可 1&lt;param name=&quot;wmode&quot; value=&quot;opaque&quot; /&gt; 多行文本超出省略号在火狐浏览器失效暂未找到解决方法]]></content>
+    <content type="text"><![CDATA[图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$('img').attr('src', 原来的接口请求地址+'&amp;time='+time); 在IE浏览器中，flash播放器遮挡内容flash播放器添加params即可 1&lt;param name="wmode" value="opaque" /&gt; 多行文本超出省略号在火狐浏览器失效暂未找到解决方法]]></content>
       <tags>
         <tag>javascript</tag>
       </tags>
@@ -32,7 +27,7 @@
   <entry>
     <title><![CDATA[微信分享中出现的问题]]></title>
     <url>%2F2018%2F08%2F04%2F20180804wxShareBug%2F</url>
-    <content type="text"><![CDATA[主要是工作中在使用微信分享时遇到的一些问题 分享出来描述变成链接，也没有显示设置好的图标在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理 1window.location.href.split(&apos;#&apos;)[0] 本人分享出去的页面看得到自定义图标，对方看不到主要是分享文案涉及到了“红包，金钱”等敏感词汇。 客户端拉不起微信分享这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不能拉起微信分享。找了很久原因，发现最开始设置的分享图标的地址存在重定向，最后让后台配合，将地址改为重定向后的地址即可。 redirect_uri域名与后台配置不一致看一下是不是配置的域名出了问题，我们这边是后台负责这些，所以出现了此问题，通常叫后台检查修改就好了。]]></content>
+    <content type="text"><![CDATA[主要是工作中在使用微信分享时遇到的一些问题 分享出来描述变成链接，也没有显示设置好的图标在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理 1window.location.href.split('#')[0] 本人分享出去的页面看得到自定义图标，对方看不到主要是分享文案涉及到了“红包，金钱”等敏感词汇。 客户端拉不起微信分享这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不能拉起微信分享。找了很久原因，发现最开始设置的分享图标的地址存在重定向，最后让后台配合，将地址改为重定向后的地址即可。 redirect_uri域名与后台配置不一致看一下是不是配置的域名出了问题，我们这边是后台负责这些，所以出现了此问题，通常叫后台检查修改就好了。]]></content>
       <categories>
         <category>web移动端</category>
       </categories>
@@ -43,13 +38,13 @@
   <entry>
     <title><![CDATA[web移动端总结]]></title>
     <url>%2F2018%2F02%2F28%2F20180228webapp%2F</url>
-    <content type="text"><![CDATA[主要是针对vue做过的项目 vue懒加载vue-lazyload 123456789import VueLazyLoad from &apos;vue-lazyload&apos;;import defaultImg from &apos;默认图片&apos;;Vue.use(VueLazyLoad,&#123; error: defaultImg, loading: defaultImg, listenEvents: [ &apos;scroll&apos; ]&#125;);最后将使用:src的改为v-lazy 输入框事件键盘enter: @keydown.13focus事件: @focusblur事件: @blur 阻止默认、阻止冒泡@click.stop@click.prevent@click.stop.prevent 动态添加class:class=”{‘我的class’: 某个具体判断}”eg: :class=”{‘pic_selected’: list.selected == ‘Y’}” :class=”某个判断 ? ‘class1’ : ‘class2’”eg: :class=”list.selected ? ‘colorHeart’ : ‘whiteHeart’” vuexmapState computed:mapState({}) 在vue-cli重配置jquery npm install jquery –save 配置webpack文件中resolve的alias 1&apos;jquery&apos;: path.resolve(__dirname, &apos;../node_modules/jquery/src/jquery.js&apos;), import $ from ‘jquery’ 子组件调用父组件的方法 现在子组件中this.$emit(“方法名”, 参数, 参数, …更多参数); 在父组件中@方法名=”父组件方法”eg:有index.vue子组件，在该组件中this.$emit(“sayHi”, “Hello”);1&lt;index&gt;&lt;/index&gt; 然后app.vue引用该子组件，将其命名为v-index，如下 12345678&lt;app&gt; &lt;v-index @sayHi=&quot;sayHiFather&quot;&gt;&lt;/v-index&gt;&lt;/app&gt;在方法中sayHiFather(str)&#123; console.log(str)&#125; 此时子组件便成功调用父组件方法 cssless文件引用 在vue内 @import url(‘…..’) 在less内 @import ‘…..’对常用颜色，事先用变量定义好，方便引用 mixin图片根据像素比适配 12345678.bg-image(@url)&#123; background: ~&apos;url(@&#123;url&#125;@2x.png)&apos;; background-size: 100% 100%; @media (-webkit-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3)&#123; background: ~&apos;url(@&#123;url&#125;@3x.png)&apos;; background-size: 100% 100%; &#125;&#125; div边框有几种处理方法 outline border box-shadow 宽高不固定图片居中flex图片背景background的各个属性 移动端点击有某种颜色去掉该颜色-webkit-tap-highlight-color: rgba(0, 0, 0, 0);关键是后面那个透明度设置，前面设什么好像没所谓 禁止用户长按选择文字user-select: none; 文字超出用省略号 单行 多行 输入框文字颜色jsrem1234567891011121314(function (doc, win) &#123; var docEl = doc.documentElement, resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;, recalc = function () &#123; var clientWidth = docEl.clientWidth; if (!clientWidth) return; docEl.style.fontSize = 100 * (clientWidth / 640) + &apos;px&apos;; doc.body.style.display=&quot;block&quot;; &#125;; if (!doc.addEventListener) return; //recalc(); win.addEventListener(resizeEvt, recalc, false); doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false);&#125;)(document, window); 移动端点击fastclick 123456import FastClick from &apos;fastclick&apos;if (&apos;addEventListener&apos; in document) &#123; document.addEventListener(&apos;DOMContentLoaded&apos;, function () &#123; FastClick.attach(document.body); &#125;, false);&#125; 判断是ios，android还是微信1234567const sysJuc = &#123; ios: /(iPhone|iPad|iPod|iOS)/i, android: /(Android)/i, wx: /(MicroMessenger)/i&#125;;const nav = navigator.userAgent;const system = sysJuc.wx.test(nav) ? &apos;wx&apos; : sysJuc.ios.test(nav) ? &apos;ios&apos; : sysJuc.android.test(nav) ? &apos;android&apos; : &apos;other&apos;; 滚动加载事件节流与防抖 版本号比较12345678910111213141516171819202122232425262728const compareVersion = (curV, reqV) =&gt; &#123; var arr1 = curV.split(&apos;.&apos;); var arr2 = reqV.split(&apos;.&apos;); //将两个版本号拆成数字 var minL = Math.min(arr1.length, arr2.length); var pos = 0; //当前比较位 var diff = 0; //当前为位比较是否相等 //逐个比较如果当前位相等则继续比较下一位 while (pos &lt; minL) &#123; diff = parseInt(arr1[pos]) - parseInt(arr2[pos]); if (diff != 0) &#123; break; &#125; pos++; &#125; if (diff &gt; 0) &#123; //新版本 return true; &#125; else if (diff == 0) &#123; //稳定版 return true; &#125; else &#123; //旧版本 return false; &#125;&#125; 网络请求vue-resource, fetch, axios vue-resource好久没用了 fetch关于fetch的兼容whatwg-fetch axios请求拦截this.$http.interceptors.request.use(config =&gt; {return config}, err =&gt; {}) 微信分享页添加微信分享 绑定域名（我这里是后台配的，前端未参与） 引入js文件就是引用微信分享的jssdk 通过config注入权限请求后台给的微信分享的地址，获取相应数据，然后配置到wx.config中 12345678wx.config(&#123; debug: false, appId: 后台返回数据, timestamp: 后台返回数据, nonceStr: 后台返回数据, signature: 后台返回数据, jsApiList: [&apos;onMenuShareTimeline&apos;, &apos;onMenuShareAppMessage&apos;, &apos;onMenuShareQQ&apos;, &apos;onMenuShareWeibo&apos;, &apos;onMenuShareQZone&apos;]&#125;) 成功 12wx.ready(function()&#123;&#125;) 微信授权登录移动端阻止滑动overflow:hiddentouchmove preventDefault() 与客户端联动window.location.href = “自定义协议”window.成功后的回调方法 分享页唤醒app调试vConsole]]></content>
+    <content type="text"><![CDATA[主要是针对vue做过的项目 vue懒加载vue-lazyload 1234567import VueLazyLoad from 'vue-lazyload';import defaultImg from '默认图片';Vue.use(VueLazyLoad,&#123; error: defaultImg, loading: defaultImg, listenEvents: [ 'scroll' ]&#125;); 最后将使用:src的改为v-lazy 输入框事件键盘enter: @keydown.13focus事件: @focusblur事件: @blur 阻止默认、阻止冒泡@click.stop@click.prevent@click.stop.prevent 动态添加class:class=”{‘我的class’: 某个具体判断}”eg: :class=”{‘pic_selected’: list.selected == ‘Y’}” :class=”某个判断 ? ‘class1’ : ‘class2’”eg: :class=”list.selected ? ‘colorHeart’ : ‘whiteHeart’” vuexmapState computed:mapState({}) 在vue-cli重配置jquery npm install jquery –save 配置webpack文件中resolve的alias 1&apos;jquery&apos;: path.resolve(__dirname, &apos;../node_modules/jquery/src/jquery.js&apos;), import $ from ‘jquery’ 子组件调用父组件的方法 现在子组件中this.$emit(“方法名”, 参数, 参数, …更多参数); 在父组件中@方法名=”父组件方法”eg:有index.vue子组件，在该组件中this.$emit(“sayHi”, “Hello”);1&lt;index&gt;&lt;/index&gt; 然后app.vue引用该子组件，将其命名为v-index，如下 12345678&lt;app&gt; &lt;v-index @sayHi="sayHiFather"&gt;&lt;/v-index&gt;&lt;/app&gt;在方法中sayHiFather(str)&#123; console.log(str)&#125; 此时子组件便成功调用父组件方法 cssless文件引用 在vue内 @import url(‘…..’) 在less内 @import ‘…..’对常用颜色，事先用变量定义好，方便引用 mixin图片根据像素比适配 12345678.bg-image(@url)&#123; background: ~'url(@&#123;url&#125;@2x.png)'; background-size: 100% 100%; @media (-webkit-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3)&#123; background: ~'url(@&#123;url&#125;@3x.png)'; background-size: 100% 100%; &#125;&#125; div边框有几种处理方法 outline border box-shadow 宽高不固定图片居中flex图片背景background的各个属性 移动端点击有某种颜色去掉该颜色-webkit-tap-highlight-color: rgba(0, 0, 0, 0);关键是后面那个透明度设置，前面设什么好像没所谓 禁止用户长按选择文字user-select: none; 文字超出用省略号 单行 多行 输入框文字颜色jsrem1234567891011121314(function (doc, win) &#123; var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function () &#123; var clientWidth = docEl.clientWidth; if (!clientWidth) return; docEl.style.fontSize = 100 * (clientWidth / 640) + 'px'; doc.body.style.display="block"; &#125;; if (!doc.addEventListener) return; //recalc(); win.addEventListener(resizeEvt, recalc, false); doc.addEventListener('DOMContentLoaded', recalc, false);&#125;)(document, window); 移动端点击fastclick 123456import FastClick from 'fastclick'if ('addEventListener' in document) &#123; document.addEventListener('DOMContentLoaded', function () &#123; FastClick.attach(document.body); &#125;, false);&#125; 判断是ios，android还是微信1234567const sysJuc = &#123; ios: /(iPhone|iPad|iPod|iOS)/i, android: /(Android)/i, wx: /(MicroMessenger)/i&#125;;const nav = navigator.userAgent;const system = sysJuc.wx.test(nav) ? 'wx' : sysJuc.ios.test(nav) ? 'ios' : sysJuc.android.test(nav) ? 'android' : 'other'; 滚动加载事件节流与防抖 版本号比较12345678910111213141516171819202122232425262728const compareVersion = (curV, reqV) =&gt; &#123; var arr1 = curV.split('.'); var arr2 = reqV.split('.'); //将两个版本号拆成数字 var minL = Math.min(arr1.length, arr2.length); var pos = 0; //当前比较位 var diff = 0; //当前为位比较是否相等 //逐个比较如果当前位相等则继续比较下一位 while (pos &lt; minL) &#123; diff = parseInt(arr1[pos]) - parseInt(arr2[pos]); if (diff != 0) &#123; break; &#125; pos++; &#125; if (diff &gt; 0) &#123; //新版本 return true; &#125; else if (diff == 0) &#123; //稳定版 return true; &#125; else &#123; //旧版本 return false; &#125;&#125; 网络请求vue-resource, fetch, axios vue-resource好久没用了 fetch关于fetch的兼容whatwg-fetch axios请求拦截this.$http.interceptors.request.use(config =&gt; {return config}, err =&gt; {}) 微信分享页添加微信分享 绑定域名（我这里是后台配的，前端未参与） 引入js文件就是引用微信分享的jssdk 通过config注入权限请求后台给的微信分享的地址，获取相应数据，然后配置到wx.config中 12345678wx.config(&#123; debug: false, appId: 后台返回数据, timestamp: 后台返回数据, nonceStr: 后台返回数据, signature: 后台返回数据, jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']&#125;) 成功 12wx.ready(function()&#123;&#125;) 微信授权登录移动端阻止滑动overflow:hiddentouchmove preventDefault() 与客户端联动window.location.href = “自定义协议”window.成功后的回调方法 分享页唤醒app调试vConsole]]></content>
       <categories>
         <category>web移动端</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>vue</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -64,7 +59,7 @@
   <entry>
     <title><![CDATA[vue 与 react 写法差异]]></title>
     <url>%2F2017%2F11%2F13%2F20171113vueAndReact%2F</url>
-    <content type="text"><![CDATA[一直想写一下vue与react在写法上有哪些差异，打算跟着vue官网写一遍，然后再看对应的react是怎么实现的，所以现在开始吧。 安装我直接使用工具来做这个例子了。 vue-cli12345npm install -g vue-clivue init webpack my-projectcd my-projectnpm installnpm run dev create-react-app12345npm install -g create-react-appcreate-react-app my-projectcd my-projectnpm installnpm start 如果需要自己配置的话，自己去摸索。 启动实例vue12345678import Vue from &apos;vue&apos;import App from &apos;./App&apos;new Vue(&#123; el: &apos;#app&apos;, template: &apos;&lt;App/&gt;&apos;, components: &#123; App &#125;&#125;) 12//html部分&lt;div id=&quot;app&quot;&gt;&lt;/div&gt; react12345import React from &apos;react&apos;;import ReactDOM from &apos;react-dom&apos;;import App from &apos;./App&apos;;ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;)); 12//html部分&lt;div id=&quot;root&quot;&gt;&lt;/div&gt; 插值vue1&lt;div&gt;Hello &#123;&#123;name&#125;&#125;&lt;/div&gt; react1&lt;div&gt;Hello &#123;this.state.name&#125;&lt;/div&gt; 添加事件vue1234567891011121314&lt;template&gt; &lt;!-- @click可改为v-on:click --&gt; &lt;button @click=&quot;clickMe&quot;&gt;Click&lt;/button&gt;&lt;/template&gt;&lt;script&gt;export default &#123; methods: &#123; clickMe()&#123; console.log(&apos;click); &#125; &#125;&#125;&lt;/script&gt; react123456789101112constructor(props)&#123; super(props); this.clickMe = this.clickMe.bind(this);&#125;clickMe()&#123; console.log(&apos;click&apos;);&#125;render ()&#123; return ( &lt;button onClick=&#123;this.clickMe&#125;&gt;Click&lt;/button&gt; );&#125; 条件渲染vue1&lt;div v-if=&quot;isTrue&quot;&gt;&lt;/div&gt; react1234const showDiv = isTrue ? &lt;div&gt;&#123;&apos;true&apos;&#125;&lt;/div&gt; : &lt;div&gt;&#123;&apos;false&apos;&#125;&lt;/div&gt;;return ( &lt;div&gt;&#123;showDiv&#125;&lt;/div&gt;); 列表渲染vue12345678//html部分&lt;div v-for=&quot;list in lists&quot;&gt;&#123;&#123;list&#125;&#125;&lt;/div&gt;//js部分data()&#123; return &#123; lists: [1,2,3,4,5] &#125;&#125; react123456789101112131415constructor(props)&#123; super(props); this.state = &#123; lists: [1,2,3,4,5] &#125;;&#125;render ()&#123; return ( this.state.lists.map((list, index) =&gt; &#123; return ( &lt;div key=&#123;index&#125;&gt;&#123;list&#125;&lt;/div&gt; ) &#125;) );&#125; 组件vue1234567&lt;template&gt; &lt;div&gt;&lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123;&#125;;&lt;/script&gt;&lt;style&gt;&lt;/style&gt; react1234567import React, &#123;Component&#125; from &apos;react&apos;;class 组件名 extends Component&#123; render()&#123; return (&lt;div&gt;&lt;/div&gt;); &#125;&#125;export default 组件名; propsvue无需像react一样安装npm包以组件作为例子 123456789101112131415&lt;template&gt; &lt;div id=&quot;Hello&quot;&gt; Hello &#123;&#123;name&#125;&#125; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123; props: &#123; name: &#123; default: &apos;world&apos;, type: String &#125; &#125;&#125;&lt;/script&gt; react安装首先需要import PropTypes from ‘prop-types’以组件作为例子 1234567891011import React, &#123;Component&#125; from &apos;react&apos;;import PropTypes from &apos;prop-types&apos;;class Hello extends Component &#123; render ()&#123; return ( &lt;div&gt;Hello &#123;this.props.name&#125;&lt;/div&gt; ); &#125;&#125;export default Hello; 默认值123Hello.defaultProps = &#123; name: &apos;world&apos;&#125; 类型检查Hello.propTypes = { name: PropTypes.string} 分发内容vue123456789//Hello组件&lt;div id=&quot;Hello&quot;&gt; &lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello&gt; &lt;div&gt;slot&lt;/div&gt;&lt;/Hello&gt; react1234567//Hello组件&lt;div id=&quot;hello&quot;&gt; &#123;this.props.slot&#125;&#123;/*props后面的slot只是参数名，可为任意值*/&#125;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello slot=&#123;内容&#125; /&gt;]]></content>
+    <content type="text"><![CDATA[一直想写一下vue与react在写法上有哪些差异，打算跟着vue官网写一遍，然后再看对应的react是怎么实现的，所以现在开始吧。 安装我直接使用工具来做这个例子了。 vue-cli12345npm install -g vue-clivue init webpack my-projectcd my-projectnpm installnpm run dev create-react-app12345npm install -g create-react-appcreate-react-app my-projectcd my-projectnpm installnpm start 如果需要自己配置的话，自己去摸索。 启动实例vue12345678import Vue from 'vue'import App from './App'new Vue(&#123; el: '#app', template: '&lt;App/&gt;', components: &#123; App &#125;&#125;) 12//html部分&lt;div id="app"&gt;&lt;/div&gt; react12345import React from 'react';import ReactDOM from 'react-dom';import App from './App';ReactDOM.render(&lt;App /&gt;, document.getElementById('root')); 12//html部分&lt;div id="root"&gt;&lt;/div&gt; 插值vue1&lt;div&gt;Hello &#123;&#123;name&#125;&#125;&lt;/div&gt; react1&lt;div&gt;Hello &#123;this.state.name&#125;&lt;/div&gt; 添加事件vue1234567891011121314&lt;template&gt; &lt;!-- @click可改为v-on:click --&gt; &lt;button @click="clickMe"&gt;Click&lt;/button&gt;&lt;/template&gt;&lt;script&gt;export default &#123; methods: &#123; clickMe()&#123; console.log('click); &#125; &#125;&#125;&lt;/script&gt; react123456789101112constructor(props)&#123; super(props); this.clickMe = this.clickMe.bind(this);&#125;clickMe()&#123; console.log('click');&#125;render ()&#123; return ( &lt;button onClick=&#123;this.clickMe&#125;&gt;Click&lt;/button&gt; );&#125; 条件渲染vue1&lt;div v-if="isTrue"&gt;&lt;/div&gt; react1234const showDiv = isTrue ? &lt;div&gt;&#123;'true'&#125;&lt;/div&gt; : &lt;div&gt;&#123;'false'&#125;&lt;/div&gt;;return ( &lt;div&gt;&#123;showDiv&#125;&lt;/div&gt;); 列表渲染vue12345678//html部分&lt;div v-for=&quot;list in lists&quot;&gt;&#123;&#123;list&#125;&#125;&lt;/div&gt;//js部分data()&#123; return &#123; lists: [1,2,3,4,5] &#125;&#125; react123456789101112131415constructor(props)&#123; super(props); this.state = &#123; lists: [1,2,3,4,5] &#125;;&#125;render ()&#123; return ( this.state.lists.map((list, index) =&gt; &#123; return ( &lt;div key=&#123;index&#125;&gt;&#123;list&#125;&lt;/div&gt; ) &#125;) );&#125; 组件vue1234567&lt;template&gt; &lt;div&gt;&lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123;&#125;;&lt;/script&gt;&lt;style&gt;&lt;/style&gt; react1234567import React, &#123;Component&#125; from 'react';class 组件名 extends Component&#123; render()&#123; return (&lt;div&gt;&lt;/div&gt;); &#125;&#125;export default 组件名; propsvue无需像react一样安装npm包以组件作为例子 123456789101112131415&lt;template&gt; &lt;div id=&quot;Hello&quot;&gt; Hello &#123;&#123;name&#125;&#125; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123; props: &#123; name: &#123; default: &apos;world&apos;, type: String &#125; &#125;&#125;&lt;/script&gt; react安装首先需要import PropTypes from ‘prop-types’以组件作为例子 1234567891011import React, &#123;Component&#125; from &apos;react&apos;;import PropTypes from &apos;prop-types&apos;;class Hello extends Component &#123; render ()&#123; return ( &lt;div&gt;Hello &#123;this.props.name&#125;&lt;/div&gt; ); &#125;&#125;export default Hello; 默认值123Hello.defaultProps = &#123; name: &apos;world&apos;&#125; 类型检查Hello.propTypes = { name: PropTypes.string} 分发内容vue123456789//Hello组件&lt;div id=&quot;Hello&quot;&gt; &lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello&gt; &lt;div&gt;slot&lt;/div&gt;&lt;/Hello&gt; react1234567//Hello组件&lt;div id=&quot;hello&quot;&gt; &#123;this.props.slot&#125;&#123;/*props后面的slot只是参数名，可为任意值*/&#125;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello slot=&#123;内容&#125; /&gt;]]></content>
       <tags>
         <tag>vue</tag>
         <tag>react</tag>
@@ -273,8 +268,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>javascript</tag>
         <tag>xml</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -286,8 +281,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>javascript</tag>
         <tag>xml</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -299,8 +294,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>javascript</tag>
         <tag>xml</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -337,9 +332,9 @@
         <category>毕设</category>
       </categories>
       <tags>
-        <tag>mongodb</tag>
         <tag>nodejs</tag>
         <tag>express</tag>
+        <tag>mongodb</tag>
       </tags>
   </entry>
   <entry>
@@ -361,7 +356,7 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>github</tag>
         <tag>git</tag>
       </tags>
   </entry>
@@ -381,7 +376,7 @@
     <url>%2F2016%2F12%2F04%2F20161204myWebsite%2F</url>
     <content type="text"><![CDATA[个人网站自从那次重装之后，我的github博客就一直有问题。不知是github使用了https协议还是什么原因，我的博客主页能够访问，但一旦访问归档页，就提示我找不到，我知道是http的原因，因为我每次手动加https，页面就能显示出来。这个问题困扰我好几个月了，我也懒得去解决，因为每次都花了好长时间，网上也没有这种问题的解决办法。出于无奈，我只能使用个人域名了。今天，终于解决了这个世纪难题！ 以下是我的解决步骤： 一、购买域名我使用的是阿里云，域名的选定随缘吧。 二、域名解析打开域名解析的页面。因为我是第一次使用，一开始是没有以上页面的，需要去购买虚拟主机。没办法，只好去实名认证买个超级便宜的主机，好像6块钱吧。 然后对你自己的Github Pages的域名进行查询，使用ping操作，会得到一个ip地址 在博客的source目录下放一个CNAME文件。 在域名解析页面添加解析，先添加一个记录类型为A,主机记录为www,解析线路默认,记录值为你的Github Pages IP的记录；再添加一个记录类型为A,主机记录为@,解析线路默认,记录值为你的Github Pages IP的记录。 三、Github解析进入自己的博客项目的Settings，在custom domain中，将申请的个人域名添加进去。完成了这步，就可以打开自己的个人网站啦。 四、备案刚访问了一下，就出现问题了，原来是要让我进行备案。备案什么鬼？以前完全没接触过，只能照着流程来，这一步好烦人啊。 五、问题还是问题百出，经常访问着就变成万网的提示页了。所以决定还是用dnspod。先注册账号，然后我把之前阿里云的解析删了；在阿里云上的dns解析改一下。之后在dnspod中添加解析。 19年新添加：七牛云没用了，图片都没了，要哭了。]]></content>
       <categories>
-        <category>Hexo搭建个人博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -403,23 +398,10 @@
     <url>%2F2016%2F12%2F04%2F20161204image%2F</url>
     <content type="text"><![CDATA[测试图片显示页面首先在source目录下创建上传图片的文件夹，我取名为images。经过测试 使用原生html方式 1&lt;img src="/images/a.jpg"&gt; 目前我只掌握了这么笨的方法，图床什么的也没怎么接触过，以后再说。 使用markdown语法 1![img](/source/images/a.jpg) 一开始完全失效，原来还要添加其他东西：hexo-asset-image首先在nanshanyi.github.io目录下确认 _config.yml 中有 post_asset_folder:true 。在 hexo 目录，执行 1npm install https://github.com/CodeFalling/hexo-asset-image --save 之后再使用 hexo new ‘new’ 创建新博客的时候，会在source/_posts里面创建.md文件的同时生成一个相同的名字的文件夹。把该文章中需要使用的图片放在该文件夹下即可。使用的时候 123!["图片描述"(可以不写)](/文件夹/你的图片名字.jpg)例如：![](new/text.jpg) 以下为测试不过使用了这种方法，第一种方法好像就会失效]]></content>
       <categories>
-        <category>网页多媒体</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Grunt的初步了解]]></title>
-    <url>%2F2016%2F11%2F29%2F20161129%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%2F</url>
-    <content type="text"><![CDATA[前几天想学一下grunt，结果发现学grunt的话，还要了解yeoman和bower，它们似乎经常一起用。今天就好好的来学一下。 前端工程化开发简单来说，前端工程化就是讲前端杂乱无章的开发流程变得系统化，使得项目的构建、开发、维护成为一体。实现一个前端项目的工程化常使用的工具有yeoman,bower以及grunt。下面来看一下这些工具的作用。 Yeomanyeoman官网Yeoman这个工具为开发者提供一系列健壮的工具、程序库和工作流，帮助他们快速构建出漂亮、引人注目的Web应用。简单来说，yeoman就是前端项目的脚手架工具。所谓脚手架，我的理解是帮你搭建一个项目最基本的结构。举个例子，一个完整的前端项目是一栋大楼，脚手架只是帮我们完成了基本的楼的框架，其余的装修那些工作就不是脚手架的事情了。 Yeoman的使用 安装1npm install -g yo 与平常的node包有点不同，它是写yo 使用安装完yeoman之后，你可以选择安装所要构建的前端项目的类型，比如angularjs项目，vuejs项目等。针对不同的项目，到官网Discovering generators页面下搜索相应的类型，然后执行(拿angular举例)1npm install -g generator-angular 需要什么类型就写npm install -g generator-类型之后运行 1yo angular 现在一个angular项目的应用框架就出来了。 BowerBower官网Bower是一个包管理工具，其用法与npm有点类似。只不过npm是node包的管理工具，而bower是前端资源包的管理工具。 Bower的使用 安装 1npm install -g bower 使用 1bower install &lt;package&gt; package即是你所需要引入的资源包，比如你需要jquery，就写bower install jquery GruntGrunt官网正如其官网所说，grunt是javascript世界的构建工具。构建工具有什么用呢？一句话：自动化。对于需要反复重复的任务，例如压缩、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。 Grunt的使用 安装1npm install -g grunt-cli 注意，安装grunt-cli并不等于安装了 GruntGrunt来没怎么来得及学，之后再讲。]]></content>
-      <categories>
-        <category>前端工具</category>
-      </categories>
-      <tags>
-        <tag>yeoman</tag>
-        <tag>grunt</tag>
-        <tag>bower</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -441,7 +423,7 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
+        <tag>data-structure</tag>
       </tags>
   </entry>
   <entry>
@@ -452,31 +434,7 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[前端笔试题]]></title>
-    <url>%2F2016%2F07%2F11%2F20160711%E5%89%8D%E7%AB%AF%E9%A2%98%E7%9B%AE%2F</url>
-    <content type="text"><![CDATA[做了一些笔试题下来，感觉这些问题都有些陈旧，以后自己出个新的吧。 html1.常用浏览器？内核？ 浏览器：IE、Chrome、FireFox、Safari、Opera。 内核：Trident、Gecko、Webkit、Presto。 2.行内元素和块级元素的区别？ 行内元素：沿水平方向排列，不能包含块级元素，无法设置width、height、margin、padding。 块级元素：占据一行，垂直方向排列。 3.Doctype的作用？标准模式与兼容模式各有什么区别？ 告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档一兼容模式呈现。 标准模式是以该浏览器支持的最高标准运行，而兼容模式中，浏览器向后兼容，模拟老式浏览器的行为防止站点无法工作。 4.Html5为什么只需要写&lt;!DOCTYPE HTML&gt;？ HTML5不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。 5.html5有哪些新特性？如何处理html5新标签的浏览器兼容问题？ (1)绘画canvas;(2)用于媒介回放的video和audio元素;(3)本地离线存储localStorage长期存储数据，浏览器关闭后数据不丢失;(4)sessionStorage 的数据在浏览器关闭后自动删除;(5)语意化更好的内容元素，比如article、footer、header、nav、section;(6)表单控件，calendar、date、time、email、url、search;(7)新的技术webworker, websocket, Geolocation; IE8/IE7/IE6支持通过document.createElement方法产生的标签，可以利用这一特性让这些浏览器支持HTML5新标签，浏览器支持新标签后，还需要添加标签默认的样式。当然也可以直接使用成熟的框架、比如html5shim，12&lt;!--[if lt IE 9]&gt;&lt;![endif]--&gt; 6.简述一下你对html语义化的理解？ 用正确的标签做正确的事情。html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于seo;使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。 css1.清除浮动有哪些方法？ 父级div定义height 结尾处加空div标签clear:both 父级div定义伪类:after和zoom 父级div定义overflow:hidden 父级div定义overflow:auto 父级div也浮动，需要定义宽度 父级div定义display:table 结尾处加br标签clear:both 2.box-sizing常用的属性有哪些？分别有哪些作用？ box-sizing属性:content-box|border-box|inherit; content-box:宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框(元素默认效果)。border-box:元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。 3.页面导入样式时，使用link和@import有什么区别 link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS; 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载; import是CSS2.1提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题 4.display:none和visibility:hidden的区别？display:none隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。 visibility:hidden隐藏对应的元素，但是在文档布局中仍保留原来的空间。 5.position的absolute与fixed共同点与不同点 共同点：（1）改变行内元素的呈现方式，display被置为block；（2）让元素脱离普通流，不占据空间；（3）默认会覆盖到非定位元素上。 不同点：absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口。 6.介绍一下CSS的盒子模型？ 盒子模型有两种：IE 盒子模型、标准 W3C 盒子模型； 盒模型：内容(content)、填充(padding)、边界(margin)、 边框(border) IE盒子模型的width=content + padding + border;W3C盒子模型的width=content. 7.列出display的值，说明他们的作用。position的值relative和absolute分别是相对于谁进行定位的？(1) blcok:像块级元素一样显示； inline:像行内元素一样显示； inline-block:像行内元素一样显示，但其内容像块级元素一样显示； list-item:像块级元素一样显示，并添加样式列表标记。(2) absolute,fixed,relative,static,inherit(之后详细说) 8.CSS3有哪些新特性？border-radius,box-shadow,text-shadow,gradient,transform:rotate,scale,translate,skew,rgba,css3中唯一引入的伪元素::selection,媒体查询,多栏布局,border-image等。 9.对BFC规范的理解？（没怎么接触过，以后再说）BFC，块级格式化上下文 10.解释下 CSS sprites，以及你要如何在页面或网站中使用它。CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。 javascript1.js的基本数据类型Undefined、Null、Boolean、Number、String 2.js有哪些内置对象？数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error等 3.this的理解(有点难理解，以后再说) 4.eval是做什么的？它的功能室吧对应的字符串解析成js代码并运行；应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。 5.DOM怎样添加、移除、移动、复制、创建和查找节点？// 创建新节点createDocumentFragment() //创建一个DOM片段createElement() //创建一个具体的元素createTextNode() //创建一个文本节点// 添加、移除、替换、插入appendChild()removeChild()replaceChild()insertBefore() //在已有的子节点前插入一个新的子节点// 查找getElementsByTagName() //通过标签名称getElementsByName() //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)getElementById() //通过元素Id，唯一性 6.null和undefined的区别？（有点难理解，之后具体说） 7.new操作符具体干了什么？（1）创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。（2）属性和方法被加入到 this 引用的对象中。（3）新创建的对象由 this 所引用，并且最后隐式的返回 this 。 8.JSONJSON(JavaScript Object Notation)是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。格式：采用键值对，例如：{‘age’:’22’, ‘name’:’gary’} 9.call()和apply()的区别和作用？（之后再说）]]></content>
-      <categories>
-        <category>前端试题</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[选择器优先级]]></title>
-    <url>%2F2016%2F07%2F11%2F20160711cssSelector%2F</url>
-    <content type="text"><![CDATA[CSS首先我们先了解以下css，css中文是“层叠样式表”，这里所说的层叠便是指样式的优先级，即浏览器对多个样式来源进行叠加，最终确定样式结果。 选择器优先级一、通常CSS的优先级由高到低分为六级：1.无条件优先的属性只需要在属性后面使用!important。2.在html中给元素标签加style。由于该方法会造成CSS的难以管理，所以不推荐使用。3.id选择器，如#id{}。4.类选择器、属性选择器、伪类选择器，如.classname{}。5.类型选择器，如div{}。6.通配选择器，如*{}。 二、当比较多个相同级别的CSS选择器优先级时，它们定义的位置将决定一切。从位置上将CSS优先级由高到低分为六级：1.位于&lt;head/&gt;标签里的&lt;style/&gt;中所定义的CSS拥有最高级的优先权。2.位于&lt;style/标签中的@import引入样式表所定义。3.由&lt;link/&gt;标签所引入的样式表定义。4.由&lt;link/&gt;标签所引入的样式表内的@import导入样式表定义。5.用户自定义。6.浏览器默认。]]></content>
-      <categories>
-        <category>前端试题</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
+        <tag>data-structure</tag>
       </tags>
   </entry>
   <entry>
@@ -506,11 +464,11 @@
     <url>%2F2016%2F03%2F31%2F20160331firstBlog%2F</url>
     <content type="text"><![CDATA[简介这是本人的第一篇博客。由友人介绍，接触到Github+Hexo搭建个人博客这么高大上的东西。我觉得写博客首先要简单明了，然后再专业比较好，毕竟看懂弄懂最重要。 准备工作1.申请Github账号2.安装Node，用来生成静态页面，到Node.js官网下载相应平台的最新版本，一路安装即可3.安装Git，把本地的hexo内容提交到github上去4.安装Hexo 安装Hexo过程在安装Hexo之前，先要创建Github个人仓库，再配置SSH keys，最后在安装Hexo。 创建仓库配置SSH keys12cd ~/.sshls 如果没有则提示： No such file or directory如果有则进入~/.ssh路径下（ls查看当前路径文件，rm *删除所有文件） 12$ cd ~ #保证当前路径在”~”下$ ssh-keygen -t rsa -C "xxxxxx@yy.com" #建议填写自己真实有效的邮箱地址 这时会在Users/Administrator/.ssh下生成两个文件，打开.pub结尾的文件，复制内容到github的add ssh key中。顺便 12$ git config --global user.name “your_username” #设置用户名$ git config --global user.email “your_registered_github_Email” #设置邮箱地址 不知有什么用。测试ssh keys是否设置成功。 1$ ssh -T git@github.com 安装Hexo首先win+R,cmd打开命令行界面，因联网安装，到Hexo官网复制安装命令到命令行界面，等待安装完成。打开Git Bash(安装完Git后，右键就有Git Bash)，输入初始化命令 1hexo init 初始化结束后，输入 1hexo g 或 hexo generate 后面是前面的缩写 输入完成后，就生成一个Hexo博客框架。输入 1hexo s 或 hexo server 顾名思义，开启服务器，访问localhost:4000。之前就有一次一直访问都访问不了，原来就是忘了输入该命令，我这记性！写完博客，先在本地浏览一下，确认无误再上传，省麻烦。在这次安装过程中，唯一遇到的问题是右键Git Bash打开闪退。因为原来是朋友直传的文件，卸了后，去官网重下就解决了，虽然下载速度有点慢。 常用命令1234hexo new "文章名" //新建文章hexo new page "新建页面名" //新建页面hexo g //生成hexo d //部署 部署到Github修改本地博客文件夹根目录下的_config.yml文件deploy的repo，这个以用户为标准 1234deploy: type: git repo: git@github.com:GrayFrost/GrayFrost.github.io.git branch: master 在目录下右键打开Git Bash，输入 12hexo ghexo d 以后每次在本地修改完博客，输入以上两条命令，就完成博客了。 问题hexo ERROR Deployer not found: github解决：安装 npm install hexo-deployer-git –save，再将deploy 的 type由github改为git。顺便说下，如果使用ssh部署不成功的话，请使用https的方式试试，即type下一个选项repository的值进行相应更改。（2016-08-15重装系统后，弄了一下午Orz）]]></content>
       <categories>
-        <category>Hexo搭建个人博客</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
       </tags>
   </entry>
 </search>

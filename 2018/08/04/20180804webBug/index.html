@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&amp;apos;img&amp;apos;).attr(&amp;apos;src&amp;apos;, 原来的接口请求地址+&amp;apos;&amp;amp;time=&amp;apos;+tim">
+<meta name="description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;amp;time=&apos;+time);  在IE浏览器中，flash播放器遮挡内容flash">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些浏览器兼容问题">
 <meta property="og:url" content="http://yoursite.com/2018/08/04/20180804webBug/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&amp;apos;img&amp;apos;).attr(&amp;apos;src&amp;apos;, 原来的接口请求地址+&amp;apos;&amp;amp;time=&amp;apos;+tim">
+<meta property="og:description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;amp;time=&apos;+time);  在IE浏览器中，flash播放器遮挡内容flash">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-04T08:52:52.000Z">
+<meta property="og:updated_time" content="2019-07-06T07:51:46.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些浏览器兼容问题">
-<meta name="twitter:description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&amp;apos;img&amp;apos;).attr(&amp;apos;src&amp;apos;, 原来的接口请求地址+&amp;apos;&amp;amp;time=&amp;apos;+tim">
+<meta name="twitter:description" content="图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;amp;time=&apos;+time);  在IE浏览器中，flash播放器遮挡内容flash">
 
 
 
@@ -318,10 +318,10 @@
       
         <ol>
 <li><p>图形验证码在IE浏览器中点击不刷新<br>ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题</span><br><span class="line">$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;time=&apos;+time);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time=<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">999</span>)+<span class="number">3000</span>;<span class="comment">//解决ie下验证码不改变问题</span></span><br><span class="line">$(<span class="string">'img'</span>).attr(<span class="string">'src'</span>, 原来的接口请求地址+<span class="string">'&amp;time='</span>+time);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在IE浏览器中，flash播放器遮挡内容<br>flash播放器添加params即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;param name=&quot;wmode&quot; value=&quot;opaque&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"wmode"</span> <span class="attr">value</span>=<span class="string">"opaque"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>多行文本超出省略号在火狐浏览器失效<br>暂未找到解决方法</p>
 </li>
@@ -432,7 +432,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -440,7 +440,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -449,7 +449,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
