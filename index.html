@@ -341,7 +341,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" rel="gallery_cjxrbh30p003eipcnleexmgeo" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" rel="gallery_cjxrbp4c6003slscnryrknl11" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" itemprop="contentUrl">
               </a>
             
@@ -458,7 +458,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjxrbh30n003bipcn0n5tc6fn" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjxrbp4c4003llscnfhz3krij" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" itemprop="contentUrl">
               </a>
             
@@ -472,51 +472,21 @@
       
         
           
-            <p>首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mode: 'development'</span><br><span class="line">mode: 'production'</span><br></pre></td></tr></table></figure>
+          首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加
+12mode: 'development'mode: 'production'
 
-<ol>
-<li><strong>Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found.</strong></li>
-</ol>
-<p>升级html-webpack-plugin</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"html-webpack-plugin": "^4.0.0-beta.2",</span><br></pre></td></tr></table></figure>
 
-<p>在webpack.config.dev.js中，调整plugin顺序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    chunkSortMode: <span class="string">'none'</span></span><br><span class="line">&#125;),</span><br><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),</span><br></pre></td></tr></table></figure>
+Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found.
 
-<ol start="2">
-<li><strong>Cannot read property ‘context’ of undefined</strong></li>
-</ol>
-<p>升级url-loader file-loader</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"file-loader": "^1.1.11",</span><br><span class="line">"url-loader": "0.6.2",</span><br></pre></td></tr></table></figure>
+升级html-webpack-plugin
+1"htm
+          ...
 
-<ol start="3">
-<li><strong>missingDeps.some is not a function</strong></li>
-</ol>
-<p>升级react-dev-utils</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"react-dev-utils": "6.1.1",</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>this.htmlWebpackPlugin.getHooks is not a function</strong></li>
-</ol>
-<p>同1.</p>
-<p>在webpack.config.dev.js中</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw)</span><br></pre></td></tr></table></figure>
-
-<p>然后升级html-webpack-plugin</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-webpack-plugin@next --save-dev</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>移除webpack的UglifyJsPlugin</li>
-</ol>
-<ol start="6">
-<li>Tapable.plugin is deprecated. Use new API on <code>.hooks</code> instead</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev extract-text-webpack-plugin</span><br></pre></td></tr></table></figure>
-
-<p>更详细的，之后再学习。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/31/20181231webpack4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -608,57 +578,24 @@
       
         
           
-            <p>开发平台 windows </p>
-<p>目标平台Android</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>node、react native 命令行工具、python2、jdk、Android Studio</p>
-<p>node版本要高于8.3</p>
-<p>react native 命令行工具</p>
-<p>npm install -g react-native-cli</p>
-<p>python版本必须为2.x</p>
-<p>jdk版本必须为1.8</p>
-<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">下载地址</a></p>
-<h3 id="安装完jdk配置环境变量"><a href="#安装完jdk配置环境变量" class="headerlink" title="安装完jdk配置环境变量"></a>安装完jdk配置环境变量</h3><p>系统变量：新建JAVA_HOME，然后填写jdk安装目录（本人：D:\jdk）</p>
-<p>系统变量：找到Path编辑，在最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; </p>
-<p>（注意原来Path的变量值末尾有没有;号，如果没有，先输入；号再输入上面的代码）</p>
-<p>系统变量：新建 CLASSPATH，填写.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</p>
-<p>（注意最前面有一点）</p>
-<p>运行cmd,查看是否安装成功，输入java -version</p>
-<h3 id="Android开发环境"><a href="#Android开发环境" class="headerlink" title="Android开发环境"></a>Android开发环境</h3><p>安装Android Studio</p>
-<p><a href="https://developer.android.com/studio/" target="_blank" rel="noopener">下载地址</a></p>
-<p>确保一下选项选中</p>
-<ul>
-<li>Android SDK</li>
-<li><code>Android SDK Platform</code></li>
-<li><code>Performance (Intel ® HAXM)</code></li>
-<li>Android Virtual Device</li>
-</ul>
-<p>安装Android SDK</p>
-<p>Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是Android 8.0 (Oreo)版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK</p>
-<p>配置环境变量</p>
-<p>系统变量：新建ANDROID_HOME，然后填写android sdk安装目录（本人为D:\AndroidSDK）</p>
-<p>系统变量：找到Path编辑，在最后添加 （%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools）</p>
-<p>打开Android Studio</p>
-<p>找到sdk manager选项，选择sdk platforms选项卡，在右下角勾选show package details, 展开 Android 8.0(oreo),确保勾选</p>
-<ul>
-<li>Android SDK Platform 26</li>
-<li>Intel x86 Atom_64 System Image</li>
-</ul>
-<p>然后点击”SDK Tools”选项卡，同样勾中右下角的”Show Package Details”。展开”Android SDK Build-Tools”选项，确保选中了 React Native 所必须的26.0.3版本。你可以同时安装多个其他版本，然后还要勾选最底部的Android Support Repository</p>
-<h3 id="创建新项目"><a href="#创建新项目" class="headerlink" title="创建新项目"></a>创建新项目</h3><p>react-native init AwesomeProject</p>
-<p>在Android Studio创建新的虚拟设备，创建完，可以打开cmd，输入adb devices查看设备</p>
-<h3 id="编译运行项目"><a href="#编译运行项目" class="headerlink" title="编译运行项目"></a>编译运行项目</h3><p>cd AwesomeProject</p>
-<p>react-native run-android</p>
-<p>过程中遇到的问题</p>
-<p>Could not find tools.jar</p>
-<p>在项目的android目录下找到local.properties，添加</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sdk.dir</span>=D\:\\AndroidSDK</span><br></pre></td></tr></table></figure>
+          开发平台 windows 
+目标平台Android
+安装node、react native 命令行工具、python2、jdk、Android Studio
+node版本要高于8.3
+react native 命令行工具
+npm install -g react-native-cli
+python版本必须为2.x
+jdk版本必须为1.8
+下载地址
+安装完jdk配置环境变量系统变量：新建JAVA_HOME，然后填写jdk安装目录（本人：D:\jdk）
+系统变量：找到Path编辑，在最后输入 %JA
+          ...
 
-<p>后面的值为自己android sdk安装目录</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could <span class="keyword">not</span> install <span class="keyword">the</span> app <span class="keyword">on</span> <span class="keyword">the</span> device, <span class="built_in">read</span> <span class="keyword">the</span> <span class="keyword">error</span> <span class="keyword">above</span> <span class="keyword">for</span> details. Make sure you have an Android emulator <span class="built_in">running</span> <span class="keyword">or</span> a device connected <span class="keyword">and</span> have <span class="keyword">set</span> up your Android development environment</span><br></pre></td></tr></table></figure>
-
-<p>检查有没有开启虚拟设备，或连接真机，然后运行 adb devices看下能不能看到设备</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/31/20181231reactNative/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -750,18 +687,19 @@
       
         
           
-            <ol>
-<li><p>图形验证码在IE浏览器中点击不刷新<br>ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time=<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">999</span>)+<span class="number">3000</span>;<span class="comment">//解决ie下验证码不改变问题</span></span><br><span class="line">$(<span class="string">'img'</span>).attr(<span class="string">'src'</span>, 原来的接口请求地址+<span class="string">'&amp;time='</span>+time);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在IE浏览器中，flash播放器遮挡内容<br>flash播放器添加params即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"wmode"</span> <span class="attr">value</span>=<span class="string">"opaque"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多行文本超出省略号在火狐浏览器失效<br>暂未找到解决方法</p>
-</li>
-</ol>
-
           
+图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。
+12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$('img').attr('src', 原来的接口请求地址+'&amp;time='+time);
+
+在IE浏览器中，flash播放器遮挡内容flash播放器添加params即可
+1&lt;param name="wmode" value="opaqu
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/04/20180804webBug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -872,20 +810,21 @@
       
         
           
-            <p>主要是工作中在使用微信分享时遇到的一些问题</p>
-<ol>
-<li><p>分享出来描述变成链接，也没有显示设置好的图标<br>在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本人分享出去的页面看得到自定义图标，对方看不到<br>主要是分享文案涉及到了“红包，金钱”等敏感词汇。</p>
-</li>
-<li><p>客户端拉不起微信分享<br>这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不能拉起微信分享。找了很久原因，发现最开始设置的分享图标的地址存在<strong>重定向</strong>，最后让后台配合，将地址改为重定向后的地址即可。</p>
-</li>
-<li><p>redirect_uri域名与后台配置不一致<br>看一下是不是配置的域名出了问题，我们这边是后台负责这些，所以出现了此问题，通常叫后台检查修改就好了。</p>
-</li>
-</ol>
+          主要是工作中在使用微信分享时遇到的一些问题
 
-          
+分享出来描述变成链接，也没有显示设置好的图标在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理
+1window.location.href.split('#')[0]
+
+本人分享出去的页面看得到自定义图标，对方看不到主要是分享文案涉及到了“红包，金钱”等敏感词汇。
+
+客户端拉不起微信分享这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/04/20180804wxShareBug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1100,53 +1039,22 @@
       
         
           
-            <p>记录一下web页面在移动端出现的bug以及解决方法。</p>
-<h2 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h2><p>发现其实好多问题都出现在ios呢。</p>
-<ol>
-<li><p>position:fixed<br>极为严重的bug，现在看到fixed我都不敢用了。<br>问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：<br><img src="20171129webinmobile/fixed.png" alt><br>使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。</p>
-</li>
-<li><p>-webkit-overflow-scrolling: touch;</p>
-</li>
-<li><p>ios8中css3的兼容性问题<br>之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。<br>兼容性写法</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">display: </span>-webkit-<span class="keyword">box;</span></span><br><span class="line"><span class="keyword">display: </span>-moz-<span class="keyword">box;</span></span><br><span class="line"><span class="keyword">display: </span>-webkit-flex<span class="comment">;</span></span><br><span class="line"><span class="keyword">display: </span>-ms-flexbox<span class="comment">;</span></span><br><span class="line"><span class="keyword">display: </span>flex<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+          记录一下web页面在移动端出现的bug以及解决方法。
+ios发现其实好多问题都出现在ios呢。
 
-</li>
-</ol>
-<p>也可以用autoprefixer来处理。</p>
-<ol start="4">
-<li><p>在safari无痕模式不支持localstorage</p>
-</li>
-<li><p>点击input后页面向上滚动一定位置</p>
-</li>
-</ol>
-<h2 id="android"><a href="#android" class="headerlink" title="android"></a>android</h2><ol>
-<li>fetch兼容性<br>问题：使用fetch请求数据的过程中，发现在一些安卓机上请求失败。查了一下，发现fetch有兼容性问题，其实在ios低版本也有这个问题，不过我测的手机版本较高，当时就没发现。<br>解决：使用了whatwg-fetch，即不是引入fetch，而是引入whatwg-fetch。</li>
-</ol>
-<h2 id="共同"><a href="#共同" class="headerlink" title="共同"></a>共同</h2><ol>
-<li><p>-webkit-tap-highlight-color<br>问题：有时我们点击时会发现出现不知名的颜色，但其实我们想点击时不出现颜色。这时就需要用到这个css样式。<br>解决：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-tap-highlight-<span class="attribute">color</span>:rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击穿透<br>问题：有时我们会要有一个全屏的遮罩层，而滑动该遮罩层时，位于其底部的页面是不需要滑动的，然而因为点击穿透，底部的页面往往也会滑动。<br>解决：<br>首先先假设A页面为展示滚动页面，B页面为遮罩层。先写个公共方法</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">touchMoveHandler</span>(e)&#123;</span><br><span class="line">    <span class="selector-tag">e</span><span class="selector-class">.preventDefault</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+position:fixed极为严重的bug，现在看到fixed我都不敢用了。问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。
 
-</li>
-</ol>
-<p>当弹出遮罩层时：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步，修改样式</span></span><br><span class="line">$(<span class="string">'A页面滚动区域'</span>).css(<span class="string">'overflow'</span>, <span class="string">'hidden'</span>);</span><br><span class="line"><span class="comment">//第二步，阻止默认行为</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"touchmove"</span>, touchMoveHandler, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+-webkit-overflow-scrolling: touch;
 
-<p>当隐藏遮罩层时：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步，修改样式</span></span><br><span class="line">$(<span class="string">"body"</span>).css(<span class="string">"overflow"</span>, <span class="string">"auto"</span>);</span><br><span class="line"><span class="comment">//第二步，不阻止默认行为</span></span><br><span class="line"><span class="built_in">document</span>.removeEventListener(<span class="string">"touchmove"</span>, touchMoveHandler, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ios8中css3的兼容性问题之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。兼容性写法
+12345
+          ...
 
-<p>发现如果要实现点击穿透的效果，还是有兼容问题。<br>如果要实现滑动B页面，A页面滑动的话，<br>iOS需要</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'B页面'</span>).css(<span class="string">'position'</span>, <span class="string">'absolute'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>android需要</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'B页面'</span>).css(<span class="string">'position'</span>, <span class="string">'fixed'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可见fixed在ios中会阻止点击穿透。</p>
-<p>后续再说吧</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/29/20171129webinmobile/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1340,24 +1248,19 @@
       
         
           
-            <p>我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。</p>
-<h2 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h2><p>具体实现</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: 具体宽度;</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br></pre></td></tr></table></figure>
+          我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。
+单行文本具体实现
+1234width: 具体宽度;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
 
-<h2 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h2><p>具体实现</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: 具体宽度;</span><br><span class="line"><span class="attribute">display</span>: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-line-clamp: 行数;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br></pre></td></tr></table></figure>
+多行文本具体实现
+12345width: 具体宽度;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 行数;overflow: hidden;
+          ...
 
-<p>在测试这一部分内容时，我发现如果文本内容中不是全部是中文的话，会出现问题。<br>举个例子</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">"one"</span>&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="meta">#one&#123;</span></span><br><span class="line">    <span class="built_in">width</span>: <span class="number">100</span>px;</span><br><span class="line">    <span class="built_in">display</span>: -webkit-box;</span><br><span class="line">    -webkit-<span class="built_in">line</span>-clamp: <span class="number">3</span>;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">    <span class="built_in">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果<br><img src="20171104textOverflow/problem.png" alt></p>
-<p>如果换成中文，则没有问题</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"one"</span>&gt;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<p>效果<br><img src="20171104textOverflow/problem2.png" alt></p>
-<p>暂时不知道怎么解决，之后找到方法再说。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/04/20171104textOverflow/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1468,21 +1371,16 @@
       
         
           
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做移动端适配用的比较多的就是使用rem作为单位了吧。本来在做web的时候使用的是px，然后又有em作为单位（这个单位我都不怎么用，太麻烦了），现在移动端的话，基本都是rem了。</p>
-<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>em是一个相对的单位。这里的相对便是基于父元素的font-size来改变的。举个例子：</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;<span class="keyword">div</span> id=<span class="string">"one"</span>&gt;</span><br><span class="line">    hello</span><br><span class="line">    &lt;<span class="keyword">div</span> id=<span class="string">"one-one"</span>&gt;world&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> id=<span class="string">"one-two"</span>&gt;world&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="meta">#one&#123;</span></span><br><span class="line">    font-size: <span class="number">32</span>px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#one-one&#123;</span></span><br><span class="line">    font-size: <span class="number">0.5</span>em;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#one-two&#123;</span></span><br><span class="line">    font-size: <span class="number">16</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          前言做移动端适配用的比较多的就是使用rem作为单位了吧。本来在做web的时候使用的是px，然后又有em作为单位（这个单位我都不怎么用，太麻烦了），现在移动端的话，基本都是rem了。
+emem是一个相对的单位。这里的相对便是基于父元素的font-size来改变的。举个例子：
+1234567891011121314151617//html&lt;div id="one"&gt;    hello    &lt;div id="one-one"&gt;world&lt;/div&gt;    &lt;
+          ...
 
-<p>此时会发现两个world其实是一样大的。因此，我们可以一直使用父元素作为基准来设定font-size，这也决定了它的麻烦性，因为你需要一直去计算父元素转换过来的具体px是多少。那到了rem上场了。</p>
-<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>所谓的rem是指<b>font size of the root element</b>，即是根元素的字体大小，而这里的根元素，通常就是html。在html设置了具体的字体大小，然后我们便可以基于html来换算成rem了。举个例子（就用上个例子吧，把样式重写）：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;<span class="selector-tag">div</span> id=<span class="string">"one"</span>&gt;</span><br><span class="line">    hello</span><br><span class="line">    &lt;<span class="selector-tag">div</span> id=<span class="string">"one-one"</span>&gt;world&lt;/div&gt;</span><br><span class="line">    &lt;<span class="selector-tag">div</span> id=<span class="string">"one-two"</span>&gt;world&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line">html&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line">#one&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.5rem</span>;</span><br><span class="line">&#125;</span><br><span class="line">#one-one&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0.3rem</span>;</span><br><span class="line">&#125;</span><br><span class="line">#one-two&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为根元素字体大小是50px，所以父元素#one字体大小是25px，#one-one字体大小是15px，我们会发现两个world是一样大的。</p>
-<h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p>那rem到底怎么用作适配呢？上代码</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> (<span class="name">doc</span>, win) &#123;</span><br><span class="line">    var docEl = doc.documentElement,</span><br><span class="line">        resizeEvt = <span class="symbol">'orientationchange</span>' in window ? <span class="symbol">'orientationchange</span>' : <span class="symbol">'resize</span>',</span><br><span class="line">        recalc = function () &#123;</span><br><span class="line">            var clientWidth = docEl.clientWidth<span class="comment">;</span></span><br><span class="line">            if (<span class="name">!clientWidth</span>) return<span class="comment">;</span></span><br><span class="line">            docEl.style.fontSize = <span class="number">100</span> * (<span class="name">clientWidth</span> / <span class="number">640</span>) + <span class="symbol">'px</span>'<span class="comment">;</span></span><br><span class="line">            //css默认body隐藏，加载完适配后展现</span><br><span class="line">            doc.body.style.display=<span class="string">"block"</span><span class="comment">;</span></span><br><span class="line">        &#125;<span class="comment">;</span></span><br><span class="line">    if (<span class="name">!doc.addEventListener</span>) return<span class="comment">;</span></span><br><span class="line">    //recalc()<span class="comment">;</span></span><br><span class="line">    win.addEventListener(<span class="name">resizeEvt</span>, recalc, false)<span class="comment">;</span></span><br><span class="line">    doc.addEventListener(<span class="symbol">'DOMContentLoaded</span>', recalc, false)<span class="comment">;</span></span><br><span class="line">&#125;)(<span class="name">document</span>, window)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<p>因为不同手机的屏幕大小是不一样的，我们在一开始加载时，就执行该js，让其根据屏幕窗口大小，改变html的字体大小，然后我们便可以根据根元素字体的大小来设置css单位了。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/10/30/20171030rem/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

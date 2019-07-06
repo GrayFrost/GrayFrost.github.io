@@ -444,20 +444,19 @@
       
         
           
-            <p>今后我们把使用mongoose时所遇到的问题都归纳到这里。</p>
-<h2 id="多个相同Schema的collection，如何去特定的一个？-2017-02-08"><a href="#多个相同Schema的collection，如何去特定的一个？-2017-02-08" class="headerlink" title="多个相同Schema的collection，如何去特定的一个？(2017-02-08)"></a>多个相同Schema的collection，如何去特定的一个？(2017-02-08)</h2><p>这是今天所遇到的问题。<br>打开我的Robomongo，<br><img src="20170208mongoose/mongoose1.png" alt><br>从text_20170205开始，所有的schema都是如图上的结构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prd_img_src</span><br><span class="line">prd_sku</span><br><span class="line">prd_price</span><br><span class="line">prd_url</span><br><span class="line">prd_name</span><br></pre></td></tr></table></figure>
+          今后我们把使用mongoose时所遇到的问题都归纳到这里。
+多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构
+12345prd_img_srcprd_skuprd_priceprd_urlprd_name
 
-<p>然而我只想取这几个collection中的一个，那我要如何做呢？</p>
-<p>回忆之前的文章，使用mongoose需要使用到几个知识点：schema,model,entity。<br>在models.js中定义Model这一步时，普通的是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _JD = new Schema(&#123;</span><br><span class="line">  prd_img_src: String,</span><br><span class="line">  prd_sku: String,</span><br><span class="line">  prd_price: String,</span><br><span class="line">  prd_url: String,</span><br><span class="line">  prd_name: String</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD);</span><br></pre></td></tr></table></figure>
+然而我只想取这几个collection中的一个，那我要如何做呢？
+回忆之前的文章，使用mongoose需要使用到几个知识点：schema
+          ...
 
-<p>然而这次我们需要使用到collection的名字来定义model，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD, <span class="string">'test_20170206'</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码可以帮我渠道名为“test_20170206”的collection。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/08/20170208mongoose/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -685,22 +684,17 @@
       
         
           
-            <p>当你设置一个页面元素的高度(height)为100%时，期望这样元素能撑满整个浏览器窗口的高度，但大多数情况下，这样的做法没有任何效果。我今天就遇到了这样的情况。</p>
-<p>原因：根据W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度。所以，如果你把一个div的高度设定为height: 50%;，而它的父元素的高度是100px，那么，这个div的高度应该是50px。</p>
-<p>举个例子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"main"</span>&gt;</span><br><span class="line">	&lt;div class=<span class="string">"left"</span>&gt;left&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"right"</span>&gt;right&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+          当你设置一个页面元素的高度(height)为100%时，期望这样元素能撑满整个浏览器窗口的高度，但大多数情况下，这样的做法没有任何效果。我今天就遇到了这样的情况。
+原因：根据W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度。所以，如果你把一个div的高度设定为height: 50%;，而它的父元素的高度是100px，那么，这个div的高度应该是50px。
+举个例子：
+1234&lt;div class="main"&gt;	&lt;div class="left"&gt;le
+          ...
 
-<p>错误的样式示例如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0;&#125;</span><br><span class="line">.main&#123;</span><br><span class="line">	display:flex;</span><br><span class="line">	flex-direction:row;&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:100%;</span><br><span class="line">	background-color:orange;&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">	flex:1;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<br><img src="20170207height100/height1.png" alt></p>
-<p>解决方法：如果想让一个元素的百分比高度<code>height:100%;</code>起作用，你需要给这个元素的所有父元素的高度设定一个有效值。</p>
-<p>正确示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0;&#125;</span><br><span class="line">html&#123;</span><br><span class="line">	height:100%;&#125;</span><br><span class="line">body&#123;</span><br><span class="line">	height:100%;&#125;</span><br><span class="line">.main&#123;</span><br><span class="line">	display:flex;</span><br><span class="line">	flex-direction:row;</span><br><span class="line">	height:100%;&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:100%;</span><br><span class="line">	background-color:orange;&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">	flex:1;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<br><img src="20170207height100/height2.png" alt><br>有效果了！可以看到，需要给<code>div.left</code>的每一个父元素都添加高度才行。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/07/20170207height100/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -913,36 +907,18 @@
       
         
           
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>因为使用<code>vue-cli</code>构建项目的时候接触了一点<code>express</code>，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。</p>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">Express官网</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir express //创建目录</span><br><span class="line"><span class="built_in">cd</span> express //进入目录</span><br><span class="line">npm init //生成package.json文件</span><br><span class="line">npm install express --save 或 npm install express</span><br></pre></td></tr></table></figure>
+          简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。
+开始使用Express官网
+安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express
 
-<p><em>注意！</em>在<code>npm init</code>这一步时，会让你指定入口文件，默认是index.js，可以修改为自定义的，我的是app.js。</p>
-<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><p>进入刚才创建的目录，新建入口文件app.js。此时文件目录如下：<br><img src="20170203express/dir.png" alt><br>在app.js中添加以下代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res)&#123;</span><br><span class="line">	res.send(<span class="string">'Hello Express'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'Success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+注意！在npm init这一步时，会让你指定入口文件，默认是index.js，可以修改为自定义的，我的是a
+          ...
 
-<p>运行app.js</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-
-<p>打开浏览器，访问地址，效果如下<br><img src="20170203express/hello.png" alt></p>
-<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>路由的定义由如下结构组成：<code>app.METHOD(PATH, HANDLER)</code>。其中，app 是一个 express 实例；METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。<br>以get为例，在刚才的app.js基础上添加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/a'</span>, <span class="keyword">function</span>(req, res)&#123;</span><br><span class="line">	res.send(<span class="string">'This is a page'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>重新运行app.js，效果如下<br><img src="20170203express/pageA.png" alt></p>
-<h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>通过 Express 内置的 express.static 可以方便地托管静态文件，比如html、css、js、图片等。<br>假设我新建了一个public目录，在目录下我放了一张图片a.jpg。<br>使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
-
-<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="20170203express/static.png" alt></p>
-<p>如果静态资源存放在多个目录下面，你可以多次调用express.static 中间件。访问静态资源文件时，express.static中间件会根据目录添加的顺序查找所需的文件。<br>比如我在新增的public2目录下放了一张新图，我同样命名为a.jpg<br>在原来基础上使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public2'</span>)); //放在public前</span><br><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
-
-<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="20170203express/static2.png" alt><br>可见的确是按顺序加载的。</p>
-<p>如果你希望所有通过express.static访问的文件都存放在一个“虚拟（virtual）”目录（即目录根本不存在）下面，可以通过为静态资源目录指定一个挂载路径的方式来实现。<br>假设虚拟目录名为vr，如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/vr'</span>, express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
-
-<p>效果如第一张图所示。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/03/20170203express/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

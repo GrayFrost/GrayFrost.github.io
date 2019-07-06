@@ -341,12 +341,18 @@
       
         
           
-            <h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p>一、先序遍历<br>遍历方式：根-&gt;左子树-&gt;右子树；<br>二、中序遍历<br>遍历方式：左子树-&gt;根-&gt;右子树；<br>三、后序遍历<br>遍历方式：左子树-&gt;右子树-&gt;根。</p>
-<p>由此得出：所谓的X序遍历即是遍历根的顺序，先序即根最先遍历，中序则根中间，后序则根最后；且左子树一定比右子树先遍历。</p>
-<h2 id="树的节点"><a href="#树的节点" class="headerlink" title="树的节点"></a>树的节点</h2><p>任何二叉树中度为0的结点比度为2的结点多一个。</p>
-<p>节点数=分叉数+1</p>
+          二叉树的遍历一、先序遍历遍历方式：根-&gt;左子树-&gt;右子树；二、中序遍历遍历方式：左子树-&gt;根-&gt;右子树；三、后序遍历遍历方式：左子树-&gt;右子树-&gt;根。
+由此得出：所谓的X序遍历即是遍历根的顺序，先序即根最先遍历，中序则根中间，后序则根最后；且左子树一定比右子树先遍历。
+树的节点任何二叉树中度为0的结点比度为2的结点多一个。
+节点数=分叉数+1
 
           
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/15/20160815tree/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -457,11 +463,15 @@
       
         
           
-            <h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>如何判断循环队列是空是满？<br>办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；<br>办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。</p>
-<p>好像通常都用第二种！<br>由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大尺寸为N，那么队列满的条件是(rear + 1) % N == front</p>
-<p>通用的计算循环队列长度的公式：(rear - front + N) % N</p>
+          循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。
+好像通常都用第二种！由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/28/20160728queue/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -687,14 +697,18 @@
       
         
           
-            <h2 id="什么是浏览器内核"><a href="#什么是浏览器内核" class="headerlink" title="什么是浏览器内核"></a>什么是浏览器内核</h2><p>我们一般称浏览器的核心部分”Rendering Engine”为浏览器内核。其负责对网页语法的解释和渲染页面。不同内核对语法的解释不同，网页渲染效果也不同。</p>
-<h2 id="浏览器内核种类"><a href="#浏览器内核种类" class="headerlink" title="浏览器内核种类"></a>浏览器内核种类</h2><p>主要讲几类：Trident、Gecko、Presto、Webkit。</p>
-<h3 id="Trident"><a href="#Trident" class="headerlink" title="Trident"></a>Trident</h3><p>人称IE内核，与W3C脱节，你懂的。</p>
-<h3 id="Gecko"><a href="#Gecko" class="headerlink" title="Gecko"></a>Gecko</h3><p>开源内核。火狐(Mozilla Firefox)采用了该内核。</p>
-<h3 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h3><p>Opera采用的内核。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。</p>
-<h3 id="Webkit"><a href="#Webkit" class="headerlink" title="Webkit"></a>Webkit</h3><p>苹果公司的内核，同样开源。代表：苹果的Safari、Google的Chrome。</p>
+          什么是浏览器内核我们一般称浏览器的核心部分”Rendering Engine”为浏览器内核。其负责对网页语法的解释和渲染页面。不同内核对语法的解释不同，网页渲染效果也不同。
+浏览器内核种类主要讲几类：Trident、Gecko、Presto、Webkit。
+Trident人称IE内核，与W3C脱节，你懂的。
+Gecko开源内核。火狐(Mozilla Firefox)采用了该内核。
+PrestoOpera采用的内核。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/06/20160406browser/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
