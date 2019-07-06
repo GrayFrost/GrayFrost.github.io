@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo从Windows迁移到Mac]]></title>
+    <url>%2F2019%2F07%2F06%2F20190706hexoInMac%2F</url>
+    <content type="text"><![CDATA[Hexo从Windows转移到Mac 所需环境的安装 git、node 安装hexo 1npm install hexo-cli -g 选择某一个目录，新建博客文件夹 1234hexo i blog // blog是自定义的文件夹名字cd bloghexo ghexo s // 本地起服务器预览 设置博客主题 沿用之前的主题Next 在blog目录下 1git clone https://github.com/iissnan/hexo-theme-next themes/next 之后的一些配置，直接官网查看。 迁移 把原来在windows上的博客目录下的一些文件直接拷贝过来。具体有用的文件夹有以下： _config.yml theme source scaffolds package.json .gitignore 拷贝完之后，最好npm install以下，因为我也记不清之前装了什么。 然后再一次 123hexo cleanhexo ghexo s 如果本地没什么问题，我们就可以hexo d推到github上。当然，前提是本地已事先生成SSH密钥，并与github关联。]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[升级webpack4]]></title>
     <url>%2F2018%2F12%2F31%2F20181231webpack4%2F</url>
     <content type="text"><![CDATA[首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: 'development'mode: 'production' Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found. 升级html-webpack-plugin 1"html-webpack-plugin": "^4.0.0-beta.2", 在webpack.config.dev.js中，调整plugin顺序 123456new HtmlWebpackPlugin(&#123; inject: true, template: paths.appHtml, chunkSortMode: 'none'&#125;),new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw), Cannot read property ‘context’ of undefined 升级url-loader file-loader 12"file-loader": "^1.1.11","url-loader": "0.6.2", missingDeps.some is not a function 升级react-dev-utils 1"react-dev-utils": "6.1.1", this.htmlWebpackPlugin.getHooks is not a function 同1. 在webpack.config.dev.js中 1new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw) 然后升级html-webpack-plugin 1npm install html-webpack-plugin@next --save-dev 移除webpack的UglifyJsPlugin Tapable.plugin is deprecated. Use new API on .hooks instead 1npm install --save-dev extract-text-webpack-plugin 更详细的，之后再学习。]]></content>
