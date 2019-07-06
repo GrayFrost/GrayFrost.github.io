@@ -326,7 +326,7 @@
 <li><p>-webkit-overflow-scrolling: touch;</p>
 </li>
 <li><p>ios8中css3的兼容性问题<br>之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。<br>兼容性写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">display: -webkit-box;</span><br><span class="line">display: -moz-box;</span><br><span class="line">display: -webkit-flex;</span><br><span class="line">display: -ms-flexbox;</span><br><span class="line">display: flex;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">display: </span>-webkit-<span class="keyword">box;</span></span><br><span class="line"><span class="keyword">display: </span>-moz-<span class="keyword">box;</span></span><br><span class="line"><span class="keyword">display: </span>-webkit-flex<span class="comment">;</span></span><br><span class="line"><span class="keyword">display: </span>-ms-flexbox<span class="comment">;</span></span><br><span class="line"><span class="keyword">display: </span>flex<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -342,24 +342,24 @@
 </ol>
 <h2 id="共同"><a href="#共同" class="headerlink" title="共同"></a>共同</h2><ol>
 <li><p>-webkit-tap-highlight-color<br>问题：有时我们点击时会发现出现不知名的颜色，但其实我们想点击时不出现颜色。这时就需要用到这个css样式。<br>解决：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-tap-highlight-color:rgba(255,255,255,0);</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-tap-highlight-<span class="attribute">color</span>:rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>点击穿透<br>问题：有时我们会要有一个全屏的遮罩层，而滑动该遮罩层时，位于其底部的页面是不需要滑动的，然而因为点击穿透，底部的页面往往也会滑动。<br>解决：<br>首先先假设A页面为展示滚动页面，B页面为遮罩层。先写个公共方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touchMoveHandler(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">touchMoveHandler</span>(e)&#123;</span><br><span class="line">    <span class="selector-tag">e</span><span class="selector-class">.preventDefault</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <p>当弹出遮罩层时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//第一步，修改样式</span><br><span class="line">$(&apos;A页面滚动区域&apos;).css(&apos;overflow&apos;, &apos;hidden&apos;);</span><br><span class="line">//第二步，阻止默认行为</span><br><span class="line">document.addEventListener(&quot;touchmove&quot;, touchMoveHandler, false);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步，修改样式</span></span><br><span class="line">$(<span class="string">'A页面滚动区域'</span>).css(<span class="string">'overflow'</span>, <span class="string">'hidden'</span>);</span><br><span class="line"><span class="comment">//第二步，阻止默认行为</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"touchmove"</span>, touchMoveHandler, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
 <p>当隐藏遮罩层时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//第一步，修改样式</span><br><span class="line">$(&quot;body&quot;).css(&quot;overflow&quot;, &quot;auto&quot;);</span><br><span class="line">//第二步，不阻止默认行为</span><br><span class="line">document.removeEventListener(&quot;touchmove&quot;, touchMoveHandler, false);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步，修改样式</span></span><br><span class="line">$(<span class="string">"body"</span>).css(<span class="string">"overflow"</span>, <span class="string">"auto"</span>);</span><br><span class="line"><span class="comment">//第二步，不阻止默认行为</span></span><br><span class="line"><span class="built_in">document</span>.removeEventListener(<span class="string">"touchmove"</span>, touchMoveHandler, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
 <p>发现如果要实现点击穿透的效果，还是有兼容问题。<br>如果要实现滑动B页面，A页面滑动的话，<br>iOS需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;absolute&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'B页面'</span>).css(<span class="string">'position'</span>, <span class="string">'absolute'</span>);</span><br></pre></td></tr></table></figure>
 
 <p>android需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;fixed&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'B页面'</span>).css(<span class="string">'position'</span>, <span class="string">'fixed'</span>);</span><br></pre></td></tr></table></figure>
 
 <p>可见fixed在ios中会阻止点击穿透。</p>
 <p>后续再说吧</p>
