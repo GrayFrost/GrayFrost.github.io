@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言前几天介绍了vue.js这个前端框架，今天起决定记录使用这个框架来搭建项目的流程以及遇到的问题。虽然这个项目只是参考慕课网的教程来做的，但自己还是会遇到很多问题。本项目主要是仿“饿了么”开发。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js实战记录">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/20161204eleme/index.html">
+<meta property="og:site_name" content="Gary&#39;s blog">
+<meta property="og:description" content="前言前几天介绍了vue.js这个前端框架，今天起决定记录使用这个框架来搭建项目的流程以及遇到的问题。虽然这个项目只是参考慕课网的教程来做的，但自己还是会遇到很多问题。本项目主要是仿“饿了么”开发。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T02:36:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js实战记录">
+<meta name="twitter:description" content="前言前几天介绍了vue.js这个前端框架，今天起决定记录使用这个框架来搭建项目的流程以及遇到的问题。虽然这个项目只是参考慕课网的教程来做的，但自己还是会遇到很多问题。本项目主要是仿“饿了么”开发。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/04/20161204eleme/">
+
+
+
+
+
+  <title>Vue.js实战记录 | Gary's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/20161204eleme/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gary">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue.js实战记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-04T00:34:00+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前几天介绍了vue.js这个前端框架，今天起决定记录使用这个框架来搭建项目的流程以及遇到的问题。虽然这个项目只是参考<a href="http://www.imooc.com/" target="_blank" rel="noopener">慕课网</a>的教程来做的，但自己还是会遇到很多问题。本项目主要是仿“饿了么”开发。</p>
+<a id="more"></a>
+
+<h2 id="一、icomoon"><a href="#一、icomoon" class="headerlink" title="一、icomoon"></a>一、icomoon</h2><p>使用<a href="https://icomoon.io/" target="_blank" rel="noopener">icomoon</a>将自己定义的svg文件转为字体图标。<br>进入官网，点击右上角<b>IcoMoon App</b>按钮，选择自己已有的svg文件，点击<b>Generate Font</b>,然后会出现自己的图标序列，点击<b>Get Code</b>，会提示你如何使用。</p>
+<h2 id="二、mock数据"><a href="#二、mock数据" class="headerlink" title="二、mock数据"></a>二、mock数据</h2><p>模拟后端数据。<br>我们已经事先用vue-cli下了一个vue项目框架了。<br>根目录下新建一个data.json文件，在其中添加我们的模拟数据。打开工程下build中的dev-server.js，在其中添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var apiRouters = express.Router();</span><br><span class="line">apiRouters.get(<span class="string">'/seller'</span>,<span class="keyword">function</span>(req,res)&#123;</span><br><span class="line">  res.json(&#123;</span><br><span class="line">    errno: 0,</span><br><span class="line">    data: seller</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRouters.get(<span class="string">'/goods'</span>,<span class="keyword">function</span>(req,res)&#123;</span><br><span class="line">  res.json(&#123;</span><br><span class="line">    errno: 0,</span><br><span class="line">    data: goods</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">apiRouters.get(<span class="string">'/ratings'</span>,<span class="keyword">function</span>(req,res)&#123;</span><br><span class="line">  res.json(&#123;</span><br><span class="line">    errno: 0,</span><br><span class="line">    data: ratings</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/api'</span>,apiRouters);</span><br></pre></td></tr></table></figure>
+
+<p>以上代码涉及<a href="http://www.expressjs.com.cn/guide/routing.html" target="_blank" rel="noopener">express路由</a>，还没怎么学过，找个时间看一下。</p>
+<h2 id="三、-webkit-scrollbar"><a href="#三、-webkit-scrollbar" class="headerlink" title="三、-webkit-scrollbar"></a>三、-webkit-scrollbar</h2><p>-webkit-scrollbar这个css3属性可以自定义滚动条样式。</p>
+<h2 id="四、一些问题"><a href="#四、一些问题" class="headerlink" title="四、一些问题"></a>四、一些问题</h2><ol>
+<li>我们需要代码风格有分号，然而es6是不需要分号的，所以在.eslintrc.js里面进行相应的配置。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'semi'</span>: [<span class="string">'error'</span>,<span class="string">'always'</span>],</span><br><span class="line"><span class="string">'indent'</span>: 0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>第一句是关于分号的设置，第二句是关于缩进的设置。<br>更多关于eslint的配置参考<a href="http://eslint.org/docs/rules/" target="_blank" rel="noopener">官网</a></p>
+<ol start="2">
+<li>stylus-loader问题<br>发现有两个问题，一个是stylus-loader，另一个是ecmascript-6问题。<br>在package.json里设置stylus-loader<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">  <span class="string">"autoprefixer"</span>: <span class="string">"^6.4.0"</span>,</span><br><span class="line">  <span class="string">"babel-core"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-eslint"</span>: <span class="string">"^7.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-loader"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-plugin-transform-runtime"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-preset-stage-2"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"babel-register"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">  <span class="string">"chalk"</span>: <span class="string">"^1.1.3"</span>,</span><br><span class="line">  <span class="string">"connect-history-api-fallback"</span>: <span class="string">"^1.1.0"</span>,</span><br><span class="line">  <span class="string">"css-loader"</span>: <span class="string">"^0.25.0"</span>,</span><br><span class="line">  <span class="string">"stylus-loader"</span>: <span class="string">"^2.1.1"</span>,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>设置好后，npm install，到这里stylus-loader理论上是解决了。<br>Text-ecmascript-6问题只是自己的粗心，将type=”text/ecmascript-6”写成了src=”text/ecmascript-6”，而且还写到了文件模板里，晕！<br>装完stylus-loader之后，又出现了新的问题<br>没办法，只能继续安装stylus。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install stylus --save-dev</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>最后运行终于不会提示问题了。但每次我用stylus语法还是报错，只能用css了，虽然有点繁琐。哼！我不管了！</p>
+<h2 id="五、vue-router安装"><a href="#五、vue-router安装" class="headerlink" title="五、vue-router安装"></a>五、vue-router安装</h2><p>先在<b>package.json</b>里的<b>dependencies</b>里添加vue-router，再<code>npm install</code>。<br>在<b>main.js</b>里</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import VueRouter from ‘vue-router’</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br></pre></td></tr></table></figure>
+
+<p>因为视频里使用的vue1.*的版本，而现在vue已经是2.0了，所以格式会有所不同。<br>比如v-link需要更改为router-link,router.map()不在适用等。<br>下次写个vue2.0的改动吧。</p>
+<p>简约版vue-router的使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line">import VueRouter from <span class="string">'vue-router'</span>;</span><br><span class="line">import App from <span class="string">'./App'</span>;</span><br><span class="line">import goods from <span class="string">'./components/goods/goods.vue'</span>;</span><br><span class="line">import ratings from <span class="string">'./components/ratings/ratings.vue'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">  &#123;path: <span class="string">'/goods'</span>, component: goods&#125;,</span><br><span class="line">  &#123;path: <span class="string">'/ratings'</span>, component: ratings&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;).<span class="variable">$mount</span>(<span class="string">'#app'</span>);</span><br><span class="line"></span><br><span class="line">router.push(<span class="string">'/goods'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>最后一句<code>router.push()</code>好像是设置默认显示页</p>
+<h2 id="六、路径配置"><a href="#六、路径配置" class="headerlink" title="六、路径配置"></a>六、路径配置</h2><p>之前我们引用组件都是./component/……，其实可以忽略./，因为在<b>webpack.base.conf.js</b>的<b>alias</b>里有路径的相关配置。webpack我还没怎么学过，下次再说吧。</p>
+<h2 id="七、1像素border的实现"><a href="#七、1像素border的实现" class="headerlink" title="七、1像素border的实现"></a>七、1像素border的实现</h2><p>在pc端设置border-bottom为1px，但在dpr为2或3的手机显示时，线变粗。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@media (-webkit-min-device-pixel-ratio:X),(min-device-pixel-ratio: X)</span><br></pre></td></tr></table></figure>
+
+<p>使用media查看dpr，再使用-webkit-transform:scaleY()<br>如果X为1.5，则缩放0.7；如果为2，则缩放为0.5；如此类推。</p>
+<h2 id="八、草料二维码生成器"><a href="#八、草料二维码生成器" class="headerlink" title="八、草料二维码生成器"></a>八、<a href="http://cli.im/" target="_blank" rel="noopener">草料二维码生成器</a></h2><p>方便手机查看效果，不过我用的时候页面一直没有显示出来，就没继续深究了。</p>
+<h2 id="九、使用vue-resource来处理前后端数据的异步请求"><a href="#九、使用vue-resource来处理前后端数据的异步请求" class="headerlink" title="九、使用vue-resource来处理前后端数据的异步请求"></a>九、使用vue-resource来处理前后端数据的异步请求</h2><p>简单的说，vue-resource就像jQuery里的$.ajax，用来和后端交互数据的。<br>看一段代码吧</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">created: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  this.<span class="variable">$http</span>.get(<span class="string">'/api/seller'</span>).<span class="keyword">then</span>((response) =&gt; &#123;</span><br><span class="line">    response = response.body;</span><br><span class="line">    <span class="keyword">if</span> (response.errno === ERR_OK) &#123;</span><br><span class="line">      this.seller = response.data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h2 id="十、header组件的背景"><a href="#十、header组件的背景" class="headerlink" title="十、header组件的背景"></a>十、header组件的背景</h2><p>先用图片平铺背景，z-index:-1，再使用filter()进行模糊处理，但有个问题，模糊效果会扩散出元素之外，在父元素设置<code>overflow:hidden</code>解决</p>
+<h2 id="九、stickyfooter"><a href="#九、stickyfooter" class="headerlink" title="九、stickyfooter"></a>九、stickyfooter</h2><p>header组件弹出浮层，使用<b>sticky footer</b>。这种布局找个时间说一下吧。</p>
+<h2 id="十、vue2-0的index"><a href="#十、vue2-0的index" class="headerlink" title="十、vue2.0的index"></a>十、vue2.0的index</h2><p>在弹出层商家优惠活动列表，<code>classMap[seller.supports[$index].type]</code>和<code></code>出错。<br>但我改为<code>classMap[seller.supports[0].type]</code>和<code></code>的时候，可以显示。</p>
+<p>原因：原来是vue2.0舍弃了$index<br>解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul v-if=<span class="string">"seller.supports"</span> class=<span class="string">"supports"</span>&gt;</span><br><span class="line">  &lt;li class=<span class="string">"support-item"</span> v-for=<span class="string">"(item,index) in seller.supports"</span>&gt;</span><br><span class="line">    &lt;span class=<span class="string">"icon"</span> :class=<span class="string">"classMap[seller.supports[index].type]"</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;span class=<span class="string">"text"</span>&gt;&#123;&#123;seller.supports[index].description&#125;&#125;&lt;/span&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一、better-scroll"><a href="#十一、better-scroll" class="headerlink" title="十一、better-scroll"></a>十一、better-scroll</h2><p>使用<a href="https://github.com/ustbhuangyi/better-scroll" target="_blank" rel="noopener">better-scroll</a>，better-scroll是对iscroll的改进版。现在package.json里添加依赖，再npm install。使用该模块来实现滑动。<br>使用better-scroll，点击事件在手机模式触发一次，但在pc模式会触发两次，需添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!event._constructed)&#123;</span><br><span class="line">  <span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、vue2-0中的ref"><a href="#十二、vue2-0中的ref" class="headerlink" title="十二、vue2.0中的ref"></a>十二、vue2.0中的ref</h2><p>一直出现问题<br><code>Cannot read property</code>通常就是对象没有获取成功。弄了好久，发现本以为将<code>v-el:menu-wrapper</code>改成<code>ref=”menu-wrapper”</code>，没想到要改成<code>ref=”menuWrapper”</code>，要用驼峰格式，坑</p>
+<h2 id="十三、宽高相等小技巧"><a href="#十三、宽高相等小技巧" class="headerlink" title="十三、宽高相等小技巧"></a>十三、宽高相等小技巧</h2><p>当设置宽度为100%时，使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">width: 100%;</span><br><span class="line">height: 0;</span><br><span class="line">padding-top: 100%;</span><br></pre></td></tr></table></figure>
+
+<p>可以实现宽高相等</p>
+<h2 id="十四、webpack打包"><a href="#十四、webpack打包" class="headerlink" title="十四、webpack打包"></a>十四、webpack打包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<p>成功后，会看到多了一个dist目录。<br>为了不让别人在控制台source中仍然可以调试，在build目录的index.js中改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">productionSourceMap: <span class="literal">false</span>,</span><br></pre></td></tr></table></figure>
+
+<p>修改后重新<code>npm run build</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/04/20161204image/" rel="next" title="Hexo显示图片">
+                <i class="fa fa-chevron-left"></i> Hexo显示图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/04/20161204myWebsite/" rel="prev" title="Github Pages绑定到个人域名">
+                Github Pages绑定到个人域名 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Gary</p>
+              <p class="site-description motion-element" itemprop="description">行止由心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、icomoon"><span class="nav-number">2.</span> <span class="nav-text">一、icomoon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、mock数据"><span class="nav-number">3.</span> <span class="nav-text">二、mock数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-webkit-scrollbar"><span class="nav-number">4.</span> <span class="nav-text">三、-webkit-scrollbar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、一些问题"><span class="nav-number">5.</span> <span class="nav-text">四、一些问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、vue-router安装"><span class="nav-number">6.</span> <span class="nav-text">五、vue-router安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、路径配置"><span class="nav-number">7.</span> <span class="nav-text">六、路径配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、1像素border的实现"><span class="nav-number">8.</span> <span class="nav-text">七、1像素border的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、草料二维码生成器"><span class="nav-number">9.</span> <span class="nav-text">八、草料二维码生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、使用vue-resource来处理前后端数据的异步请求"><span class="nav-number">10.</span> <span class="nav-text">九、使用vue-resource来处理前后端数据的异步请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、header组件的背景"><span class="nav-number">11.</span> <span class="nav-text">十、header组件的背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、stickyfooter"><span class="nav-number">12.</span> <span class="nav-text">九、stickyfooter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、vue2-0的index"><span class="nav-number">13.</span> <span class="nav-text">十、vue2.0的index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、better-scroll"><span class="nav-number">14.</span> <span class="nav-text">十一、better-scroll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、vue2-0中的ref"><span class="nav-number">15.</span> <span class="nav-text">十二、vue2.0中的ref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、宽高相等小技巧"><span class="nav-number">16.</span> <span class="nav-text">十三、宽高相等小技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、webpack打包"><span class="nav-number">17.</span> <span class="nav-text">十四、webpack打包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gary</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

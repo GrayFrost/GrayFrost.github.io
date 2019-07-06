@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[升级webpack4]]></title>
+    <url>%2F2018%2F12%2F31%2F20181231webpack4%2F</url>
+    <content type="text"><![CDATA[首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos; Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found. 升级html-webpack-plugin 1"html-webpack-plugin": "^4.0.0-beta.2", 在webpack.config.dev.js中，调整plugin顺序 123456new HtmlWebpackPlugin(&#123; inject: true, template: paths.appHtml, chunkSortMode: 'none'&#125;),new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw), Cannot read property ‘context’ of undefined 升级url-loader file-loader 12"file-loader": "^1.1.11","url-loader": "0.6.2", missingDeps.some is not a function 升级react-dev-utils 1"react-dev-utils": "6.1.1", this.htmlWebpackPlugin.getHooks is not a function 同1. 在webpack.config.dev.js中 1new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw) 然后升级html-webpack-plugin 1npm install html-webpack-plugin@next --save-dev 移除webpack的UglifyJsPlugin Tapable.plugin is deprecated. Use new API on .hooks instead 1npm install --save-dev extract-text-webpack-plugin 更详细的，之后再学习。]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[搭建react-native环境]]></title>
+    <url>%2F2018%2F12%2F31%2F20181231reactNative%2F</url>
+    <content type="text"><![CDATA[开发平台 windows 目标平台Android 安装node、react native 命令行工具、python2、jdk、Android Studio node版本要高于8.3 react native 命令行工具 npm install -g react-native-cli python版本必须为2.x jdk版本必须为1.8 下载地址 安装完jdk配置环境变量系统变量：新建JAVA_HOME，然后填写jdk安装目录（本人：D:\jdk） 系统变量：找到Path编辑，在最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin; （注意原来Path的变量值末尾有没有;号，如果没有，先输入；号再输入上面的代码） 系统变量：新建 CLASSPATH，填写.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar （注意最前面有一点） 运行cmd,查看是否安装成功，输入java -version Android开发环境安装Android Studio 下载地址 确保一下选项选中 Android SDK Android SDK Platform Performance (Intel ® HAXM) Android Virtual Device 安装Android SDK Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是Android 8.0 (Oreo)版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK 配置环境变量 系统变量：新建ANDROID_HOME，然后填写android sdk安装目录（本人为D:\AndroidSDK） 系统变量：找到Path编辑，在最后添加 （%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools） 打开Android Studio 找到sdk manager选项，选择sdk platforms选项卡，在右下角勾选show package details, 展开 Android 8.0(oreo),确保勾选 Android SDK Platform 26 Intel x86 Atom_64 System Image 然后点击”SDK Tools”选项卡，同样勾中右下角的”Show Package Details”。展开”Android SDK Build-Tools”选项，确保选中了 React Native 所必须的26.0.3版本。你可以同时安装多个其他版本，然后还要勾选最底部的Android Support Repository 创建新项目react-native init AwesomeProject 在Android Studio创建新的虚拟设备，创建完，可以打开cmd，输入adb devices查看设备 编译运行项目cd AwesomeProject react-native run-android 过程中遇到的问题 Could not find tools.jar 在项目的android目录下找到local.properties，添加 1sdk.dir=D\:\\AndroidSDK 后面的值为自己android sdk安装目录 1Could not install the app on the device, read the error above for details. Make sure you have an Android emulator running or a device connected and have set up your Android development environment 检查有没有开启虚拟设备，或连接真机，然后运行 adb devices看下能不能看到设备]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一些浏览器兼容问题]]></title>
+    <url>%2F2018%2F08%2F04%2F20180804webBug%2F</url>
+    <content type="text"><![CDATA[图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。 12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$(&apos;img&apos;).attr(&apos;src&apos;, 原来的接口请求地址+&apos;&amp;time=&apos;+time); 在IE浏览器中，flash播放器遮挡内容flash播放器添加params即可 1&lt;param name=&quot;wmode&quot; value=&quot;opaque&quot; /&gt; 多行文本超出省略号在火狐浏览器失效暂未找到解决方法]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信分享中出现的问题]]></title>
+    <url>%2F2018%2F08%2F04%2F20180804wxShareBug%2F</url>
+    <content type="text"><![CDATA[主要是工作中在使用微信分享时遇到的一些问题 分享出来描述变成链接，也没有显示设置好的图标在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理 1window.location.href.split(&apos;#&apos;)[0] 本人分享出去的页面看得到自定义图标，对方看不到主要是分享文案涉及到了“红包，金钱”等敏感词汇。 客户端拉不起微信分享这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不能拉起微信分享。找了很久原因，发现最开始设置的分享图标的地址存在重定向，最后让后台配合，将地址改为重定向后的地址即可。 redirect_uri域名与后台配置不一致看一下是不是配置的域名出了问题，我们这边是后台负责这些，所以出现了此问题，通常叫后台检查修改就好了。]]></content>
+      <categories>
+        <category>web移动端</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[web移动端总结]]></title>
+    <url>%2F2018%2F02%2F28%2F20180228webapp%2F</url>
+    <content type="text"><![CDATA[主要是针对vue做过的项目 vue懒加载vue-lazyload 123456789import VueLazyLoad from &apos;vue-lazyload&apos;;import defaultImg from &apos;默认图片&apos;;Vue.use(VueLazyLoad,&#123; error: defaultImg, loading: defaultImg, listenEvents: [ &apos;scroll&apos; ]&#125;);最后将使用:src的改为v-lazy 输入框事件键盘enter: @keydown.13focus事件: @focusblur事件: @blur 阻止默认、阻止冒泡@click.stop@click.prevent@click.stop.prevent 动态添加class:class=”{‘我的class’: 某个具体判断}”eg: :class=”{‘pic_selected’: list.selected == ‘Y’}” :class=”某个判断 ? ‘class1’ : ‘class2’”eg: :class=”list.selected ? ‘colorHeart’ : ‘whiteHeart’” vuexmapState computed:mapState({}) 在vue-cli重配置jquery npm install jquery –save 配置webpack文件中resolve的alias 1&apos;jquery&apos;: path.resolve(__dirname, &apos;../node_modules/jquery/src/jquery.js&apos;), import $ from ‘jquery’ 子组件调用父组件的方法 现在子组件中this.$emit(“方法名”, 参数, 参数, …更多参数); 在父组件中@方法名=”父组件方法”eg:有index.vue子组件，在该组件中this.$emit(“sayHi”, “Hello”);1&lt;index&gt;&lt;/index&gt; 然后app.vue引用该子组件，将其命名为v-index，如下 12345678&lt;app&gt; &lt;v-index @sayHi=&quot;sayHiFather&quot;&gt;&lt;/v-index&gt;&lt;/app&gt;在方法中sayHiFather(str)&#123; console.log(str)&#125; 此时子组件便成功调用父组件方法 cssless文件引用 在vue内 @import url(‘…..’) 在less内 @import ‘…..’对常用颜色，事先用变量定义好，方便引用 mixin图片根据像素比适配 12345678.bg-image(@url)&#123; background: ~&apos;url(@&#123;url&#125;@2x.png)&apos;; background-size: 100% 100%; @media (-webkit-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3)&#123; background: ~&apos;url(@&#123;url&#125;@3x.png)&apos;; background-size: 100% 100%; &#125;&#125; div边框有几种处理方法 outline border box-shadow 宽高不固定图片居中flex图片背景background的各个属性 移动端点击有某种颜色去掉该颜色-webkit-tap-highlight-color: rgba(0, 0, 0, 0);关键是后面那个透明度设置，前面设什么好像没所谓 禁止用户长按选择文字user-select: none; 文字超出用省略号 单行 多行 输入框文字颜色jsrem1234567891011121314(function (doc, win) &#123; var docEl = doc.documentElement, resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;, recalc = function () &#123; var clientWidth = docEl.clientWidth; if (!clientWidth) return; docEl.style.fontSize = 100 * (clientWidth / 640) + &apos;px&apos;; doc.body.style.display=&quot;block&quot;; &#125;; if (!doc.addEventListener) return; //recalc(); win.addEventListener(resizeEvt, recalc, false); doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false);&#125;)(document, window); 移动端点击fastclick 123456import FastClick from &apos;fastclick&apos;if (&apos;addEventListener&apos; in document) &#123; document.addEventListener(&apos;DOMContentLoaded&apos;, function () &#123; FastClick.attach(document.body); &#125;, false);&#125; 判断是ios，android还是微信1234567const sysJuc = &#123; ios: /(iPhone|iPad|iPod|iOS)/i, android: /(Android)/i, wx: /(MicroMessenger)/i&#125;;const nav = navigator.userAgent;const system = sysJuc.wx.test(nav) ? &apos;wx&apos; : sysJuc.ios.test(nav) ? &apos;ios&apos; : sysJuc.android.test(nav) ? &apos;android&apos; : &apos;other&apos;; 滚动加载事件节流与防抖 版本号比较12345678910111213141516171819202122232425262728const compareVersion = (curV, reqV) =&gt; &#123; var arr1 = curV.split(&apos;.&apos;); var arr2 = reqV.split(&apos;.&apos;); //将两个版本号拆成数字 var minL = Math.min(arr1.length, arr2.length); var pos = 0; //当前比较位 var diff = 0; //当前为位比较是否相等 //逐个比较如果当前位相等则继续比较下一位 while (pos &lt; minL) &#123; diff = parseInt(arr1[pos]) - parseInt(arr2[pos]); if (diff != 0) &#123; break; &#125; pos++; &#125; if (diff &gt; 0) &#123; //新版本 return true; &#125; else if (diff == 0) &#123; //稳定版 return true; &#125; else &#123; //旧版本 return false; &#125;&#125; 网络请求vue-resource, fetch, axios vue-resource好久没用了 fetch关于fetch的兼容whatwg-fetch axios请求拦截this.$http.interceptors.request.use(config =&gt; {return config}, err =&gt; {}) 微信分享页添加微信分享 绑定域名（我这里是后台配的，前端未参与） 引入js文件就是引用微信分享的jssdk 通过config注入权限请求后台给的微信分享的地址，获取相应数据，然后配置到wx.config中 12345678wx.config(&#123; debug: false, appId: 后台返回数据, timestamp: 后台返回数据, nonceStr: 后台返回数据, signature: 后台返回数据, jsApiList: [&apos;onMenuShareTimeline&apos;, &apos;onMenuShareAppMessage&apos;, &apos;onMenuShareQQ&apos;, &apos;onMenuShareWeibo&apos;, &apos;onMenuShareQZone&apos;]&#125;) 成功 12wx.ready(function()&#123;&#125;) 微信授权登录移动端阻止滑动overflow:hiddentouchmove preventDefault() 与客户端联动window.location.href = “自定义协议”window.成功后的回调方法 分享页唤醒app调试vConsole]]></content>
+      <categories>
+        <category>web移动端</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[web页面在移动端的bug]]></title>
+    <url>%2F2017%2F11%2F29%2F20171129webinmobile%2F</url>
+    <content type="text"><![CDATA[记录一下web页面在移动端出现的bug以及解决方法。 ios发现其实好多问题都出现在ios呢。 position:fixed极为严重的bug，现在看到fixed我都不敢用了。问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。 -webkit-overflow-scrolling: touch; ios8中css3的兼容性问题之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。兼容性写法 12345display: -webkit-box;display: -moz-box;display: -webkit-flex;display: -ms-flexbox;display: flex; 也可以用autoprefixer来处理。 在safari无痕模式不支持localstorage 点击input后页面向上滚动一定位置 android fetch兼容性问题：使用fetch请求数据的过程中，发现在一些安卓机上请求失败。查了一下，发现fetch有兼容性问题，其实在ios低版本也有这个问题，不过我测的手机版本较高，当时就没发现。解决：使用了whatwg-fetch，即不是引入fetch，而是引入whatwg-fetch。 共同 -webkit-tap-highlight-color问题：有时我们点击时会发现出现不知名的颜色，但其实我们想点击时不出现颜色。这时就需要用到这个css样式。解决： 1-webkit-tap-highlight-color:rgba(255,255,255,0); 点击穿透问题：有时我们会要有一个全屏的遮罩层，而滑动该遮罩层时，位于其底部的页面是不需要滑动的，然而因为点击穿透，底部的页面往往也会滑动。解决：首先先假设A页面为展示滚动页面，B页面为遮罩层。先写个公共方法 123touchMoveHandler(e)&#123; e.preventDefault();&#125; 当弹出遮罩层时： 1234//第一步，修改样式$(&apos;A页面滚动区域&apos;).css(&apos;overflow&apos;, &apos;hidden&apos;);//第二步，阻止默认行为document.addEventListener(&quot;touchmove&quot;, touchMoveHandler, false); 当隐藏遮罩层时： 1234//第一步，修改样式$(&quot;body&quot;).css(&quot;overflow&quot;, &quot;auto&quot;);//第二步，不阻止默认行为document.removeEventListener(&quot;touchmove&quot;, touchMoveHandler, false); 发现如果要实现点击穿透的效果，还是有兼容问题。如果要实现滑动B页面，A页面滑动的话，iOS需要 1$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;absolute&apos;); android需要 1$(&apos;B页面&apos;).css(&apos;position&apos;, &apos;fixed&apos;); 可见fixed在ios中会阻止点击穿透。 后续再说吧]]></content>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue 与 react 写法差异]]></title>
+    <url>%2F2017%2F11%2F13%2F20171113vueAndReact%2F</url>
+    <content type="text"><![CDATA[一直想写一下vue与react在写法上有哪些差异，打算跟着vue官网写一遍，然后再看对应的react是怎么实现的，所以现在开始吧。 安装我直接使用工具来做这个例子了。 vue-cli12345npm install -g vue-clivue init webpack my-projectcd my-projectnpm installnpm run dev create-react-app12345npm install -g create-react-appcreate-react-app my-projectcd my-projectnpm installnpm start 如果需要自己配置的话，自己去摸索。 启动实例vue12345678import Vue from &apos;vue&apos;import App from &apos;./App&apos;new Vue(&#123; el: &apos;#app&apos;, template: &apos;&lt;App/&gt;&apos;, components: &#123; App &#125;&#125;) 12//html部分&lt;div id=&quot;app&quot;&gt;&lt;/div&gt; react12345import React from &apos;react&apos;;import ReactDOM from &apos;react-dom&apos;;import App from &apos;./App&apos;;ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;)); 12//html部分&lt;div id=&quot;root&quot;&gt;&lt;/div&gt; 插值vue1&lt;div&gt;Hello &#123;&#123;name&#125;&#125;&lt;/div&gt; react1&lt;div&gt;Hello &#123;this.state.name&#125;&lt;/div&gt; 添加事件vue1234567891011121314&lt;template&gt; &lt;!-- @click可改为v-on:click --&gt; &lt;button @click=&quot;clickMe&quot;&gt;Click&lt;/button&gt;&lt;/template&gt;&lt;script&gt;export default &#123; methods: &#123; clickMe()&#123; console.log(&apos;click); &#125; &#125;&#125;&lt;/script&gt; react123456789101112constructor(props)&#123; super(props); this.clickMe = this.clickMe.bind(this);&#125;clickMe()&#123; console.log(&apos;click&apos;);&#125;render ()&#123; return ( &lt;button onClick=&#123;this.clickMe&#125;&gt;Click&lt;/button&gt; );&#125; 条件渲染vue1&lt;div v-if=&quot;isTrue&quot;&gt;&lt;/div&gt; react1234const showDiv = isTrue ? &lt;div&gt;&#123;&apos;true&apos;&#125;&lt;/div&gt; : &lt;div&gt;&#123;&apos;false&apos;&#125;&lt;/div&gt;;return ( &lt;div&gt;&#123;showDiv&#125;&lt;/div&gt;); 列表渲染vue12345678//html部分&lt;div v-for=&quot;list in lists&quot;&gt;&#123;&#123;list&#125;&#125;&lt;/div&gt;//js部分data()&#123; return &#123; lists: [1,2,3,4,5] &#125;&#125; react123456789101112131415constructor(props)&#123; super(props); this.state = &#123; lists: [1,2,3,4,5] &#125;;&#125;render ()&#123; return ( this.state.lists.map((list, index) =&gt; &#123; return ( &lt;div key=&#123;index&#125;&gt;&#123;list&#125;&lt;/div&gt; ) &#125;) );&#125; 组件vue1234567&lt;template&gt; &lt;div&gt;&lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123;&#125;;&lt;/script&gt;&lt;style&gt;&lt;/style&gt; react1234567import React, &#123;Component&#125; from &apos;react&apos;;class 组件名 extends Component&#123; render()&#123; return (&lt;div&gt;&lt;/div&gt;); &#125;&#125;export default 组件名; propsvue无需像react一样安装npm包以组件作为例子 123456789101112131415&lt;template&gt; &lt;div id=&quot;Hello&quot;&gt; Hello &#123;&#123;name&#125;&#125; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123; props: &#123; name: &#123; default: &apos;world&apos;, type: String &#125; &#125;&#125;&lt;/script&gt; react安装首先需要import PropTypes from ‘prop-types’以组件作为例子 1234567891011import React, &#123;Component&#125; from &apos;react&apos;;import PropTypes from &apos;prop-types&apos;;class Hello extends Component &#123; render ()&#123; return ( &lt;div&gt;Hello &#123;this.props.name&#125;&lt;/div&gt; ); &#125;&#125;export default Hello; 默认值123Hello.defaultProps = &#123; name: &apos;world&apos;&#125; 类型检查Hello.propTypes = { name: PropTypes.string} 分发内容vue123456789//Hello组件&lt;div id=&quot;Hello&quot;&gt; &lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello&gt; &lt;div&gt;slot&lt;/div&gt;&lt;/Hello&gt; react1234567//Hello组件&lt;div id=&quot;hello&quot;&gt; &#123;this.props.slot&#125;&#123;/*props后面的slot只是参数名，可为任意值*/&#125;&lt;/div&gt;//使用Hello组件，并使用slot&lt;Hello slot=&#123;内容&#125; /&gt;]]></content>
+      <tags>
+        <tag>vue</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文字超出使用省略号]]></title>
+    <url>%2F2017%2F11%2F04%2F20171104textOverflow%2F</url>
+    <content type="text"><![CDATA[我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。 单行文本具体实现 1234width: 具体宽度;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; 多行文本具体实现 12345width: 具体宽度;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 行数;overflow: hidden; 在测试这一部分内容时，我发现如果文本内容中不是全部是中文的话，会出现问题。举个例子 1234567891011//html&lt;div id=&quot;one&quot;&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;/div&gt;//css#one&#123; width: 100px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;&#125; 效果 如果换成中文，则没有问题 1&lt;div id=&quot;one&quot;&gt;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊&lt;/div&gt; 效果 暂时不知道怎么解决，之后找到方法再说。]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rem]]></title>
+    <url>%2F2017%2F10%2F30%2F20171030rem%2F</url>
+    <content type="text"><![CDATA[前言做移动端适配用的比较多的就是使用rem作为单位了吧。本来在做web的时候使用的是px，然后又有em作为单位（这个单位我都不怎么用，太麻烦了），现在移动端的话，基本都是rem了。 emem是一个相对的单位。这里的相对便是基于父元素的font-size来改变的。举个例子： 1234567891011121314151617//html&lt;div id=&quot;one&quot;&gt; hello &lt;div id=&quot;one-one&quot;&gt;world&lt;/div&gt; &lt;div id=&quot;one-two&quot;&gt;world&lt;/div&gt;&lt;/div&gt;//css#one&#123; font-size: 32px;&#125;#one-one&#123; font-size: 0.5em;&#125;#one-two&#123; font-size: 16px;&#125; 此时会发现两个world其实是一样大的。因此，我们可以一直使用父元素作为基准来设定font-size，这也决定了它的麻烦性，因为你需要一直去计算父元素转换过来的具体px是多少。那到了rem上场了。 rem所谓的rem是指font size of the root element，即是根元素的字体大小，而这里的根元素，通常就是html。在html设置了具体的字体大小，然后我们便可以基于html来换算成rem了。举个例子（就用上个例子吧，把样式重写）： 1234567891011121314151617181920//html&lt;div id=&quot;one&quot;&gt; hello &lt;div id=&quot;one-one&quot;&gt;world&lt;/div&gt; &lt;div id=&quot;one-two&quot;&gt;world&lt;/div&gt;&lt;/div&gt;//csshtml&#123; font-size:50px;&#125;#one&#123; font-size: 0.5rem;&#125;#one-one&#123; font-size: 0.3rem;&#125;#one-two&#123; font-size: 15px;&#125; 因为根元素字体大小是50px，所以父元素#one字体大小是25px，#one-one字体大小是15px，我们会发现两个world是一样大的。 用处那rem到底怎么用作适配呢？上代码 123456789101112131415(function (doc, win) &#123; var docEl = doc.documentElement, resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;, recalc = function () &#123; var clientWidth = docEl.clientWidth; if (!clientWidth) return; docEl.style.fontSize = 100 * (clientWidth / 640) + &apos;px&apos;; //css默认body隐藏，加载完适配后展现 doc.body.style.display=&quot;block&quot;; &#125;; if (!doc.addEventListener) return; //recalc(); win.addEventListener(resizeEvt, recalc, false); doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false);&#125;)(document, window); 因为不同手机的屏幕大小是不一样的，我们在一开始加载时，就执行该js，让其根据屏幕窗口大小，改变html的字体大小，然后我们便可以根据根元素字体的大小来设置css单位了。]]></content>
+      <categories>
+        <category>移动端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vuex]]></title>
+    <url>%2F2017%2F09%2F18%2F20170918vuex%2F</url>
+    <content type="text"><![CDATA[之前一直搞不懂Vuex怎么用，但学了Redux之后，发现Vuex简单好多啊。 安装1npm install vuex --save 前提是已经搭建好了其他vue的项目环境，开始！ 使用目录结构 效果 index.vue1234567891011121314151617181920212223&lt;template&gt; &lt;div class=&quot;index&quot;&gt; &lt;h2&gt;vuex练习&lt;/h2&gt; &lt;content&gt; &lt;v-a&gt;&lt;/v-a&gt; &lt;v-b&gt;&lt;/v-b&gt; &lt;/content&gt; &lt;v-detail&gt;&lt;/v-detail&gt; &lt;/div&gt;&lt;/template&gt;&lt;script type=&quot;text/ecmascript-6&quot;&gt; import componentA from &apos;./componentA.vue&apos;; import componentB from &apos;./componentB.vue&apos;; import showDetail from &apos;./showDetail.vue&apos;; export default &#123; components: &#123; &apos;v-a&apos;: componentA, &apos;v-b&apos;: componentB, &apos;v-detail&apos;: showDetail &#125; &#125;;&lt;/script&gt; componentA.vue12345678910111213141516&lt;template&gt; &lt;div class=&quot;component&quot;&gt; &lt;h5&gt;A:加法子组件&lt;/h5&gt; &lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt; &lt;/div&gt;&lt;/template&gt;&lt;script type=&quot;text/ecmascript-6&quot;&gt; export default &#123; methods: &#123; add () &#123; this.$store.dispatch(&apos;add&apos;); &#125; &#125; &#125;;&lt;/script&gt; componentB.vue12345678910111213141516&lt;template&gt; &lt;div class=&quot;component&quot;&gt; &lt;h5&gt;B:减法子组件&lt;/h5&gt; &lt;button @click=&quot;sub&quot;&gt;-&lt;/button&gt; &lt;/div&gt;&lt;/template&gt;&lt;script type=&quot;text/ecmascript-6&quot;&gt; export default &#123; methods: &#123; sub () &#123; this.$store.dispatch(&apos;sub&apos;); &#125; &#125; &#125;;&lt;/script&gt; showDetail.vue123456789101112131415&lt;template&gt; &lt;div class=&quot;showDetail&quot;&gt; 显示数据变化：&#123;&#123;myNum&#125;&#125; &lt;/div&gt;&lt;/template&gt;&lt;script type=&quot;text/ecmascript-6&quot;&gt; export default &#123; computed:&#123; myNum () &#123; return this.$store.state.num; &#125; &#125; &#125;;&lt;/script&gt; index.js1234567891011import Vue from &apos;vue&apos;;import indexComponent from &apos;./components/index.vue&apos;;import store from &apos;./store&apos;;const index = Vue.extend(indexComponent);new Vue(&#123; el: &apos;#main&apos;, store, render: h =&gt; h(index)&#125;); store.js12345678910111213141516171819202122232425262728293031import Vue from &apos;vue&apos;;import Vuex from &apos;vuex&apos;;Vue.use(Vuex);const store = new Vuex.Store(&#123; state: &#123; num: 0 &#125;, mutations: &#123; add (state) &#123; return state.num++; &#125;, sub (state) &#123; return state.num--; &#125; &#125;, getters: &#123; &#125;, actions: &#123; add (&#123;commit&#125;) &#123; commit(&apos;add&apos;); &#125;, sub (&#123;commit&#125;) &#123; commit(&apos;sub&apos;); &#125; &#125;&#125;);export default store; 整体思路好了，基本代码展示完，说一下使用思路。可以看到加法和减法是两个不同的组件，它们运算后的结果又展示在另一个组件，这些统计组件之间的通信通过vuex来实现是比较方便的。先说一个简单步骤： 新建一个store.js文件，在这个js文件中有state,mutations,actions等在入口文件（此项目是index.js）中使用store想要在页面中修改数据只能通过dispatch来触发对应的action，然后action的commit又会触发mutations中的方法来修改state。Vuex只能通过mutations中来修改state，而要在页面中展示state不能通过data赋值，需要使用computed来实现。 改进现在我们的代码看起来不够好，改一下吧。新建一个vuex文件夹，把state,mutations,actions等独立出来 1234//state.jsexport default &#123; num: 0&#125; 123456789//mutations.jsexport default &#123; add (state) &#123; return state.num++; &#125;, sub (state) &#123; return state.num--; &#125;&#125; 123456789//actions.jsexport default &#123; add (&#123;commit&#125;) &#123; commit(&apos;add&apos;); &#125;, sub (&#123;commit&#125;) &#123; commit(&apos;sub&apos;); &#125;&#125; 1234567891011121314151617//store.js，记住改index引用store.js的路径import Vue from &apos;vue&apos;;import Vuex from &apos;vuex&apos;;Vue.use(Vuex);import state from &apos;./state&apos;;import mutations from &apos;./mutations&apos;;import actions from &apos;./actions&apos;;const store = new Vuex.Store(&#123; state, mutations, actions&#125;);export default store; 最后我们使用一下mapState 123456789101112131415//showDetail.vue&lt;template&gt; &lt;div class=&quot;showDetail&quot;&gt; 显示数据变化：&#123;&#123;myNum&#125;&#125; &lt;/div&gt;&lt;/template&gt;&lt;script type=&quot;text/ecmascript-6&quot;&gt;import &#123; mapState &#125; from &apos;vuex&apos;;export default &#123; computed: mapState(&#123; myNum: &apos;num&apos; &#125;)&#125;;&lt;/script&gt; 可以看到，使用mapState可以让我们不用每次都用return语句来返回数据，省了不少事。更深入的之后再说了。 代码]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Electron]]></title>
+    <url>%2F2017%2F09%2F17%2F20170917electron%2F</url>
+    <content type="text"><![CDATA[一直觉得直接使用前端技术来构建桌面应用或手机应用挺好玩的，因为做手机应用要装很多东西太麻烦，以后再学，现在就先学一下Electron吧。 安装之前看到网上很多都是npm install electron-prebuilt -g，然后发现自己装的时候出错了，不知是不是教程太旧了。现在的是 1cnpm install electron -g （cnpm 淘宝镜像） 简单应用安装完后，我们可以自己搭个简单的项目了。目录结构如下：然后自己对每个文件做一些简单修改。 index.html 12345678910&lt;!DOCTYPE&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;An electron app&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Hello World!&lt;/h1&gt; &lt;/body&gt;&lt;/html&gt; main.js main.js是整个程序的入口文件。 12345678910111213141516171819202122232425262728const &#123; app, BrowserWindow &#125; = require(&apos;electron&apos;);let win;function createWindow() &#123; // 创建窗口并加载页面 win = new BrowserWindow(&#123; width: 800, height: 600 &#125;); win.loadURL(`file://$&#123;__dirname&#125;/index.html`); // 窗口关闭的监听 win.on(&apos;closed&apos;, () =&gt; &#123; win = null; &#125;);&#125;app.on(&apos;ready&apos;, createWindow);app.on(&apos;window-all-closed&apos;, () =&gt; &#123; if (process.platform !== &apos;darwin&apos;) &#123; app.quit(); &#125;&#125;);app.on(&apos;activate&apos;, () =&gt; &#123; if (win === null) &#123; createWindow(); &#125;&#125;); 可以看到通过new BrowserWindow()来创建页面，再用其loadURL方法来加载页面。 package.json 在scripts里添加"start": "electron ." 修改完成后，npm start。效果如下 主进程与渲染进程main.js运行的进程是主进程，而创建一个页面时，该页面就会有一个对应的渲染进程。这里先介绍一种我接触到的主进程与渲染进程之间的通信方式：使用ipcMain和ipcRenderer来通信。继续修改上述例子（…为已存在不需要修改的改吗）： index.html 1234567891011&lt;body&gt; ... &lt;button id=&quot;showBtn&quot;&gt;show other page&lt;/button&gt; &lt;script&gt; const &#123; ipcRenderer &#125; = require(&apos;electron&apos;); var showBtn = document.getElementById(&apos;showBtn&apos;); showBtn.addEventListener(&apos;click&apos;, ()=&gt;&#123; ipcRenderer.send(&apos;show-page&apos;); &#125;); &lt;/script&gt;&lt;/body&gt; main.js 123456789101112131415161718192021222324const &#123; app, BrowserWindow, ipcMain &#125; = require(&apos;electron&apos;);let win;let page;function createWindow() &#123; ... //创建另一个窗口 page = new BrowserWindow(&#123; width: 300, height: 300, show: false &#125;); page.loadURL(`file://$&#123;__dirname&#125;/page.html`) //新窗口 ipcMain.on(&apos;show-page&apos;, ()=&gt;&#123; page.show(); &#125;); ipcMain.on(&apos;hide-page&apos;, ()=&gt;&#123; page.hide(); &#125;);&#125; 新建page.html 123456789101112131415161718&lt;!DOCTYPE&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;An electron app&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Page&lt;/h1&gt; &lt;button id=&quot;hideBtn&quot;&gt;Hide this page&lt;/button&gt; &lt;script&gt; const &#123; ipcRenderer &#125; = require(&apos;electron&apos;); var hideBtn = document.getElementById(&apos;hideBtn&apos;); hideBtn.addEventListener(&apos;click&apos;, ()=&gt;&#123; ipcRenderer.send(&apos;hide-page&apos;); &#125;); &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; 效果如下 所以整体思路是，在main.js这个主进程中通过ipcMain的on来注册方法来监听渲染进程传过来的方法，然后在各个渲染进程中向主进程send所需要调用的方法。感觉有点类似数据交互中的bus总线方法呢。 Electron-vue我之前学vue的时候就已经装过vue-cli了，所以接下来是 1234vue init simulatedgreg/electron-vue my-projectcd my-projectnpm installnpm run dev 效果如下： 更深入的之后再说了。]]></content>
+      <tags>
+        <tag>vue</tag>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[原型]]></title>
+    <url>%2F2017%2F09%2F16%2F20170916prototype%2F</url>
+    <content type="text"><![CDATA[最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。 原型对于原型，有两个概念要知道：__proto__和prototype。 __proto__实例对象有__proto__属性 prototype函数对象有prototype属性。哪些是函数对象呢？ 123function A()&#123;&#125;var a = function()&#123;&#125;new Function()&#123;&#125; 这些便是了。 constructor原型对象上有一个constructor属性，用来指向它的函数对象。 例子在javascript中，一切接对象！所以函数也是对象。当我们定义了一个对象时，该对象会自带一些属性。如果你只是一个普通对象，那你就会有__proto__属性，而如果你是一个函数的话，那你不只有__proto__，还有prototype。举个栗子 123456let Person = function()&#123;&#125;;let boy = new Person();console.log(&apos;instance __proto__&apos;, boy.__proto__);console.log(&apos;instance prototype&apos;, boy.prototype);console.log(&apos;function __proto__&apos;, Person.__proto__);console.log(&apos;function prototype&apos;, Person.prototype); 得到的结果如下： 12Person.prototype.constructor === Person//true 其实就是一种循环引用，Person通过prototyop属性指向Person.prototypo这个原型对象，而这个原型对象又通过constructor这个属性指向回Person。 当js在创建对象时，它就会不知通过什么方式自动为这个对象创建__proto__这个属性，它相当于一个指针，指向该对象的构造函数的prototype属性，用上个例子来说就是 1boy.__proto__ == Person.prototype 是时候献上神图了 原型链一个实例的__proto__指向它的构造函数的原型对象，而它的构造函数的原型对象也有__proto__，继续指向它自己的原型对象，如此重复下去，知道最后一个Object.prototype，可以说它是一切对象的始祖，一切对象都是继承它来的，Object.prototype.__proto__为null，不在指向其它对象。这样便构成了一条原型链。]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[本地存储]]></title>
+    <url>%2F2017%2F09%2F03%2F20170903storage%2F</url>
+    <content type="text"><![CDATA[前言公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下： 然后我们要实现的效果基本与网易新闻的效果一样。首先是在原生界面，然后我点击了“开学第一天……”这一条，这个变灰效果不是web端做的，继续下一步。 此时进入了详情页，我会点击第一条。 返回，会发现样式已经改变。 返回原生界面重新进入，会恢复为图3的状态。 大致过程如上。 实现思路当然是记录点击过的阅读的id到本地，然后读取本地信息，只要是有该id，就为它添加一个class类名，该类名的css实现了颜色的改变。 一开始我打算使用localStorage，后来发现有问题：只要是我点击过的文章，虽然变灰，但是无论是后退操作还是从原生重新进入，“阅读过”的状态始终都在。 后来经过自己的调试发现，在每次点击进入详情页或是另一个详情页时，页面才会初始化，而后退操作的话，什么都不会做，连js都不加载，貌似是原生的进行了一些缓存操作。 然后不知怎么的，我就想到了sessionStorage。说实话，这是我第一次使用，虽然以前一直知道它是用来会话存储的。 sessionStorage似乎非常适合这次的场景。首先是进入详情页，这相当于打开了一个会话窗口，在这个会话窗口有多条继续阅读的稿件，点击阅读，该会话窗口的sessionStorage记录该条id，当进入另一条新闻时，原来的新闻页面并没有销毁，所以其sessionStorage是保留的。有两种情况webview是不存在了：一是返回到上一条新闻，二是从原生重新进入。之后的事情就好办了。 流程：首先从原生进入，在继续阅读里，点击阅读后sessionStorage记录id，设置定时器，一定时间后添加已经阅读的class；进入另一个详情页，要么继续点击该页面下的继续阅读，要么返回……如此类推。 localStorage与sessionStorage感觉最近都在与这些存储打交道呢。那就随便写一下这两个好了。 主要的使用就是： 1234setItem(key,value) //存储对应key的记录getItem(key) //获取对应key的记录removeItem(key) //删除对应key的记录clear() //删除所有storage]]></content>
+      <categories>
+        <category>项目需求</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>html5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[移动端图片变形问题]]></title>
+    <url>%2F2017%2F08%2F27%2F20170827remPic%2F</url>
+    <content type="text"><![CDATA[问题星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图 注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。 因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。 解决办法主要解决办法是提高精度。下面我随便举个例子： 1&lt;div id="main"&gt;&lt;/div&gt; 12345678910111213141516#main&#123; width: xxxrem; height: xxxrem; position: relative;&#125;#main:after&#123; content: ''; position: absolute; background: url('图片路径') no-repeat center; /**假设图片宽为.24rem，高为.12rem**/ width: 24rem; height: 24rem; background-size: 24rem 12rem; transform-origi: 0 0; transfrom: scale(0.01);&#125; 可以看出，提高精度的方法是先扩大100倍之后在进行缩小的变换。 经过上述方法能够解决变形问题。如有更好的方法，以后会作记录。]]></content>
+      <categories>
+        <category>移动端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数组和对象的拷贝]]></title>
+    <url>%2F2017%2F08%2F23%2F20170823arrCopy%2F</url>
+    <content type="text"><![CDATA[已经两个多月没写了，真是太懒了！说起js数组的拷贝，无非是浅拷贝和深拷贝。以前对这两个概念一直很模糊，最近好像懂了一点点。 数组拷贝浅拷贝浅拷贝就相当于拷贝了该数组的地址，新的数组和旧数组共用一个内存，无论是修改新的数组还是旧的数组，都会影响另一个数组。最简单的浅拷贝就是直接赋值。 12345var a = ["one","two","three"];var b = a;b[2] = "four";console.log("a",a);//a ["one", "two", "four"]console.log("b",b);//b ["one", "two", "four"] 深拷贝有时我们想修改一个拷贝数组，但又不想改动原数组，就需要使用深拷贝。深拷贝是新开辟一块内存来存放新数组。新数组或旧数组的改动都不会影响对方。下面讲几个常见的简单的数组深拷贝方法。 slice 我们知道使用slice会返回一个“裁剪”出来的新数组。 12345var a = ["one","two","three"];var b = a.slice(0);b[2] = "four";console.log("a",a);//a ["one", "two", "three"]console.log("b",b);//b ["one", "two", "four"] concat 使用concat的拷贝效果与slice相同。 12345var a = ["one","two","three"];var b = a.concat();b[2] = "four";console.log("a",a);//a ["one", "two", "three"]console.log("b",b);//b ["one", "two", "four"] 对象拷贝浅拷贝 Object.assign(obj1,obj2[,…]) Object.assign()可用于对象的拷贝，深浅都行。作用与jQuery的$.extend()类似。 123456789var a = &#123;"one":"1","two":"2"&#125;;var b = &#123;"one":"3","two":"4"&#125;;var c = Object.assign(a,b);//浅拷贝console.log(a);//&#123;"one":"3","two":"4"&#125;console.log(c);//&#123;"one":"3","two":"4"&#125;var d = Object.assign(&#123;&#125;,a,b);//深拷贝console.log(a);//&#123;"one":"1","two":"2"&#125;console.log(d);//&#123;"one":"3","two":"4"&#125; json方法 12345var a = &#123;"one":"1","two":"2"&#125;;var b = JSON.parse(JSON.stringify(a));b.one = "3";console.log(a);//&#123;"one":"1","two":"2"&#125;console.log(b);//&#123;"one":"3","two":"2"&#125; $.extend() 1jQuery.extend( [deep], target, object1 [, objectN ] ) 最后要说的是jQuery的$.extend()。当初我在学习jQuery插件的制作时就领略过它的魅力，当时就记得它可以无限覆盖自定义参数，其实就是浅拷贝，将后面的参数全都弄到第一个参数里（深浅拷贝的布尔值不写的情况下，默认是浅拷贝）。但是当我们填写了深浅拷贝的布尔值作为第一个参数时，它就可以决定要深拷贝还是浅拷贝。true为深，false为浅。]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[开发常用]]></title>
+    <url>%2F2017%2F06%2F19%2F20170619developNeeded%2F</url>
+    <content type="text"><![CDATA[因为每次重装都要重新装很多东西，在这里记一下，免得以后又要去想。 最重要的当然是node和git了。然后用 1npm list -g --depth 0 来查看目前我装了哪些npm包。 可以看到还是有挺多的，有些是平时学习时装的，一直没有卸，比如：bower,yo（这个是yeoman），express等；也有其他项目出现问题时装的依赖，比如generator-karma（记得是vue-cli的问题）;然后我觉得有用的是：cnpm，hexo，hexo-cli，less，npm，npm-check，stylus，vue-cli，webpack等。 安装与卸载这些包 123//-g决定了是否全局npm install 名字 [-g]npm uninstall 名字 [-g] 这里说一下npm-check，使用它可以检查需要更新的npm包，然后选择更新。举个例子更多使用方法就不说了。]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[回到顶部]]></title>
+    <url>%2F2017%2F06%2F17%2F20170617backToTop%2F</url>
+    <content type="text"><![CDATA[效果回到顶部一般的网站都有，具体效果如下： 当滑动到一定距离（通常是一屏）后，某个地方会出现“返回顶部”按钮（通常是右下角），点击按钮可以回到顶部，然后按钮隐藏（或其他效果，比如变得透明）。 代码 html 123456&lt;main&gt; &lt;div id="box1"&gt;&lt;/div&gt; &lt;div id="box2"&gt;&lt;/div&gt; &lt;div id="box3"&gt;&lt;/div&gt;&lt;/main&gt;&lt;a href="javascript:void(0);" id="btn" title="回到顶部"&gt;↑&lt;/a&gt; css说实话，css部分没什么需要特别注意的地方。 12345678910111213141516171819202122232425262728293031323334*&#123; margin: 0; padding: 0;&#125;main&#123; width:1000px; margin: 0 auto;&#125;#box1&#123; height: 890px; background-color: #eee; margin-bottom: 10px;&#125;#box2&#123; height: 590px; background-color: orange; margin-bottom: 10px;&#125;#box3&#123; height: 400px; background-color: pink;&#125;#btn&#123; position: fixed; display: none; width: 40px; height: 40px; text-align: center; line-height: 40px; bottom: 20px; right: 5%; background-color: #ddd; text-decoration: none;&#125; javascript重头戏 123456789101112131415161718192021222324252627282930313233window.onload = function () &#123; var btn = document.getElementById('btn'); var clientHeight = document.documentElement.clientHeight; var timer = null; var isTop = true; window.onscroll = function () &#123; var myTop = document.documentElement.scrollTop || document.body.scrollTop; if(myTop &gt;= clientHeight)&#123; btn.style.display = 'block'; &#125;else&#123; btn.style.display = 'none'; &#125; //滑动过程中滑动滚动条的话也结束定时器 if(!isTop)&#123; clearInterval(timer); &#125; isTop = false; &#125; btn.onclick = function () &#123; timer = setInterval(function () &#123; var myTop = document.documentElement.scrollTop || document.body.scrollTop; var speed = Math.ceil(myTop / 6); document.documentElement.scrollTop = document.body.scrollTop = myTop - speed; isTop = true; if(myTop == 0)&#123; clearInterval(timer); &#125; &#125;, 30); &#125;&#125; 原理本次通过使用js来实现回到顶部效果，而不是用html的锚点，达到平滑的滚动效果。关键点：scrollTop,clientHeight,setInterval()。 按钮的隐藏与消失首先是获取屏幕的高度clientHeight,然后通过判断滑动的距离scrollTop与高度的大小来实现效果。滑动大于一屏高度时将按钮显示，其他隐藏。 滑到顶部通过使用定时器setInterval来实现，当回到顶部时，取消定时器。]]></content>
+      <categories>
+        <category>网页布局</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue.js项目上线]]></title>
+    <url>%2F2017%2F03%2F09%2F20170309online%2F</url>
+    <content type="text"><![CDATA[今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择 创建linux实例 登录云服务器管理控制台 定位到 云服务器ECS &gt; 实例 进行相关配置。 远程连接 Linux 实例 登录云服务器管理控制台 找到需要连接的实例，在操作列，单击远程连接。 连接管理终端 如果第一次连接终端，会弹出一个有密码提示的对话框， 记住出现的密码，因为以后连接都需要输入。如果不是第一次连接，就输入之前记住的密码。除了用控制台连接终端，还可以使用putty来连接。 输入用户名root和密码用户名是root，而密码是创建实例时设置的密码。 参考文章快速入门linux CentOS 6.5安装nodejs说实话，现在的我是不清楚需不需要这一步的，不过我觉得装了node.js总比没装好。 创建ECS实例之前我们已经创建好了，使用root用户登录实例。 部署node.js环境–二进制文件安装 wget命令下载Node.js安装包 1wget https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz 解压文件 1tar xvf node-v6.9.5-linux-x64.tar.xz 创建软链接，使node和npm命令全局有效。 12ln -s /root/node-v6.9.5-linux-x64/bin/node /usr/local/bin/nodeln -s /root/node-v6.9.5-linux-x64/bin/npm /usr/local/bin/npm 查看node、npm版本 12node -vnpm -v 如果部署成功，在终端能够成功显示node和npm的版本。参考文章部署Node.js项目（CentOS） Cent OS安装Nginx准备编译环境 系统版本说明1cat /etc/redhat-release 显示我的系统版本是CentOS release 6.5 (Final) 关闭SELINUX1sed -i 's/SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config 1setenforce 0 安装Nginx 下载源码包解压编译。1234567891011wget http://nginx.org/download/nginx-1.10.2.tar.gztar xvf nginx-1.10.2.tar.gz -C /usr/local/srcyum groupinstall "Development tools"yum -y install gcc wget gcc-c++ automake autoconf libtool libxml2-devel libxslt-devel perl-devel perl-ExtUtils-Embed pcre-devel openssl-develcd /usr/local/src/nginx-1.10.2./configure \ 在输完上面最后一句话后，输入以下 12345678910111213141516171819202122232425262728293031323334353637--prefix=/usr/local/nginx \--sbin-path=/usr/sbin/nginx \--conf-path=/etc/nginx/nginx.conf \--error-log-path=/var/log/nginx/error.log \--http-log-path=/var/log/nginx/access.log \--pid-path=/var/run/nginx.pid \--lock-path=/var/run/nginx.lock \--http-client-body-temp-path=/var/tmp/nginx/client \--http-proxy-temp-path=/var/tmp/nginx/proxy \--http-fastcgi-temp-path=/var/tmp/nginx/fcgi \--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \--http-scgi-temp-path=/var/tmp/nginx/scgi \--user=nginx \--group=nginx \--with-pcre \--with-http_v2_module \--with-http_ssl_module \--with-http_realip_module \--with-http_addition_module \--with-http_sub_module \--with-http_dav_module \--with-http_flv_module \--with-http_mp4_module \--with-http_gunzip_module \--with-http_gzip_static_module \--with-http_random_index_module \--with-http_secure_link_module \--with-http_stub_status_module \--with-http_auth_request_module \--with-mail \--with-mail_ssl_module \--with-file-aio \--with-ipv6 \--with-http_v2_module \--with-threads \--with-stream \--with-stream_ssl_module 然后 123make &amp;&amp; make installmkdir -pv /var/tmp/nginx/client 添加SysV启动脚本。1vim /etc/init.d/nginx 然后添加 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495#!/bin/sh # # nginx - this script starts and stops the nginx daemon # # chkconfig: - 85 15 # description: Nginx is an HTTP(S) server, HTTP(S) reverse \ # proxy and IMAP/POP3 proxy server # processname: nginx # config: /etc/nginx/nginx.conf # config: /etc/sysconfig/nginx # pidfile: /var/run/nginx.pid # Source function library. . /etc/rc.d/init.d/functions# Source networking configuration. . /etc/sysconfig/network# Check that networking is up. [ "$NETWORKING" = "no" ] &amp;&amp; exit 0nginx="/usr/sbin/nginx"prog=$(basename $nginx)NGINX_CONF_FILE="/etc/nginx/nginx.conf"[ -f /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginxlockfile=/var/lock/subsys/nginxstart() &#123; [ -x $nginx ] || exit 5 [ -f $NGINX_CONF_FILE ] || exit 6 echo -n $"Starting $prog: " daemon $nginx -c $NGINX_CONF_FILE retval=$? echo [ $retval -eq 0 ] &amp;&amp; touch $lockfile return $retval&#125;stop() &#123; echo -n $"Stopping $prog: " killproc $prog -QUIT retval=$? echo [ $retval -eq 0 ] &amp;&amp; rm -f $lockfile return $retvalkillall -9 nginx&#125;restart() &#123; configtest || return $? stop sleep 1 start&#125;reload() &#123; configtest || return $? echo -n $"Reloading $prog: " killproc $nginx -HUPRETVAL=$? echo &#125;force_reload() &#123; restart&#125;configtest() &#123;$nginx -t -c $NGINX_CONF_FILE&#125;rh_status() &#123; status $prog&#125;rh_status_q() &#123; rh_status &gt;/dev/null 2&gt;&amp;1&#125;case "$1" in start) rh_status_q &amp;&amp; exit 0 $1 ;; stop) rh_status_q || exit 0 $1 ;; restart|configtest) $1 ;; reload) rh_status_q || exit 7 $1 ;; force-reload) force_reload ;; status) rh_status ;; condrestart|try-restart) rh_status_q || exit 0 ;; *) echo $"Usage: $0 &#123;start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest&#125;" exit 2esac 赋予脚本执行权限 1chmod +x /etc/init.d/nginx 添加至服务管理列表，设置开机自启。 123chkconfig --add nginxchkconfig --add nginx 启动服务 1service nginx start 在这一步的时候我遇到了一个问题 1[emerg]: getpwnam(“nginx”) failed 解决方法如下： 1useradd -s /sbin/nologin -M nginx 重新启动，访问ip地址，可以发现nginx启动成功。 参考文章搭建 nginx + mysql + php-fpm 环境（CentOS 6） 文件上传不知什么原因，我使用FileZilla一直连不上，然后使用xftp竟然奇迹的连上了。 nginx配置首先我把自己的vue.js使用webpack打包，生成dist目录 1npm run build 然后我在远程服务器上的home目录下建了一个名为bj的目录，把dist目录放到这个目录下 修改目录/etc/nginx/下的nginx.conf文件。找到http模块的server模块，修改location信息 最后访问我的ip: 119.23.12.156，效果如下 当然，这只是我做到一半的东西，上传文件也只是为了测试用，后续会继续完善项目。 总结效果出来的那一刻，我真的很开心！后续的话可能会买个域名，正式上线。]]></content>
+      <categories>
+        <category>毕设</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>linux</tag>
+        <tag>centos</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[学习Gulp的使用]]></title>
+    <url>%2F2017%2F02%2F19%2F20170219gulp%2F</url>
+    <content type="text"><![CDATA[简介Gulp中文网Gulp是一个构建系统，通过执行相应的任务，可以让我们加快前端开发的速度。使用它，我们可以实现压缩文件、js校验、编译预处理css和刷新浏览器等功能。 使用步骤 全局安装gulp 1npm install gulp -g 作为项目的开发依赖安装 新建文件夹，再npm init生成package.json文件，然后安装gulp 1npm install gulp --save-dev 创建gulpfile.js文件 在项目根目录下创建gulpfile.js文件 运行 打开命令行窗口，执行命令gulp API学习gulp，我们首先主要掌握四个API:gulp.src(),gulp.dest(),gulp.task(),gulp.watch()。 Gulp的工作方式是基于流的，大概流程就是你先通过gulp.src()获得相应文件，然后逐步使用pipe()来处理文件，最后用gulp.dest()来指定一个文件夹来存放处理过的文件。 gulp.src()gulp.src()是用来获取文件的。 1gulp.src(globs[, options]) globs参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)。当有多个匹配模式时，该参数可以为一个数组。options为可选参数。通常情况下我们不需要用到。 下面我们了解一下glob的具体使用。 123456789101112131415161718192021* 匹配文件路径中的0个或多个字符，但不会匹配路径分隔符，除非路径分隔符出现在末尾例子：*能匹配a.js,x.y,abc,abc/,但不能匹配a/b.js;*.*能匹配a.js,style.css,a.b,x.y** 匹配路径中的0个或多个目录及其子目录,需要单独出现，即它左右不能有其他东西了。如果出现在末尾，也能匹配文件例子：**能匹配abc,a/b.js,a/b/c.js,x/y/z,x/y/z/a.b,能用来匹配所有的目录和文件;**/*.js能匹配x.js,a/x.js,a/b/x.js,a/b/c/x.js;a/**/z能匹配a/z,a/b/z,a/b/c/z,a/d/g/h/j/k/z;a/**b/z能匹配a/b/z,a/sb/z,但不能匹配a/x/sb/z,因为只有**单独出现才能匹配多级目录? 匹配文件路径中的一个字符(不会匹配路径分隔符)例子：?.js能匹配a.js,b.js,c.jsa??能匹配a.b,abc,但不能匹配ab/,因为它不会匹配路径分隔符[...] 匹配方括号中出现的字符中的任意一个，当方括号中第一个字符为^或!时，则表示不匹配方括号中出现的其他字符中的任意一个例子：[xyz].js只能匹配x.js,y.js,z.js,不会匹配xy.js,xyz.js等,整个中括号只代表一个字符[^xyz].js能匹配a.js,b.js,c.js等,不能匹配x.js,y.js,z.js 当有多种匹配模式时可以使用数组 1gulp.src(['js/*.js','css/*.css','html/*.html']) 使用数组的方还有一个好处就是可以很方便的使用排除模式，在数组中的单个匹配模式前加上!即是排除模式，它会在匹配的结果中排除这个匹配，注意!不能在数组中的第一个元素中使用排除模式 12gulp.src([*.js,'!b*.js']) //匹配所有js文件，但排除掉以b开头的js文件gulp.src(['!b*.js',*.js]) //不会排除任何文件，因为排除模式不能出现在数组的第一个元素中 gulp.dest()gulp.dest()方法是用来写文件的。 1gulp.dest(path[,options]) gulp.dest()传入的路径参数，只能用来指定要生成的文件的目录，而不能指定生成文件的文件名，它生成文件的文件名使用的是导入到它的文件流自身的文件名，所以生成的文件名是由导入到它的文件流决定的，即使我们给它传入一个带有文件名的路径参数，然后它也会把这个文件名当做是目录名，例如： 1234var gulp = require('gulp');gulp.src('script/b.js') .pipe(gulp.dest('dist/a.js'));//最终生成的文件路径为 dist/a.js/b.js,而不是dist/a.js options参数我们通常配置base，base的默认值为通配符开始出现之前那部分路径，比如 12a/**/*.js //此时base会替换aa/b/*.js //此时base会替换a/b 但如果我们设置了自定义参数，就会替换自定义路径。例子： 1234567gulp.src(script/lib/*.js) //没有配置base参数，此时默认的base路径为script/lib //假设匹配到的文件为script/lib/a.js .pipe(gulp.dest('build')) //生成的文件路径为 build/a.jsgulp.src(script/lib/*.js, &#123;base:'script'&#125;) //配置了base参数，此时base路径为script //假设匹配到的文件为script/lib/a.js .pipe(gulp.dest('build')) //此时生成的文件路径为 build/lib/a.js 用gulp.dest()把文件流写入文件后，文件流仍然可以继续使用。 gulp.task()gulp.task()是用来定义任务的。 1gulp.task(name[, deps], fn) 如果我们要执行对应的任务，我们可以在命令行窗口执行gulp taskName。也可以在webstorm可以直接执行。name任务名；deps是当前定义的任务需要依赖的其他任务，为一个数组。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。如果没有依赖，则可省略这个参数；fn为任务函数，我们把任务要执行的代码都写在里面。该参数也是可选的。 123gulp.task('lastTask', ['firstTask', 'secondTask', 'thirdTask', 'forthTask'], function() &#123; // Do something&#125;); 如果我们定义任务名为default，我们可以直接执行gulp，而不用添加任务名就可以了。 gulp.watch()gulp.watch()用来监视文件的变化。如果文件发生变化，我们就可以执行相应的任务。 1gulp.watch(glob[, opts], tasks) glob为要监视的文件匹配模式，规则和用法与gulp.src()方法中的glob相同。opts为一个可选的配置对象，通常不需要用到tasks为文件变化后要执行的任务，为一个数组 1234567gulp.task('one',function()&#123; //do something&#125;);gulp.task('two',function()&#123; //do something&#125;);gulp.watch('js/**/*.js', ['one','two']); 以上例子，如果有任何js文件发生改变，则会执行one和two两个任务。 gulp插件 自动加载插件gulp-load-plugins 重命名gulp-rename js文件压缩gulp-uglify css文件压缩gulp-minify-css html文件压缩gulp-minify-html js代码检查gulp-jshint 文件合并gulp-concat less编译gulp-less和sass编译gulp-sass 图片压缩gulp-imagemin 自动刷新gulp-livereload 参考文章前端构建工具gulpjs的使用介绍及技巧,这是我目前阅读过的最详细的一篇文章。gulp教程之gulp中文API]]></content>
+      <categories>
+        <category>前端工具</category>
+      </categories>
+      <tags>
+        <tag>glup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[兼容性]]></title>
+    <url>%2F2017%2F02%2F17%2F20170217%E5%85%BC%E5%AE%B9%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[问题好多啊！ 兼容性是前端开发不可避免的问题，而且每个公司对此都会有要求，为此，我今天打算花点时间深入了解这个问题。 js兼容文件1234//使IE5,IE6兼容到IE7模式&lt;!–-[if lt IE 7]&gt;&lt;script src=”http://ie7-js.googlecode.com/svn/version/2.0(beta)/IE7.js” type=”text/javascript”&gt;&lt;/script&gt;&lt;![endif]–-&gt; 1234//使IE5,IE6,IE7兼容到IE8模式&lt;!–-[if lt IE 8]&gt;&lt;script src=”http://ie7-js.googlecode.com/svn/version/2.0(beta)/IE8.js” type=”text/javascript”&gt;&lt;/script&gt;&lt;![endif]–-&gt; 1234//使IE5,IE6,IE7,IE8兼容到IE9模式&lt;!–-[if lt IE 9]&gt;&lt;script src=”http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js”&gt;&lt;/script&gt;&lt;![endif]–-&gt; 强制渲染主要格式 1&lt;meta http-equiv="X-UA-Compatible" content="某种模式"&gt; 例子： 12345678910111213141516//强制使用IE7模式来解析网页代码！&lt;meta http-equiv=X-UA-Compatible content="IE=EmulateIE7"&gt; //Google Chrome Frame也可以让IE用上Chrome的引擎&lt;meta http-equiv=“X-UA-Compatible” content=“chrome=1″ /&gt; //强制使用IE7模式来解析&lt;meta http-equiv=“X-UA-Compatible” content=“IE=EmulateIE7″&gt;&lt;meta http-equiv=“X-UA-Compatible” content=“IE=7″&gt;&lt;!– IE7 mode –&gt; //强制使用IE6或IE5模式来解析&lt;meta http-equiv=“X-UA-Compatible” content=“IE=6″&gt;&lt;!– IE6 mode –&gt; &lt;meta http-equiv=“X-UA-Compatible” content=“IE=5″&gt; //一个特定版本的IE支持所要求的兼容性模式多于一种&lt;meta http-equiv=“X-UA-Compatible” content=“IE=5; IE=8″ /&gt; 条件注释可以根据不同的条件注释，引入不同的代码 1234//例子&lt;!--[if IE 7]&gt;引入代码&lt;![endif]--&gt; 一些判断符号：lte – 小于等于lt – 小于gte – 大于等于gt – 大于! – 不等于 超链接访问过后hover样式就不出现被点击访问过的超链接样式不在具有hover和active了,解决技巧是改变CSS属性的排列顺序: L-V-H-A 123456&lt;style type="text/css"&gt;a:link &#123;&#125; a:visited &#123;&#125; a:hover &#123;&#125; a:active &#123;&#125; &lt;/style&gt; web标准中IE无法设置滚动条颜色解决办法将body换成html 123456789html &#123; scrollbar-face-color:#f6f6f6; scrollbar-highlight-color:#fff; scrollbar-shadow-color:#eeeeee; scrollbar-3dlight-color:#eeeeee; scrollbar-arrow-color:#000; scrollbar-track-color:#fff; scrollbar-darkshadow-color:#fff; &#125; li中内容超过长度后以省略号显示此技巧适用与IE、Opera、safari、chrom浏览器，FF暂不支持 1234567li &#123; width:200px; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden; &#125; 清除浮动我一般使用的是 123456.clearfix:after &#123; content:"."; display:block; height:0; clear:both; visibility:hidden; &#125; IE不识别min如果只用宽度和高度，正常的浏览器里这两个值就不会变，如果只用min-width和min-height的话，IE下面根本等于没有设置宽度和高度。解决 12345678#box&#123; width: 80px; height: 35px;&#125;html&gt;body #box&#123; width: auto; height: auto; min-width: 80px; min-height: 35px;&#125; 或使用js 12#container&#123; min-width: 600px; width:expression(document.body.clientWidth &lt; 600 ? "600px" : "auto" );&#125; 还有通用写法 123456#container &#123; background:#ccc; min-height:100px; height:auto !important; height:100px; overflow:visible;&#125; 经典的双边距bug设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。解决方案是在这个div里面加上display:inline; 1234#imfloat&#123; float:left; margin:5px; display:inline;&#125; 盒模型浏览器识别符Firefox: -moz-Safari: -webkit-Opera: -o-IE: -ms- css hackcss hack可以另起一章了。 css透明12345filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60); //IE6filter: alpha(opacity=80); //IEopacity:0.6; //通用 opacity 透明，子元素会继承透明属性。解决方式：1、使用 background:rgba(0,0,0,.6) //IE8及以下无效果。 2、使用定位，背景色与子元素处于同级关系。 pointercursor:hand和cursor:pointerfirefox不支持hand，但ie支持pointer解决方法:统一使用pointer 事件委托方法问题说明：IE下，使用document.body.onload = inject; 其中function inject()在这之前已被实现；在Firefox下，使用document.body.onload = inject();解决方法：统一使用document.body.onload=new Function(’inject()’); 或者document.body.onload = function(){} event.srcElement问题问题说明：IE下，even对象有srcElement属性，但是没有target属性；Firefox下，even对象有target属性，但是没有srcElement属性。解决方法：使用 1srcObj = event.srcElement ? event.srcElement : event.target; 集合类对象问题问题说明：IE下，可以使用 () 或 [] 获取集合类对象；Firefox下，只能使用 [ ]获取集合类对象。解决方法：统一使用 [] 获取集合类对象。 firefox与IE的父元素(parentElement)的区别IE：obj.parentElementfirefox：obj.parentNode解决方法:因为firefox与IE都支持DOM,因此使用obj.parentNode。 event.x与event.y问题问题说明:IE下,event对象有x,y属性,但是没有pageX,pageY属性;Firefox下,event对象有pageX,pageY属性,但是没有x,y属性.解决方法：使用mX(mX = event.x ? event.x : event.pageX;)来代替IE下的event.x或者Firefox下的event.pageX. const问题问题说明:Firefox下,可以使用const关键字或var关键字来定义常量;IE下,只能使用var关键字来定义常量.解决方法：统一使用var关键字来定义常量. HTML对象获取问题FireFox：document.getElementById(“idName”);ie:document.idname或者document.getElementById(“idName”).解决办法：统一使用document.getElementById(“idName”); 做个小总结：可以看出，很多firefox支持的，ie也支持，但反过来则不然，所以我们只要尽量遵守firefox的规则，到了真正遇到ie不支持时，我们对其进行判断是ie的属性还是firefox的属性，然后将它们其中之一赋给一个变量，然后调用这个变量即可。 更多详细参考：47种常见的浏览器兼容性问题大汇总也谈兼容性——通用hack方法/CSS兼容方案/js兼容方案全推送]]></content>
+      <tags>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用mongoose遇到的问题]]></title>
+    <url>%2F2017%2F02%2F08%2F20170208mongoose%2F</url>
+    <content type="text"><![CDATA[今后我们把使用mongoose时所遇到的问题都归纳到这里。 多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构 12345prd_img_srcprd_skuprd_priceprd_urlprd_name 然而我只想取这几个collection中的一个，那我要如何做呢？ 回忆之前的文章，使用mongoose需要使用到几个知识点：schema,model,entity。在models.js中定义Model这一步时，普通的是 123456789var _JD = new Schema(&#123; prd_img_src: String, prd_sku: String, prd_price: String, prd_url: String, prd_name: String&#125;);exports.JD = mongoose.model('JD', _JD); 然而这次我们需要使用到collection的名字来定义model， 1exports.JD = mongoose.model('JD', _JD, 'test_20170206'); 上述代码可以帮我渠道名为“test_20170206”的collection。]]></content>
+      <categories>
+        <category>毕设</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sticky footers]]></title>
+    <url>%2F2017%2F02%2F08%2F20170208stickyFooter%2F</url>
+    <content type="text"><![CDATA[什么是Sticky footers布局简单地说，就是如果页面不够长的时候，页脚块粘贴在视窗底部；如果内容足够长时，页脚块会被内容向下推送。 解决方案举个例子 12345678910111213141516171819202122//html部分&lt;header&gt; &lt;h1&gt;这是头区域部&lt;/h1&gt;&lt;/header&gt;&lt;main&gt;这是内容区域。&lt;/main&gt;&lt;footer&gt; &lt;p&gt;这是底区域部&lt;/p&gt;&lt;/footer&gt;//css部分，添加基本样式*&#123; margin:0; padding:0;&#125;header&#123; border-bottom:2px solid #333;&#125;footer&#123; width:100%; height:200px; background-color:#333; color:#fff;&#125; 如图 这里我主要使用flexbox来解决问题。添加样式 123456body &#123; display: flex; flex-flow: column; min-height: 100vh; &#125; main &#123; flex: 1; &#125; 效果如下：sticky footer布局已完成。 话说vh是什么单位啊？原来 1vh是相对于视窗的高度，视窗高度是100vh;相应也有100vw。 参考文章]]></content>
+      <categories>
+        <category>网页布局</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[设置height:100%;问题]]></title>
+    <url>%2F2017%2F02%2F07%2F20170207height100%2F</url>
+    <content type="text"><![CDATA[当你设置一个页面元素的高度(height)为100%时，期望这样元素能撑满整个浏览器窗口的高度，但大多数情况下，这样的做法没有任何效果。我今天就遇到了这样的情况。 原因：根据W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度。所以，如果你把一个div的高度设定为height: 50%;，而它的父元素的高度是100px，那么，这个div的高度应该是50px。 举个例子： 1234&lt;div class="main"&gt; &lt;div class="left"&gt;left&lt;/div&gt; &lt;div class="right"&gt;right&lt;/div&gt;&lt;/div&gt; 错误的样式示例如下 123456789101112*&#123; margin:0; padding:0;&#125;.main&#123; display:flex; flex-direction:row;&#125;.left&#123; width:300px; height:100%; background-color:orange;&#125;.right&#123; flex:1;&#125; 效果： 解决方法：如果想让一个元素的百分比高度height:100%;起作用，你需要给这个元素的所有父元素的高度设定一个有效值。 正确示例： 1234567891011121314151617*&#123; margin:0; padding:0;&#125;html&#123; height:100%;&#125;body&#123; height:100%;&#125;.main&#123; display:flex; flex-direction:row; height:100%;&#125;.left&#123; width:300px; height:100%; background-color:orange;&#125;.right&#123; flex:1;&#125; 效果：有效果了！可以看到，需要给div.left的每一个父元素都添加高度才行。]]></content>
+      <categories>
+        <category>网页布局</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[立即执行函数]]></title>
+    <url>%2F2017%2F02%2F06%2F20170206%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[两种常见的立即执行函数写法： 123(function()&#123;&#125;());(function()&#123;&#125;)(); 以下是错误写法： 1function()&#123;&#125;(); 概念在了解立即执行函数之前，学习一些概念：函数声明、函数表达式、匿名函数。 函数声明1function fnName()&#123;&#125;; 声明一个有函数名的函数 函数表达式1var fnName = function()&#123;&#125;; 声明一个没有函数名的函数，并将函数赋给一个变量 匿名函数1function()&#123;&#125; 声明一个函数，但该函数没有函数名 差异一、js引擎在解析javascript代码时会‘函数声明提升’当前执行环境（作用域）上的函数声明，而函数表达式必须等到js引擎执行到它所在行时，才会从上而下一行一行地解析函数表达式。举个例子 123456789a();function a()&#123; console.log('a');&#125;;b();var b = function()&#123; console.log('b');&#125;; 上述这段代码输出的结果是： 12aUncaught TypeError: b is not a function(…) 使用函数声明生成的函数，可以在函数声明前就调用，而函数表达式则不行。 二、函数表达式后面可以加括号立即调用该函数，函数声明不可以，只能以fnName()形式调用。 示例1234567891011121314151617181920212223(function(a)&#123; console.log(a);&#125;(123));(function(a)&#123; console.log(a);&#125;)(124);!function(a)&#123; console.log(a);&#125;(125);+function(a)&#123; console.log(a);&#125;(126);-function(a)&#123; console.log(a);&#125;(127);var fn = function(a)&#123; console.log(a);&#125;(128); 以上都能成功输出结果。可以看到在function前添加特定的运算符都可以达到立即执行的效果。因为某些运算符可以消除js引擎识别函数表达式和函数声明的歧义，告诉javascript引擎这是一个函数表达式，不是函数声明。 作用在多人开发时，为了避免污染全局环境，可以使用立即执行函数。根据js的函数作用域，函数内部可以访问函数外的的变量，而函数外则访问不了函数内的变量和方法。我们使用匿名函数创建了一个容器，我们在容器里的变量不会与外部变量冲突，相当于一个私有作用域。看一个经典例子： 123456789101112html部分&lt;button&gt;1&lt;/button&gt;&lt;button&gt;2&lt;/button&gt;&lt;button&gt;3&lt;/button&gt;js部分var btn = document.getElementsByTagName("button");for(var i = 0; i &lt; btn.length; i++)&#123; btn[i].onclick = function()&#123; console.log(i); &#125;;&#125; 刚开始学习都会以为依次输出0、1、2。其实结果是输出三次3。解决办法则可以用到刚才说的立即执行函数。 12345678var btn = document.getElementsByTagName("button");for(var i = 0; i &lt; btn.length; i++)&#123; (function(i)&#123; btn[i].onclick = function()&#123; console.log(i); &#125;; &#125;)(i);&#125; 更深入的以后再说喽。]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Express的简单使用]]></title>
+    <url>%2F2017%2F02%2F03%2F20170203express%2F</url>
+    <content type="text"><![CDATA[简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express 注意！在npm init这一步时，会让你指定入口文件，默认是index.js，可以修改为自定义的，我的是app.js。 创建实例进入刚才创建的目录，新建入口文件app.js。此时文件目录如下：在app.js中添加以下代码 12345678910var express = require('express');var app = express();app.get('/', function(req, res)&#123; res.send('Hello Express');&#125;);app.listen(3000, function()&#123; console.log('Success');&#125;); 运行app.js 1node app.js 打开浏览器，访问地址，效果如下 路由路由的定义由如下结构组成：app.METHOD(PATH, HANDLER)。其中，app 是一个 express 实例；METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。以get为例，在刚才的app.js基础上添加 123app.get('/a', function(req, res)&#123; res.send('This is a page');&#125;); 重新运行app.js，效果如下 静态文件通过 Express 内置的 express.static 可以方便地托管静态文件，比如html、css、js、图片等。假设我新建了一个public目录，在目录下我放了一张图片a.jpg。使用 1app.use(express.static('public')); 重新运行，访问http://localhost:3000/a.jpg，查看效果 如果静态资源存放在多个目录下面，你可以多次调用express.static 中间件。访问静态资源文件时，express.static中间件会根据目录添加的顺序查找所需的文件。比如我在新增的public2目录下放了一张新图，我同样命名为a.jpg在原来基础上使用 12app.use(express.static('public2')); //放在public前app.use(express.static('public')); 重新运行，访问http://localhost:3000/a.jpg，查看效果可见的确是按顺序加载的。 如果你希望所有通过express.static访问的文件都存放在一个“虚拟（virtual）”目录（即目录根本不存在）下面，可以通过为静态资源目录指定一个挂载路径的方式来实现。假设虚拟目录名为vr，如下所示： 1app.use('/vr', express.static('public')); 效果如第一张图所示。]]></content>
+      <categories>
+        <category>毕设</category>
+      </categories>
+      <tags>
+        <tag>nodejs</tag>
+        <tag>express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flex布局]]></title>
+    <url>%2F2017%2F01%2F22%2F20170122flex%2F</url>
+    <content type="text"><![CDATA[简介不管是在学习vue，还是在学习微信小程序的时候，我都接触到了flex布局。所以今天打算认真学一下。 Flexflex是css3的样式，意为“弹性布局”。通过display:block使用。行内元素通过display:inline-block使用。使用了flex布局，子元素的float、clear和vertical-align属性将失效。 概念为了方便学习，我们称采用了flex布局的父元素为容器。它的子元素称为项目。容器默认有两根轴，水平方向的称为主轴，垂直方向的称为交叉轴。 属性容器属性属于容器的属性有6个 123456flex-direction //决定项目排列方向flex-wrap //换行flex-flow //上两个的结合justify-content //主轴排列align-items //交叉轴排列align-content flex-directionflex-direction有4个值： 123.xxx&#123; flex-direction:row | row-reverse | column | column-reverse;&#125; 1234row //从左向右row-reverse //从右向左column //从上向下column-reverse //从下向上 flex-wrapflex-wrap有3个值 123.xxx&#123; flex-wrap: nowrap | wrap | wrap-reverse;&#125; 123nowrap //不换行wrap //从左上角开始自动向下换行wrap-reverse //从左下角开始自动向上换行 举个例子：我的初始布局当我还未添加flex-wrap属性时，再添加一个项目可以看到项目不会自动换行，这也对应了第一个值nowrap，就是说我们需要flex-wrap: nowrap完全可以不用写。wrap:wrap-reverse: flex-flowflex-flow属性是flex-direction属性和flex-wrap属性的简写形式。默认值row nowrap。感觉有了这个上面两个有点多余。例子： 1flex-flow: row wrap; justify-contentjustify-content属性定义了项目在主轴上的对齐方式，它有5个值。 123.xxx&#123; justify-content: flex-start | flex-end | center | space-between | space-around;&#125; 12345flex-start（默认值） //左对齐flex-end //右对齐center //居中space-between //两端对齐，项目之间的间隔都相等。space-around //每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。 flex-start: flex-end: center: space-between: space-around: align-itemsalign-items属性定义项目在交叉轴上如何对齐，也有5个值。 123.xxx&#123; align-items: flex-start | flex-end | center | baseline | stretch;&#125; 12345flex-start //交叉轴的起点对齐。flex-end //交叉轴的终点对齐。center //交叉轴的中点对齐。baseline //项目的第一行文字的基线对齐。stretch（默认值）//如果项目未设置高度或设为auto，将占满整个容器的高度。 flex-start: flex-end: center: baseline:不试了，懒得写text stretch： align-contentalign-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。说实话，不是很理解。我觉得应该是主轴和交叉轴的综合，就像flex-flow，综合了flex-direction和flex-wrap。 123.xxx&#123; align-content: flex-start | flex-end | center | space-between | space-around | stretch;&#125; 123456flex-start //与交叉轴的起点对齐。flex-end //与交叉轴的终点对齐。center //与交叉轴的中点对齐。space-between //与交叉轴两端对齐，轴线之间的间隔平均分布。space-around //每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。stretch（默认值）//轴线占满整个交叉轴。 项目属性属于项目的属性有6个 123456order //排列顺序flex-grow flex-shrinkflex-basisflexalign-self orderorder属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。 123.xxxx&#123; order: integer;&#125; flex-growflex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。 123.xxxx&#123; flex-grow: &lt;number&gt;;&#125; flex-shrinkflex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。 123.xxxx&#123; flex-shrink: &lt;number&gt;;&#125; flex-basisflex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。 123.xxxx&#123; flex-basis: &lt;length&gt; | auto;&#125; flexflex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。 123.xxx&#123; flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]&#125; align-selfalign-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch 123.xxxx&#123; align-self: auto | flex-start | flex-end | center | baseline | stretch;&#125; 总结项目的属性理解起来比容器难。 参考文章]]></content>
+      <categories>
+        <category>网页布局</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序入门（3）]]></title>
+    <url>%2F2017%2F01%2F20%2F20170120wechat3%2F</url>
+    <content type="text"><![CDATA[微信小程序之数据传递特定元素上的数据获取这种情况最常见于点击某个对象，通过获取该对象的id请求api获取该对象的详细数据。我们来看一下如何获取点击对象的数据。 事先准备：先建两个页面hello和world，通过点击hello页面上的按钮跳转到world页面。 数据获取步骤： 对组件通过data-xxx="xxx"赋值 通过event.currentTarget.dataset.xxx或event.target.dataset.xxx获值 在我的例子中，我现在hello.wxml页面中添加 12&lt;button data-id="a" bindtap="toWorld"&gt;A跳转到world页面&lt;/button&gt;&lt;button data-id="b" bindtap="toWorld"&gt;B跳转到world页面&lt;/button&gt; 在hello.js中添加 1234567Page(&#123; data:&#123;&#125;, toWorld: function(event)&#123; var id = event.currentTarget.dataset.id; console.log(id); &#125;&#125;) 我分别点击两个按钮。 页面跳转数据传递继续使用上述例子，在hello.js中添加跳转功能，在跳转时传递数据 123456789Page(&#123; data:&#123;&#125;, toWorld: function(event)&#123; var id = event.currentTarget.dataset.id; wx.navigateTo(&#123; url: '../world/world?id=' + id &#125;) &#125;&#125;) ?后面写完参数记得加=，我发现自己老是忘记，然后找了半天为什么数据没有传输成功。 我们看一下官方文档所以我们在world.js中添加 123456789Page(&#123; data:&#123;&#125;, onLoad:function(options)&#123; var id = options.id; this.setData(&#123; id: id &#125;); &#125;,&#125;) 然后在world.wxml中修改一下页面 1234&lt;text&gt;World页面&lt;/text&gt;&lt;view&gt; &lt;text&gt;&#123;&#123;id&#125;&#125;&lt;/text&gt;&lt;/view&gt; 重新编译，测试结果。 模板数据的传递主要是在template中使用 1data="&#123;&#123;数据&#125;&#125;" 获取数据 这里我们就自定义数据。在hello.js中添加 123456789onLoad: function(options)&#123; var content = &#123; title: "模板标题", desc: "模板描述" &#125;; this.setData(&#123; content: content &#125;);&#125; 模板的生成与引用 先建个模板，随便起名，我的叫content。在content-template.wxml中添加 12345678&lt;template name="contentTemplate"&gt; &lt;view&gt; &lt;text&gt;&#123;&#123;title&#125;&#125;&lt;/text&gt; &lt;/view&gt; &lt;view&gt; &lt;text&gt;&#123;&#123;desc&#125;&#125;&lt;/text&gt; &lt;/view&gt;&lt;/template&gt; 在hello.js中引用模板，别忘了import 1&lt;template is="contentTemplate" data="&#123;&#123;...content&#125;&#125;" /&gt; 我们可以看到使用 1data="&#123;&#123;&#125;&#125;" 这里的三个点…是指展开该数据对象，这样我们就可以在模板中直接数据绑定对象里的key。 大小写在“特定元素上的数据获取”章节中，我们使用了event.currentTarge.dataset.id，如果我们在wxml中使用了驼峰式的命名方法，那应该如何取值呢？很多人第一反应是也是用驼峰式，其实不是，要使用全部小写的方式。重建一个项目，跟上一个差不多在hello.js中，错误写法 1234getId: function(event)&#123; var postId = event.currentTarget.dataset.postId; console.log(postId);&#125; 这时控制台输出的结果是undefined。需要改为 1234getId: function(event)&#123; var postId = event.currentTarget.dataset.postid; console.log(postId);&#125; 这时才能正确取值。 currentTarget与target区别： event.currentTarget返回绑定事件的元素 event.target返回触发事件的元素 我们已经接触过第一个，它返回绑定事件的元素，比如我在button中注册了一个onMyTap事件，那在js中的onMyTap(event)中的event.currentTarget指的就是绑定了该事件的button对象。那第二个呢？举个例子：修改hello.wxml为 12345678910&lt;view&gt; &lt;swiper catchtap="onSwiperTab"&gt; &lt;swiper-item&gt; &lt;button data-id="a"&gt;按钮A&lt;/button&gt; &lt;/swiper-item&gt; &lt;swiper-item&gt; &lt;button data-id="b"&gt;按钮B&lt;/button&gt; &lt;/swiper-item&gt; &lt;/swiper&gt;&lt;/view&gt; 在hello.js中 1234onSwiperTab:function(event)&#123; var id = event.target.dataset.id; console.log(id);&#125; 我们发现绑定事件的元素是swiper父组件，而触发事件的是其子组件swiper-item，因此target的作用就是如此。]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>javascript</tag>
+        <tag>xml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序入门（2）]]></title>
+    <url>%2F2017%2F01%2F19%2F20170119wechat2%2F</url>
+    <content type="text"><![CDATA[今天继续介绍接触到的内容。 新建文件上次说到了手动新建四种类型文件，然后在app.json里注册。其实小程序提供给我们一种快捷的新建文件的方式——直接在app.json里注册完保存，就能直接生成文件。优点：快；缺点：一不小心写错保存后需要删除重建或重命名。 跳转选项卡页面当我们需要用到有选项卡的页面时，需要先注册。我先建了三个页面welcome、hello和world。 123456789101112"tabBar":&#123; "list":[ &#123; "pagePath": "pages/hello/hello", "text": "Hello页面" &#125;, &#123; "pagePath": "pages/world/world", "text": "World页面" &#125; ]&#125; 与pages注册顺序相似，在list中的第一项是跳转后默认页面。当我们需要跳转到带有选项卡的页面时，不能使用wx.nagvigateTo()或wx.redirecTo()，而应该使用wx.switchTab()。在启动页面welcome中添加跳转方法，我的是onSwitchTap，再在welcome.js里添加该方法 1234567Page(&#123; onSwitchTab: function()&#123; wx.switchTab(&#123; url: '../hello/hello' &#125;) &#125;&#125;) 如图 wx.navigateTo()与wx.redirectTo()这两者的区别是：使用wx.navigateTo()可以返回，使用wx.redirectTo()不能返回。我们先建一个测试页面A页面，然后分别测试使用wx.navigateTo()使用wx.redirectTo()很明显可以看到顶部的返回按钮的有无。 数据绑定因为之前接触过vue.js这种mvvm框架，所以看到数据绑定有种熟悉的感觉。首先我们在js文件里初始化数据 12345Page(&#123; data:&#123; text: "hello 页面" &#125;&#125;) 在wxml文件中绑定数据 123&lt;view&gt; &lt;text&gt;&#123;&#123;text&#125;&#125;&lt;/text&gt;&lt;/view&gt; 当我们需要修改数据时，在对应的函数中添加 1234this.setData(&#123; //相应的数据 key:value&#125;); 全局变量我们可以在app.js中添加全局变量 123App(&#123; globalText: 'Global'&#125;) 然后在需要的页面，比如我是hello页面 123456var app = getApp();Page(&#123; data:&#123; text: app.globalText &#125;&#125;) 当我打开hello页面，就可以看到Global。 模板最好先建一个文件夹，作为模板的文件夹。该目录下只需要wxml和wxss两种文件。比如我先建一个title文件夹在wxml文件中 123&lt;template name="titleTemplate"&gt; &lt;text class="title"&gt;Title模板&lt;/text&gt;&lt;/template&gt; 在wxss文件中 12345.title&#123; display: block; font-weight: bold; font-size: 50rpx;&#125; 假设我在hello中引用该模板,现在wxml文件中 12345&lt;import src="../title/title-template.wxml" /&gt;&lt;view&gt; &lt;text&gt;&#123;&#123;text&#125;&#125;&lt;/text&gt; &lt;template is="titleTemplate" /&gt;&lt;/view&gt; 再在wxss文件中 1@import "../title/title-template.wxss"; 效果总结： 先创建模板文件，需要wxml文件和wxss文件 在模板wxml文件中使用 1&lt;template name="模板名"&gt;&lt;/template&gt; 在需要引用模板的文件中使用 1&lt;import src="模板路径" /&gt; 注意最后要有 / 引用完使用 1&lt;template is="模板名" /&gt; 同理wxss文件也要引用 1@import "模板样式路径"; 组件到目前为止，我用过的组件有 1view,scroll-view,swiper,icon,text,button,input,image 还有很多组件没接触到，之后细看。]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>javascript</tag>
+        <tag>xml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序入门]]></title>
+    <url>%2F2017%2F01%2F13%2F20170113wechat%2F</url>
+    <content type="text"><![CDATA[简介微信小程序，是一种不需要下载安装即可使用的应用。理论上是不需要下载，但实际还是会下载的，只是因为它的体积太小了（限制在1m），跟我们平时浏览大网页没什么区别，因此我们感觉不到而已。 入门安装 首先去官网中的工具页面下载开发者工具。 打开开发者工具，选择“本地小程序项目”,创建项目，本人无AppID，选“无AppID”选项，没有id的话，很多东西会受限制。个人也申请不了id，想哭。 填写完项目信息，可以选择勾不勾选quick start选项，选了它会帮你自动创建，没选就需要自己手动创建文件。我先不选。 创建页面 在根目录下创建三个文件app.js,app.wxss,app.json，似乎这三个文件必须这样命名。app.js是小程序脚本，app.wxss是小程序的全局样式，app.json是小程序的全局配置信息。 新建一个pages文件夹，文件夹下再建两个文件夹welcome,show，再分别在两个文件夹下建立对应的js文件，wxss文件，wxml文件，json文件，这些文件的命名要统一。结构如下 填写信息 我们在建文件的过程中，会发现开发者工具会一直提示错误，原因在于我们没有给app.json填写配置信息。打开app.json,写入123456&#123; "pages": [ "pages/welcome/welcome", "pages/show/show" ]&#125; 我们并不需要写文件的后缀，系统会自动加载所有同名的文件。这里的pages里注册的内容顺序是有用的，系统会把第一个作为项目的启动页面，也就是说我们的welcome.wxml页面会成为系统的启动页。如果我们把pages/show/show放在第一行，那show.wxml就会成为启动页面。 更多配置信息见官方文档。 如果我们在控制台遇到以下信息说明我们的json文件里没有任何内容，我们至少需要在每一个新建的json文件里加上 1&#123;&#125; 嗯，没有看错，就是一新建就写上{}，后续有什么新内容在需要时再添加。顺带一提，js文件也是如此，一新建就添加 1Page(&#123;&#125;) 否则会出现以下类似错误不过app.js不需要以上操作。 常见标签只说目前为止我用过的吧 12345678&lt;view&gt;视图&lt;/view&gt;&lt;text&gt;文本&lt;/text&gt;&lt;image&gt;图片&lt;/image&gt;&lt;swiper&gt; &lt;swiper-item&gt;轮播图&lt;/swiper-item&gt;&lt;/swiper&gt;&lt;block&gt;块&lt;/block&gt;&lt;template&gt;模板&lt;/template&gt; 样式比较值得一提的是小程序中的rpx，它会基于屏幕的大小进行自适应，而且是基于iphone6的标准。这个单位真的很方便，不像以前需要自己用media query进行适配。 模板之前说过了，使用template标签，然后需要用到模板的地方需要引入，采用了import的方式，比如 1&lt;import src="模板路径"/&gt; 注意，路径采用相对路径；import最后有个/一般文件没有显示，先检查路径是应该用绝对还是相对吧，挺坑的。 事件添加事件需要在事件前加bind或catch。比如我要加点击事件，移动端是tap，就如下 1&lt;view bindtap="add"&gt;&lt;/view&gt; 然后在js文件里 1234Page(&#123; add:function()&#123; &#125;&#125;) 那bindtap和catchtap有什么区别呢？用bind添加的事件会触发冒泡，所以当我们需要阻止事件冒泡时，就用catch。 先到这里，深入的之后再说吧。]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>javascript</tag>
+        <tag>xml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在vue-cli构建的项目中使用bootstrap]]></title>
+    <url>%2F2017%2F01%2F08%2F20170108vuewithbootstrap%2F</url>
+    <content type="text"><![CDATA[生成项目文件首先使用vue-cli生成一个项目，假设项目名为hello 1vue init webpack hello 注意！本来使用eslint来检查代码格式是挺好的，但我发现使用了之后，安装jq插件会出现一堆问题，所以我们先不安装eslint，当然先安装也可以，后面也还可以设置。这里我们先添加。 添加bootstrap文件下载bootstrap文件包，然后把css、js、fonts三个文件夹复制到项目src/assets目录下 安装jquery1234cnpm install jquery --save-devcnpm install style-loader --save-dev cnpm install css-loader --save-dev cnpm install file-loader --save-dev 网上资料是npm install jquery --save-dev，不过我觉得npm install jquery --save比较合适。 修改webpack文件修改build文件夹下面的webpack.base.conf.js文件，让其支持外部的css和js，首先打开文件后在头部加入 1var webpack = require('webpack') 然后在 123entry: &#123; app: './src/main.js'&#125; 后面添加 1234567plugins: [ new webpack.ProvidePlugin(&#123; $: "jquery", jQuery: "jquery", "windows.jQuery": "jquery" &#125;)] 在alias中多添加一条记录 1234567alias: &#123; 'vue$': 'vue/dist/vue.common.js', 'src': path.resolve(__dirname, '../src'), 'assets': path.resolve(__dirname, '../src/assets'), 'components': path.resolve(__dirname, '../src/components'), jquery: "jquery/src/jquery"&#125; main.js打开main.js文件，添加 12import './assets/css/bootstrap.min.css'import './assets/js/bootstrap.min' 保存完成后，重启服务 1npm run dev 错误如果报错js文件格式不匹配不能通过webpack的格式检查，我们需要修改webpack.base.conf.js文件，找到preLoaders修改 123456&#123; test: /\.js$/, loader: 'eslint', include: projectRoot, exclude: /node_modules/&#125; 为 123456&#123; test: /\.js$/, loader: 'eslint', include: projectRoot, exclude: [/node_modules/,/js/]&#125; 保存完重新启动服务。 好了，最后如果还出现很多eslint格式检查错误，可以把上一步preLoads的内容全部删掉。删掉之后我们就不会使用eslint校验。 下面我用了本地Mongodb来测试。本地nodetes1数据库中的usercollection表中有5条记录。启动服务，查看浏览器页面发现，bootstap样式应用成功，记录也成功显示！ 参考博文]]></content>
+      <categories>
+        <category>毕设</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>webpack</tag>
+        <tag>bootstrap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[--save-dev 与 --save区别]]></title>
+    <url>%2F2017%2F01%2F07%2F20170107npmInstall%2F</url>
+    <content type="text"><![CDATA[最近安装一些npm包的时候，有些需要添加--save-dev，二有些需要添加--save，而有些呢则直接npm install。这些到底有什么区别呢？ 举个例子，我用vue-cli构建了一个webpack项目，项目目录下有个package.json文件，我们打开这个文件看一下。可以看到文件中有dependencies和devDependencies这两个字段。通过网上查阅资料，知道了devDependencies里的是用于开发环境的，即我们平时开发时用的，dependencies里的是用于生产环境的，即我们开发完上线时需要的。 好，接下来我们就来说一下npm install不同的结果。假设我们有个npm包名字叫hello吧。 npm install hello 会把hello包安装到node_modules目录中 不会修改package.json 之后运行npm install命令时，不会自动安装hello npm install hello –save 会把hello包安装到node_modules目录中 会在package.json的dependencies属性下添加hello 之后运行npm install命令时，会自动安装hello到node_modules目录中 npm install hello –save-dev 会把hello包安装到node_modules目录中 会在package.json的devDependencies属性下添加hello 之后运行npm install命令时，会自动安装hello到node_modules目录中 总结只是开发时需要用到的就--save-dev，比如eslint等，而上线后仍然需要用到的就--save，比如jquery等。]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>npm</tag>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[express+mongodb]]></title>
+    <url>%2F2017%2F01%2F03%2F20170103mongodb%2F</url>
+    <content type="text"><![CDATA[最近几天想把毕设的基本工作做好。因为我和Parter做的是一个网购比价网站，他使用的是mongodb作为数据库，而我也不用怎么操作数据。我打算使用前后端分离来完成项目，后端获取数据，传递json数据到前端，前端展示这些数据就ok了。所以我的第一步当然是尝试从后端获取数据。Parter给我提供了一个远程mongdb的地址，工作开始。 Mongodb数据库的安装官网，找到下载页，选择合适的版本下载。安装时，自定义路径，我使用的是D:\mongodb。 创建文件数据库安装完，需要自己手动建几个文件。在数据库根目录下，建两个目录data、logs，并在data下建db目录，在logs下建mongod.log文件。结构如下 123456-mongodb -bin -data -db -logs mongod.log 启动服务器 第一种方法首先进入bin目录，输入一下命令1mongod.exe --dbpath d:\mongodb\data\db 如果执行成功，应该可以看到一堆不是报错的文字。访问localhost:27017，可以看到说明访问成功。 第二种方法看到网上很多都是说修改config文件，却并不直说先自己建一个config文件。在根目录下建一个mongodb.conf的文件，填入一下信息123456dbpath=D:\mongodb\data\db #数据库路径 logpath=D:\mongodb\logs\mongod.log #日志输出文件路径 logappend=true #错误日志采用追加模式 journal=true #启用日志文件，默认启用 quiet=true #这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false port=27017 #端口号 默认为27017 可以看到，里面定义了数据库的路径以及日志路径等信息，然后输入命令 1mongod --config "D:\mongodb\mongodb.conf" 读取config文件来启动数据库。这次启动成功后，不会出现信息。再次访问localhost:27017，查看是否成功。 网上很多关于“将MongoDB服务器作为Windows服务运行”的教程，我试了一下，有点问题，然后我就不弄了，因为不是必需品。 Robomongo一个管理mongodb的可视化工具，官网。 数据库操作保持刚才启动数据库的命令行窗口，新开一个窗口，进入bin目录，输入mongo这个命令，可以看到一些基本的信息。继续输入 1use nodetest1 表明我们现在要使用nodetest1这个数据库，如果不存在这个数据库，则它会自动创建。下一步，创建数据 12db.usercollection.insert(&#123; "username" : "testuser1", "email" : "testuser1@testdomain.com" &#125;) db表示我们正在使用的数据库nodetest1，usercollection表示数据库下的collecttion，mongodb中的collection相当于一般数据库的table表。回车会看到 1WriteResult(&#123; "nInserted" : 1 &#125;) 输入一下代码： 1db.usercollection.find().pretty() 可以看到清晰的数据展示。 若想要添加多条内容，可以 123456newstuff = [&#123; "username" : "testuser2", "email" : "testuser2@testdomain.com" &#125;, &#123; "username" : "testuser3", "email" : "testuser3@testdomain.com" &#125;]db.usercollection.insert(newstuff); 当然，以上这些操作都可以在robomongo中直接可视化操作。 Express后端使用node来连接数据库，这里我使用了Express来简单的进行demo测试。 安装首先安装nodejs。然后装express 1npm install express-generator -g 再 1express demoname 这时生成一个叫demoname的项目，进入该项目，npm install添加依赖。添加完成后启动。 123cd demonamenpm installnpm start 在本地localhost:3000观察是否成功。 连接mongodbmonkmonk是我使用的第一种方法，因为到后面出现了一些问题，所以我现在使用的是mongoose这种方法。先介绍使用monk吧。 添加依赖 打开刚才新建项目中的package.json文件，在原来的基础上加上mongo和monk的依赖,类似 1234567891011"dependencies": &#123; "body-parser": "~1.15.1", "cookie-parser": "~1.4.3", "debug": "~2.2.0", "express": "~4.13.4", "jade": "~1.11.0", "morgan": "~1.7.0", "serve-favicon": "~2.3.0", "mongodb": "^1.4.4", "monk": "^1.0.1"&#125; 重新npm install 修改app.js 打开项目中的app.js，添加新的代码 123var mongo = require('mongodb');var monk = require('monk');var db = monk('localhost:27017/nodetest1'); 继续添加(一下这段代码好像要放在app.use('/', routes);上面，否则会出错) 12345//连接数据库到路由件app.use(function(req,res,next)&#123; req.db = db; next();&#125;); 编辑index.js 打开项目目录下routes\index.js，为其添加一个路由 12345678910/* GET Userlist page */router.get('/userlist', function (req, res) &#123; var db = req.db; var collection = db.get('usercollection'); collection.find(&#123;&#125;,&#123;&#125;,function (e, docs) &#123; res.render('userlist', &#123; "userlist": docs &#125;); &#125;);&#125;); 添加jade 这里express使用的是jade模板，在views目录下创建userlist.jade文件，内容如下 123456789extends layoutblock content h1. User List ul each user, i in userlist li a(href="#")= user.username 重新npm start，打开localhost:3000/userlist查看是否成功。 mongoose使用这种方法，我终于解决了获取远程数据库数据的问题。之所以使用这种方法，是因为我使用monk时，当我连接远程的数据库，它老是提示我“端口不在范围内”的错误。 这次不是使用express项目来连接了，而是直接写几个文件就ok。 添加模块 首先新建一个目录，在项目目录下安装各模块 12npm install mongoosenpm install express 编辑app.js 在目录下自己创建一个app.js，添加以下内容 123456789101112131415var express = require('express');var mongoose = require('mongoose');var app = express();app.get('/',function(req,res)&#123; res.send('Hello, World');&#125;);var server = app.listen(3000, function () &#123; var host = server.address().address; var port = server.address().port; console.log('Example app listening at http://%s:%s', host, port);&#125;); 在命令行窗口输入 1node app.js 如果没有错误提示，说明启动成功。访问localhost:3000，显示Hello, World 定义models mongoose这玩意儿似乎还有schema,model,entity这些东西，不过我也没认真去看，毕竟我不做后台，只知道schema生成model，要用mongoose就要定义schema和model。项目目录下创建models.js。内容如下 1234567891011var mongoose = require('mongoose');var Schema = mongoose.Schema;var _Movie = new Schema(&#123; movieInfo: String, title: String, star: Array, quote: String&#125;);exports.Movie = mongoose.model('Movie', _Movie); 我事先先看了一下远程数据库中的数据结构，然后定义如上。 添加路由 重新打开app.js，将其改为如下，新添加 1234var models = require('./models');var Movie = models.Movie;mongoose.connect('mongodb://118.89.48.117:27017/Douban'); 和 12345app.get('/movie',function(req,res)&#123; Movie.find(function(err, doc) &#123; res.json(doc); &#125;);&#125;); 最终如下： 12345678910111213141516171819202122232425var express = require('express');var mongoose = require('mongoose');var models = require('./models');var Movie = models.Movie;mongoose.connect('mongodb://118.89.48.117:27017/Douban');var app = express();app.get('/',function(req,res)&#123; res.send('Hello Remote Link');&#125;);app.get('/movie',function(req,res)&#123; Movie.find(function(err, doc) &#123; res.json(doc); &#125;);&#125;);var server = app.listen(3000, function () &#123; var host = server.address().address; var port = server.address().port; console.log('Example app listening at http://%s:%s', host, port);&#125;); 此时我访问localhost:3000/movie，效果如下使用jsonview插件的效果如下谢天谢地，终于访问成功了，不枉我花了一两天来解决这玩意儿，只怪自己笨吧！。在此，非常感谢Express + Mongoose 极简入门这篇博客，这是阅读了这篇博客，才让我有了头绪。解决了这个问题，心中的郁闷感也渐渐消退，果然像某人说的一样，解决不了的问题先放一放，睡个觉醒来说不定就有头绪了。由衷地感激这位开导我的人！此时1:39，晚安！ 新添加内容：最近因为安全问题，小伙伴重新建了数据库，还帮我换了用户名和密码，我发现直接再连的话是连不上的，需要添加用户名和密码，格式如下： 1mongoose.connect('mongodb://用户名:密码@数据库地址:端口号/数据库名);]]></content>
+      <categories>
+        <category>毕设</category>
+      </categories>
+      <tags>
+        <tag>mongodb</tag>
+        <tag>nodejs</tag>
+        <tag>express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue2.0的变化]]></title>
+    <url>%2F2017%2F01%2F01%2F20170101vue2%2F</url>
+    <content type="text"><![CDATA[元旦快乐！ 因为学习vue的视频讲解使用的是1.x的版本，而vue-cli当初默认下载的是vue2.0的版本，所以在学习过程中，会发现有许多东西都发生了改变，今天我就写一下我遇到的问题以及如何解决。 模板1.x允许 1234&lt;template&gt; &lt;div class="one"&gt;&lt;/div&gt; &lt;div class="two"&gt;&lt;/div&gt;&lt;/template&gt; 但2.0会报错，它只允许只有一个父元素，所以应该 123456&lt;template&gt; &lt;div&gt; &lt;div class="one"&gt;&lt;/div&gt; &lt;div class="two"&gt;&lt;/div&gt; &lt;/div&gt;&lt;/template&gt; refv-ref、v-el弃用，统一使用ref属性为元素或组件添加标记，然后通过this.$refs获取。Html部分: 1&lt;div ref="oneDiv"&gt;&lt;/div&gt; Js部分 1this.$refs.oneDiv 对了，顺带一提，因为v-ref、v-el是支持短横分隔命名(kebab-case)，所以一开始我也在ref用这种写法，发现控制台出现cannot read property ‘xxx’ of undefined。出现这种情况通常是因为对象获取失败出现的，检查一下哪部分命名出错了。所以我把它改成camelcase写法，即驼峰式写法，即可正确获取. v-for中常用的$indexv-for循环中常用的$index、$key也已不支持使用，trackby被key属性替换。Html部分: 123&lt;ul&gt; &lt;li v-for="item in items"&gt;&lt;/li&gt;&lt;/ul&gt; 或 123&lt;ul&gt; &lt;li v-for="(item,key) in items"&gt;&lt;/li&gt;&lt;/ul&gt; 过渡这个改变挺大的，vue2.0提供了这个内置组件，我们使用这个组件来包裹需要执行动画的元素，再添加name属性Html部分: 123&lt;transition name="fade"&gt; &lt;div v-if="ok"&gt;Hello World!&lt;/div&gt;&lt;/transition&gt; CSS部分： 1234.fade-enter&#123;&#125;.fade-enter-active&#123;&#125;.fade-leave&#123;&#125;.fade-leave-active&#123;&#125; fade只是随机取的，name属性的值是什么，就进行相应改动。 父子组件props双向绑定vuejs2.0中，任何试图在组件内修改通过props传入的父组件数据都被认为是错误的，报以下错误： 12Avoid mutating a prop directly since the value will beoverwritten whenever the parent component re-renders 1.x版本好像使用events和$dispatch来实现，但我没用过没什么印象，直接写2.0的解决方法。 在Vue2.0中，实现组件属性的双向绑定方式拿项目举例子： 在组件内的data对象中创建一个props属性的副本因为我要修改的数据是selectType和onlyContent，这两个数据都是父组件传递过来的 123456data: function () &#123; return &#123; mySelectType: this.selectType, myOnlyContent: this.onlyContent &#125;;&#125; 创建针对props属性的watch来同步组件外对props的修改 12345678watch: &#123; selectType: function (val) &#123; this.mySelectType = val; &#125;, onlyContent: function (val) &#123; this.myOnlyContent = val; &#125;&#125; 此时在组件外修改了组件的props，会同步到组件内对应的props上，但是不会同步到你刚刚在data对象中创建的那个副本上，所以需要再创建一个针对props属性的watch（监听），当props修改后对应data中的副本也要同步数据。 创建针对props副本的watch，通知到组件外1234567891011121314watch: &#123; selectType: function (val) &#123; this.mySelectType = val; &#125;, mySelectType: function (val) &#123; this.$emit('on-type-change', val); &#125;, onlyContent: function (val) &#123; this.myOnlyContent = val; &#125;, myOnlyContent: function (val) &#123; this.$emit('on-only-change', val); &#125;&#125; 此时在组件内修改了props的副本，组件外不知道组件内的props状态，所以需要再创建一个针对props副本，即对应data属性的watch。在组件内向外层（父组件）发送通知，通知组件内属性变更，然后由外层（父组件）自己来变更它的数据。 父组件添加v-on事件123&lt;ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings" @on-type-change="onTypeChange" @on-only-change="onOnlyChange"&gt;&lt;/ratingselect&gt; 最后在methods注册 12345678methods: &#123; onTypeChange: function (val) &#123; this.selectType = val; &#125;, onOnlyChange: function (val) &#123; this.onlyContent = val; &#125;&#125; 至此，实现了组件内数据与组件外的数据的双向绑定，组件内外数据的同步。 详细参考 vue-router]]></content>
+      <categories>
+        <category>Vue.js</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git入门]]></title>
+    <url>%2F2016%2F12%2F28%2F20161228git%2F</url>
+    <content type="text"><![CDATA[接触git有一段时间了。关于学习git，我主要是看廖雪峰老师的官网git教程。 Git:分布式SVN:集中式 安装Git官网一路安装，最后 12git config --global user.name "Your Name"git config --global user.email "email@example.com" 因为我使用git主要是上传一些代码到github，所以我只说一些我常用的，比较少用的等以后用到了再说喽。 Git的简单使用初始化首先找个地方，创个空目录 1234mkdir learngitcd learngitpwdgit init learngit只是一个目录名。注意：不要使用中文命名目录！免得乱七八糟的问题出现。pwd用于显示当前路径。初始化完成之后，会发现原本的空目录中多出了一个.git的目录，没有的话，可能隐藏了，或者初始化失败。 添加文件把需要上传的文件添加到初始化好的仓库目录，再使用git add命令告诉Git，把文件添加到仓库。 1git add file.name file.name只是我瞎编的一个文件，如果有多个文件，可以 1git add . 不过使用以上命令的话要小心，因为有多个文件改动的话，出问题的时候挺麻烦的，而我每次只是添加文件，所以就没这个顾虑。 提交仓库用命令git commit告诉Git，把文件提交到仓库 1git commit -m "message" 每次git commit记得加上-m "改动信息"，养成良好习惯，方便出错时迅速找到问题。 Github首先要有一个Github账号，由于本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以需要设置SSH Key。文章最后会介绍多个ssh key的设置。 创建远程仓库创建完远程仓库后，我们在本地仓库运行一下命令 1git remote add origin git@github.com:XXXXX/XXXX.git 内容推送把本地库的所有内容推送到远程库上 1git push -u origin master 第一次推送加-u，之后就不用了。 克隆仓库当然我们也可以把仓库内容下下来。 1git clone 仓库地址 使用这种方法，在改动了文件之后，直接 123git add 文件名git commit -m "改动信息"git push origin master 即可 多个ssh key生成新的ssh key假设我们之前已经有了ssh key，现在我们需要添加一个新的key。我们知道生成ssh key的基本步骤 12345#新建SSH key：$ cd ~/.ssh # 切换到C:\Users\Administrator\.sshssh-keygen -t rsa -C "mywork@email.com" # 新建工作的SSH key# 设置名称为secondEnter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): second 给key命名主要是为了区分不同的ssh key。以上名称设置随意。打开.ssh文件夹，发现新的key已经生成成功，但当我们要添加到github账户时，它会报错。我们还需一下步骤 config文件在.ssh文件夹下新建一个config文件，文件不需要后缀名。我自己的内容如下： 12345678Host github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsaHost second.github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/second 设置完以上内容，就可以使用不同的本地仓库来将内容推送到不同的远程仓库了。]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[高度自适应]]></title>
+    <url>%2F2016%2F12%2F11%2F20161211%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%2F</url>
+    <content type="text"><![CDATA[在实习时的一个任务：参照某个后台管理系统编写页面，其中“高度自适应”让我有点猝不及防，要怎么实现呢？这个功能挺实用的，很多博客都是使用这种布局，就比如现在用的next的Pisces排版。 html部分 1234567891011121314&lt;div id="top"&gt;顶部&lt;/div&gt;&lt;div id="main"&gt; &lt;div class="sidebar"&gt;我在左边&lt;/div&gt; &lt;div class="content row"&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; 我在正文&lt;br&gt; &lt;/div&gt;&lt;/div&gt;&lt;div id="footer"&gt;底部&lt;/div&gt; css部分 123456789101112131415161718192021222324*&#123; margin:0; padding:0;&#125;#top&#123; background:#dcdcdc; height:30px;&#125;#main&#123; overflow:hidden;&#125;.sidebar&#123; float:left; width:150px; height:50px; background:pink;&#125;.content&#123; background:orange; overflow:hidden; _float:left;&#125;.row&#123; margin-bottom:-10000px; padding-bottom:10000px;&#125;#footer&#123; clear:both; height:30px; background:#eeeeee;&#125; 我们来看主要实现，首先主要区域#main和内容区域.content的overflow要设置成hidden，然后为要高度自适应的块添加row类，这是最关键的设置 12margin-bottom:-10000px;padding-bottom:10000px; 不得不说，margin负值太酷了。这次实现的左侧高度固定，右侧高度自适应，如果要都是高度自适应，就都添加上述代码。最后footer要记得clear:both，结束。]]></content>
+      <categories>
+        <category>网页布局</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Github Pages绑定到个人域名]]></title>
+    <url>%2F2016%2F12%2F04%2F20161204myWebsite%2F</url>
+    <content type="text"><![CDATA[个人网站自从那次重装之后，我的github博客就一直有问题。不知是github使用了https协议还是什么原因，我的博客主页能够访问，但一旦访问归档页，就提示我找不到，我知道是http的原因，因为我每次手动加https，页面就能显示出来。这个问题困扰我好几个月了，我也懒得去解决，因为每次都花了好长时间，网上也没有这种问题的解决办法。出于无奈，我只能使用个人域名了。今天，终于解决了这个世纪难题！ 以下是我的解决步骤： 一、购买域名我使用的是阿里云，域名的选定随缘吧。 二、域名解析打开域名解析的页面。因为我是第一次使用，一开始是没有以上页面的，需要去购买虚拟主机。没办法，只好去实名认证买个超级便宜的主机，好像6块钱吧。 然后对你自己的Github Pages的域名进行查询，使用ping操作，会得到一个ip地址 在博客的source目录下放一个CNAME文件。 在域名解析页面添加解析，先添加一个记录类型为A,主机记录为www,解析线路默认,记录值为你的Github Pages IP的记录；再添加一个记录类型为A,主机记录为@,解析线路默认,记录值为你的Github Pages IP的记录。 三、Github解析进入自己的博客项目的Settings，在custom domain中，将申请的个人域名添加进去。完成了这步，就可以打开自己的个人网站啦。 四、备案刚访问了一下，就出现问题了，原来是要让我进行备案。备案什么鬼？以前完全没接触过，只能照着流程来，这一步好烦人啊。 五、问题还是问题百出，经常访问着就变成万网的提示页了。所以决定还是用dnspod。先注册账号，然后我把之前阿里云的解析删了；在阿里云上的dns解析改一下。之后在dnspod中添加解析。 19年新添加：七牛云没用了，图片都没了，要哭了。]]></content>
+      <categories>
+        <category>Hexo搭建个人博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue.js实战记录]]></title>
+    <url>%2F2016%2F12%2F04%2F20161204eleme%2F</url>
+    <content type="text"><![CDATA[前言前几天介绍了vue.js这个前端框架，今天起决定记录使用这个框架来搭建项目的流程以及遇到的问题。虽然这个项目只是参考慕课网的教程来做的，但自己还是会遇到很多问题。本项目主要是仿“饿了么”开发。 一、icomoon使用icomoon将自己定义的svg文件转为字体图标。进入官网，点击右上角IcoMoon App按钮，选择自己已有的svg文件，点击Generate Font,然后会出现自己的图标序列，点击Get Code，会提示你如何使用。 二、mock数据模拟后端数据。我们已经事先用vue-cli下了一个vue项目框架了。根目录下新建一个data.json文件，在其中添加我们的模拟数据。打开工程下build中的dev-server.js，在其中添加 1234567891011121314151617181920212223var apiRouters = express.Router();apiRouters.get('/seller',function(req,res)&#123; res.json(&#123; errno: 0, data: seller &#125;);&#125;);apiRouters.get('/goods',function(req,res)&#123; res.json(&#123; errno: 0, data: goods &#125;);&#125;);apiRouters.get('/ratings',function(req,res)&#123; res.json(&#123; errno: 0, data: ratings &#125;);&#125;);app.use('/api',apiRouters); 以上代码涉及express路由，还没怎么学过，找个时间看一下。 三、-webkit-scrollbar-webkit-scrollbar这个css3属性可以自定义滚动条样式。 四、一些问题 我们需要代码风格有分号，然而es6是不需要分号的，所以在.eslintrc.js里面进行相应的配置。12'semi': ['error','always'],'indent': 0 第一句是关于分号的设置，第二句是关于缩进的设置。更多关于eslint的配置参考官网 stylus-loader问题发现有两个问题，一个是stylus-loader，另一个是ecmascript-6问题。在package.json里设置stylus-loader12345678910111213"devDependencies": &#123; "autoprefixer": "^6.4.0", "babel-core": "^6.0.0", "babel-eslint": "^7.0.0", "babel-loader": "^6.0.0", "babel-plugin-transform-runtime": "^6.0.0", "babel-preset-es2015": "^6.0.0", "babel-preset-stage-2": "^6.0.0", "babel-register": "^6.0.0", "chalk": "^1.1.3", "connect-history-api-fallback": "^1.1.0", "css-loader": "^0.25.0", "stylus-loader": "^2.1.1", 设置好后，npm install，到这里stylus-loader理论上是解决了。Text-ecmascript-6问题只是自己的粗心，将type=”text/ecmascript-6”写成了src=”text/ecmascript-6”，而且还写到了文件模板里，晕！装完stylus-loader之后，又出现了新的问题没办法，只能继续安装stylus。 12npm install stylus --save-devnpm install 最后运行终于不会提示问题了。但每次我用stylus语法还是报错，只能用css了，虽然有点繁琐。哼！我不管了！ 五、vue-router安装先在package.json里的dependencies里添加vue-router，再npm install。在main.js里 123import VueRouter from ‘vue-router’Vue.use(VueRouter) 因为视频里使用的vue1.*的版本，而现在vue已经是2.0了，所以格式会有所不同。比如v-link需要更改为router-link,router.map()不在适用等。下次写个vue2.0的改动吧。 简约版vue-router的使用 1234567891011121314151617181920212223import Vue from 'vue';import VueRouter from 'vue-router';import App from './App';import goods from './components/goods/goods.vue';import ratings from './components/ratings/ratings.vue';Vue.use(VueRouter);const routes = [ &#123;path: '/goods', component: goods&#125;, &#123;path: '/ratings', component: ratings&#125;];const router = new VueRouter(&#123; routes&#125;);new Vue(&#123; router, render: h =&gt; h(App)&#125;).$mount('#app');router.push('/goods'); 最后一句router.push()好像是设置默认显示页 六、路径配置之前我们引用组件都是./component/……，其实可以忽略./，因为在webpack.base.conf.js的alias里有路径的相关配置。webpack我还没怎么学过，下次再说吧。 七、1像素border的实现在pc端设置border-bottom为1px，但在dpr为2或3的手机显示时，线变粗。 1@media (-webkit-min-device-pixel-ratio:X),(min-device-pixel-ratio: X) 使用media查看dpr，再使用-webkit-transform:scaleY()如果X为1.5，则缩放0.7；如果为2，则缩放为0.5；如此类推。 八、草料二维码生成器方便手机查看效果，不过我用的时候页面一直没有显示出来，就没继续深究了。 九、使用vue-resource来处理前后端数据的异步请求简单的说，vue-resource就像jQuery里的$.ajax，用来和后端交互数据的。看一段代码吧 12345678created: function () &#123; this.$http.get('/api/seller').then((response) =&gt; &#123; response = response.body; if (response.errno === ERR_OK) &#123; this.seller = response.data; &#125; &#125;);&#125;, 十、header组件的背景先用图片平铺背景，z-index:-1，再使用filter()进行模糊处理，但有个问题，模糊效果会扩散出元素之外，在父元素设置overflow:hidden解决 九、stickyfooterheader组件弹出浮层，使用sticky footer。这种布局找个时间说一下吧。 十、vue2.0的index在弹出层商家优惠活动列表，classMap[seller.supports[$index].type]和出错。但我改为classMap[seller.supports[0].type]和的时候，可以显示。 原因：原来是vue2.0舍弃了$index解决： 123456&lt;ul v-if="seller.supports" class="supports"&gt; &lt;li class="support-item" v-for="(item,index) in seller.supports"&gt; &lt;span class="icon" :class="classMap[seller.supports[index].type]"&gt;&lt;/span&gt; &lt;span class="text"&gt;&#123;&#123;seller.supports[index].description&#125;&#125;&lt;/span&gt; &lt;/li&gt;&lt;/ul&gt; 十一、better-scroll使用better-scroll，better-scroll是对iscroll的改进版。现在package.json里添加依赖，再npm install。使用该模块来实现滑动。使用better-scroll，点击事件在手机模式触发一次，但在pc模式会触发两次，需添加 123if(!event._constructed)&#123; return;&#125; 十二、vue2.0中的ref一直出现问题Cannot read property通常就是对象没有获取成功。弄了好久，发现本以为将v-el:menu-wrapper改成ref=”menu-wrapper”，没想到要改成ref=”menuWrapper”，要用驼峰格式，坑 十三、宽高相等小技巧当设置宽度为100%时，使用 123width: 100%;height: 0;padding-top: 100%; 可以实现宽高相等 十四、webpack打包1npm run build 成功后，会看到多了一个dist目录。为了不让别人在控制台source中仍然可以调试，在build目录的index.js中改 1productionSourceMap: false, 修改后重新npm run build]]></content>
+      <categories>
+        <category>Vue.js</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo显示图片]]></title>
+    <url>%2F2016%2F12%2F04%2F20161204image%2F</url>
+    <content type="text"><![CDATA[测试图片显示页面首先在source目录下创建上传图片的文件夹，我取名为images。经过测试 使用原生html方式 1&lt;img src="/images/a.jpg"&gt; 目前我只掌握了这么笨的方法，图床什么的也没怎么接触过，以后再说。 使用markdown语法 1![img](/source/images/a.jpg) 一开始完全失效，原来还要添加其他东西：hexo-asset-image首先在nanshanyi.github.io目录下确认 _config.yml 中有 post_asset_folder:true 。在 hexo 目录，执行 1npm install https://github.com/CodeFalling/hexo-asset-image --save 之后再使用 hexo new ‘new’ 创建新博客的时候，会在source/_posts里面创建.md文件的同时生成一个相同的名字的文件夹。把该文章中需要使用的图片放在该文件夹下即可。使用的时候 123!["图片描述"(可以不写)](/文件夹/你的图片名字.jpg)例如：![](new/text.jpg) 以下为测试不过使用了这种方法，第一种方法好像就会失效]]></content>
+      <categories>
+        <category>网页多媒体</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Grunt的初步了解]]></title>
+    <url>%2F2016%2F11%2F29%2F20161129%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[前几天想学一下grunt，结果发现学grunt的话，还要了解yeoman和bower，它们似乎经常一起用。今天就好好的来学一下。 前端工程化开发简单来说，前端工程化就是讲前端杂乱无章的开发流程变得系统化，使得项目的构建、开发、维护成为一体。实现一个前端项目的工程化常使用的工具有yeoman,bower以及grunt。下面来看一下这些工具的作用。 Yeomanyeoman官网Yeoman这个工具为开发者提供一系列健壮的工具、程序库和工作流，帮助他们快速构建出漂亮、引人注目的Web应用。简单来说，yeoman就是前端项目的脚手架工具。所谓脚手架，我的理解是帮你搭建一个项目最基本的结构。举个例子，一个完整的前端项目是一栋大楼，脚手架只是帮我们完成了基本的楼的框架，其余的装修那些工作就不是脚手架的事情了。 Yeoman的使用 安装1npm install -g yo 与平常的node包有点不同，它是写yo 使用安装完yeoman之后，你可以选择安装所要构建的前端项目的类型，比如angularjs项目，vuejs项目等。针对不同的项目，到官网Discovering generators页面下搜索相应的类型，然后执行(拿angular举例)1npm install -g generator-angular 需要什么类型就写npm install -g generator-类型之后运行 1yo angular 现在一个angular项目的应用框架就出来了。 BowerBower官网Bower是一个包管理工具，其用法与npm有点类似。只不过npm是node包的管理工具，而bower是前端资源包的管理工具。 Bower的使用 安装 1npm install -g bower 使用 1bower install &lt;package&gt; package即是你所需要引入的资源包，比如你需要jquery，就写bower install jquery GruntGrunt官网正如其官网所说，grunt是javascript世界的构建工具。构建工具有什么用呢？一句话：自动化。对于需要反复重复的任务，例如压缩、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。 Grunt的使用 安装1npm install -g grunt-cli 注意，安装grunt-cli并不等于安装了 GruntGrunt来没怎么来得及学，之后再讲。]]></content>
+      <categories>
+        <category>前端工具</category>
+      </categories>
+      <tags>
+        <tag>yeoman</tag>
+        <tag>grunt</tag>
+        <tag>bower</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue.js初步认识]]></title>
+    <url>%2F2016%2F11%2F21%2F20161121vue%2F</url>
+    <content type="text"><![CDATA[Vue.js的初次使用 最近开始接触vue.js这个mvvm框架，发现相比angularjs，vuejs学起来要简单多啦。相应的教程官网都有。 vue的安装 安装nodejs和git 打开gitbash，输入以下命令 12npm install vuenpm install --global vue-cli 全局安装 vue-cli，这是一个官方命令行工具 1vue init webpack my-project my-project只是一个项目名称，可以自定义 123cd my-projectnpm installnpm run dev 进入vue项目文件夹，运行项目，一个vue搭建的项目就跑起来了。 期间接触到了淘宝镜像，对下载node包速度有作用，用了之后是挺快的，不过有些包好像装不了，需要再用npm。]]></content>
+      <categories>
+        <category>Vue.js</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构——树]]></title>
+    <url>%2F2016%2F08%2F15%2F20160815tree%2F</url>
+    <content type="text"><![CDATA[二叉树的遍历一、先序遍历遍历方式：根-&gt;左子树-&gt;右子树；二、中序遍历遍历方式：左子树-&gt;根-&gt;右子树；三、后序遍历遍历方式：左子树-&gt;右子树-&gt;根。 由此得出：所谓的X序遍历即是遍历根的顺序，先序即根最先遍历，中序则根中间，后序则根最后；且左子树一定比右子树先遍历。 树的节点任何二叉树中度为0的结点比度为2的结点多一个。 节点数=分叉数+1]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[队列]]></title>
+    <url>%2F2016%2F07%2F28%2F20160728queue%2F</url>
+    <content type="text"><![CDATA[循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。 好像通常都用第二种！由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大尺寸为N，那么队列满的条件是(rear + 1) % N == front 通用的计算循环队列长度的公式：(rear - front + N) % N]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端笔试题]]></title>
+    <url>%2F2016%2F07%2F11%2F20160711%E5%89%8D%E7%AB%AF%E9%A2%98%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[做了一些笔试题下来，感觉这些问题都有些陈旧，以后自己出个新的吧。 html1.常用浏览器？内核？ 浏览器：IE、Chrome、FireFox、Safari、Opera。 内核：Trident、Gecko、Webkit、Presto。 2.行内元素和块级元素的区别？ 行内元素：沿水平方向排列，不能包含块级元素，无法设置width、height、margin、padding。 块级元素：占据一行，垂直方向排列。 3.Doctype的作用？标准模式与兼容模式各有什么区别？ 告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档一兼容模式呈现。 标准模式是以该浏览器支持的最高标准运行，而兼容模式中，浏览器向后兼容，模拟老式浏览器的行为防止站点无法工作。 4.Html5为什么只需要写&lt;!DOCTYPE HTML&gt;？ HTML5不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。 5.html5有哪些新特性？如何处理html5新标签的浏览器兼容问题？ (1)绘画canvas;(2)用于媒介回放的video和audio元素;(3)本地离线存储localStorage长期存储数据，浏览器关闭后数据不丢失;(4)sessionStorage 的数据在浏览器关闭后自动删除;(5)语意化更好的内容元素，比如article、footer、header、nav、section;(6)表单控件，calendar、date、time、email、url、search;(7)新的技术webworker, websocket, Geolocation; IE8/IE7/IE6支持通过document.createElement方法产生的标签，可以利用这一特性让这些浏览器支持HTML5新标签，浏览器支持新标签后，还需要添加标签默认的样式。当然也可以直接使用成熟的框架、比如html5shim，12&lt;!--[if lt IE 9]&gt;&lt;![endif]--&gt; 6.简述一下你对html语义化的理解？ 用正确的标签做正确的事情。html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于seo;使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。 css1.清除浮动有哪些方法？ 父级div定义height 结尾处加空div标签clear:both 父级div定义伪类:after和zoom 父级div定义overflow:hidden 父级div定义overflow:auto 父级div也浮动，需要定义宽度 父级div定义display:table 结尾处加br标签clear:both 2.box-sizing常用的属性有哪些？分别有哪些作用？ box-sizing属性:content-box|border-box|inherit; content-box:宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框(元素默认效果)。border-box:元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。 3.页面导入样式时，使用link和@import有什么区别 link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS; 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载; import是CSS2.1提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题 4.display:none和visibility:hidden的区别？display:none隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。 visibility:hidden隐藏对应的元素，但是在文档布局中仍保留原来的空间。 5.position的absolute与fixed共同点与不同点 共同点：（1）改变行内元素的呈现方式，display被置为block；（2）让元素脱离普通流，不占据空间；（3）默认会覆盖到非定位元素上。 不同点：absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口。 6.介绍一下CSS的盒子模型？ 盒子模型有两种：IE 盒子模型、标准 W3C 盒子模型； 盒模型：内容(content)、填充(padding)、边界(margin)、 边框(border) IE盒子模型的width=content + padding + border;W3C盒子模型的width=content. 7.列出display的值，说明他们的作用。position的值relative和absolute分别是相对于谁进行定位的？(1) blcok:像块级元素一样显示； inline:像行内元素一样显示； inline-block:像行内元素一样显示，但其内容像块级元素一样显示； list-item:像块级元素一样显示，并添加样式列表标记。(2) absolute,fixed,relative,static,inherit(之后详细说) 8.CSS3有哪些新特性？border-radius,box-shadow,text-shadow,gradient,transform:rotate,scale,translate,skew,rgba,css3中唯一引入的伪元素::selection,媒体查询,多栏布局,border-image等。 9.对BFC规范的理解？（没怎么接触过，以后再说）BFC，块级格式化上下文 10.解释下 CSS sprites，以及你要如何在页面或网站中使用它。CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。 javascript1.js的基本数据类型Undefined、Null、Boolean、Number、String 2.js有哪些内置对象？数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error等 3.this的理解(有点难理解，以后再说) 4.eval是做什么的？它的功能室吧对应的字符串解析成js代码并运行；应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。 5.DOM怎样添加、移除、移动、复制、创建和查找节点？// 创建新节点createDocumentFragment() //创建一个DOM片段createElement() //创建一个具体的元素createTextNode() //创建一个文本节点// 添加、移除、替换、插入appendChild()removeChild()replaceChild()insertBefore() //在已有的子节点前插入一个新的子节点// 查找getElementsByTagName() //通过标签名称getElementsByName() //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)getElementById() //通过元素Id，唯一性 6.null和undefined的区别？（有点难理解，之后具体说） 7.new操作符具体干了什么？（1）创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。（2）属性和方法被加入到 this 引用的对象中。（3）新创建的对象由 this 所引用，并且最后隐式的返回 this 。 8.JSONJSON(JavaScript Object Notation)是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。格式：采用键值对，例如：{‘age’:’22’, ‘name’:’gary’} 9.call()和apply()的区别和作用？（之后再说）]]></content>
+      <categories>
+        <category>前端试题</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[选择器优先级]]></title>
+    <url>%2F2016%2F07%2F11%2F20160711cssSelector%2F</url>
+    <content type="text"><![CDATA[CSS首先我们先了解以下css，css中文是“层叠样式表”，这里所说的层叠便是指样式的优先级，即浏览器对多个样式来源进行叠加，最终确定样式结果。 选择器优先级一、通常CSS的优先级由高到低分为六级：1.无条件优先的属性只需要在属性后面使用!important。2.在html中给元素标签加style。由于该方法会造成CSS的难以管理，所以不推荐使用。3.id选择器，如#id{}。4.类选择器、属性选择器、伪类选择器，如.classname{}。5.类型选择器，如div{}。6.通配选择器，如*{}。 二、当比较多个相同级别的CSS选择器优先级时，它们定义的位置将决定一切。从位置上将CSS优先级由高到低分为六级：1.位于&lt;head/&gt;标签里的&lt;style/&gt;中所定义的CSS拥有最高级的优先权。2.位于&lt;style/标签中的@import引入样式表所定义。3.由&lt;link/&gt;标签所引入的样式表定义。4.由&lt;link/&gt;标签所引入的样式表内的@import导入样式表定义。5.用户自定义。6.浏览器默认。]]></content>
+      <categories>
+        <category>前端试题</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网页中添加音乐]]></title>
+    <url>%2F2016%2F04%2F17%2F20160417music%2F</url>
+    <content type="text"><![CDATA[简介很早以前就想学习这部分的东西了，一直没有尝试，今天先把一些简单的写上，较复杂的以后补充。 开始背景音乐 在html文件的&lt;head&gt;&lt;/head&gt;之间加入以下代码1&lt;bgsound src="需要插入的音乐的路径" loop="-1"&gt; “loop”中的数值是音乐循环的次数，可设置为任意正整数，若设为“-1”的话，音乐将永远循环。并且，该代码的功能只能在ie实现。 在html文件的&lt;body&gt;&lt;/body&gt;之间加入以下代码1&lt;embed src="需要插入的音乐的路径" hidden="true"&gt; 在这里了解以下embed的各项属性 src=”filename” 设定音乐文件的路径 autostart=”true/false” 是否要音乐文件传送完就自动播放，true是要，false是不要，默认为false loop=”true/false” 设定播放重复次数，数字表示次数，true表示无限循环，false表示播放一次就停止 starttime=”分：秒” 设定乐曲的开始播放时间 volume=0-100 设定音量的大小。如果没设定的话，就用系统的音量 width height 设定控制面板大小 hidden=”true” 隐藏控制面板 还有一些属性，以后再添加…… 音乐控制面板 了解了embed之后，可以写成以下代码1&lt;embed src="需要插入的音乐的路径" width="宽度" height="高度"&gt; 问题先到这里，目前还有很多问题，比如： 在一些浏览器不能运行，ie、firefox embed的一些属性不起作用这些都有待解决。 Audio好，以下为2016年12月3日添加新内容。自从学习了html5，就直接使用audio这个标签就可以了。以下为测试 1&lt;audio src="音乐路径"&gt;当前浏览器不支持audio&lt;/audio&gt; 貌似hexo不能这么写。好像要用iframe iframe嵌入音乐可以使用网易云音乐，搜索想要的歌曲，点击歌曲名字进入播放器页面，点击生成外链播放器；复制代码，直接粘贴到博文中即可。这样会显示一个网易的播放器，可以把 1&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&amp;id=33471531&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;]]></content>
+      <categories>
+        <category>网页多媒体</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器内核差异]]></title>
+    <url>%2F2016%2F04%2F06%2F20160406browser%2F</url>
+    <content type="text"><![CDATA[什么是浏览器内核我们一般称浏览器的核心部分”Rendering Engine”为浏览器内核。其负责对网页语法的解释和渲染页面。不同内核对语法的解释不同，网页渲染效果也不同。 浏览器内核种类主要讲几类：Trident、Gecko、Presto、Webkit。 Trident人称IE内核，与W3C脱节，你懂的。 Gecko开源内核。火狐(Mozilla Firefox)采用了该内核。 PrestoOpera采用的内核。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。 Webkit苹果公司的内核，同样开源。代表：苹果的Safari、Google的Chrome。]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>browser</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Github+Hexo搭建个人博客]]></title>
+    <url>%2F2016%2F03%2F31%2F20160331firstBlog%2F</url>
+    <content type="text"><![CDATA[简介这是本人的第一篇博客。由友人介绍，接触到Github+Hexo搭建个人博客这么高大上的东西。我觉得写博客首先要简单明了，然后再专业比较好，毕竟看懂弄懂最重要。 准备工作1.申请Github账号2.安装Node，用来生成静态页面，到Node.js官网下载相应平台的最新版本，一路安装即可3.安装Git，把本地的hexo内容提交到github上去4.安装Hexo 安装Hexo过程在安装Hexo之前，先要创建Github个人仓库，再配置SSH keys，最后在安装Hexo。 创建仓库配置SSH keys12cd ~/.sshls 如果没有则提示： No such file or directory如果有则进入~/.ssh路径下（ls查看当前路径文件，rm *删除所有文件） 12$ cd ~ #保证当前路径在”~”下$ ssh-keygen -t rsa -C "xxxxxx@yy.com" #建议填写自己真实有效的邮箱地址 这时会在Users/Administrator/.ssh下生成两个文件，打开.pub结尾的文件，复制内容到github的add ssh key中。顺便 12$ git config --global user.name “your_username” #设置用户名$ git config --global user.email “your_registered_github_Email” #设置邮箱地址 不知有什么用。测试ssh keys是否设置成功。 1$ ssh -T git@github.com 安装Hexo首先win+R,cmd打开命令行界面，因联网安装，到Hexo官网复制安装命令到命令行界面，等待安装完成。打开Git Bash(安装完Git后，右键就有Git Bash)，输入初始化命令 1hexo init 初始化结束后，输入 1hexo g 或 hexo generate 后面是前面的缩写 输入完成后，就生成一个Hexo博客框架。输入 1hexo s 或 hexo server 顾名思义，开启服务器，访问localhost:4000。之前就有一次一直访问都访问不了，原来就是忘了输入该命令，我这记性！写完博客，先在本地浏览一下，确认无误再上传，省麻烦。在这次安装过程中，唯一遇到的问题是右键Git Bash打开闪退。因为原来是朋友直传的文件，卸了后，去官网重下就解决了，虽然下载速度有点慢。 常用命令1234hexo new "文章名" //新建文章hexo new page "新建页面名" //新建页面hexo g //生成hexo d //部署 部署到Github修改本地博客文件夹根目录下的_config.yml文件deploy的repo，这个以用户为标准 1234deploy: type: git repo: git@github.com:GrayFrost/GrayFrost.github.io.git branch: master 在目录下右键打开Git Bash，输入 12hexo ghexo d 以后每次在本地修改完博客，输入以上两条命令，就完成博客了。 问题hexo ERROR Deployer not found: github解决：安装 npm install hexo-deployer-git –save，再将deploy 的 type由github改为git。顺便说下，如果使用ssh部署不成功的话，请使用https的方式试试，即type下一个选项repository的值进行相应更改。（2016-08-15重装系统后，弄了一下午Orz）]]></content>
+      <categories>
+        <category>Hexo搭建个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+</search>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="元旦快乐！    因为学习vue的视频讲解使用的是1.x的版本，而vue-cli当初默认下载的是vue2.0的版本，所以在学习过程中，会发现有许多东西都发生了改变，今天我就写一下我遇到的问题以及如何解决。 模板1.x允许 1234&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;one&quot;&amp;gt;&amp;lt;/div&amp;gt;  &amp;lt;div class=&quot;two&quot;&amp;gt;&amp;lt;/di">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue2.0的变化">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/20170101vue2/index.html">
+<meta property="og:site_name" content="Gary&#39;s blog">
+<meta property="og:description" content="元旦快乐！    因为学习vue的视频讲解使用的是1.x的版本，而vue-cli当初默认下载的是vue2.0的版本，所以在学习过程中，会发现有许多东西都发生了改变，今天我就写一下我遇到的问题以及如何解决。 模板1.x允许 1234&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;one&quot;&amp;gt;&amp;lt;/div&amp;gt;  &amp;lt;div class=&quot;two&quot;&amp;gt;&amp;lt;/di">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-01-01T08:17:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue2.0的变化">
+<meta name="twitter:description" content="元旦快乐！    因为学习vue的视频讲解使用的是1.x的版本，而vue-cli当初默认下载的是vue2.0的版本，所以在学习过程中，会发现有许多东西都发生了改变，今天我就写一下我遇到的问题以及如何解决。 模板1.x允许 1234&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;one&quot;&amp;gt;&amp;lt;/div&amp;gt;  &amp;lt;div class=&quot;two&quot;&amp;gt;&amp;lt;/di">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/01/20170101vue2/">
+
+
+
+
+
+  <title>Vue2.0的变化 | Gary's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/01/20170101vue2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gary">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue2.0的变化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-01T14:42:52+08:00">
+                2017-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>元旦快乐！ </p>
+</blockquote>
+
+<p>因为学习vue的视频讲解使用的是1.x的版本，而vue-cli当初默认下载的是vue2.0的版本，所以在学习过程中，会发现有许多东西都发生了改变，今天我就写一下我遇到的问题以及如何解决。</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>1.x允许</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=<span class="string">"one"</span>&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div class=<span class="string">"two"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但2.0会报错，它只允许只有一个父元素，所以应该</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"one"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"two"</span>&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><p><code>v-ref</code>、<code>v-el</code>弃用，统一使用<code>ref</code>属性为元素或组件添加标记，然后通过<code>this.$refs</code>获取。<br>Html部分:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref=<span class="string">"oneDiv"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Js部分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$refs</span>.oneDiv</span><br></pre></td></tr></table></figure>
+
+<p>对了，顺带一提，因为<code>v-ref</code>、<code>v-el</code>是支持短横分隔命名(kebab-case)，所以一开始我也在<code>ref</code>用这种写法，发现控制台出现<b>cannot read property ‘xxx’ of undefined</b>。<br>出现这种情况通常是因为对象获取失败出现的，检查一下哪部分命名出错了。所以我把它改成camelcase写法，即驼峰式写法，即可正确获取.</p>
+<h3 id="v-for中常用的-index"><a href="#v-for中常用的-index" class="headerlink" title="v-for中常用的$index"></a>v-for中常用的$index</h3><p>v-for循环中常用的<code>$index</code>、<code>$key</code>也已不支持使用，trackby被key属性替换。<br>Html部分:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=<span class="string">"item in items"</span>&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=<span class="string">"(item,key) in items"</span>&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h3><p>这个改变挺大的，vue2.0提供了<code><transition></transition></code>这个内置组件，我们使用这个组件来包裹需要执行动画的元素，再添加<code>name</code>属性<br>Html部分:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition name=<span class="string">"fade"</span>&gt;</span><br><span class="line">  &lt;div v-if=<span class="string">"ok"</span>&gt;Hello World!&lt;/div&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+
+<p>CSS部分：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.fade-enter&#123;&#125;</span><br><span class="line">.fade-enter-active&#123;&#125;</span><br><span class="line">.fade-leave&#123;&#125;</span><br><span class="line">.fade-leave-active&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fade只是随机取的，name属性的值是什么，就进行相应改动。</p>
+<h3 id="父子组件props双向绑定"><a href="#父子组件props双向绑定" class="headerlink" title="父子组件props双向绑定"></a>父子组件props双向绑定</h3><p><strong>vuejs2.0中，任何试图在组件内修改通过props传入的父组件数据都被认为是错误的</strong>，报以下错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Avoid mutating a prop directly since the value will be</span><br><span class="line">overwritten whenever the parent component re-renders</span><br></pre></td></tr></table></figure>
+
+<p>1.x版本好像使用events和$dispatch来实现，但我没用过没什么印象，直接写2.0的解决方法。</p>
+<h4 id="在Vue2-0中，实现组件属性的双向绑定方式"><a href="#在Vue2-0中，实现组件属性的双向绑定方式" class="headerlink" title="在Vue2.0中，实现组件属性的双向绑定方式"></a>在Vue2.0中，实现组件属性的双向绑定方式</h4><p>拿项目举例子：</p>
+<ol>
+<li><p>在组件内的data对象中创建一个props属性的副本<br>因为我要修改的数据是selectType和onlyContent，这两个数据都是父组件传递过来的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    mySelectType: this.selectType,</span><br><span class="line">    myOnlyContent: this.onlyContent</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建针对props属性的watch来同步组件外对props的修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  selectType: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.mySelectType = val;</span><br><span class="line">  &#125;,</span><br><span class="line">  onlyContent: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.myOnlyContent = val;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>此时在组件外修改了组件的props，会同步到组件内对应的props上，但是不会同步到你刚刚在data对象中创建的那个副本上，所以需要再创建一个针对props属性的watch（监听），当props修改后对应data中的副本也要同步数据。</p>
+<ol start="3">
+<li>创建针对props副本的watch，通知到组件外<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  selectType: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.mySelectType = val;</span><br><span class="line">  &#125;,</span><br><span class="line">  mySelectType: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.<span class="variable">$emit</span>(<span class="string">'on-type-change'</span>, val);</span><br><span class="line">  &#125;,</span><br><span class="line">  onlyContent: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.myOnlyContent = val;</span><br><span class="line">  &#125;,</span><br><span class="line">  myOnlyContent: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.<span class="variable">$emit</span>(<span class="string">'on-only-change'</span>, val);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>此时在组件内修改了props的副本，组件外不知道组件内的props状态，所以需要再创建一个针对props副本，即对应data属性的watch。<br>在组件内向外层（父组件）发送通知，通知组件内属性变更，然后由外层（父组件）自己来变更它的数据。</p>
+<ol start="4">
+<li>父组件添加v-on事件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ratingselect :select-type=<span class="string">"selectType"</span> :only-content=<span class="string">"onlyContent"</span> :desc=<span class="string">"desc"</span> </span><br><span class="line">:ratings=<span class="string">"food.ratings"</span> @on-type-change=<span class="string">"onTypeChange"</span> @on-only-change=<span class="string">"onOnlyChange"</span>&gt;</span><br><span class="line">&lt;/ratingselect&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>最后在<code>methods</code>注册</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  onTypeChange: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.selectType = val;</span><br><span class="line">  &#125;,</span><br><span class="line">  onOnlyChange: <span class="keyword">function</span> (val) &#123;</span><br><span class="line">    this.onlyContent = val;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此，实现了组件内数据与组件外的数据的双向绑定，组件内外数据的同步。</p>
+<p><a href="http://www.cnblogs.com/xxcanghai/p/6124699.html?_t=t" target="_blank" rel="noopener">详细参考</a></p>
+<h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/28/20161228git/" rel="next" title="Git入门">
+                <i class="fa fa-chevron-left"></i> Git入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/03/20170103mongodb/" rel="prev" title="express+mongodb">
+                express+mongodb <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Gary</p>
+              <p class="site-description motion-element" itemprop="description">行止由心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref"><span class="nav-number">2.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-for中常用的-index"><span class="nav-number">3.</span> <span class="nav-text">v-for中常用的$index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过渡"><span class="nav-number">4.</span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父子组件props双向绑定"><span class="nav-number">5.</span> <span class="nav-text">父子组件props双向绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在Vue2-0中，实现组件属性的双向绑定方式"><span class="nav-number">5.1.</span> <span class="nav-text">在Vue2.0中，实现组件属性的双向绑定方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router"><span class="nav-number">6.</span> <span class="nav-text">vue-router</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gary</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
