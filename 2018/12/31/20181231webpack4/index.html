@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
+<meta name="description" content="&amp;#x9996;&amp;#x5148;&amp;#x5347;&amp;#x7EA7;webpack&amp;#xFF0C;&amp;#x518D;&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;webpack-cli&amp;#x3002;&amp;#x5728;webpack.config.dev.js&amp;#x548C;webpack.config.prod.js&amp;#x4E2D;&amp;#x5206;&amp;#x522B;&amp;#x6DFB;&amp;#x">
 <meta name="keywords" content="webpack,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级webpack4">
 <meta property="og:url" content="https://grayfrost.github.io/2018/12/31/20181231webpack4/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
+<meta property="og:description" content="&amp;#x9996;&amp;#x5148;&amp;#x5347;&amp;#x7EA7;webpack&amp;#xFF0C;&amp;#x518D;&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;webpack-cli&amp;#x3002;&amp;#x5728;webpack.config.dev.js&amp;#x548C;webpack.config.prod.js&amp;#x4E2D;&amp;#x5206;&amp;#x522B;&amp;#x6DFB;&amp;#x">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg">
 <meta property="og:updated_time" content="2019-07-20T01:54:43.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级webpack4">
-<meta name="twitter:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
+<meta name="twitter:description" content="&amp;#x9996;&amp;#x5148;&amp;#x5347;&amp;#x7EA7;webpack&amp;#xFF0C;&amp;#x518D;&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;webpack-cli&amp;#x3002;&amp;#x5728;webpack.config.dev.js&amp;#x548C;webpack.config.prod.js&amp;#x4E2D;&amp;#x5206;&amp;#x522B;&amp;#x6DFB;&amp;#x">
 <meta name="twitter:image" content="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg">
 
 
@@ -320,7 +320,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyazvc7s0039hocnne5it34l" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyb08n34003fekcn8jhjsztf" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" itemprop="contentUrl">
               </a>
             
@@ -332,51 +332,51 @@
       
 
       
-        <p>首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mode: 'development'</span><br><span class="line">mode: 'production'</span><br></pre></td></tr></table></figure>
+        <p>&#x9996;&#x5148;&#x5347;&#x7EA7;webpack&#xFF0C;&#x518D;&#x5168;&#x5C40;&#x5B89;&#x88C5;webpack-cli&#x3002;&#x5728;webpack.config.dev.js&#x548C;webpack.config.prod.js&#x4E2D;&#x5206;&#x522B;&#x6DFB;&#x52A0;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mode: &apos;development&apos;</span><br><span class="line">mode: &apos;production&apos;</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
 <ol>
-<li><strong>Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found.</strong></li>
+<li><strong>Plugin could not be registered at &#x2018;html-webpack-plugin-before-html-processing&#x2019;. Hook was not found.</strong></li>
 </ol>
-<p>升级html-webpack-plugin</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"html-webpack-plugin": "^4.0.0-beta.2",</span><br></pre></td></tr></table></figure>
+<p>&#x5347;&#x7EA7;html-webpack-plugin</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;html-webpack-plugin&quot;: &quot;^4.0.0-beta.2&quot;,</span><br></pre></td></tr></table></figure>
 
-<p>在webpack.config.dev.js中，调整plugin顺序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    chunkSortMode: <span class="string">'none'</span></span><br><span class="line">&#125;), </span><br><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),</span><br></pre></td></tr></table></figure>
+<p>&#x5728;webpack.config.dev.js&#x4E2D;&#xFF0C;&#x8C03;&#x6574;plugin&#x987A;&#x5E8F;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    chunkSortMode: <span class="string">&apos;none&apos;</span></span><br><span class="line">}), </span><br><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li><strong>Cannot read property ‘context’ of undefined</strong></li>
+<li><strong>Cannot read property &#x2018;context&#x2019; of undefined</strong></li>
 </ol>
-<p>升级url-loader file-loader</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"file-loader": "^1.1.11", </span><br><span class="line">"url-loader": "0.6.2",</span><br></pre></td></tr></table></figure>
+<p>&#x5347;&#x7EA7;url-loader file-loader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;file-loader&quot;: &quot;^1.1.11&quot;, </span><br><span class="line">&quot;url-loader&quot;: &quot;0.6.2&quot;,</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li><strong>missingDeps.some is not a function</strong></li>
 </ol>
-<p>升级react-dev-utils</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"react-dev-utils": "6.1.1",</span><br></pre></td></tr></table></figure>
+<p>&#x5347;&#x7EA7;react-dev-utils</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;react-dev-utils&quot;: &quot;6.1.1&quot;,</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
 <li><strong>this.htmlWebpackPlugin.getHooks is not a function</strong></li>
 </ol>
-<p>同1.</p>
-<p>在webpack.config.dev.js中</p>
+<p>&#x540C;1.</p>
+<p>&#x5728;webpack.config.dev.js&#x4E2D;</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw)</span><br></pre></td></tr></table></figure>
 
-<p>然后升级html-webpack-plugin</p>
+<p>&#x7136;&#x540E;&#x5347;&#x7EA7;html-webpack-plugin</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-webpack-plugin@next --save-dev</span><br></pre></td></tr></table></figure>
 
 <ol start="5">
-<li><p>移除webpack的UglifyJsPlugin</p>
+<li><p>&#x79FB;&#x9664;webpack&#x7684;UglifyJsPlugin</p>
 </li>
 <li><p>Tapable.plugin is deprecated. Use new API on <code>.hooks</code> instead</p>
 </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev extract-text-webpack-plugin</span><br></pre></td></tr></table></figure>
 
-<p>更详细的，之后再学习。</p>
+<p>&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x5B66;&#x4E60;&#x3002;</p>
 
       
     </div>

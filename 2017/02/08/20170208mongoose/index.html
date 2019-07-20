@@ -84,20 +84,20 @@
 
 
 
-<meta name="description" content="今后我们把使用mongoose时所遇到的问题都归纳到这里。 多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构 12345prd_img_srcprd_skuprd_priceprd_urlprd_name  然而我只想取这几个collectio">
+<meta name="description" content="&amp;#x4ECA;&amp;#x540E;&amp;#x6211;&amp;#x4EEC;&amp;#x628A;&amp;#x4F7F;&amp;#x7528;mongoose&amp;#x65F6;&amp;#x6240;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x90FD;&amp;#x5F52;&amp;#x7EB3;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;&amp;#x3002; &amp;#x591A;&amp;#x4E2A;&amp;#x76F8">
 <meta name="keywords" content="node,mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用mongoose遇到的问题">
 <meta property="og:url" content="https://grayfrost.github.io/2017/02/08/20170208mongoose/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="今后我们把使用mongoose时所遇到的问题都归纳到这里。 多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构 12345prd_img_srcprd_skuprd_priceprd_urlprd_name  然而我只想取这几个collectio">
+<meta property="og:description" content="&amp;#x4ECA;&amp;#x540E;&amp;#x6211;&amp;#x4EEC;&amp;#x628A;&amp;#x4F7F;&amp;#x7528;mongoose&amp;#x65F6;&amp;#x6240;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x90FD;&amp;#x5F52;&amp;#x7EB3;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;&amp;#x3002; &amp;#x591A;&amp;#x4E2A;&amp;#x76F8">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://grayfrost.github.io/.io//mongoose1.png">
+<meta property="og:image" content="https://grayfrost.github.io/2017/02/08/20170208mongoose/mongoose1.png">
 <meta property="og:updated_time" content="2019-07-20T02:58:01.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用mongoose遇到的问题">
-<meta name="twitter:description" content="今后我们把使用mongoose时所遇到的问题都归纳到这里。 多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构 12345prd_img_srcprd_skuprd_priceprd_urlprd_name  然而我只想取这几个collectio">
-<meta name="twitter:image" content="https://grayfrost.github.io/.io//mongoose1.png">
+<meta name="twitter:description" content="&amp;#x4ECA;&amp;#x540E;&amp;#x6211;&amp;#x4EEC;&amp;#x628A;&amp;#x4F7F;&amp;#x7528;mongoose&amp;#x65F6;&amp;#x6240;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x90FD;&amp;#x5F52;&amp;#x7EB3;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;&amp;#x3002; &amp;#x591A;&amp;#x4E2A;&amp;#x76F8">
+<meta name="twitter:image" content="https://grayfrost.github.io/2017/02/08/20170208mongoose/mongoose1.png">
 
 
 
@@ -337,18 +337,18 @@
       
 
       
-        <p>今后我们把使用mongoose时所遇到的问题都归纳到这里。</p>
-<h2 id="多个相同Schema的collection，如何去特定的一个？-2017-02-08"><a href="#多个相同Schema的collection，如何去特定的一个？-2017-02-08" class="headerlink" title="多个相同Schema的collection，如何去特定的一个？(2017-02-08)"></a>多个相同Schema的collection，如何去特定的一个？(2017-02-08)</h2><p>这是今天所遇到的问题。<br>打开我的Robomongo，<br><img src="/.io//mongoose1.png" alt><br>从text_20170205开始，所有的schema都是如图上的结构</p>
+        <p>&#x4ECA;&#x540E;&#x6211;&#x4EEC;&#x628A;&#x4F7F;&#x7528;mongoose&#x65F6;&#x6240;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x90FD;&#x5F52;&#x7EB3;&#x5230;&#x8FD9;&#x91CC;&#x3002;</p>
+<h2 id="&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;-2017-02-08"><a href="#&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;-2017-02-08" class="headerlink" title="&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;(2017-02-08)"></a>&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;(2017-02-08)</h2><p>&#x8FD9;&#x662F;&#x4ECA;&#x5929;&#x6240;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;<br>&#x6253;&#x5F00;&#x6211;&#x7684;Robomongo&#xFF0C;<br><img src="/2017/02/08/20170208mongoose/mongoose1.png" alt><br>&#x4ECE;text_20170205&#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x6709;&#x7684;schema&#x90FD;&#x662F;&#x5982;&#x56FE;&#x4E0A;&#x7684;&#x7ED3;&#x6784;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prd_img_src</span><br><span class="line">prd_sku</span><br><span class="line">prd_price</span><br><span class="line">prd_url</span><br><span class="line">prd_name</span><br></pre></td></tr></table></figure>
 
-<p>然而我只想取这几个collection中的一个，那我要如何做呢？</p>
-<p>回忆之前的文章，使用mongoose需要使用到几个知识点：schema,model,entity。<br>在models.js中定义Model这一步时，普通的是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _JD = new Schema(&#123;</span><br><span class="line">  prd_img_src: String,</span><br><span class="line">  prd_sku: String,</span><br><span class="line">  prd_price: String,</span><br><span class="line">  prd_url: String,</span><br><span class="line">  prd_name: String</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD);</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x800C;&#x6211;&#x53EA;&#x60F3;&#x53D6;&#x8FD9;&#x51E0;&#x4E2A;collection&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x90A3;&#x6211;&#x8981;&#x5982;&#x4F55;&#x505A;&#x5462;&#xFF1F;</p>
+<p>&#x56DE;&#x5FC6;&#x4E4B;&#x524D;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x4F7F;&#x7528;mongoose&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x51E0;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A;schema,model,entity&#x3002;<br>&#x5728;models.js&#x4E2D;&#x5B9A;&#x4E49;Model&#x8FD9;&#x4E00;&#x6B65;&#x65F6;&#xFF0C;&#x666E;&#x901A;&#x7684;&#x662F;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _JD = new Schema({</span><br><span class="line">  prd_img_src: String,</span><br><span class="line">  prd_sku: String,</span><br><span class="line">  prd_price: String,</span><br><span class="line">  prd_url: String,</span><br><span class="line">  prd_name: String</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">exports.JD = mongoose.model(<span class="string">&apos;JD&apos;</span>, _JD);</span><br></pre></td></tr></table></figure>
 
-<p>然而这次我们需要使用到collection的名字来定义model，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD, <span class="string">'test_20170206'</span>);</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x800C;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;collection&#x7684;&#x540D;&#x5B57;&#x6765;&#x5B9A;&#x4E49;model&#xFF0C;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.JD = mongoose.model(<span class="string">&apos;JD&apos;</span>, _JD, <span class="string">&apos;test_20170206&apos;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>上述代码可以帮我渠道名为“test_20170206”的collection。</p>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x6E20;&#x9053;&#x540D;&#x4E3A;&#x201C;test_20170206&#x201D;&#x7684;collection&#x3002;</p>
 
       
     </div>

@@ -84,21 +84,21 @@
 
 
 
-<meta name="description" content="最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。 原型对于原型，有两个概念要知道：__proto__和prototype。 __proto__实例对象有__proto__属性 prototype函数对象有prototype属性。哪些是函数对象呢？ 123function A()&amp;#123;&amp;#125;var a = function()&amp;#123;&amp;#125;new Fu">
+<meta name="description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x5468;&amp;#x90FD;&amp;#x6CA1;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E8B;&amp;#x5E72;&amp;#xFF0C;&amp;#x5C31;&amp;#x8BA4;&amp;#x771F;&amp;#x7684;&amp;#x770B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;js&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#xFF0C;&amp;#x611F;&amp;#x89C">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原型">
 <meta property="og:url" content="https://grayfrost.github.io/2017/09/16/20170916prototype/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。 原型对于原型，有两个概念要知道：__proto__和prototype。 __proto__实例对象有__proto__属性 prototype函数对象有prototype属性。哪些是函数对象呢？ 123function A()&amp;#123;&amp;#125;var a = function()&amp;#123;&amp;#125;new Fu">
+<meta property="og:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x5468;&amp;#x90FD;&amp;#x6CA1;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E8B;&amp;#x5E72;&amp;#xFF0C;&amp;#x5C31;&amp;#x8BA4;&amp;#x771F;&amp;#x7684;&amp;#x770B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;js&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#xFF0C;&amp;#x611F;&amp;#x89C">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://grayfrost.github.io/.io//1.png">
-<meta property="og:image" content="https://grayfrost.github.io/.io//2.jpg">
+<meta property="og:image" content="https://grayfrost.github.io/2017/09/16/20170916prototype/1.png">
+<meta property="og:image" content="https://grayfrost.github.io/2017/09/16/20170916prototype/2.jpg">
 <meta property="og:updated_time" content="2019-07-20T02:58:50.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型">
-<meta name="twitter:description" content="最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。 原型对于原型，有两个概念要知道：__proto__和prototype。 __proto__实例对象有__proto__属性 prototype函数对象有prototype属性。哪些是函数对象呢？ 123function A()&amp;#123;&amp;#125;var a = function()&amp;#123;&amp;#125;new Fu">
-<meta name="twitter:image" content="https://grayfrost.github.io/.io//1.png">
+<meta name="twitter:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x5468;&amp;#x90FD;&amp;#x6CA1;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E8B;&amp;#x5E72;&amp;#xFF0C;&amp;#x5C31;&amp;#x8BA4;&amp;#x771F;&amp;#x7684;&amp;#x770B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;js&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#xFF0C;&amp;#x611F;&amp;#x89C">
+<meta name="twitter:image" content="https://grayfrost.github.io/2017/09/16/20170916prototype/1.png">
 
 
 
@@ -319,26 +319,26 @@
       
 
       
-        <p>最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>对于原型，有两个概念要知道：<code>__proto__</code>和<code>prototype</code>。</p>
-<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><p>实例对象有<code>__proto__</code>属性</p>
-<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h3><p>函数对象有<code>prototype</code>属性。哪些是函数对象呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function A()&#123;&#125;</span><br><span class="line">var a = function()&#123;&#125;</span><br><span class="line">new Function()&#123;&#125;</span><br></pre></td></tr></table></figure>
+        <p>&#x6700;&#x8FD1;&#x4E00;&#x5468;&#x90FD;&#x6CA1;&#x4EC0;&#x4E48;&#x4E8B;&#x5E72;&#xFF0C;&#x5C31;&#x8BA4;&#x771F;&#x7684;&#x770B;&#x4E86;&#x4E00;&#x4E0B;js&#x7684;&#x539F;&#x578B;&#xFF0C;&#x611F;&#x89C9;&#x81EA;&#x5DF1;&#x7EC8;&#x4E8E;&#x6709;&#x70B9;&#x7406;&#x89E3;&#x4E86;&#x3002;</p>
+<h2 id="&#x539F;&#x578B;"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</h2><p>&#x5BF9;&#x4E8E;&#x539F;&#x578B;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x8981;&#x77E5;&#x9053;&#xFF1A;<code>__proto__</code>&#x548C;<code>prototype</code>&#x3002;</p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><p>&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x6709;<code>__proto__</code>&#x5C5E;&#x6027;</p>
+<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h3><p>&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x6709;<code>prototype</code>&#x5C5E;&#x6027;&#x3002;&#x54EA;&#x4E9B;&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x5462;&#xFF1F;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function A(){}</span><br><span class="line">var a = function(){}</span><br><span class="line">new Function(){}</span><br></pre></td></tr></table></figure>
 
-<p>这些便是了。</p>
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a><code>constructor</code></h3><p>原型对象上有一个constructor属性，用来指向它的函数对象。</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>在javascript中，一切接对象！所以函数也是对象。当我们定义了一个对象时，该对象会自带一些属性。如果你只是一个普通对象，那你就会有<code>__proto__</code>属性，而如果你是一个函数的话，那你不只有<code>__proto__</code>，还有prototype。<br>举个栗子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let Person = function()&#123;&#125;;</span><br><span class="line">let boy = new Person();</span><br><span class="line">console.log(&apos;instance __proto__&apos;, boy.__proto__);</span><br><span class="line">console.log(&apos;instance prototype&apos;, boy.prototype);</span><br><span class="line">console.log(&apos;function __proto__&apos;, Person.__proto__);</span><br><span class="line">console.log(&apos;function prototype&apos;, Person.prototype);</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E9B;&#x4FBF;&#x662F;&#x4E86;&#x3002;</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a><code>constructor</code></h3><p>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E0A;&#x6709;&#x4E00;&#x4E2A;constructor&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5411;&#x5B83;&#x7684;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x3002;</p>
+<h3 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h3><p>&#x5728;javascript&#x4E2D;&#xFF0C;&#x4E00;&#x5207;&#x63A5;&#x5BF9;&#x8C61;&#xFF01;&#x6240;&#x4EE5;&#x51FD;&#x6570;&#x4E5F;&#x662F;&#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x4F1A;&#x81EA;&#x5E26;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x3002;&#x5982;&#x679C;&#x4F60;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4F60;&#x5C31;&#x4F1A;&#x6709;<code>__proto__</code>&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x4F60;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4F60;&#x4E0D;&#x53EA;&#x6709;<code>__proto__</code>&#xFF0C;&#x8FD8;&#x6709;prototype&#x3002;<br>&#x4E3E;&#x4E2A;&#x6817;&#x5B50;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let Person = function(){};</span><br><span class="line">let boy = new Person();</span><br><span class="line">console.log(&apos;instance __proto__&apos;, boy.__proto__);</span><br><span class="line">console.log(&apos;instance prototype&apos;, boy.prototype);</span><br><span class="line">console.log(&apos;function __proto__&apos;, Person.__proto__);</span><br><span class="line">console.log(&apos;function prototype&apos;, Person.prototype);</span><br></pre></td></tr></table></figure>
 
-<p>得到的结果如下：<br><img src="/.io//1.png" alt></p>
+<p>&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;<br><img src="/2017/09/16/20170916prototype/1.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor === Person</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
 
-<p>其实就是一种循环引用，Person通过prototyop属性指向Person.prototypo这个原型对象，而这个原型对象又通过constructor这个属性指向回Person。</p>
-<p>当js在创建对象时，它就会不知通过什么方式自动为这个对象创建<code>__proto__</code>这个属性，它相当于一个指针，指向该对象的构造函数的prototype属性，用上个例子来说就是</p>
+<p>&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF0C;Person&#x901A;&#x8FC7;prototyop&#x5C5E;&#x6027;&#x6307;&#x5411;Person.prototypo&#x8FD9;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x53C8;&#x901A;&#x8FC7;constructor&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x56DE;Person&#x3002;</p>
+<p>&#x5F53;js&#x5728;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x4E0D;&#x77E5;&#x901A;&#x8FC7;&#x4EC0;&#x4E48;&#x65B9;&#x5F0F;&#x81EA;&#x52A8;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;<code>__proto__</code>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x5B83;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x5411;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E0A;&#x4E2A;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#x5C31;&#x662F;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boy.__proto__ == Person.prototype</span><br></pre></td></tr></table></figure>
 
-<p>是时候献上神图了<br><img src="/.io//2.jpg" alt></p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>一个实例的<code>__proto__</code>指向它的构造函数的原型对象，而它的构造函数的原型对象也有<code>__proto__</code>，继续指向它自己的原型对象，如此重复下去，知道最后一个<strong>Object.prototype</strong>，可以说它是一切对象的始祖，一切对象都是继承它来的，<code>Object.prototype.__proto__</code>为null，不在指向其它对象。这样便构成了一条原型链。</p>
+<p>&#x662F;&#x65F6;&#x5019;&#x732E;&#x4E0A;&#x795E;&#x56FE;&#x4E86;<br><img src="/2017/09/16/20170916prototype/2.jpg" alt></p>
+<h2 id="&#x539F;&#x578B;&#x94FE;"><a href="#&#x539F;&#x578B;&#x94FE;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;"></a>&#x539F;&#x578B;&#x94FE;</h2><p>&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;<code>__proto__</code>&#x6307;&#x5411;&#x5B83;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x5B83;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E5F;&#x6709;<code>__proto__</code>&#xFF0C;&#x7EE7;&#x7EED;&#x6307;&#x5411;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x6B64;&#x91CD;&#x590D;&#x4E0B;&#x53BB;&#xFF0C;&#x77E5;&#x9053;&#x6700;&#x540E;&#x4E00;&#x4E2A;<strong>Object.prototype</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x5B83;&#x662F;&#x4E00;&#x5207;&#x5BF9;&#x8C61;&#x7684;&#x59CB;&#x7956;&#xFF0C;&#x4E00;&#x5207;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x7EE7;&#x627F;&#x5B83;&#x6765;&#x7684;&#xFF0C;<code>Object.prototype.__proto__</code>&#x4E3A;null&#xFF0C;&#x4E0D;&#x5728;&#x6307;&#x5411;&#x5176;&#x5B83;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x6837;&#x4FBF;&#x6784;&#x6210;&#x4E86;&#x4E00;&#x6761;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
 
       
     </div>

@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。 好像通常都用第二种！由于rear可能比front大，也可能比f">
+<meta name="description" content="&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x5982;&amp;#x4F55;&amp;#x5224;&amp;#x65AD;&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x662F;&amp;#x7A7A;&amp;#x662F;&amp;#x6EE1;&amp;#xFF1F;&amp;#x529E;&amp;#x6CD5;&amp;#x4E00;&amp;#xFF1A;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;">
 <meta name="keywords" content="data-structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="队列">
 <meta property="og:url" content="https://grayfrost.github.io/2016/07/28/20160728queue/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。 好像通常都用第二种！由于rear可能比front大，也可能比f">
+<meta property="og:description" content="&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x5982;&amp;#x4F55;&amp;#x5224;&amp;#x65AD;&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x662F;&amp;#x7A7A;&amp;#x662F;&amp;#x6EE1;&amp;#xFF1F;&amp;#x529E;&amp;#x6CD5;&amp;#x4E00;&amp;#xFF1A;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-06T07:47:19.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="队列">
-<meta name="twitter:description" content="循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。 好像通常都用第二种！由于rear可能比front大，也可能比f">
+<meta name="twitter:description" content="&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x5982;&amp;#x4F55;&amp;#x5224;&amp;#x65AD;&amp;#x5FAA;&amp;#x73AF;&amp;#x961F;&amp;#x5217;&amp;#x662F;&amp;#x7A7A;&amp;#x662F;&amp;#x6EE1;&amp;#xFF1F;&amp;#x529E;&amp;#x6CD5;&amp;#x4E00;&amp;#xFF1A;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;">
 
 
 
@@ -335,9 +335,9 @@
       
 
       
-        <h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>如何判断循环队列是空是满？<br>办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；<br>办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。</p>
-<p>好像通常都用第二种！<br>由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大尺寸为N，那么队列满的条件是(rear + 1) % N == front</p>
-<p>通用的计算循环队列长度的公式：(rear - front + N) % N</p>
+        <h3 id="&#x5FAA;&#x73AF;&#x961F;&#x5217;"><a href="#&#x5FAA;&#x73AF;&#x961F;&#x5217;" class="headerlink" title="&#x5FAA;&#x73AF;&#x961F;&#x5217;"></a>&#x5FAA;&#x73AF;&#x961F;&#x5217;</h3><p>&#x5982;&#x4F55;&#x5224;&#x65AD;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x662F;&#x7A7A;&#x662F;&#x6EE1;&#xFF1F;<br>&#x529E;&#x6CD5;&#x4E00;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x53D8;&#x91CF;flag&#xFF0C;&#x5F53;front == rear&#xFF0C;&#x4E14;flag = 0&#x65F6;&#x4E3A;&#x961F;&#x5217;&#x7A7A;&#xFF0C;&#x5F53;front == rear&#xFF0C;&#x4E14;flag = 1&#x65F6;&#x4E3A;&#x961F;&#x5217;&#x6EE1;&#xFF1B;<br>&#x529E;&#x6CD5;&#x4E8C;&#xFF1A;&#x5F53;&#x961F;&#x5217;&#x7A7A;&#x65F6;&#xFF0C;&#x6761;&#x4EF6;&#x5C31;&#x662F;front == rear&#xFF0C;&#x5F53;&#x961F;&#x5217;&#x4E3A;&#x6EE1;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x5176;&#x6761;&#x4EF6;&#xFF0C;&#x4FDD;&#x7559;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7A7A;&#x95F4;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x961F;&#x5217;&#x6EE1;&#x65F6;&#xFF0C;&#x6570;&#x7EC4;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5355;&#x5143;&#x3002;</p>
+<p>&#x597D;&#x50CF;&#x901A;&#x5E38;&#x90FD;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#xFF01;<br>&#x7531;&#x4E8E;rear&#x53EF;&#x80FD;&#x6BD4;front&#x5927;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x6BD4;front&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x53EA;&#x76F8;&#x5DEE;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x65F6;&#x5C31;&#x8BF4;&#x6EE1;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x76F8;&#x5DEE;&#x6574;&#x6574;&#x4E00;&#x5708;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x82E5;&#x961F;&#x5217;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#x4E3A;N&#xFF0C;&#x90A3;&#x4E48;&#x961F;&#x5217;&#x6EE1;&#x7684;&#x6761;&#x4EF6;&#x662F;(rear + 1) % N == front</p>
+<p>&#x901A;&#x7528;&#x7684;&#x8BA1;&#x7B97;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x957F;&#x5EA6;&#x7684;&#x516C;&#x5F0F;&#xFF1A;(rear - front + N) % N</p>
 
       
     </div>

@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="接触git有一段时间了。关于学习git，我主要是看廖雪峰老师的官网git教程。 Git:分布式SVN:集中式">
+<meta name="description" content="&amp;#x63A5;&amp;#x89E6;git&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x4E86;&amp;#x3002;&amp;#x5173;&amp;#x4E8E;&amp;#x5B66;&amp;#x4E60;git&amp;#xFF0C;&amp;#x6211;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x770B;&amp;#x5ED6;&amp;#x96EA;&amp;#x5CF0;&amp;#x8001;&amp;#x5E08;&amp;#">
 <meta name="keywords" content="git,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git入门">
 <meta property="og:url" content="https://grayfrost.github.io/2016/12/28/20161228git/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="接触git有一段时间了。关于学习git，我主要是看廖雪峰老师的官网git教程。 Git:分布式SVN:集中式">
+<meta property="og:description" content="&amp;#x63A5;&amp;#x89E6;git&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x4E86;&amp;#x3002;&amp;#x5173;&amp;#x4E8E;&amp;#x5B66;&amp;#x4E60;git&amp;#xFF0C;&amp;#x6211;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x770B;&amp;#x5ED6;&amp;#x96EA;&amp;#x5CF0;&amp;#x8001;&amp;#x5E08;&amp;#">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-06T07:48:46.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git入门">
-<meta name="twitter:description" content="接触git有一段时间了。关于学习git，我主要是看廖雪峰老师的官网git教程。 Git:分布式SVN:集中式">
+<meta name="twitter:description" content="&amp;#x63A5;&amp;#x89E6;git&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x4E86;&amp;#x3002;&amp;#x5173;&amp;#x4E8E;&amp;#x5B66;&amp;#x4E60;git&amp;#xFF0C;&amp;#x6211;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x770B;&amp;#x5ED6;&amp;#x96EA;&amp;#x5CF0;&amp;#x8001;&amp;#x5E08;&amp;#">
 
 
 
@@ -335,52 +335,52 @@
       
 
       
-        <p>接触git有一段时间了。关于学习git，我主要是看<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰老师的官网git教程</a>。</p>
-<p>Git:分布式<br>SVN:集中式</p>
+        <p>&#x63A5;&#x89E6;git&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x4E86;&#x3002;&#x5173;&#x4E8E;&#x5B66;&#x4E60;git&#xFF0C;&#x6211;&#x4E3B;&#x8981;&#x662F;&#x770B;<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">&#x5ED6;&#x96EA;&#x5CF0;&#x8001;&#x5E08;&#x7684;&#x5B98;&#x7F51;git&#x6559;&#x7A0B;</a>&#x3002;</p>
+<p>Git:&#x5206;&#x5E03;&#x5F0F;<br>SVN:&#x96C6;&#x4E2D;&#x5F0F;</p>
 <a id="more"></a>
 
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a><br>一路安装，最后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+<h2 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git&#x5B98;&#x7F51;</a><br>&#x4E00;&#x8DEF;&#x5B89;&#x88C5;&#xFF0C;&#x6700;&#x540E;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>因为我使用git主要是上传一些代码到github，所以我只说一些我常用的，比较少用的等以后用到了再说喽。</p>
-<h2 id="Git的简单使用"><a href="#Git的简单使用" class="headerlink" title="Git的简单使用"></a>Git的简单使用</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>首先找个地方，创个空目录</p>
+<p>&#x56E0;&#x4E3A;&#x6211;&#x4F7F;&#x7528;git&#x4E3B;&#x8981;&#x662F;&#x4E0A;&#x4F20;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#x5230;github&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x53EA;&#x8BF4;&#x4E00;&#x4E9B;&#x6211;&#x5E38;&#x7528;&#x7684;&#xFF0C;&#x6BD4;&#x8F83;&#x5C11;&#x7528;&#x7684;&#x7B49;&#x4EE5;&#x540E;&#x7528;&#x5230;&#x4E86;&#x518D;&#x8BF4;&#x55BD;&#x3002;</p>
+<h2 id="Git&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;"><a href="#Git&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;" class="headerlink" title="Git&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;"></a>Git&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;</h2><h3 id="&#x521D;&#x59CB;&#x5316;"><a href="#&#x521D;&#x59CB;&#x5316;" class="headerlink" title="&#x521D;&#x59CB;&#x5316;"></a>&#x521D;&#x59CB;&#x5316;</h3><p>&#x9996;&#x5148;&#x627E;&#x4E2A;&#x5730;&#x65B9;&#xFF0C;&#x521B;&#x4E2A;&#x7A7A;&#x76EE;&#x5F55;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir learngit</span><br><span class="line"><span class="built_in">cd</span> learngit</span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
 
-<p><b>learngit</b>只是一个目录名。<strong>注意：不要使用中文命名目录！</strong>免得乱七八糟的问题出现。<br><code>pwd</code>用于显示当前路径。<br>初始化完成之后，会发现原本的空目录中多出了一个<b>.git</b>的目录，没有的话，可能隐藏了，或者初始化失败。</p>
-<h3 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h3><p>把需要上传的文件添加到初始化好的仓库目录，再使用<code>git add</code>命令告诉Git，把文件添加到仓库。</p>
+<p><b>learngit</b>&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x540D;&#x3002;<strong>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x4E2D;&#x6587;&#x547D;&#x540D;&#x76EE;&#x5F55;&#xFF01;</strong>&#x514D;&#x5F97;&#x4E71;&#x4E03;&#x516B;&#x7CDF;&#x7684;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x3002;<br><code>pwd</code>&#x7528;&#x4E8E;&#x663E;&#x793A;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#x3002;<br>&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x539F;&#x672C;&#x7684;&#x7A7A;&#x76EE;&#x5F55;&#x4E2D;&#x591A;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;<b>.git</b>&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x80FD;&#x9690;&#x85CF;&#x4E86;&#xFF0C;&#x6216;&#x8005;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;&#x6587;&#x4EF6;"><a href="#&#x6DFB;&#x52A0;&#x6587;&#x4EF6;" class="headerlink" title="&#x6DFB;&#x52A0;&#x6587;&#x4EF6;"></a>&#x6DFB;&#x52A0;&#x6587;&#x4EF6;</h3><p>&#x628A;&#x9700;&#x8981;&#x4E0A;&#x4F20;&#x7684;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x5230;&#x521D;&#x59CB;&#x5316;&#x597D;&#x7684;&#x4ED3;&#x5E93;&#x76EE;&#x5F55;&#xFF0C;&#x518D;&#x4F7F;&#x7528;<code>git add</code>&#x547D;&#x4EE4;&#x544A;&#x8BC9;Git&#xFF0C;&#x628A;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x5230;&#x4ED3;&#x5E93;&#x3002;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add file.name</span><br></pre></td></tr></table></figure>
 
-<p><b>file.name</b>只是我瞎编的一个文件，如果有多个文件，可以</p>
+<p><b>file.name</b>&#x53EA;&#x662F;&#x6211;&#x778E;&#x7F16;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
-<p>不过使用以上命令的话要小心，因为有多个文件改动的话，出问题的时候挺麻烦的，而我每次只是添加文件，所以就没这个顾虑。</p>
-<h3 id="提交仓库"><a href="#提交仓库" class="headerlink" title="提交仓库"></a>提交仓库</h3><p>用命令<code>git commit</code>告诉Git，把文件提交到仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"message"</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E0D;&#x8FC7;&#x4F7F;&#x7528;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x7684;&#x8BDD;&#x8981;&#x5C0F;&#x5FC3;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x6539;&#x52A8;&#x7684;&#x8BDD;&#xFF0C;&#x51FA;&#x95EE;&#x9898;&#x7684;&#x65F6;&#x5019;&#x633A;&#x9EBB;&#x70E6;&#x7684;&#xFF0C;&#x800C;&#x6211;&#x6BCF;&#x6B21;&#x53EA;&#x662F;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x6CA1;&#x8FD9;&#x4E2A;&#x987E;&#x8651;&#x3002;</p>
+<h3 id="&#x63D0;&#x4EA4;&#x4ED3;&#x5E93;"><a href="#&#x63D0;&#x4EA4;&#x4ED3;&#x5E93;" class="headerlink" title="&#x63D0;&#x4EA4;&#x4ED3;&#x5E93;"></a>&#x63D0;&#x4EA4;&#x4ED3;&#x5E93;</h3><p>&#x7528;&#x547D;&#x4EE4;<code>git commit</code>&#x544A;&#x8BC9;Git&#xFF0C;&#x628A;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x4ED3;&#x5E93;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;message&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>每次<code>git commit</code>记得加上<code>-m "改动信息"</code>，养成良好习惯，方便出错时迅速找到问题。</p>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>首先要有一个Github账号，由于本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以需要设置SSH Key。文章最后会介绍多个ssh key的设置。</p>
-<h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><p>创建完远程仓库后，我们在本地仓库运行一下命令</p>
+<p>&#x6BCF;&#x6B21;<code>git commit</code>&#x8BB0;&#x5F97;&#x52A0;&#x4E0A;<code>-m &quot;&#x6539;&#x52A8;&#x4FE1;&#x606F;&quot;</code>&#xFF0C;&#x517B;&#x6210;&#x826F;&#x597D;&#x4E60;&#x60EF;&#xFF0C;&#x65B9;&#x4FBF;&#x51FA;&#x9519;&#x65F6;&#x8FC5;&#x901F;&#x627E;&#x5230;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>&#x9996;&#x5148;&#x8981;&#x6709;&#x4E00;&#x4E2A;Github&#x8D26;&#x53F7;&#xFF0C;&#x7531;&#x4E8E;&#x672C;&#x5730;Git&#x4ED3;&#x5E93;&#x548C;GitHub&#x4ED3;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x4F20;&#x8F93;&#x662F;&#x901A;&#x8FC7;SSH&#x52A0;&#x5BC6;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8BBE;&#x7F6E;SSH Key&#x3002;&#x6587;&#x7AE0;&#x6700;&#x540E;&#x4F1A;&#x4ECB;&#x7ECD;&#x591A;&#x4E2A;ssh key&#x7684;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="&#x521B;&#x5EFA;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"><a href="#&#x521B;&#x5EFA;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;" class="headerlink" title="&#x521B;&#x5EFA;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"></a>&#x521B;&#x5EFA;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</h3><p>&#x521B;&#x5EFA;&#x5B8C;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:XXXXX/XXXX.git</span><br></pre></td></tr></table></figure>
 
-<h3 id="内容推送"><a href="#内容推送" class="headerlink" title="内容推送"></a>内容推送</h3><p>把本地库的所有内容推送到远程库上</p>
+<h3 id="&#x5185;&#x5BB9;&#x63A8;&#x9001;"><a href="#&#x5185;&#x5BB9;&#x63A8;&#x9001;" class="headerlink" title="&#x5185;&#x5BB9;&#x63A8;&#x9001;"></a>&#x5185;&#x5BB9;&#x63A8;&#x9001;</h3><p>&#x628A;&#x672C;&#x5730;&#x5E93;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5E93;&#x4E0A;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
-<p>第一次推送加<code>-u</code>，之后就不用了。</p>
-<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>当然我们也可以把仓库内容下下来。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x63A8;&#x9001;&#x52A0;<code>-u</code>&#xFF0C;&#x4E4B;&#x540E;&#x5C31;&#x4E0D;&#x7528;&#x4E86;&#x3002;</p>
+<h3 id="&#x514B;&#x9686;&#x4ED3;&#x5E93;"><a href="#&#x514B;&#x9686;&#x4ED3;&#x5E93;" class="headerlink" title="&#x514B;&#x9686;&#x4ED3;&#x5E93;"></a>&#x514B;&#x9686;&#x4ED3;&#x5E93;</h3><p>&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x4ED3;&#x5E93;&#x5185;&#x5BB9;&#x4E0B;&#x4E0B;&#x6765;&#x3002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &#x4ED3;&#x5E93;&#x5730;&#x5740;</span><br></pre></td></tr></table></figure>
 
-<p>使用这种方法，在改动了文件之后，直接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git commit -m <span class="string">"改动信息"</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x6539;&#x52A8;&#x4E86;&#x6587;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x76F4;&#x63A5;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &#x6587;&#x4EF6;&#x540D;</span><br><span class="line">git commit -m <span class="string">&quot;&#x6539;&#x52A8;&#x4FE1;&#x606F;&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
-<p>即可</p>
-<h2 id="多个ssh-key"><a href="#多个ssh-key" class="headerlink" title="多个ssh key"></a>多个ssh key</h2><h3 id="生成新的ssh-key"><a href="#生成新的ssh-key" class="headerlink" title="生成新的ssh key"></a>生成新的ssh key</h3><p>假设我们之前已经有了ssh key，现在我们需要添加一个新的key。我们知道生成ssh key的基本步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#新建SSH key：</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/.ssh <span class="comment"># 切换到C:\Users\Administrator\.ssh</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"mywork@email.com"</span>  <span class="comment"># 新建工作的SSH key</span></span><br><span class="line"><span class="comment"># 设置名称为second</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Administrator/.ssh/id_rsa): second</span><br></pre></td></tr></table></figure>
+<p>&#x5373;&#x53EF;</p>
+<h2 id="&#x591A;&#x4E2A;ssh-key"><a href="#&#x591A;&#x4E2A;ssh-key" class="headerlink" title="&#x591A;&#x4E2A;ssh key"></a>&#x591A;&#x4E2A;ssh key</h2><h3 id="&#x751F;&#x6210;&#x65B0;&#x7684;ssh-key"><a href="#&#x751F;&#x6210;&#x65B0;&#x7684;ssh-key" class="headerlink" title="&#x751F;&#x6210;&#x65B0;&#x7684;ssh key"></a>&#x751F;&#x6210;&#x65B0;&#x7684;ssh key</h3><p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;ssh key&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;key&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x751F;&#x6210;ssh key&#x7684;&#x57FA;&#x672C;&#x6B65;&#x9AA4;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#&#x65B0;&#x5EFA;SSH key&#xFF1A;</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/.ssh <span class="comment"># &#x5207;&#x6362;&#x5230;C:\Users\Administrator\.ssh</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;mywork@email.com&quot;</span>  <span class="comment"># &#x65B0;&#x5EFA;&#x5DE5;&#x4F5C;&#x7684;SSH key</span></span><br><span class="line"><span class="comment"># &#x8BBE;&#x7F6E;&#x540D;&#x79F0;&#x4E3A;second</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Administrator/.ssh/id_rsa): second</span><br></pre></td></tr></table></figure>
 
-<p>给key命名主要是为了区分不同的ssh key。以上名称设置随意。<br>打开<b>.ssh</b>文件夹，发现新的key已经生成成功，但当我们要添加到github账户时，它会报错。我们还需一下步骤</p>
-<h3 id="config文件"><a href="#config文件" class="headerlink" title="config文件"></a>config文件</h3><p>在<b>.ssh</b>文件夹下新建一个<b>config</b>文件，文件不需要后缀名。我自己的内容如下：</p>
+<p>&#x7ED9;key&#x547D;&#x540D;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;ssh key&#x3002;&#x4EE5;&#x4E0A;&#x540D;&#x79F0;&#x8BBE;&#x7F6E;&#x968F;&#x610F;&#x3002;<br>&#x6253;&#x5F00;<b>.ssh</b>&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x53D1;&#x73B0;&#x65B0;&#x7684;key&#x5DF2;&#x7ECF;&#x751F;&#x6210;&#x6210;&#x529F;&#xFF0C;&#x4F46;&#x5F53;&#x6211;&#x4EEC;&#x8981;&#x6DFB;&#x52A0;&#x5230;github&#x8D26;&#x6237;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x62A5;&#x9519;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x4E00;&#x4E0B;&#x6B65;&#x9AA4;</p>
+<h3 id="config&#x6587;&#x4EF6;"><a href="#config&#x6587;&#x4EF6;" class="headerlink" title="config&#x6587;&#x4EF6;"></a>config&#x6587;&#x4EF6;</h3><p>&#x5728;<b>.ssh</b>&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<b>config</b>&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x9700;&#x8981;&#x540E;&#x7F00;&#x540D;&#x3002;&#x6211;&#x81EA;&#x5DF1;&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">	HostName github.com</span><br><span class="line">	PreferredAuthentications publickey</span><br><span class="line">	IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Host second.github.com</span><br><span class="line">	HostName github.com</span><br><span class="line">	PreferredAuthentications publickey</span><br><span class="line">	IdentityFile ~/.ssh/second</span><br></pre></td></tr></table></figure>
 
-<p>设置完以上内容，就可以使用不同的本地仓库来将内容推送到不同的远程仓库了。</p>
+<p>&#x8BBE;&#x7F6E;&#x5B8C;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x6765;&#x5C06;&#x5185;&#x5BB9;&#x63A8;&#x9001;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E86;&#x3002;</p>
 
       
     </div>
