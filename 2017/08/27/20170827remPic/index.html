@@ -88,16 +88,16 @@
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端图片变形问题">
-<meta property="og:url" content="http://yoursite.com/2017/08/27/20170827remPic/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/08/27/20170827remPic/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="问题星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图 注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。 因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。 解决办法主要解决办法是提高精度。下面我随便举个例子： 1&amp;lt;div id=&quot;main&quot;&amp;gt;&amp;lt;/d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/08/27/20170827remPic/20170827remPic/problem.jpg">
-<meta property="og:updated_time" content="2017-08-27T07:35:36.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//problem.jpg">
+<meta property="og:updated_time" content="2019-07-20T02:58:32.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端图片变形问题">
 <meta name="twitter:description" content="问题星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图 注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。 因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。 解决办法主要解决办法是提高精度。下面我随便举个例子： 1&amp;lt;div id=&quot;main&quot;&amp;gt;&amp;lt;/d">
-<meta name="twitter:image" content="http://yoursite.com/2017/08/27/20170827remPic/20170827remPic/problem.jpg">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//problem.jpg">
 
 
 
@@ -337,13 +337,13 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图<br><img src="20170827remPic/problem.jpg" alt></p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图<br><img src="/.io//problem.jpg" alt></p>
 <p>注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。</p>
 <p>因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>主要解决办法是提高精度。<br>下面我随便举个例子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"main"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#main&#123;</span></span><br><span class="line">    width: xxxrem;</span><br><span class="line">    height: xxxrem;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#main:after&#123;</span></span><br><span class="line">    content: <span class="string">''</span>;</span><br><span class="line">    position: absolute;</span><br><span class="line">    background: url(<span class="string">'图片路径'</span>) no-repeat center;</span><br><span class="line">    /**假设图片宽为.24rem，高为.12rem**/</span><br><span class="line">    width: 24rem;</span><br><span class="line">    height: 24rem;</span><br><span class="line">    background-size: 24rem 12rem;</span><br><span class="line">    transform-origi: 0 0;</span><br><span class="line">    transfrom: scale(0.01);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: xxxrem;</span><br><span class="line">    <span class="attribute">height</span>: xxxrem;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'图片路径'</span>) no-repeat center;</span><br><span class="line">    <span class="comment">/**假设图片宽为.24rem，高为.12rem**/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">24rem</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">24rem</span>;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">24rem</span> <span class="number">12rem</span>;</span><br><span class="line">    <span class="attribute">transform-origi</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transfrom</span>: <span class="built_in">scale</span>(0.01);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以看出，提高精度的方法是先扩大100倍之后在进行缩小的变换。</p>
 <p>经过上述方法能够解决变形问题。如有更好的方法，以后会作记录。</p>

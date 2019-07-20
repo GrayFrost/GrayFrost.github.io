@@ -88,29 +88,29 @@
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flex布局">
-<meta property="og:url" content="http://yoursite.com/2017/01/22/20170122flex/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/01/22/20170122flex/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="简介不管是在学习vue，还是在学习微信小程序的时候，我都接触到了flex布局。所以今天打算认真学一下。 Flexflex是css3的样式，意为“弹性布局”。通过display:block使用。行内元素通过display:inline-block使用。使用了flex布局，子元素的float、clear和vertical-align属性将失效。 概念为了方便学习，我们称采用了flex布局的父元素为容器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex-wrap1.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex-wrap2.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex-wrap3.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex-wrap4.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/justify-content1.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/justify-content2.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/justify-content3.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/justify-content4.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/justify-content5.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/align-items1.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/align-items2.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/align-items3.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/align-items4.png">
-<meta property="og:updated_time" content="2017-01-22T14:08:44.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//flex.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//flex-wrap1.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//flex-wrap2.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//flex-wrap3.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//flex-wrap4.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//justify-content1.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//justify-content2.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//justify-content3.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//justify-content4.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//justify-content5.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//align-items1.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//align-items2.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//align-items3.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//align-items4.png">
+<meta property="og:updated_time" content="2019-07-20T02:57:43.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex布局">
 <meta name="twitter:description" content="简介不管是在学习vue，还是在学习微信小程序的时候，我都接触到了flex布局。所以今天打算认真学一下。 Flexflex是css3的样式，意为“弹性布局”。通过display:block使用。行内元素通过display:inline-block使用。使用了flex布局，子元素的float、clear和vertical-align属性将失效。 概念为了方便学习，我们称采用了flex布局的父元素为容器">
-<meta name="twitter:image" content="http://yoursite.com/2017/01/22/20170122flex/20170122flex/flex.png">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//flex.png">
 
 
 
@@ -352,7 +352,7 @@
       
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>不管是在学习vue，还是在学习微信小程序的时候，我都接触到了flex布局。所以今天打算认真学一下。</p>
 <h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><p><code>flex</code>是css3的样式，意为“弹性布局”。通过<code>display:block</code>使用。行内元素通过<code>display:inline-block</code>使用。<br><b>使用了flex布局，子元素的float、clear和vertical-align属性将失效。</b></p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="20170122flex/flex.png" alt><br>为了方便学习，我们称采用了flex布局的父元素为<b>容器</b>。它的子元素称为<b>项目</b>。容器默认有两根轴，水平方向的称为<b>主轴</b>，垂直方向的称为<b>交叉轴</b>。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="/.io//flex.png" alt><br>为了方便学习，我们称采用了flex布局的父元素为<b>容器</b>。它的子元素称为<b>项目</b>。容器默认有两根轴，水平方向的称为<b>主轴</b>，垂直方向的称为<b>交叉轴</b>。</p>
 <a id="more"></a>
 
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h3><p>属于容器的属性有6个</p>
@@ -368,7 +368,7 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nowrap //不换行</span><br><span class="line">wrap //从左上角开始自动向下换行</span><br><span class="line">wrap-reverse //从左下角开始自动向上换行</span><br></pre></td></tr></table></figure>
 
-<p>举个例子：<br>我的初始布局<br><img src="20170122flex/flex-wrap1.png" alt><br>当我还未添加flex-wrap属性时，再添加一个项目<br><img src="20170122flex/flex-wrap2.png" alt><br>可以看到项目不会自动换行，这也对应了第一个值<code>nowrap</code>，就是说我们需要<code>flex-wrap: nowrap</code>完全可以不用写。<br>wrap:<br><img src="20170122flex/flex-wrap3.png" alt><br>wrap-reverse:<br><img src="20170122flex/flex-wrap4.png" alt></p>
+<p>举个例子：<br>我的初始布局<br><img src="/.io//flex-wrap1.png" alt><br>当我还未添加flex-wrap属性时，再添加一个项目<br><img src="/.io//flex-wrap2.png" alt><br>可以看到项目不会自动换行，这也对应了第一个值<code>nowrap</code>，就是说我们需要<code>flex-wrap: nowrap</code>完全可以不用写。<br>wrap:<br><img src="/.io//flex-wrap3.png" alt><br>wrap-reverse:<br><img src="/.io//flex-wrap4.png" alt></p>
 <h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式。<br>默认值<code>row nowrap</code>。感觉有了这个上面两个有点多余。<br>例子：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow: row wrap;</span><br></pre></td></tr></table></figure>
 
@@ -377,21 +377,21 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flex-start（默认值） //左对齐</span><br><span class="line">flex-end //右对齐</span><br><span class="line">center //居中</span><br><span class="line">space-between //两端对齐，项目之间的间隔都相等。</span><br><span class="line">space-around //每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</span><br></pre></td></tr></table></figure>
 
-<p>flex-start:<br><img src="20170122flex/justify-content1.png" alt></p>
-<p>flex-end:<br><img src="20170122flex/justify-content2.png" alt></p>
-<p>center:<br><img src="20170122flex/justify-content3.png" alt></p>
-<p>space-between:<br><img src="20170122flex/justify-content4.png" alt></p>
-<p>space-around:<br><img src="20170122flex/justify-content5.png" alt></p>
+<p>flex-start:<br><img src="/.io//justify-content1.png" alt></p>
+<p>flex-end:<br><img src="/.io//justify-content2.png" alt></p>
+<p>center:<br><img src="/.io//justify-content3.png" alt></p>
+<p>space-between:<br><img src="/.io//justify-content4.png" alt></p>
+<p>space-around:<br><img src="/.io//justify-content5.png" alt></p>
 <h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p>align-items属性定义项目在交叉轴上如何对齐，也有5个值。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;</span><br><span class="line">    align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flex-start //交叉轴的起点对齐。</span><br><span class="line">flex-end //交叉轴的终点对齐。</span><br><span class="line">center //交叉轴的中点对齐。</span><br><span class="line">baseline //项目的第一行文字的基线对齐。</span><br><span class="line">stretch（默认值）//如果项目未设置高度或设为auto，将占满整个容器的高度。</span><br></pre></td></tr></table></figure>
 
-<p>flex-start:<br><img src="20170122flex/align-items1.png" alt></p>
-<p>flex-end:<br><img src="20170122flex/align-items2.png" alt></p>
-<p>center:<br><img src="20170122flex/align-items3.png" alt></p>
+<p>flex-start:<br><img src="/.io//align-items1.png" alt></p>
+<p>flex-end:<br><img src="/.io//align-items2.png" alt></p>
+<p>center:<br><img src="/.io//align-items3.png" alt></p>
 <p>baseline:不试了，懒得写text</p>
-<p>stretch：<br><img src="20170122flex/align-items4.png" alt></p>
+<p>stretch：<br><img src="/.io//align-items4.png" alt></p>
 <h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。<br>说实话，不是很理解。我觉得应该是主轴和交叉轴的综合，就像flex-flow，综合了flex-direction和flex-wrap。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;</span><br><span class="line">    align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

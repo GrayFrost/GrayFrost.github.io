@@ -88,7 +88,7 @@
 <meta name="keywords" content="Front End">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gary&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/page/2/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="行止由心">
 <meta property="og:locale" content="zh-Hans">
@@ -340,12 +340,8 @@
 
       
         
-          
-          前言做移动端适配用的比较多的就是使用rem作为单位了吧。本来在做web的时候使用的是px，然后又有em作为单位（这个单位我都不怎么用，太麻烦了），现在移动端的话，基本都是rem了。
-emem是一个相对的单位。这里的相对便是基于父元素的font-size来改变的。举个例子：
-1234567891011121314151617//html&lt;div id="one"&gt;    hello    &lt;div id="one-one"&gt;world&lt;/div&gt;    &lt;
-          ...
-
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做移动端适配用的比较多的就是使用rem作为单位了吧。本来在做web的时候使用的是px，然后又有em作为单位（这个单位我都不怎么用，太麻烦了），现在移动端的话，基本都是rem了。</p>
+<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p>em是一个相对的单位。这里的相对便是基于父元素的font-size来改变的。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/10/30/20171030rem/#more" rel="contents">
               阅读全文 &raquo;
@@ -442,11 +438,11 @@ emem是一个相对的单位。这里的相对便是基于父元素的font-size�
       
         
           <p>之前一直搞不懂Vuex怎么用，但学了Redux之后，发现Vuex简单好多啊。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> vuex <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
 
 <p>前提是已经搭建好了其他vue的项目环境，开始！</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="20170918vuex/file.png" alt></p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="20170918vuex/effect.png" alt></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="/.io//file.png" alt></p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="/.io//effect.png" alt></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/09/18/20170918vuex/#more" rel="contents">
               阅读全文 &raquo;
@@ -544,7 +540,7 @@ emem是一个相对的单位。这里的相对便是基于父元素的font-size�
         
           <p>一直觉得直接使用前端技术来构建桌面应用或手机应用挺好玩的，因为做手机应用要装很多东西太麻烦，以后再学，现在就先学一下Electron吧。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>之前看到网上很多都是<code>npm install electron-prebuilt -g</code>，然后发现自己装的时候出错了，不知是不是教程太旧了。现在的是</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="keyword">install</span> electron -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install electron -g</span><br></pre></td></tr></table></figure>
 
 <p>（cnpm 淘宝镜像）</p>
           <div class="post-more-link text-center">
@@ -643,21 +639,28 @@ emem是一个相对的单位。这里的相对便是基于父元素的font-size�
       
         
           
-          最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。
-原型对于原型，有两个概念要知道：__proto__和prototype。
-__proto__实例对象有__proto__属性
-prototype函数对象有prototype属性。哪些是函数对象呢？
-123function A()&#123;&#125;var a = function()&#123;&#125;new Function()&#123;&#125;
+            <p>最近一周都没什么事干，就认真的看了一下js的原型，感觉自己终于有点理解了。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>对于原型，有两个概念要知道：<code>__proto__</code>和<code>prototype</code>。</p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><p>实例对象有<code>__proto__</code>属性</p>
+<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h3><p>函数对象有<code>prototype</code>属性。哪些是函数对象呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function A()&#123;&#125;</span><br><span class="line">var a = function()&#123;&#125;</span><br><span class="line">new Function()&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-这些便是了。
-constructor原型对象上有一个co
-          ...
+<p>这些便是了。</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a><code>constructor</code></h3><p>原型对象上有一个constructor属性，用来指向它的函数对象。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>在javascript中，一切接对象！所以函数也是对象。当我们定义了一个对象时，该对象会自带一些属性。如果你只是一个普通对象，那你就会有<code>__proto__</code>属性，而如果你是一个函数的话，那你不只有<code>__proto__</code>，还有prototype。<br>举个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let Person = function()&#123;&#125;;</span><br><span class="line">let boy = new Person();</span><br><span class="line">console.log(&apos;instance __proto__&apos;, boy.__proto__);</span><br><span class="line">console.log(&apos;instance prototype&apos;, boy.prototype);</span><br><span class="line">console.log(&apos;function __proto__&apos;, Person.__proto__);</span><br><span class="line">console.log(&apos;function prototype&apos;, Person.prototype);</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/16/20170916prototype/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>得到的结果如下：<br><img src="/.io//1.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor === Person</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
+
+<p>其实就是一种循环引用，Person通过prototyop属性指向Person.prototypo这个原型对象，而这个原型对象又通过constructor这个属性指向回Person。</p>
+<p>当js在创建对象时，它就会不知通过什么方式自动为这个对象创建<code>__proto__</code>这个属性，它相当于一个指针，指向该对象的构造函数的prototype属性，用上个例子来说就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boy.__proto__ == Person.prototype</span><br></pre></td></tr></table></figure>
+
+<p>是时候献上神图了<br><img src="/.io//2.jpg" alt></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>一个实例的<code>__proto__</code>指向它的构造函数的原型对象，而它的构造函数的原型对象也有<code>__proto__</code>，继续指向它自己的原型对象，如此重复下去，知道最后一个<strong>Object.prototype</strong>，可以说它是一切对象的始祖，一切对象都是继承它来的，<code>Object.prototype.__proto__</code>为null，不在指向其它对象。这样便构成了一条原型链。</p>
+
+          
         
       
     </div>
@@ -767,7 +770,7 @@ constructor原型对象上有一个co
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：<br><img src="20170903storage/readMore.png" alt="公司app" title="图1-公司app详情页继续阅读"></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：<br><img src="/.io//readMore.png" alt="&quot;图1-公司app详情页继续阅读&quot;"></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/09/03/20170903storage/#more" rel="contents">
               阅读全文 &raquo;
@@ -883,20 +886,18 @@ constructor原型对象上有一个co
       
         
           
-          问题星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图
-注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。
-因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。
-解决办法主要解决办法是提高精度。下面我随便举个例子：
-1&lt;div id="main"&gt;&lt;/div&gt;
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>星期五的时候遇到一个问题，就是在做移动端适配时，一些小图标在安卓手机下会出现变形的问题，如下图<br><img src="/.io//problem.jpg" alt></p>
+<p>注意看红色的小圆圈，本来应该都是圆形，但有些变成了椭圆。</p>
+<p>因为使用的是rem作为长度单位，在网上查找资料之后发现，rem在安卓机上会出现渲染精度问题，不能准确的渲染，当然ios没什么问题。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>主要解决办法是提高精度。<br>下面我随便举个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-12345678910111213141516#main&#123;    widt
-          ...
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: xxxrem;</span><br><span class="line">    <span class="attribute">height</span>: xxxrem;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'图片路径'</span>) no-repeat center;</span><br><span class="line">    <span class="comment">/**假设图片宽为.24rem，高为.12rem**/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">24rem</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">24rem</span>;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">24rem</span> <span class="number">12rem</span>;</span><br><span class="line">    <span class="attribute">transform-origi</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transfrom</span>: <span class="built_in">scale</span>(0.01);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/27/20170827remPic/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>可以看出，提高精度的方法是先扩大100倍之后在进行缩小的变换。</p>
+<p>经过上述方法能够解决变形问题。如有更好的方法，以后会作记录。</p>
+
+          
         
       
     </div>
@@ -1088,19 +1089,18 @@ constructor原型对象上有一个co
       
         
           
-          因为每次重装都要重新装很多东西，在这里记一下，免得以后又要去想。
-最重要的当然是node和git了。然后用
-1npm list -g --depth 0
+            <p>因为每次重装都要重新装很多东西，在这里记一下，免得以后又要去想。</p>
+<p>最重要的当然是node和git了。然后用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list -g --depth 0</span><br></pre></td></tr></table></figure>
 
-来查看目前我装了哪些npm包。
-可以看到还是有挺多的，有些是平时学习时装的，一直没有卸，比如：bower,yo（这个是yeoman），express等；也有其他项目出现问题时装的依赖，比如generator-karma（记得是vue-cli的问题）;然后我觉得有用的是：cnpm，hexo，hexo-cli，less，npm，npm-check
-          ...
+<p>来查看目前我装了哪些npm包。</p>
+<p><img src="/.io//1.png" alt><br>可以看到还是有挺多的，有些是平时学习时装的，一直没有卸，比如：bower,yo（这个是yeoman），express等；也有其他项目出现问题时装的依赖，比如generator-karma（记得是vue-cli的问题）;然后我觉得有用的是：cnpm，hexo，hexo-cli，less，npm，npm-check，stylus，vue-cli，webpack等。</p>
+<p>安装与卸载这些包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//-g决定了是否全局</span><br><span class="line">npm install 名字 [-g]</span><br><span class="line">npm uninstall 名字 [-g]</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/19/20170619developNeeded/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>这里说一下npm-check，使用它可以检查需要更新的npm包，然后选择更新。举个例子<br><img src="/.io//2.png" alt><br>更多使用方法就不说了。</p>
+
+          
         
       
     </div>
@@ -1211,19 +1211,27 @@ constructor原型对象上有一个co
       
         
           
-          效果回到顶部一般的网站都有，具体效果如下：
-当滑动到一定距离（通常是一屏）后，某个地方会出现“返回顶部”按钮（通常是右下角），点击按钮可以回到顶部，然后按钮隐藏（或其他效果，比如变得透明）。
-代码
-html
+            <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>回到顶部一般的网站都有，具体效果如下：<br><img src="/.io//backtotop.png" alt></p>
+<p>当滑动到一定距离（通常是一屏）后，某个地方会出现“返回顶部”按钮（通常是右下角），点击按钮可以回到顶部，然后按钮隐藏（或其他效果，比如变得透明）。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li>html</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">title</span>=<span class="string">"回到顶部"</span>&gt;</span>↑<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-123456&lt;main&gt;	&lt;div id="box1"&gt;&lt;/div&gt;	&lt;div id="box2"&gt;&lt;/div&gt;	&lt;div id="box3"&gt;&lt;/div&gt;&lt;/main&gt;&lt;a href="
-          ...
+<ul>
+<li><p>css<br>说实话，css部分没什么需要特别注意的地方。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">1000px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#box1</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">890px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#box2</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">590px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: orange;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#box3</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#btn</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>: fixed;</span><br><span class="line">	<span class="attribute">display</span>: none;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">5%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#ddd</span>;</span><br><span class="line">	<span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>javascript<br>重头戏</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</span><br><span class="line">	<span class="keyword">var</span> clientHeight = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">	<span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">var</span> isTop = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> myTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">		<span class="keyword">if</span>(myTop &gt;= clientHeight)&#123;</span><br><span class="line">			btn.style.display = <span class="string">'block'</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			btn.style.display = <span class="string">'none'</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//滑动过程中滑动滚动条的话也结束定时器</span></span><br><span class="line">		<span class="keyword">if</span>(!isTop)&#123;</span><br><span class="line">			clearInterval(timer);</span><br><span class="line">		&#125;</span><br><span class="line">		isTop = <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> myTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">			<span class="keyword">var</span> speed = <span class="built_in">Math</span>.ceil(myTop / <span class="number">6</span>);</span><br><span class="line">			<span class="built_in">document</span>.documentElement.scrollTop = <span class="built_in">document</span>.body.scrollTop = myTop - speed;</span><br><span class="line"></span><br><span class="line">			isTop = <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">if</span>(myTop == <span class="number">0</span>)&#123;</span><br><span class="line">				clearInterval(timer);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;, <span class="number">30</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/17/20170617backToTop/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>本次通过使用js来实现回到顶部效果，而不是用html的锚点，达到平滑的滚动效果。关键点：scrollTop,clientHeight,setInterval()。</p>
+<h3 id="按钮的隐藏与消失"><a href="#按钮的隐藏与消失" class="headerlink" title="按钮的隐藏与消失"></a>按钮的隐藏与消失</h3><p>首先是获取屏幕的高度clientHeight,然后通过判断滑动的距离scrollTop与高度的大小来实现效果。滑动大于一屏高度时将按钮显示，其他隐藏。</p>
+<h3 id="滑到顶部"><a href="#滑到顶部" class="headerlink" title="滑到顶部"></a>滑到顶部</h3><p>通过使用定时器setInterval来实现，当回到顶部时，取消定时器。</p>
+
+          
         
       
     </div>
@@ -1334,27 +1342,8 @@ html
       
         
           <p>今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。<br>下面开始部署。</p>
-<h2 id="购买阿里云服务器ECS"><a href="#购买阿里云服务器ECS" class="headerlink" title="购买阿里云服务器ECS"></a>购买阿里云服务器ECS</h2><h3 id="配置选型"><a href="#配置选型" class="headerlink" title="配置选型"></a>配置选型</h3><p><img src="20170309online/ecs1.png" alt></p>
-<p><img src="20170309online/ecs2.png" alt><br>大家根据喜好选择吧。<br>如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。<br>下面是我的选择</p>
-<p><img src="20170309online/ecs5.png" alt></p>
-<p><img src="20170309online/ecs6.png" alt></p>
-<h3 id="创建linux实例"><a href="#创建linux实例" class="headerlink" title="创建linux实例"></a>创建linux实例</h3><ol>
-<li>登录云服务器管理控制台</li>
-<li>定位到 云服务器ECS &gt; 实例</li>
-</ol>
-<p><img src="20170309online/ecs3.png" alt><br>进行相关配置。</p>
-<h3 id="远程连接-Linux-实例"><a href="#远程连接-Linux-实例" class="headerlink" title="远程连接 Linux 实例"></a>远程连接 Linux 实例</h3><ol>
-<li>登录云服务器管理控制台</li>
-<li>找到需要连接的实例，在操作列，单击远程连接。</li>
-<li>连接管理终端</li>
-</ol>
-<p>如果第一次连接终端，会弹出一个有密码提示的对话框，</p>
-<p><img src="20170309online/ecs4.png" alt><br>记住出现的密码，因为以后连接都需要输入。<br>如果不是第一次连接，就输入之前记住的密码。<br>除了用控制台连接终端，还可以使用putty来连接。</p>
-<p><img src="20170309online/putty.png" alt></p>
-<ol start="4">
-<li>输入用户名root和密码<br>用户名是root，而密码是创建实例时设置的密码。</li>
-</ol>
-<p>参考文章<a href="https://help.aliyun.com/document_detail/25422.html?spm=5176.doc25425.6.586.Ckgu02" target="_blank" rel="noopener">快速入门linux</a></p>
+<h2 id="购买阿里云服务器ECS"><a href="#购买阿里云服务器ECS" class="headerlink" title="购买阿里云服务器ECS"></a>购买阿里云服务器ECS</h2><h3 id="配置选型"><a href="#配置选型" class="headerlink" title="配置选型"></a>配置选型</h3><p><img src="/.io//ecs1.png" alt></p>
+<p><img src="/.io//ecs2.png" alt><br>大家根据喜好选择吧。<br>如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。<br>下面是我的选择</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/03/09/20170309online/#more" rel="contents">
               阅读全文 &raquo;

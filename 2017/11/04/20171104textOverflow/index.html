@@ -88,17 +88,17 @@
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文字超出使用省略号">
-<meta property="og:url" content="http://yoursite.com/2017/11/04/20171104textOverflow/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/11/04/20171104textOverflow/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。 单行文本具体实现 1234width: 具体宽度;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;  多行文本具体实现 12345width: 具体宽度;display: -webkit-box;-webkit-box-orient:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/11/04/20171104textOverflow/20171104textOverflow/problem.png">
-<meta property="og:image" content="http://yoursite.com/2017/11/04/20171104textOverflow/20171104textOverflow/problem2.png">
-<meta property="og:updated_time" content="2017-11-04T08:31:40.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//problem.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//problem2.png">
+<meta property="og:updated_time" content="2019-07-20T02:59:06.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文字超出使用省略号">
 <meta name="twitter:description" content="我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。 单行文本具体实现 1234width: 具体宽度;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;  多行文本具体实现 12345width: 具体宽度;display: -webkit-box;-webkit-box-orient:">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/04/20171104textOverflow/20171104textOverflow/problem.png">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//problem.png">
 
 
 
@@ -321,19 +321,21 @@
       
         <p>我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。</p>
 <h2 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h2><p>具体实现</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: 具体宽度;</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 具体宽度;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br></pre></td></tr></table></figure>
 
 <h2 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h2><p>具体实现</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: 具体宽度;</span><br><span class="line"><span class="attribute">display</span>: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-line-clamp: 行数;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 具体宽度;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">-webkit-line-clamp</span>: 行数;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
 
 <p>在测试这一部分内容时，我发现如果文本内容中不是全部是中文的话，会出现问题。<br>举个例子</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">"one"</span>&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="meta">#one&#123;</span></span><br><span class="line">    <span class="built_in">width</span>: <span class="number">100</span>px;</span><br><span class="line">    <span class="built_in">display</span>: -webkit-box;</span><br><span class="line">    -webkit-<span class="built_in">line</span>-clamp: <span class="number">3</span>;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">    <span class="built_in">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>效果<br><img src="20171104textOverflow/problem.png" alt></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#one</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="/.io//problem.png" alt></p>
 <p>如果换成中文，则没有问题</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"one"</span>&gt;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>效果<br><img src="20171104textOverflow/problem2.png" alt></p>
+<p>效果<br><img src="/.io//problem2.png" alt></p>
 <p>暂时不知道怎么解决，之后找到方法再说。</p>
 
       

@@ -88,16 +88,16 @@
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo显示图片">
-<meta property="og:url" content="http://yoursite.com/2016/12/04/20161204image/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2016/12/04/20161204image/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="测试图片显示页面首先在source目录下创建上传图片的文件夹，我取名为images。经过测试  使用原生html方式  1&amp;lt;img src=&quot;/images/a.jpg&quot;&amp;gt;  目前我只掌握了这么笨的方法，图床什么的也没怎么接触过，以后再说。  使用markdown语法  1![img](/source/images/a.jpg)  一开始完全失效，原来还要添加其他东西：hexo-ass">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2016/12/04/20161204image/20161204image/Ducan.jpg">
-<meta property="og:updated_time" content="2019-07-06T07:48:11.105Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//Ducan.jpg">
+<meta property="og:updated_time" content="2019-07-20T02:13:22.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo显示图片">
 <meta name="twitter:description" content="测试图片显示页面首先在source目录下创建上传图片的文件夹，我取名为images。经过测试  使用原生html方式  1&amp;lt;img src=&quot;/images/a.jpg&quot;&amp;gt;  目前我只掌握了这么笨的方法，图床什么的也没怎么接触过，以后再说。  使用markdown语法  1![img](/source/images/a.jpg)  一开始完全失效，原来还要添加其他东西：hexo-ass">
-<meta name="twitter:image" content="http://yoursite.com/2016/12/04/20161204image/20161204image/Ducan.jpg">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//Ducan.jpg">
 
 
 
@@ -341,21 +341,21 @@
 <ol>
 <li>使用原生html方式</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"/images/a.jpg"</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/a.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>目前我只掌握了这么笨的方法，图床什么的也没怎么接触过，以后再说。</p>
 <ol start="2">
 <li>使用markdown语法</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![img](/<span class="built_in">source</span>/images/a.jpg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">img</span>](<span class="link">/source/images/a.jpg</span>)</span><br></pre></td></tr></table></figure>
 
 <p>一开始完全失效，原来还要添加其他东西：hexo-asset-image<br>首先在nanshanyi.github.io目录下确认 _config.yml 中有 post_asset_folder:true 。<br>在 hexo 目录，执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 
 <p>之后再使用 hexo new ‘new’ 创建新博客的时候，会在source/_posts里面创建.md文件的同时生成一个相同的名字的文件夹。把该文章中需要使用的图片放在该文件夹下即可。<br>使用的时候</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">"图片描述"</span>(可以不写)](/文件夹/你的图片名字.jpg)</span><br><span class="line">例如：</span><br><span class="line">![](new/text.jpg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">"图片描述"(可以不写)</span>](<span class="link">/文件夹/你的图片名字.jpg</span>)</span><br><span class="line">例如：</span><br><span class="line">![](new/text.jpg)</span><br></pre></td></tr></table></figure>
 
-<p>以下为测试<br><img src="20161204image/Ducan.jpg" alt="Ducan" title="Tim Ducan"><br>不过使用了这种方法，第一种方法好像就会失效</p>
+<p>以下为测试<br><img src="/.io//Ducan.jpg" alt="Ducan" title="Tim Ducan"><br>不过使用了这种方法，第一种方法好像就会失效</p>
 
       
     </div>

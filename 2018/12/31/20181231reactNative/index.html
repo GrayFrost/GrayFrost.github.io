@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli  python2。  python版本必须为2.x  jdk。    jdk版本必须为1 .8。  [下载地址](https: //www.oracle.com/technetwork">
+<meta name="description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建react-native环境">
-<meta property="og:url" content="http://yoursite.com/2018/12/31/20181231reactNative/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2018/12/31/20181231reactNative/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli  python2。  python版本必须为2.x  jdk。    jdk版本必须为1 .8。  [下载地址](https: //www.oracle.com/technetwork">
+<meta property="og:description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg">
-<meta property="og:updated_time" content="2019-07-06T10:06:39.230Z">
+<meta property="og:updated_time" content="2019-07-20T01:55:04.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建react-native环境">
-<meta name="twitter:description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli  python2。  python版本必须为2.x  jdk。    jdk版本必须为1 .8。  [下载地址](https: //www.oracle.com/technetwork">
+<meta name="twitter:description" content="开发平台 windows  目标平台 Android 安装 node。  node版本要高于8 .3  react native 命令行工具。    1npm install -g react-native-cli">
 <meta name="twitter:image" content="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg">
 
 
@@ -320,7 +320,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" rel="gallery_cjyav7mie0037eicn1e836kle" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" rel="gallery_cjyazvc80003vhocnbvh1fl8x" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" itemprop="contentUrl">
               </a>
             
@@ -339,7 +339,11 @@
 </li>
 <li><p>react native 命令行工具。 </p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>python2。<br>  python版本必须为2.x</p>
 </li>
 <li><p>jdk。 </p>
@@ -382,10 +386,10 @@
 <p>过程中遇到的问题</p>
 <p>Could not find tools.jar</p>
 <p>在项目的android目录下找到local.properties， 添加</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sdk.dir</span> = D\: \\AndroidSDK</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk.dir = D\: \\AndroidSDK</span><br></pre></td></tr></table></figure>
 
 <p>后面的值为自己android sdk安装目录</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Could <span class="keyword">not</span> install <span class="keyword">the</span> app <span class="keyword">on</span> <span class="keyword">the</span> device, <span class="built_in">read</span> <span class="keyword">the</span> <span class="keyword">error</span> <span class="keyword">above</span></span><br><span class="line"><span class="keyword">for</span> details.Make sure you have an Android emulator <span class="built_in">running</span> <span class="keyword">or</span> a device connected <span class="keyword">and</span> have <span class="keyword">set</span> up your Android development environment</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Could not install the app on the device, read the error above</span><br><span class="line">for details.Make sure you have an Android emulator running or a device connected and have set up your Android development environment</span><br></pre></td></tr></table></figure>
 
 <p>检查有没有开启虚拟设备， 或连接真机， 然后运行 adb devices看下能不能看到设备</p>
 

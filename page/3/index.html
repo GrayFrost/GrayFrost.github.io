@@ -88,7 +88,7 @@
 <meta name="keywords" content="Front End">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gary&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/page/3/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="行止由心">
 <meta property="og:locale" content="zh-Hans">
@@ -577,19 +577,20 @@
       
         
           
-          今后我们把使用mongoose时所遇到的问题都归纳到这里。
-多个相同Schema的collection，如何去特定的一个？(2017-02-08)这是今天所遇到的问题。打开我的Robomongo，从text_20170205开始，所有的schema都是如图上的结构
-12345prd_img_srcprd_skuprd_priceprd_urlprd_name
+            <p>今后我们把使用mongoose时所遇到的问题都归纳到这里。</p>
+<h2 id="多个相同Schema的collection，如何去特定的一个？-2017-02-08"><a href="#多个相同Schema的collection，如何去特定的一个？-2017-02-08" class="headerlink" title="多个相同Schema的collection，如何去特定的一个？(2017-02-08)"></a>多个相同Schema的collection，如何去特定的一个？(2017-02-08)</h2><p>这是今天所遇到的问题。<br>打开我的Robomongo，<br><img src="/.io//mongoose1.png" alt><br>从text_20170205开始，所有的schema都是如图上的结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prd_img_src</span><br><span class="line">prd_sku</span><br><span class="line">prd_price</span><br><span class="line">prd_url</span><br><span class="line">prd_name</span><br></pre></td></tr></table></figure>
 
-然而我只想取这几个collection中的一个，那我要如何做呢？
-回忆之前的文章，使用mongoose需要使用到几个知识点：schema
-          ...
+<p>然而我只想取这几个collection中的一个，那我要如何做呢？</p>
+<p>回忆之前的文章，使用mongoose需要使用到几个知识点：schema,model,entity。<br>在models.js中定义Model这一步时，普通的是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _JD = new Schema(&#123;</span><br><span class="line">  prd_img_src: String,</span><br><span class="line">  prd_sku: String,</span><br><span class="line">  prd_price: String,</span><br><span class="line">  prd_url: String,</span><br><span class="line">  prd_name: String</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD);</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/08/20170208mongoose/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>然而这次我们需要使用到collection的名字来定义model，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.JD = mongoose.model(<span class="string">'JD'</span>, _JD, <span class="string">'test_20170206'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码可以帮我渠道名为“test_20170206”的collection。</p>
+
+          
         
       
     </div>
@@ -701,7 +702,9 @@
         
           <h2 id="什么是Sticky-footers布局"><a href="#什么是Sticky-footers布局" class="headerlink" title="什么是Sticky footers布局"></a>什么是Sticky footers布局</h2><p>简单地说，就是如果页面不够长的时候，页脚块粘贴在视窗底部；如果内容足够长时，页脚块会被内容向下推送。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>举个例子</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//html部分</span><br><span class="line">&lt;header&gt;</span><br><span class="line">	&lt;h1&gt;这是头区域部&lt;/h1&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line">&lt;main&gt;</span><br><span class="line">这是内容区域。</span><br><span class="line">&lt;/main&gt;</span><br><span class="line">&lt;footer&gt;</span><br><span class="line">	&lt;p&gt;这是底区域部&lt;/p&gt;</span><br><span class="line">&lt;/footer&gt;</span><br><span class="line"></span><br><span class="line">//css部分，添加基本样式</span><br><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0;&#125;</span><br><span class="line">header&#123;</span><br><span class="line">	border-bottom:2px solid <span class="comment">#333;&#125;</span></span><br><span class="line">footer&#123;</span><br><span class="line">	width:100%;</span><br><span class="line">	height:200px;</span><br><span class="line">	background-color:<span class="comment">#333;</span></span><br><span class="line">	color:<span class="comment">#fff;&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是头区域部<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">这是内容区域。</span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>这是底区域部<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-tag">header</span>&#123;</span><br><span class="line">	<span class="attribute">border-bottom</span>:<span class="number">2px</span> solid <span class="number">#333</span>;&#125;</span><br><span class="line"><span class="selector-tag">footer</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#333</span>;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#fff</span>;&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/08/20170208stickyFooter/#more" rel="contents">
               阅读全文 &raquo;
@@ -817,17 +820,22 @@
       
         
           
-          当你设置一个页面元素的高度(height)为100%时，期望这样元素能撑满整个浏览器窗口的高度，但大多数情况下，这样的做法没有任何效果。我今天就遇到了这样的情况。
-原因：根据W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度。所以，如果你把一个div的高度设定为height: 50%;，而它的父元素的高度是100px，那么，这个div的高度应该是50px。
-举个例子：
-1234&lt;div class="main"&gt;	&lt;div class="left"&gt;le
-          ...
+            <p>当你设置一个页面元素的高度(height)为100%时，期望这样元素能撑满整个浏览器窗口的高度，但大多数情况下，这样的做法没有任何效果。我今天就遇到了这样的情况。</p>
+<p>原因：根据W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度。所以，如果你把一个div的高度设定为height: 50%;，而它的父元素的高度是100px，那么，这个div的高度应该是50px。</p>
+<p>举个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/07/20170207height100/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>错误的样式示例如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>:flex;</span><br><span class="line">	<span class="attribute">flex-direction</span>:row;&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:orange;&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">	<span class="attribute">flex</span>:<span class="number">1</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="/.io//height1.png" alt></p>
+<p>解决方法：如果想让一个元素的百分比高度<code>height:100%;</code>起作用，你需要给这个元素的所有父元素的高度设定一个有效值。</p>
+<p>正确示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>:flex;</span><br><span class="line">	<span class="attribute">flex-direction</span>:row;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:orange;&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">	<span class="attribute">flex</span>:<span class="number">1</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="/.io//height2.png" alt><br>有效果了！可以看到，需要给<code>div.left</code>的每一个父元素都添加高度才行。</p>
+
+          
         
       
     </div>
@@ -919,10 +927,10 @@
       
         
           <p>两种常见的立即执行函数写法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;&#125;());</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;());</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)();</span><br></pre></td></tr></table></figure>
 
 <p>以下是<b>错误</b>写法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">function</span></span>()&#123;&#125;();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;();</span><br></pre></td></tr></table></figure>
 
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在了解立即执行函数之前，学习一些概念：函数声明、函数表达式、匿名函数。</p>
           <div class="post-more-link text-center">
@@ -1039,14 +1047,9 @@
 
       
         
-          
-          简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。
-开始使用Express官网
-安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express
-
-注意！在npm init这一步时，会让你指定入口文件，默认是index.js，可以修改为自定义的，我的是a
-          ...
-
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>因为使用<code>vue-cli</code>构建项目的时候接触了一点<code>express</code>，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">Express官网</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir express //创建目录</span><br><span class="line"><span class="built_in">cd</span> express //进入目录</span><br><span class="line">npm init //生成package.json文件</span><br><span class="line">npm install express --save 或 npm install express</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/03/20170203express/#more" rel="contents">
               阅读全文 &raquo;
@@ -1163,7 +1166,7 @@
         
           <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>不管是在学习vue，还是在学习微信小程序的时候，我都接触到了flex布局。所以今天打算认真学一下。</p>
 <h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><p><code>flex</code>是css3的样式，意为“弹性布局”。通过<code>display:block</code>使用。行内元素通过<code>display:inline-block</code>使用。<br><b>使用了flex布局，子元素的float、clear和vertical-align属性将失效。</b></p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="20170122flex/flex.png" alt><br>为了方便学习，我们称采用了flex布局的父元素为<b>容器</b>。它的子元素称为<b>项目</b>。容器默认有两根轴，水平方向的称为<b>主轴</b>，垂直方向的称为<b>交叉轴</b>。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="/.io//flex.png" alt><br>为了方便学习，我们称采用了flex布局的父元素为<b>容器</b>。它的子元素称为<b>项目</b>。容器默认有两根轴，水平方向的称为<b>主轴</b>，垂直方向的称为<b>交叉轴</b>。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/22/20170122flex/#more" rel="contents">
               阅读全文 &raquo;

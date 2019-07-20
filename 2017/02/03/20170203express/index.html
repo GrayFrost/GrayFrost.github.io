@@ -84,24 +84,24 @@
 
 
 
-<meta name="description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express  注意！">
+<meta name="description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express">
 <meta name="keywords" content="nodejs,express">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Express的简单使用">
-<meta property="og:url" content="http://yoursite.com/2017/02/03/20170203express/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/02/03/20170203express/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express  注意！">
+<meta property="og:description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/dir.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/hello.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/pageA.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/static.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/static2.png">
-<meta property="og:updated_time" content="2017-02-03T16:09:38.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//dir.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//hello.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//pageA.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//static.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//static2.png">
+<meta property="og:updated_time" content="2019-07-20T02:57:48.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express的简单使用">
-<meta name="twitter:description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express  注意！">
-<meta name="twitter:image" content="http://yoursite.com/2017/02/03/20170203express/20170203express/dir.png">
+<meta name="twitter:description" content="简介因为使用vue-cli构建项目的时候接触了一点express，所以现在参照官网认真看一下比较简单的功能，之后再深入学习。 开始使用Express官网 安装1234mkdir express //创建目录cd express //进入目录npm init //生成package.json文件npm install express --save 或 npm install express">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//dir.png">
 
 
 
@@ -345,26 +345,27 @@
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">Express官网</a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir express //创建目录</span><br><span class="line"><span class="built_in">cd</span> express //进入目录</span><br><span class="line">npm init //生成package.json文件</span><br><span class="line">npm install express --save 或 npm install express</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <p><em>注意！</em>在<code>npm init</code>这一步时，会让你指定入口文件，默认是index.js，可以修改为自定义的，我的是app.js。</p>
-<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><p>进入刚才创建的目录，新建入口文件app.js。此时文件目录如下：<br><img src="20170203express/dir.png" alt><br>在app.js中添加以下代码</p>
+<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><p>进入刚才创建的目录，新建入口文件app.js。此时文件目录如下：<br><img src="/.io//dir.png" alt><br>在app.js中添加以下代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res)&#123;</span><br><span class="line">	res.send(<span class="string">'Hello Express'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'Success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>运行app.js</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
 
-<p>打开浏览器，访问地址，效果如下<br><img src="20170203express/hello.png" alt></p>
+<p>打开浏览器，访问地址，效果如下<br><img src="/.io//hello.png" alt></p>
 <h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>路由的定义由如下结构组成：<code>app.METHOD(PATH, HANDLER)</code>。其中，app 是一个 express 实例；METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。<br>以get为例，在刚才的app.js基础上添加</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/a'</span>, <span class="keyword">function</span>(req, res)&#123;</span><br><span class="line">	res.send(<span class="string">'This is a page'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>重新运行app.js，效果如下<br><img src="20170203express/pageA.png" alt></p>
+<p>重新运行app.js，效果如下<br><img src="/.io//pageA.png" alt></p>
 <h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>通过 Express 内置的 express.static 可以方便地托管静态文件，比如html、css、js、图片等。<br>假设我新建了一个public目录，在目录下我放了一张图片a.jpg。<br>使用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
 
-<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="20170203express/static.png" alt></p>
+<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="/.io//static.png" alt></p>
 <p>如果静态资源存放在多个目录下面，你可以多次调用express.static 中间件。访问静态资源文件时，express.static中间件会根据目录添加的顺序查找所需的文件。<br>比如我在新增的public2目录下放了一张新图，我同样命名为a.jpg<br>在原来基础上使用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">'public2'</span>)); //放在public前</span><br><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
 
-<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="20170203express/static2.png" alt><br>可见的确是按顺序加载的。</p>
+<p>重新运行，访问<a href="http://localhost:3000/a.jpg，查看效果" target="_blank" rel="noopener">http://localhost:3000/a.jpg，查看效果</a><br><img src="/.io//static2.png" alt><br>可见的确是按顺序加载的。</p>
 <p>如果你希望所有通过express.static访问的文件都存放在一个“虚拟（virtual）”目录（即目录根本不存在）下面，可以通过为静态资源目录指定一个挂载路径的方式来实现。<br>假设虚拟目录名为vr，如下所示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/vr'</span>, express.static(<span class="string">'public'</span>));</span><br></pre></td></tr></table></figure>
 

@@ -88,18 +88,18 @@
 <meta name="keywords" content="css,xml,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序入门">
-<meta property="og:url" content="http://yoursite.com/2017/01/13/20170113wechat/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/01/13/20170113wechat/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="简介微信小程序，是一种不需要下载安装即可使用的应用。理论上是不需要下载，但实际还是会下载的，只是因为它的体积太小了（限制在1m），跟我们平时浏览大网页没什么区别，因此我们感觉不到而已。 入门安装 首先去官网中的工具页面下载开发者工具。  打开开发者工具，选择“本地小程序项目”,创建项目，本人无AppID，选“无AppID”选项，没有id的话，很多东西会受限制。个人也申请不了id，想哭。  填写完项">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/01/13/20170113wechat/20170113wechat/file.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/13/20170113wechat/20170113wechat/json_wrong.png">
-<meta property="og:image" content="http://yoursite.com/2017/01/13/20170113wechat/20170113wechat/js_wrong.png">
-<meta property="og:updated_time" content="2017-01-19T12:48:36.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//file.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//json_wrong.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//js_wrong.png">
+<meta property="og:updated_time" content="2019-07-20T02:57:32.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="简介微信小程序，是一种不需要下载安装即可使用的应用。理论上是不需要下载，但实际还是会下载的，只是因为它的体积太小了（限制在1m），跟我们平时浏览大网页没什么区别，因此我们感觉不到而已。 入门安装 首先去官网中的工具页面下载开发者工具。  打开开发者工具，选择“本地小程序项目”,创建项目，本人无AppID，选“无AppID”选项，没有id的话，很多东西会受限制。个人也申请不了id，想哭。  填写完项">
-<meta name="twitter:image" content="http://yoursite.com/2017/01/13/20170113wechat/20170113wechat/file.png">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//file.png">
 
 
 
@@ -353,7 +353,7 @@
 <h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><ol>
 <li><p>在根目录下创建三个文件<code>app.js</code>,<code>app.wxss</code>,<code>app.json</code>，似乎这三个文件<b>必须这样命名</b>。<code>app.js</code>是小程序脚本，<code>app.wxss</code>是小程序的全局样式，<code>app.json</code>是小程序的全局配置信息。</p>
 </li>
-<li><p>新建一个pages文件夹，文件夹下再建两个文件夹welcome,show，再分别在两个文件夹下建立对应的js文件，wxss文件，wxml文件，json文件，<b>这些文件的命名要统一</b>。<br>结构如下<br><img src="20170113wechat/file.png" alt></p>
+<li><p>新建一个pages文件夹，文件夹下再建两个文件夹welcome,show，再分别在两个文件夹下建立对应的js文件，wxss文件，wxml文件，json文件，<b>这些文件的命名要统一</b>。<br>结构如下<br><img src="/.io//file.png" alt></p>
 </li>
 </ol>
 <h3 id="填写信息"><a href="#填写信息" class="headerlink" title="填写信息"></a>填写信息</h3><ol>
@@ -363,13 +363,13 @@
 </ol>
 <p>我们并不需要写文件的后缀，系统会自动加载所有同名的文件。这里的<code>pages</code>里注册的内容顺序是有用的，<b>系统会把第一个作为项目的启动页面</b>，也就是说我们的<code>welcome.wxml</code>页面会成为系统的启动页。如果我们把<code>pages/show/show</code>放在第一行，那<code>show.wxml</code>就会成为启动页面。</p>
 <p>更多配置信息见官方文档。</p>
-<p>如果我们在控制台遇到以下信息<br><img src="20170113wechat/json_wrong.png" alt><br>说明我们的json文件里没有任何内容，我们<b>至少需要在每一个新建的json文件里加上</b></p>
+<p>如果我们在控制台遇到以下信息<br><img src="/.io//json_wrong.png" alt><br>说明我们的json文件里没有任何内容，我们<b>至少需要在每一个新建的json文件里加上</b></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>嗯，没有看错，就是一新建就写上<code>{}</code>，后续有什么新内容在需要时再添加。<br>顺带一提，<b>js文件也是如此，一新建就添加</b></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>否则会出现以下类似错误<br><img src="20170113wechat/js_wrong.png" alt><br>不过<code>app.js</code>不需要以上操作。</p>
+<p>否则会出现以下类似错误<br><img src="/.io//js_wrong.png" alt><br>不过<code>app.js</code>不需要以上操作。</p>
 <h3 id="常见标签"><a href="#常见标签" class="headerlink" title="常见标签"></a>常见标签</h3><p>只说目前为止我用过的吧</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt;视图&lt;/view&gt;</span><br><span class="line">&lt;text&gt;文本&lt;/text&gt;</span><br><span class="line">&lt;image&gt;图片&lt;/image&gt;</span><br><span class="line">&lt;swiper&gt;</span><br><span class="line">    &lt;swiper-item&gt;轮播图&lt;/swiper-item&gt;</span><br><span class="line">&lt;/swiper&gt;</span><br><span class="line">&lt;block&gt;块&lt;/block&gt;</span><br><span class="line">&lt;template&gt;模板&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 

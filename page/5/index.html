@@ -88,7 +88,7 @@
 <meta name="keywords" content="Front End">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gary&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/page/5/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="行止由心">
 <meta property="og:locale" content="zh-Hans">
@@ -341,27 +341,25 @@
       
         
           
-          Vue.js的初次使用
+            <h1 id="Vue-js的初次使用"><a href="#Vue-js的初次使用" class="headerlink" title="Vue.js的初次使用"></a>Vue.js的初次使用</h1><img src="http://ojcnbowye.bkt.clouddn.com/img/blog/20161121vue/vue.png" style="display:block;width:200px;height:200px;margin:0 auto;border:none;" title="Vue.js">
 最近开始接触vue.js这个mvvm框架，发现相比angularjs，vuejs学起来要简单多啦。相应的教程官网都有。
 
-vue的安装
-安装nodejs和git
-打开gitbash，输入以下命令
+<h2 id="vue的安装"><a href="#vue的安装" class="headerlink" title="vue的安装"></a>vue的安装</h2><ol>
+<li>安装nodejs和git</li>
+<li>打开gitbash，输入以下命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install vue</span><br><span class="line">npm install --global vue-cli</span><br></pre></td></tr></table></figure>
 
-12npm install vuenpm install --global vue-cli
+<p>全局安装 vue-cli，这是一个官方命令行工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
 
-全局安装 vue-cli，这是一个官方命令行工具
-1vue init webpack my-project
+<p>my-project只是一个项目名称，可以自定义</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 
-my-project只是一个项目名称，可以自定义
-123cd my-pro
-          ...
+<p>进入vue项目文件夹，运行项目，一个vue搭建的项目就跑起来了。</p>
+<p>期间接触到了<a href="http://npm.taobao.org/" target="_blank" rel="noopener">淘宝镜像</a>，对下载node包速度有作用，用了之后是挺快的，不过有些包好像装不了，需要再用npm。</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/21/20161121vue/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -472,18 +470,12 @@ my-project只是一个项目名称，可以自定义
       
         
           
-          二叉树的遍历一、先序遍历遍历方式：根-&gt;左子树-&gt;右子树；二、中序遍历遍历方式：左子树-&gt;根-&gt;右子树；三、后序遍历遍历方式：左子树-&gt;右子树-&gt;根。
-由此得出：所谓的X序遍历即是遍历根的顺序，先序即根最先遍历，中序则根中间，后序则根最后；且左子树一定比右子树先遍历。
-树的节点任何二叉树中度为0的结点比度为2的结点多一个。
-节点数=分叉数+1
+            <h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p>一、先序遍历<br>遍历方式：根-&gt;左子树-&gt;右子树；<br>二、中序遍历<br>遍历方式：左子树-&gt;根-&gt;右子树；<br>三、后序遍历<br>遍历方式：左子树-&gt;右子树-&gt;根。</p>
+<p>由此得出：所谓的X序遍历即是遍历根的顺序，先序即根最先遍历，中序则根中间，后序则根最后；且左子树一定比右子树先遍历。</p>
+<h2 id="树的节点"><a href="#树的节点" class="headerlink" title="树的节点"></a>树的节点</h2><p>任何二叉树中度为0的结点比度为2的结点多一个。</p>
+<p>节点数=分叉数+1</p>
 
           
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/15/20160815tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -594,15 +586,11 @@ my-project只是一个项目名称，可以自定义
       
         
           
-          循环队列如何判断循环队列是空是满？办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。
-好像通常都用第二种！由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大
-          ...
+            <h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>如何判断循环队列是空是满？<br>办法一：设置一个标志变量flag，当front == rear，且flag = 0时为队列空，当front == rear，且flag = 1时为队列满；<br>办法二：当队列空时，条件就是front == rear，当队列为满时，我们修改其条件，保留一个元素空间。也就是说，队列满时，数组中还有一个空闲单元。</p>
+<p>好像通常都用第二种！<br>由于rear可能比front大，也可能比front小，所以，尽管它们只相差一个位置时就说满的情况，但也有可能是相差整整一圈。所以，若队列的最大尺寸为N，那么队列满的条件是(rear + 1) % N == front</p>
+<p>通用的计算循环队列长度的公式：(rear - front + N) % N</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/28/20160728queue/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -828,18 +816,14 @@ my-project只是一个项目名称，可以自定义
       
         
           
-          什么是浏览器内核我们一般称浏览器的核心部分”Rendering Engine”为浏览器内核。其负责对网页语法的解释和渲染页面。不同内核对语法的解释不同，网页渲染效果也不同。
-浏览器内核种类主要讲几类：Trident、Gecko、Presto、Webkit。
-Trident人称IE内核，与W3C脱节，你懂的。
-Gecko开源内核。火狐(Mozilla Firefox)采用了该内核。
-PrestoOpera采用的内核。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内
-          ...
+            <h2 id="什么是浏览器内核"><a href="#什么是浏览器内核" class="headerlink" title="什么是浏览器内核"></a>什么是浏览器内核</h2><p>我们一般称浏览器的核心部分”Rendering Engine”为浏览器内核。其负责对网页语法的解释和渲染页面。不同内核对语法的解释不同，网页渲染效果也不同。</p>
+<h2 id="浏览器内核种类"><a href="#浏览器内核种类" class="headerlink" title="浏览器内核种类"></a>浏览器内核种类</h2><p>主要讲几类：Trident、Gecko、Presto、Webkit。</p>
+<h3 id="Trident"><a href="#Trident" class="headerlink" title="Trident"></a>Trident</h3><p>人称IE内核，与W3C脱节，你懂的。</p>
+<h3 id="Gecko"><a href="#Gecko" class="headerlink" title="Gecko"></a>Gecko</h3><p>开源内核。火狐(Mozilla Firefox)采用了该内核。</p>
+<h3 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h3><p>Opera采用的内核。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。</p>
+<h3 id="Webkit"><a href="#Webkit" class="headerlink" title="Webkit"></a>Webkit</h3><p>苹果公司的内核，同样开源。代表：苹果的Safari、Google的Chrome。</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/06/20160406browser/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -950,7 +934,7 @@ PrestoOpera采用的内核。该款引擎的特点就是渲染速度的优化达
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206e2a374e856624.jpg" rel="gallery_cjyav7mgt0007eicn8t6xjt37" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206e2a374e856624.jpg" rel="gallery_cjyazvc6d0001hocn5wvpz9qg" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d206e2a374e856624.jpg" itemprop="contentUrl">
               </a>
             
@@ -964,17 +948,43 @@ PrestoOpera采用的内核。该款引擎的特点就是渲染速度的优化达
       
         
           
-          简介这是本人的第一篇博客。由友人介绍，接触到Github+Hexo搭建个人博客这么高大上的东西。我觉得写博客首先要简单明了，然后再专业比较好，毕竟看懂弄懂最重要。
-准备工作1.申请Github账号2.安装Node，用来生成静态页面，到Node.js官网下载相应平台的最新版本，一路安装即可3.安装Git，把本地的hexo内容提交到github上去4.安装Hexo
-安装Hexo过程在安装Hexo之前，先要创建Github个人仓库，再配置SSH keys，最后在安装Hexo。
-创建仓库配置SSH ke
-          ...
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是本人的第一篇博客。由友人介绍，接触到Github+Hexo搭建个人博客这么高大上的东西。我觉得写博客首先要简单明了，然后再专业比较好，毕竟看懂弄懂最重要。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.<a href="http://jingyan.baidu.com/article/455a9950abe0ada167277864.html" target="_blank" rel="noopener">申请Github账号</a><br>2.安装Node，用来生成静态页面，到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>下载相应平台的最新版本，一路安装即可<br>3.<a href="https://git-scm.com/" target="_blank" rel="noopener">安装Git</a>，把本地的hexo内容提交到github上去<br>4.安装Hexo</p>
+<h2 id="安装Hexo过程"><a href="#安装Hexo过程" class="headerlink" title="安装Hexo过程"></a>安装Hexo过程</h2><p>在安装Hexo之前，先要创建Github个人仓库，再配置SSH keys，最后在安装Hexo。</p>
+<h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><h3 id="配置SSH-keys"><a href="#配置SSH-keys" class="headerlink" title="配置SSH keys"></a>配置SSH keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/31/20160331firstBlog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>如果没有则提示： No such file or directory<br>如果有则进入~/.ssh路径下（ls查看当前路径文件，rm *删除所有文件）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~  <span class="comment">#保证当前路径在”~”下</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxxxx@yy.com"</span>  <span class="comment">#建议填写自己真实有效的邮箱地址</span></span><br></pre></td></tr></table></figure>
+
+<p>这时会在Users/Administrator/.ssh下生成两个文件，打开.pub结尾的文件，复制内容到github的add ssh key中。<br>顺便</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name “your_username”  <span class="comment">#设置用户名</span></span><br><span class="line">$ git config --global user.email “your_registered_github_Email”  <span class="comment">#设置邮箱地址</span></span><br></pre></td></tr></table></figure>
+
+<p>测试ssh keys是否设置成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>首先win+R,cmd打开命令行界面，因联网安装，到<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo官网</a>复制安装命令到命令行界面，等待安装完成。打开Git Bash(安装完Git后，右键就有Git Bash)，输入初始化命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>初始化结束后，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g 或 hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>后面是前面的缩写</p>
+<p>输入完成后，就生成一个Hexo博客框架。输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s 或 hexo server</span><br></pre></td></tr></table></figure>
+
+<p>顾名思义，开启服务器，访问localhost:4000。之前就有一次一直访问都访问不了，原来就是忘了输入该命令，我这记性！写完博客，先在本地浏览一下，确认无误再上传，省麻烦。<br>在这次安装过程中，唯一遇到的问题是右键Git Bash打开闪退。因为原来是朋友直传的文件，卸了后，去官网重下就解决了，虽然下载速度有点慢。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"文章名"</span> //新建文章</span><br><span class="line">hexo new page <span class="string">"新建页面名"</span> //新建页面</span><br><span class="line">hexo g //生成</span><br><span class="line">hexo d //部署</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h2><p>修改本地博客文件夹根目录下的<strong>_config.yml</strong>文件<strong>deploy</strong>的<strong>repo</strong>，这个以用户为标准</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:GrayFrost/GrayFrost.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>在目录下右键打开Git Bash，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>以后每次在本地修改完博客，输入以上两条命令，就完成博客了。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>hexo ERROR Deployer not found: github<br>解决：安装 npm install hexo-deployer-git –save，再将deploy 的 type由github改为git。<br>顺便说下，如果使用ssh部署不成功的话，请使用https的方式试试，即type下一个选项repository的值进行相应更改。（2016-08-15重装系统后，弄了一下午Orz）</p>
+
+          
         
       
     </div>

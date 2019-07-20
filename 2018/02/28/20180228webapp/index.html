@@ -88,11 +88,11 @@
 <meta name="keywords" content="vue,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web移动端总结">
-<meta property="og:url" content="http://yoursite.com/2018/02/28/20180228webapp/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2018/02/28/20180228webapp/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="主要是针对vue做过的项目 vue懒加载vue-lazyload 1234567import VueLazyLoad from &apos;vue-lazyload&apos;;import defaultImg from &apos;默认图片&apos;;Vue.use(VueLazyLoad,&amp;#123;  error: defaultImg,  loading: defaultImg,  listenEvents: [ &apos;scro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-06T07:53:24.382Z">
+<meta property="og:updated_time" content="2019-07-20T02:03:51.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web移动端总结">
 <meta name="twitter:description" content="主要是针对vue做过的项目 vue懒加载vue-lazyload 1234567import VueLazyLoad from &apos;vue-lazyload&apos;;import defaultImg from &apos;默认图片&apos;;Vue.use(VueLazyLoad,&amp;#123;  error: defaultImg,  loading: defaultImg,  listenEvents: [ &apos;scro">
@@ -340,25 +340,27 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span>;</span><br><span class="line"><span class="keyword">import</span> defaultImg <span class="keyword">from</span> <span class="string">'默认图片'</span>;</span><br><span class="line">Vue.use(VueLazyLoad,&#123;</span><br><span class="line">  error: defaultImg,</span><br><span class="line">  loading: defaultImg,</span><br><span class="line">  listenEvents: [ <span class="string">'scroll'</span> ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>最后将使用:src的改为v-lazy</p>
+<a id="more"></a>
+
 <h2 id="输入框事件"><a href="#输入框事件" class="headerlink" title="输入框事件"></a>输入框事件</h2><p>键盘enter: @keydown.13<br>focus事件: @focus<br>blur事件: @blur</p>
 <h2 id="阻止默认、阻止冒泡"><a href="#阻止默认、阻止冒泡" class="headerlink" title="阻止默认、阻止冒泡"></a>阻止默认、阻止冒泡</h2><p>@click.stop<br>@click.prevent<br>@click.stop.prevent</p>
 <h2 id="动态添加class"><a href="#动态添加class" class="headerlink" title="动态添加class"></a>动态添加class</h2><p>:class=”{‘我的class’: 某个具体判断}”<br>eg: :class=”{‘pic_selected’: list.selected == ‘Y’}”</p>
 <p>:class=”某个判断 ? ‘class1’ : ‘class2’”<br>eg: :class=”list.selected ? ‘colorHeart’ : ‘whiteHeart’”</p>
-<a id="more"></a>
+<!-- more -->
 
 <h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p>mapState computed:mapState({})</p>
 <h2 id="在vue-cli重配置jquery"><a href="#在vue-cli重配置jquery" class="headerlink" title="在vue-cli重配置jquery"></a>在vue-cli重配置jquery</h2><ol>
 <li><p>npm install jquery –save</p>
 </li>
 <li><p>配置webpack文件中resolve的alias</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'jquery'</span>: path.<span class="built_in">resolve</span>(__dirname, <span class="string">'../node_modules/jquery/src/jquery.js'</span>),</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;jquery&apos;: path.resolve(__dirname, &apos;../node_modules/jquery/src/jquery.js&apos;),</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>import $ from ‘jquery’</p>
 </li>
 </ol>
 <h2 id="子组件调用父组件的方法"><a href="#子组件调用父组件的方法" class="headerlink" title="子组件调用父组件的方法"></a>子组件调用父组件的方法</h2><ol>
 <li>现在子组件中this.$emit(“方法名”, 参数, 参数, …更多参数);</li>
-<li>在父组件中@方法名=”父组件方法”<br>eg:<br>有index.vue子组件，在该组件中this.$emit(“sayHi”, “Hello”);<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;index&gt;</span><span class="section">&lt;/index&gt;</span></span><br></pre></td></tr></table></figure>
+<li>在父组件中@方法名=”父组件方法”<br>eg:<br>有index.vue子组件，在该组件中this.$emit(“sayHi”, “Hello”);<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;index&gt;&lt;/index&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -410,7 +412,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line">  debug: <span class="literal">false</span>,</span><br><span class="line">  appId: 后台返回数据,</span><br><span class="line">  timestamp: 后台返回数据,</span><br><span class="line">  nonceStr: 后台返回数据,</span><br><span class="line">  signature: 后台返回数据,</span><br><span class="line">  jsApiList: [<span class="string">'onMenuShareTimeline'</span>, <span class="string">'onMenuShareAppMessage'</span>, <span class="string">'onMenuShareQQ'</span>, <span class="string">'onMenuShareWeibo'</span>, <span class="string">'onMenuShareQZone'</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>成功</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wx.ready(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wx.ready(function()&#123;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>

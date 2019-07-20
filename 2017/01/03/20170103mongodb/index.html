@@ -88,18 +88,17 @@
 <meta name="keywords" content="nodejs,express,mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express+mongodb">
-<meta property="og:url" content="http://yoursite.com/2017/01/03/20170103mongodb/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/01/03/20170103mongodb/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="最近几天想把毕设的基本工作做好。因为我和Parter做的是一个网购比价网站，他使用的是mongodb作为数据库，而我也不用怎么操作数据。我打算使用前后端分离来完成项目，后端获取数据，传递json数据到前端，前端展示这些数据就ok了。所以我的第一步当然是尝试从后端获取数据。Parter给我提供了一个远程mongdb的地址，工作开始。 Mongodb数据库的安装官网，找到下载页，选择合适的版本下载。安">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/mongodb1.png">
 <meta property="og:image" content="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/movie.png">
 <meta property="og:image" content="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/movie2.png">
-<meta property="og:updated_time" content="2017-01-18T03:48:08.000Z">
+<meta property="og:updated_time" content="2019-07-20T02:32:20.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express+mongodb">
 <meta name="twitter:description" content="最近几天想把毕设的基本工作做好。因为我和Parter做的是一个网购比价网站，他使用的是mongodb作为数据库，而我也不用怎么操作数据。我打算使用前后端分离来完成项目，后端获取数据，传递json数据到前端，前端展示这些数据就ok了。所以我的第一步当然是尝试从后端获取数据。Parter给我提供了一个远程mongdb的地址，工作开始。 Mongodb数据库的安装官网，找到下载页，选择合适的版本下载。安">
-<meta name="twitter:image" content="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/mongodb1.png">
+<meta name="twitter:image" content="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/movie.png">
 
 
 
@@ -351,7 +350,7 @@
 
 </li>
 </ul>
-<p>如果执行成功，应该可以看到一堆不是报错的文字。<br>访问<i>localhost:27017</i>，可以看到<br><img src="http://ojcnbowye.bkt.clouddn.com/img/blog/20170103mongodb/mongodb1.png" alt><br>说明访问成功。</p>
+<p>如果执行成功，应该可以看到一堆不是报错的文字。<br>访问<i>localhost:27017</i>，可以看到有相应访问的文字提示，说明访问成功。</p>
 <ul>
 <li>第二种方法<br>看到网上很多都是说修改config文件，却并不直说先自己建一个config文件。在根目录下建一个<code>mongodb.conf</code>的文件，填入一下信息<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dbpath=D:\mongodb\data\db <span class="comment">#数据库路径  </span></span><br><span class="line">logpath=D:\mongodb\logs\mongod.log <span class="comment">#日志输出文件路径  </span></span><br><span class="line">logappend=<span class="literal">true</span> <span class="comment">#错误日志采用追加模式  </span></span><br><span class="line">journal=<span class="literal">true</span> <span class="comment">#启用日志文件，默认启用  </span></span><br><span class="line">quiet=<span class="literal">true</span> <span class="comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false  </span></span><br><span class="line">port=27017 <span class="comment">#端口号 默认为27017</span></span><br></pre></td></tr></table></figure>
 

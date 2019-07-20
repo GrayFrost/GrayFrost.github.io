@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;   Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’">
+<meta name="description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
 <meta name="keywords" content="webpack,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级webpack4">
-<meta property="og:url" content="http://yoursite.com/2018/12/31/20181231webpack4/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2018/12/31/20181231webpack4/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;   Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’">
+<meta property="og:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg">
-<meta property="og:updated_time" content="2019-07-06T09:52:15.782Z">
+<meta property="og:updated_time" content="2019-07-20T01:54:43.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级webpack4">
-<meta name="twitter:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;   Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’">
+<meta name="twitter:description" content="首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加 12mode: &apos;development&apos;mode: &apos;production&apos;">
 <meta name="twitter:image" content="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg">
 
 
@@ -320,7 +320,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyav7mif0039eicniolekne1" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyazvc7s0039hocnne5it34l" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" itemprop="contentUrl">
               </a>
             
@@ -335,6 +335,8 @@
         <p>首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mode: 'development'</span><br><span class="line">mode: 'production'</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <ol>
 <li><strong>Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found.</strong></li>
 </ol>
@@ -342,13 +344,13 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"html-webpack-plugin": "^4.0.0-beta.2",</span><br></pre></td></tr></table></figure>
 
 <p>在webpack.config.dev.js中，调整plugin顺序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    chunkSortMode: <span class="string">'none'</span></span><br><span class="line">&#125;),</span><br><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    chunkSortMode: <span class="string">'none'</span></span><br><span class="line">&#125;), </span><br><span class="line"><span class="keyword">new</span> InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li><strong>Cannot read property ‘context’ of undefined</strong></li>
 </ol>
 <p>升级url-loader file-loader</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"file-loader": "^1.1.11",</span><br><span class="line">"url-loader": "0.6.2",</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"file-loader": "^1.1.11", </span><br><span class="line">"url-loader": "0.6.2",</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li><strong>missingDeps.some is not a function</strong></li>
@@ -367,10 +369,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-webpack-plugin@next --save-dev</span><br></pre></td></tr></table></figure>
 
 <ol start="5">
-<li>移除webpack的UglifyJsPlugin</li>
-</ol>
-<ol start="6">
-<li>Tapable.plugin is deprecated. Use new API on <code>.hooks</code> instead</li>
+<li><p>移除webpack的UglifyJsPlugin</p>
+</li>
+<li><p>Tapable.plugin is deprecated. Use new API on <code>.hooks</code> instead</p>
+</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev extract-text-webpack-plugin</span><br></pre></td></tr></table></figure>
 

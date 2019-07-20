@@ -84,30 +84,30 @@
 
 
 
-<meta name="description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择   创建linux实例 登录">
+<meta name="description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择">
 <meta name="keywords" content="vue,linux,centos,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue.js项目上线">
-<meta property="og:url" content="http://yoursite.com/2017/03/09/20170309online/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/03/09/20170309online/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
-<meta property="og:description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择   创建linux实例 登录">
+<meta property="og:description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs1.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs2.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs5.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs6.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs3.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs4.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/putty.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/xftp.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ftp.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/root.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/website.png">
-<meta property="og:updated_time" content="2017-08-27T02:44:42.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs1.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs2.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs5.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs6.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs3.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ecs4.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//putty.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//xftp.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//ftp.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//root.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//website.png">
+<meta property="og:updated_time" content="2019-07-20T02:58:17.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js项目上线">
-<meta name="twitter:description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择   创建linux实例 登录">
-<meta name="twitter:image" content="http://yoursite.com/2017/03/09/20170309online/20170309online/ecs1.png">
+<meta name="twitter:description" content="今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。下面开始部署。 购买阿里云服务器ECS配置选型 大家根据喜好选择吧。如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。下面是我的选择">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//ecs1.png">
 
 
 
@@ -348,28 +348,30 @@
 
       
         <p>今天终于下定决心尝试把项目部署到服务器，因为之前总是犹犹豫豫，总觉得好麻烦。对于学前端的我，这些东西真的好难弄，几乎弄了一整天，不过看到成功的那一刻，心里还是很高兴。<br>下面开始部署。</p>
-<h2 id="购买阿里云服务器ECS"><a href="#购买阿里云服务器ECS" class="headerlink" title="购买阿里云服务器ECS"></a>购买阿里云服务器ECS</h2><h3 id="配置选型"><a href="#配置选型" class="headerlink" title="配置选型"></a>配置选型</h3><p><img src="20170309online/ecs1.png" alt></p>
-<p><img src="20170309online/ecs2.png" alt><br>大家根据喜好选择吧。<br>如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。<br>下面是我的选择</p>
-<p><img src="20170309online/ecs5.png" alt></p>
-<p><img src="20170309online/ecs6.png" alt></p>
+<h2 id="购买阿里云服务器ECS"><a href="#购买阿里云服务器ECS" class="headerlink" title="购买阿里云服务器ECS"></a>购买阿里云服务器ECS</h2><h3 id="配置选型"><a href="#配置选型" class="headerlink" title="配置选型"></a>配置选型</h3><p><img src="/.io//ecs1.png" alt></p>
+<p><img src="/.io//ecs2.png" alt><br>大家根据喜好选择吧。<br>如果购买成功，应该会受到短信通知，内含（实例名称，公网ip，系统用户名root）等。若没有设置实例密码，需要去控制台设置。<br>下面是我的选择</p>
+<a id="more"></a>
+
+<p><img src="/.io//ecs5.png" alt></p>
+<p><img src="/.io//ecs6.png" alt></p>
 <h3 id="创建linux实例"><a href="#创建linux实例" class="headerlink" title="创建linux实例"></a>创建linux实例</h3><ol>
 <li>登录云服务器管理控制台</li>
 <li>定位到 云服务器ECS &gt; 实例</li>
 </ol>
-<p><img src="20170309online/ecs3.png" alt><br>进行相关配置。</p>
+<p><img src="/.io//ecs3.png" alt><br>进行相关配置。</p>
 <h3 id="远程连接-Linux-实例"><a href="#远程连接-Linux-实例" class="headerlink" title="远程连接 Linux 实例"></a>远程连接 Linux 实例</h3><ol>
 <li>登录云服务器管理控制台</li>
 <li>找到需要连接的实例，在操作列，单击远程连接。</li>
 <li>连接管理终端</li>
 </ol>
 <p>如果第一次连接终端，会弹出一个有密码提示的对话框，</p>
-<p><img src="20170309online/ecs4.png" alt><br>记住出现的密码，因为以后连接都需要输入。<br>如果不是第一次连接，就输入之前记住的密码。<br>除了用控制台连接终端，还可以使用putty来连接。</p>
-<p><img src="20170309online/putty.png" alt></p>
+<p><img src="/.io//ecs4.png" alt><br>记住出现的密码，因为以后连接都需要输入。<br>如果不是第一次连接，就输入之前记住的密码。<br>除了用控制台连接终端，还可以使用putty来连接。</p>
+<p><img src="/.io//putty.png" alt></p>
 <ol start="4">
 <li>输入用户名root和密码<br>用户名是root，而密码是创建实例时设置的密码。</li>
 </ol>
 <p>参考文章<a href="https://help.aliyun.com/document_detail/25422.html?spm=5176.doc25425.6.586.Ckgu02" target="_blank" rel="noopener">快速入门linux</a></p>
-<a id="more"></a>
+<!-- more -->
 
 <h2 id="CentOS-6-5安装nodejs"><a href="#CentOS-6-5安装nodejs" class="headerlink" title="CentOS 6.5安装nodejs"></a>CentOS 6.5安装nodejs</h2><p>说实话，现在的我是不清楚需不需要这一步的，不过我觉得装了node.js总比没装好。</p>
 <h3 id="创建ECS实例"><a href="#创建ECS实例" class="headerlink" title="创建ECS实例"></a>创建ECS实例</h3><p>之前我们已经创建好了，使用root用户登录实例。</p>
@@ -442,15 +444,15 @@
 <p>重新启动，访问ip地址，可以发现nginx启动成功。</p>
 <p>参考文章<a href="https://help.aliyun.com/document_detail/50700.html?spm=5176.doc50775.6.621.gjj2Ca" target="_blank" rel="noopener">搭建 nginx + mysql + php-fpm 环境（CentOS 6）</a></p>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>不知什么原因，我使用<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a>一直连不上，然后使用<a href="http://www.netsarang.com/products/xfp_overview.html" target="_blank" rel="noopener">xftp</a>竟然奇迹的连上了。</p>
-<p><img src="20170309online/xftp.png" alt></p>
+<p><img src="/.io//xftp.png" alt></p>
 <h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><p>首先我把自己的vue.js使用webpack打包，生成dist目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
 
 <p>然后我在远程服务器上的home目录下建了一个名为bj的目录，把dist目录放到这个目录下</p>
-<p><img src="20170309online/ftp.png" alt></p>
+<p><img src="/.io//ftp.png" alt></p>
 <p>修改目录<code>/etc/nginx/</code>下的<code>nginx.conf</code>文件。<br>找到http模块的server模块，修改location信息</p>
-<p><img src="20170309online/root.png" alt><br>最后访问我的ip: <code>119.23.12.156</code>，效果如下</p>
-<p><img src="20170309online/website.png" alt><br>当然，这只是我做到一半的东西，上传文件也只是为了测试用，后续会继续完善项目。</p>
+<p><img src="/.io//root.png" alt><br>最后访问我的ip: <code>119.23.12.156</code>，效果如下</p>
+<p><img src="/.io//website.png" alt><br>当然，这只是我做到一半的东西，上传文件也只是为了测试用，后续会继续完善项目。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>效果出来的那一刻，我真的很开心！后续的话可能会买个域名，正式上线。</p>
 
       

@@ -88,20 +88,20 @@
 <meta name="keywords" content="html,html5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地存储">
-<meta property="og:url" content="http://yoursite.com/2017/09/03/20170903storage/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/2017/09/03/20170903storage/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="前言公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/readMore.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/native.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/detail.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/click.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/cssChange.png">
-<meta property="og:updated_time" content="2017-09-03T08:22:48.000Z">
+<meta property="og:image" content="https://grayfrost.github.io/.io//readMore.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//native.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//detail.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//click.png">
+<meta property="og:image" content="https://grayfrost.github.io/.io//cssChange.png">
+<meta property="og:updated_time" content="2019-07-20T03:02:39.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地存储">
 <meta name="twitter:description" content="前言公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/03/20170903storage/20170903storage/readMore.png">
+<meta name="twitter:image" content="https://grayfrost.github.io/.io//readMore.png">
 
 
 
@@ -341,13 +341,13 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：<br><img src="20170903storage/readMore.png" alt="公司app" title="图1-公司app详情页继续阅读"></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司app的新闻详情页是使用webview的，所以自然是我们web前端的事了。大概的需求如下：在继续阅读里，点击之后，颜色变灰，表示已经阅读；退出webview，再从原生进入，颜色变回原样。具体效果如下：<br><img src="/.io//readMore.png" alt="&quot;图1-公司app详情页继续阅读&quot;"></p>
 <a id="more"></a>
 
-<p>然后我们要实现的效果基本与网易新闻的效果一样。<br><img src="20170903storage/native.png" alt="网易新闻" title="图2-app原生界面"><br>首先是在原生界面，然后我点击了“开学第一天……”这一条，这个变灰效果不是web端做的，继续下一步。</p>
-<p><img src="20170903storage/detail.png" alt="详情页" title="图3-详情页"><br>此时进入了详情页，我会点击第一条。</p>
-<p><img src="20170903storage/click.png" alt="点击" title="图4-点击进入另一条内容"><br>返回，会发现样式已经改变。</p>
-<p><img src="20170903storage/cssChange.png" alt="样式改变" title="图5-样式改变"><br>返回原生界面重新进入，会恢复为图3的状态。</p>
+<p>然后我们要实现的效果基本与网易新闻的效果一样。<br><img src="/.io//native.png" alt="&quot;图2-app原生界面&quot;"><br>首先是在原生界面，然后我点击了“开学第一天……”这一条，这个变灰效果不是web端做的，继续下一步。</p>
+<p><img src="/.io//detail.png" alt="&quot;图3-详情页&quot;"><br>此时进入了详情页，我会点击第一条。</p>
+<p><img src="/.io//click.png" alt="&quot;图4-点击进入另一条内容&quot;"><br>返回，会发现样式已经改变。</p>
+<p><img src="/.io//cssChange.png" alt="&quot;图5-样式改变&quot;"><br>返回原生界面重新进入，会恢复为图3的状态。</p>
 <p>大致过程如上。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><b>思路</b>当然是记录点击过的阅读的id到本地，然后读取本地信息，只要是有该id，就为它添加一个class类名，该类名的css实现了颜色的改变。</p>
 <blockquote>

@@ -88,7 +88,7 @@
 <meta name="keywords" content="Front End">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gary&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://grayfrost.github.io/index.html">
 <meta property="og:site_name" content="Gary&#39;s blog">
 <meta property="og:description" content="行止由心">
 <meta property="og:locale" content="zh-Hans">
@@ -322,7 +322,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/19/5d31e14cd9b5671599.jpg" rel="gallery_cjyav7mii003keicnskrjskmd" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/19/5d31e14cd9b5671599.jpg" rel="gallery_cjyazvc7x003nhocn4xapn0ty" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/19/5d31e14cd9b5671599.jpg" itemprop="contentUrl">
               </a>
             
@@ -335,17 +335,8 @@
 
       
         
-          
-          安装使用镜像在国内访问Flutter有时可能会受到限制，Flutter官方为中国开发者搭建了临时镜像。进入到解压后的目录。打开终端，执行
-1vim ~/.bash_profile
-
-打开该文件后，输入
-12export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-
-编辑好后，esc退出并:wq保存。
-flutter sdk选一个目录作为f
-          ...
-
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h3><p>在国内访问Flutter有时可能会受到限制，Flutter官方为中国开发者搭建了临时镜像。<br>进入到解压后的目录。打开终端，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2019/07/19/20190719flutter/#more" rel="contents">
               阅读全文 &raquo;
@@ -461,7 +452,7 @@ flutter sdk选一个目录作为f
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" rel="gallery_cjyav7mig003eeicnbnl1xfnr" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" rel="gallery_cjyazvc7v003ghocnvqgbequp" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d2065c68eb0b17768.jpg" itemprop="contentUrl">
               </a>
             
@@ -474,24 +465,11 @@ flutter sdk选一个目录作为f
 
       
         
-          
-          所需环境的安装
-git
-node
-
-安装Hexo1npm install hexo-cli -g
-
-建立博客目录选择某一个目录，新建博客文件夹
-1234hexo i blog // blog是自定义的文件夹名字cd bloghexo ghexo s // 本地起服务器预览
-
-设置博客主题沿用之前的主题Next
-在blog目录下
-1git clone https://github.com/iissnan/hexo-theme-next themes/next
-
-之后的一些配置，直接官网查看。
-迁移
-          ...
-
+          <h2 id="所需环境的安装"><a href="#所需环境的安装" class="headerlink" title="所需环境的安装"></a>所需环境的安装</h2><ul>
+<li>git</li>
+<li>node</li>
+</ul>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2019/07/06/20190706hexoInMac/#more" rel="contents">
               阅读全文 &raquo;
@@ -588,7 +566,7 @@ node
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyav7mif0039eicniolekne1" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" rel="gallery_cjyazvc7s0039hocnne5it34l" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d206795e1df066438.jpg" itemprop="contentUrl">
               </a>
             
@@ -601,17 +579,8 @@ node
 
       
         
-          
-          首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加
-12mode: 'development'mode: 'production'
-
-
-Plugin could not be registered at ‘html-webpack-plugin-before-html-processing’. Hook was not found.
-
-升级html-webpack-plugin
-1"htm
-          ...
-
+          <p>首先升级webpack，再全局安装webpack-cli。在webpack.config.dev.js和webpack.config.prod.js中分别添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mode: 'development'</span><br><span class="line">mode: 'production'</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/12/31/20181231webpack4/#more" rel="contents">
               阅读全文 &raquo;
@@ -708,7 +677,7 @@ Plugin could not be registered at ‘html-webpack-plugin-before-html-processing�
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" rel="gallery_cjyav7mie0037eicn1e836kle" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" rel="gallery_cjyazvc80003vhocnbvh1fl8x" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/07/06/5d2070d2b32ef49901.jpg" itemprop="contentUrl">
               </a>
             
@@ -721,21 +690,16 @@ Plugin could not be registered at ‘html-webpack-plugin-before-html-processing�
 
       
         
-          
-          开发平台 windows 
-目标平台 Android
-安装
-node。  node版本要高于8 .3
+          <p>开发平台 windows </p>
+<p>目标平台 Android</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>node。<br>  node版本要高于8 .3</p>
+</li>
+<li><p>react native 命令行工具。 </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
 
-react native 命令行工具。 
-  1npm install -g react-native-cli
-
-python2。  python版本必须为2.x
-
-jdk。 
-  jdk版本必须为1 .8。  [下载地址](https: //www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-          ...
-
+</li>
+</ul>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/12/31/20181231reactNative/#more" rel="contents">
               阅读全文 &raquo;
@@ -832,19 +796,18 @@ jdk。
       
         
           
+            <ol>
+<li><p>图形验证码在IE浏览器中点击不刷新<br>ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time=<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">999</span>)+<span class="number">3000</span>;<span class="comment">//解决ie下验证码不改变问题</span></span><br><span class="line">$(<span class="string">'img'</span>).attr(<span class="string">'src'</span>, 原来的接口请求地址+<span class="string">'&amp;time='</span>+time);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在IE浏览器中，flash播放器遮挡内容<br>flash播放器添加params即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"wmode"</span> <span class="attr">value</span>=<span class="string">"opaque"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多行文本超出省略号在火狐浏览器失效<br>暂未找到解决方法</p>
+</li>
+</ol>
+
           
-图形验证码在IE浏览器中点击不刷新ie的浏览器有缓存，因此在每次点击请求接口时，需要自己在多传一个自定义参数作为时间戳。
-12var time=Math.round(Math.random()*999)+3000;//解决ie下验证码不改变问题$('img').attr('src', 原来的接口请求地址+'&amp;time='+time);
-
-在IE浏览器中，flash播放器遮挡内容flash播放器添加params即可
-1&lt;param name="wmode" value="opaqu
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/08/04/20180804webBug/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -955,21 +918,20 @@ jdk。
       
         
           
-          主要是工作中在使用微信分享时遇到的一些问题
+            <p>主要是工作中在使用微信分享时遇到的一些问题</p>
+<ol>
+<li><p>分享出来描述变成链接，也没有显示设置好的图标<br>在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本人分享出去的页面看得到自定义图标，对方看不到<br>主要是分享文案涉及到了“红包，金钱”等敏感词汇。</p>
+</li>
+<li><p>客户端拉不起微信分享<br>这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不能拉起微信分享。找了很久原因，发现最开始设置的分享图标的地址存在<strong>重定向</strong>，最后让后台配合，将地址改为重定向后的地址即可。</p>
+</li>
+<li><p>redirect_uri域名与后台配置不一致<br>看一下是不是配置的域名出了问题，我们这边是后台负责这些，所以出现了此问题，通常叫后台检查修改就好了。</p>
+</li>
+</ol>
 
-分享出来描述变成链接，也没有显示设置好的图标在调用获取签名的接口时，需要传递location.href参数，但是需要对location.href进行处理
-1window.location.href.split('#')[0]
-
-本人分享出去的页面看得到自定义图标，对方看不到主要是分享文案涉及到了“红包，金钱”等敏感词汇。
-
-客户端拉不起微信分享这是在我工作中遇到的问题。在调试的时候，首先就是从客户端分享出来。但是发现能够拉起QQ分享、微博分享，唯独不
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/08/04/20180804wxShareBug/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -1084,10 +1046,6 @@ jdk。
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span>;</span><br><span class="line"><span class="keyword">import</span> defaultImg <span class="keyword">from</span> <span class="string">'默认图片'</span>;</span><br><span class="line">Vue.use(VueLazyLoad,&#123;</span><br><span class="line">  error: defaultImg,</span><br><span class="line">  loading: defaultImg,</span><br><span class="line">  listenEvents: [ <span class="string">'scroll'</span> ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>最后将使用:src的改为v-lazy</p>
-<h2 id="输入框事件"><a href="#输入框事件" class="headerlink" title="输入框事件"></a>输入框事件</h2><p>键盘enter: @keydown.13<br>focus事件: @focus<br>blur事件: @blur</p>
-<h2 id="阻止默认、阻止冒泡"><a href="#阻止默认、阻止冒泡" class="headerlink" title="阻止默认、阻止冒泡"></a>阻止默认、阻止冒泡</h2><p>@click.stop<br>@click.prevent<br>@click.stop.prevent</p>
-<h2 id="动态添加class"><a href="#动态添加class" class="headerlink" title="动态添加class"></a>动态添加class</h2><p>:class=”{‘我的class’: 某个具体判断}”<br>eg: :class=”{‘pic_selected’: list.selected == ‘Y’}”</p>
-<p>:class=”某个判断 ? ‘class1’ : ‘class2’”<br>eg: :class=”list.selected ? ‘colorHeart’ : ‘whiteHeart’”</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/02/28/20180228webapp/#more" rel="contents">
               阅读全文 &raquo;
@@ -1183,18 +1141,11 @@ jdk。
 
       
         
-          
-          记录一下web页面在移动端出现的bug以及解决方法。
-ios发现其实好多问题都出现在ios呢。
-
-position:fixed极为严重的bug，现在看到fixed我都不敢用了。问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。
-
--webkit-overflow-scrolling: touch;
-
-ios8中css3的兼容性问题之前做项目时遇到的问题。flex布局在ios8中兼容并不是很好。兼容性写法
-12345
-          ...
-
+          <p>记录一下web页面在移动端出现的bug以及解决方法。</p>
+<h2 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h2><p>发现其实好多问题都出现在ios呢。</p>
+<ol>
+<li>position:fixed<br>极为严重的bug，现在看到fixed我都不敢用了。<br>问题如下（找了个百度的bug，反馈过，但到现在还没改，醉了）：<br><img src="/.io//fixed.png" alt><br>使用fixed布局的元素再弹出虚拟键盘或者页面滑动时，位置会发生移动。</li>
+</ol>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/11/29/20171129webinmobile/#more" rel="contents">
               阅读全文 &raquo;
@@ -1393,19 +1344,26 @@ ios8中css3的兼容性问题之前做项目时遇到的问题。flex布局在io
       
         
           
-          我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。
-单行文本具体实现
-1234width: 具体宽度;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
+            <p>我们经常需要使用到文字过长超出范围时使用省略号代替，而文本溢出有分为两种情况：单行和多行。</p>
+<h2 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h2><p>具体实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 具体宽度;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br></pre></td></tr></table></figure>
 
-多行文本具体实现
-12345width: 具体宽度;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 行数;overflow: hidden;
-          ...
+<h2 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h2><p>具体实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 具体宽度;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">-webkit-line-clamp</span>: 行数;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/11/04/20171104textOverflow/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>在测试这一部分内容时，我发现如果文本内容中不是全部是中文的话，会出现问题。<br>举个例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#one</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="/.io//problem.png" alt></p>
+<p>如果换成中文，则没有问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="/.io//problem2.png" alt></p>
+<p>暂时不知道怎么解决，之后找到方法再说。</p>
+
+          
         
       
     </div>
