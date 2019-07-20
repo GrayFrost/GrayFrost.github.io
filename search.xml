@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在Mac中安装flutter环境]]></title>
+    <url>%2F2019%2F07%2F19%2F20190719flutter%2F</url>
+    <content type="text"><![CDATA[安装使用镜像在国内访问Flutter有时可能会受到限制，Flutter官方为中国开发者搭建了临时镜像。进入到解压后的目录。打开终端，执行 1vim ~/.bash_profile 打开该文件后，输入 12export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn 编辑好后，esc退出并:wq保存。 flutter sdk选一个目录作为flutter的安装目录，进入该目录。 1git clone -b beta https://github.com/flutter/flutter.git 这下载速度不是一般的满，我起码等了半个钟… 下完之后，重新打开我们之前的 .bash_profile 。添加一行 1export PATH=/Users/zzh/flutter/bin:$PATH /Users/zzh 为我的fullter文件夹的存放地址，请针对修改。 保存后，运行 flutter doctor 。 iterm2相应配置如果安装成功，应该是可以正常执行该命令的。但我在执行 flutter doctor 时，发现一直报错。 因为终端使用的是iterm2 + on my zsh, 一直提示 zsh: command flutter not found 编辑zsh的配置 vim ~/.zshrc 在最后一行加入以下命令 1source ~/.bash_profile 保存退出，之后重启终端。 再次执行flutter doctor，发现生效了。 flutter doctor问题解决目前只在mac上开发，先针对没有装的ios内容做处理。 根据图片内容，一步步来处理，但第一步 brew update 就失败了。 homebrew问题homebrew替换成国内镜像试一下。使用中科大源 一、替换默认源 123456789cd "$(brew --repo)"git remote set-url origin https://mirrors.ustc.edu.cn/brew.gitcd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.gitbrew update 二、替换Homebrew Bottles源 我使用的是iterm+on my zsh，所以对于zsh用户 123echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrcsource ~/.zshrc xcode安装xcode，直接在app store上下载即可。安装xcode主要是为了要有一个模拟器。 libimobiledevice按照提示的步骤： 12345brew updatebrew install --HEAD usbmuxdbrew link usbmuxdbrew install --HEAD libimobiledevicebrew install ideviceinstaller ios-deploy1brew install ios-deploy cocoapods一直安装下来，发现最后一步的cocoapods安装特别慢，而且最后还失败了。搞了一下午，无奈只能从云盘下载后，解压拷贝到指定目录下。 1cp -r master ~/.cocoapods/repos 再一次flutter doctor，神清气爽。 运行flutter我们试着运行一个flutter项目。]]></content>
+      <tags>
+        <tag>flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo从Windows迁移到Mac]]></title>
     <url>%2F2019%2F07%2F06%2F20190706hexoInMac%2F</url>
     <content type="text"><![CDATA[所需环境的安装 git node 安装Hexo1npm install hexo-cli -g 建立博客目录选择某一个目录，新建博客文件夹 1234hexo i blog // blog是自定义的文件夹名字cd bloghexo ghexo s // 本地起服务器预览 设置博客主题沿用之前的主题Next 在blog目录下 1git clone https://github.com/iissnan/hexo-theme-next themes/next 之后的一些配置，直接官网查看。 迁移把原来在windows上的博客目录下的一些文件直接拷贝过来。具体有用的文件夹有以下： _config.yml theme source scaffolds package.json .gitignore 拷贝完之后，最好npm install以下，因为我也记不清之前装了什么。 然后再一次 123hexo cleanhexo ghexo s 如果本地没什么问题，我们就可以hexo d推到github上。当然，前提是本地已事先生成SSH密钥，并与github关联。]]></content>
@@ -319,8 +327,8 @@
       </categories>
       <tags>
         <tag>vue</tag>
-        <tag>bootstrap</tag>
         <tag>webpack</tag>
+        <tag>bootstrap</tag>
       </tags>
   </entry>
   <entry>
@@ -331,9 +339,9 @@
         <category>npm</category>
       </categories>
       <tags>
-        <tag>webpack</tag>
         <tag>node</tag>
         <tag>npm</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
