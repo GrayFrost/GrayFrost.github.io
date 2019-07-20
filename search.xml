@@ -327,8 +327,8 @@
       </categories>
       <tags>
         <tag>vue</tag>
-        <tag>bootstrap</tag>
         <tag>webpack</tag>
+        <tag>bootstrap</tag>
       </tags>
   </entry>
   <entry>
@@ -339,9 +339,9 @@
         <category>npm</category>
       </categories>
       <tags>
-        <tag>webpack</tag>
         <tag>node</tag>
         <tag>npm</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -416,7 +416,7 @@
   <entry>
     <title><![CDATA[Hexo显示图片]]></title>
     <url>%2F2016%2F12%2F04%2F20161204image%2F</url>
-    <content type="text"><![CDATA[&#x6D4B;&#x8BD5;&#x56FE;&#x7247;&#x663E;&#x793A;&#x9875;&#x9762;&#x9996;&#x5148;&#x5728;source&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6211;&#x53D6;&#x540D;&#x4E3A;images&#x3002;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5; &#x4F7F;&#x7528;&#x539F;&#x751F;html&#x65B9;&#x5F0F; 1&lt;img src=&quot;/images/a.jpg&quot;&gt; &#x76EE;&#x524D;&#x6211;&#x53EA;&#x638C;&#x63E1;&#x4E86;&#x8FD9;&#x4E48;&#x7B28;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x56FE;&#x5E8A;&#x4EC0;&#x4E48;&#x7684;&#x4E5F;&#x6CA1;&#x600E;&#x4E48;&#x63A5;&#x89E6;&#x8FC7;&#xFF0C;&#x4EE5;&#x540E;&#x518D;&#x8BF4;&#x3002; &#x4F7F;&#x7528;markdown&#x8BED;&#x6CD5; 1![img](/source/images/a.jpg) &#x4E00;&#x5F00;&#x59CB;&#x5B8C;&#x5168;&#x5931;&#x6548;&#xFF0C;&#x539F;&#x6765;&#x8FD8;&#x8981;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#xFF1A;hexo-asset-image&#x9996;&#x5148;&#x5728;nanshanyi.github.io&#x76EE;&#x5F55;&#x4E0B;&#x786E;&#x8BA4; _config.yml &#x4E2D;&#x6709; post_asset_folder:true &#x3002;&#x5728; hexo &#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C; 1npm install https://github.com/CodeFalling/hexo-asset-image --save &#x4E4B;&#x540E;&#x518D;&#x4F7F;&#x7528; hexo new &#x2018;new&#x2019; &#x521B;&#x5EFA;&#x65B0;&#x535A;&#x5BA2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5728;source/_posts&#x91CC;&#x9762;&#x521B;&#x5EFA;.md&#x6587;&#x4EF6;&#x7684;&#x540C;&#x65F6;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x540D;&#x5B57;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x628A;&#x8BE5;&#x6587;&#x7AE0;&#x4E2D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x56FE;&#x7247;&#x653E;&#x5728;&#x8BE5;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5373;&#x53EF;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019; 123![&quot;&#x56FE;&#x7247;&#x63CF;&#x8FF0;&quot;(&#x53EF;&#x4EE5;&#x4E0D;&#x5199;)](/&#x6587;&#x4EF6;&#x5939;/&#x4F60;&#x7684;&#x56FE;&#x7247;&#x540D;&#x5B57;.jpg)&#x4F8B;&#x5982;&#xFF1A;![](new/text.jpg) &#x4EE5;&#x4E0B;&#x4E3A;&#x6D4B;&#x8BD5;&#x4E0D;&#x8FC7;&#x4F7F;&#x7528;&#x4E86;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x597D;&#x50CF;&#x5C31;&#x4F1A;&#x5931;&#x6548;]]></content>
+    <content type="text"><![CDATA[&#x6D4B;&#x8BD5;&#x56FE;&#x7247;&#x663E;&#x793A;&#x9875;&#x9762;&#x9996;&#x5148;&#x5728;source&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6211;&#x53D6;&#x540D;&#x4E3A;images&#x3002;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5; &#x4F7F;&#x7528;&#x539F;&#x751F;html&#x65B9;&#x5F0F; 1&lt;img src=&quot;/images/a.jpg&quot;&gt; &#x4F7F;&#x7528;markdown&#x8BED;&#x6CD5; 1![img](/source/images/a.jpg) &#x4E00;&#x5F00;&#x59CB;&#x5B8C;&#x5168;&#x5931;&#x6548;&#xFF0C;&#x539F;&#x6765;&#x8FD8;&#x8981;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#xFF1A;hexo-asset-image&#x9996;&#x5148;&#x5728;nanshanyi.github.io&#x76EE;&#x5F55;&#x4E0B;&#x786E;&#x8BA4; _config.yml &#x4E2D;&#x6709; post_asset_folder:true &#x3002;&#x5728; hexo &#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C; 1npm install https://github.com/CodeFalling/hexo-asset-image --save &#x4E4B;&#x540E;&#x518D;&#x4F7F;&#x7528; hexo new &#x2018;new&#x2019; &#x521B;&#x5EFA;&#x65B0;&#x535A;&#x5BA2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5728;source/_posts&#x91CC;&#x9762;&#x521B;&#x5EFA;.md&#x6587;&#x4EF6;&#x7684;&#x540C;&#x65F6;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x540D;&#x5B57;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x628A;&#x8BE5;&#x6587;&#x7AE0;&#x4E2D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x56FE;&#x7247;&#x653E;&#x5728;&#x8BE5;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5373;&#x53EF;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019; 123![&quot;&#x56FE;&#x7247;&#x63CF;&#x8FF0;&quot;(&#x53EF;&#x4EE5;&#x4E0D;&#x5199;)](/&#x6587;&#x4EF6;&#x5939;/&#x4F60;&#x7684;&#x56FE;&#x7247;&#x540D;&#x5B57;.jpg)&#x4F8B;&#x5982;&#xFF1A;![](new/text.jpg) &#x4EE5;&#x4E0B;&#x4E3A;&#x6D4B;&#x8BD5;&#x4E0D;&#x8FC7;&#x4F7F;&#x7528;&#x4E86;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x597D;&#x50CF;&#x5C31;&#x4F1A;&#x5931;&#x6548;&#x3002; 19-07-20&#x4ECA;&#x5929;&#x9047;&#x5230;&#x56FE;&#x7247;&#x5168;&#x5D29;&#x4E86;&#x7684;&#x95EE;&#x9898;&#xFF0C;hexo-asset-image&#x7684;&#x7248;&#x672C;&#x662F;^1.0.0&#x3002;github&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x56DE;&#x9000;&#x5230;0.0.2&#x3002;&#x6210;&#x529F;&#x89E3;&#x51B3;&#x4E86;&#x3002;&#x7F51;&#x4E0A;&#x535A;&#x5BA2;&#x7684;&#x4E00;&#x5806;&#x65B9;&#x6CD5;&#x90FD;&#x6CA1;&#x7528;&#xFF0C;&#x5168;&#x90FD;&#x662F;&#x5C41;&#x8BDD;&#xFF0C;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x3002;]]></content>
       <categories>
         <category>博客搭建</category>
       </categories>
