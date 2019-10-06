@@ -93,7 +93,7 @@
 <meta property="og:description" content="call&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x5148;&amp;#x770B;call&amp;#x7684;&amp;#x7528;&amp;#x6CD5; 12345678var obj = {    value: &amp;apos;hello&amp;apos;}function show() {    console.log(this.value)}show.call(obj) // hello  &amp;#x6211;&amp;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/10/06/MUjiqr7YACzlmhc.jpg">
-<meta property="og:updated_time" content="2019-10-06T12:58:57.031Z">
+<meta property="og:updated_time" content="2019-10-06T13:03:07.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="call，apply的模拟实现">
 <meta name="twitter:description" content="call&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x5148;&amp;#x770B;call&amp;#x7684;&amp;#x7528;&amp;#x6CD5; 12345678var obj = {    value: &amp;apos;hello&amp;apos;}function show() {    console.log(this.value)}show.call(obj) // hello  &amp;#x6211;&amp;">
@@ -339,7 +339,7 @@
           
           
             <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/10/06/MUjiqr7YACzlmhc.jpg" rel="gallery_ck1ezxg36003mldcnl7bbxm51" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+              <a class="post-gallery-img fancybox" href="https://i.loli.net/2019/10/06/MUjiqr7YACzlmhc.jpg" rel="gallery_ck1ezynox003umlcnz3r3e7sg" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="https://i.loli.net/2019/10/06/MUjiqr7YACzlmhc.jpg" itemprop="contentUrl">
               </a>
             
@@ -355,6 +355,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    value: <span class="string">&apos;hello&apos;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">}</span><br><span class="line">show.call(obj) <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
 
 <p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x91CC;show&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x540C;&#x65F6;&#x5C06;this&#x6307;&#x5411;&#x4E86;obj&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x73B0;&#x5728;&#x8981;&#x6A21;&#x62DF;&#x8FD9;&#x4E2A;&#x5B9E;&#x73B0;&#x3002;</p>
+<a id="more"></a>
+
 <p>&#x4E3B;&#x8981;&#x8FC7;&#x7A0B;&#x662F;&#x8F6C;&#x53D8;&#x4E3A;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684;&#x5F62;&#x5F0F;</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    value: <span class="string">&apos;hello&apos;</span>,</span><br><span class="line">    show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
