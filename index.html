@@ -278,6 +278,105 @@
             
               
                 
+                <a class="post-title-link" href="/2019/10/26/20191026objectSerialized/" itemprop="url">
+                  开发过程中遇到的一个问题的思考
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-10-26T11:56:00+08:00" content="2019-10-26">
+              2019-10-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&#x4E4B;&#x524D;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataCloneError:Failed to execute &apos;pushState&apos; on History: Symbol(xxx) could not be cloned</span><br></pre></td></tr></table></figure>
+
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x590D;&#x73B0;&#x4E00;&#x4E0B;&#x95EE;&#x9898;&#x3002;</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/10/26/20191026objectSerialized/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/10/19/20191019gitmoji/" itemprop="url">
                   为commit message添加表情
                 </a>
@@ -1284,135 +1383,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/08/04/20180804wxShareBug/" itemprop="url">
-                  微信分享中出现的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-08-04T15:48:56+08:00" content="2018-08-04">
-              2018-08-04
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/web移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">web移动端</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&#x4E3B;&#x8981;&#x662F;&#x5DE5;&#x4F5C;&#x4E2D;&#x5728;&#x4F7F;&#x7528;&#x5FAE;&#x4FE1;&#x5206;&#x4EAB;&#x65F6;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;</p>
-<ol>
-<li><p>&#x5206;&#x4EAB;&#x51FA;&#x6765;&#x63CF;&#x8FF0;&#x53D8;&#x6210;&#x94FE;&#x63A5;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x663E;&#x793A;&#x8BBE;&#x7F6E;&#x597D;&#x7684;&#x56FE;&#x6807;<br>&#x5728;&#x8C03;&#x7528;&#x83B7;&#x53D6;&#x7B7E;&#x540D;&#x7684;&#x63A5;&#x53E3;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x9012;location.href&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x5BF9;location.href&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href.split(<span class="string">&apos;#&apos;</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x672C;&#x4EBA;&#x5206;&#x4EAB;&#x51FA;&#x53BB;&#x7684;&#x9875;&#x9762;&#x770B;&#x5F97;&#x5230;&#x81EA;&#x5B9A;&#x4E49;&#x56FE;&#x6807;&#xFF0C;&#x5BF9;&#x65B9;&#x770B;&#x4E0D;&#x5230;<br>&#x4E3B;&#x8981;&#x662F;&#x5206;&#x4EAB;&#x6587;&#x6848;&#x6D89;&#x53CA;&#x5230;&#x4E86;&#x201C;&#x7EA2;&#x5305;&#xFF0C;&#x91D1;&#x94B1;&#x201D;&#x7B49;&#x654F;&#x611F;&#x8BCD;&#x6C47;&#x3002;</p>
-</li>
-<li><p>&#x5BA2;&#x6237;&#x7AEF;&#x62C9;&#x4E0D;&#x8D77;&#x5FAE;&#x4FE1;&#x5206;&#x4EAB;<br>&#x8FD9;&#x662F;&#x5728;&#x6211;&#x5DE5;&#x4F5C;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5728;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x5C31;&#x662F;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x5206;&#x4EAB;&#x51FA;&#x6765;&#x3002;&#x4F46;&#x662F;&#x53D1;&#x73B0;&#x80FD;&#x591F;&#x62C9;&#x8D77;QQ&#x5206;&#x4EAB;&#x3001;&#x5FAE;&#x535A;&#x5206;&#x4EAB;&#xFF0C;&#x552F;&#x72EC;&#x4E0D;&#x80FD;&#x62C9;&#x8D77;&#x5FAE;&#x4FE1;&#x5206;&#x4EAB;&#x3002;&#x627E;&#x4E86;&#x5F88;&#x4E45;&#x539F;&#x56E0;&#xFF0C;&#x53D1;&#x73B0;&#x6700;&#x5F00;&#x59CB;&#x8BBE;&#x7F6E;&#x7684;&#x5206;&#x4EAB;&#x56FE;&#x6807;&#x7684;&#x5730;&#x5740;&#x5B58;&#x5728;<strong>&#x91CD;&#x5B9A;&#x5411;</strong>&#xFF0C;&#x6700;&#x540E;&#x8BA9;&#x540E;&#x53F0;&#x914D;&#x5408;&#xFF0C;&#x5C06;&#x5730;&#x5740;&#x6539;&#x4E3A;&#x91CD;&#x5B9A;&#x5411;&#x540E;&#x7684;&#x5730;&#x5740;&#x5373;&#x53EF;&#x3002;</p>
-</li>
-<li><p>redirect_uri&#x57DF;&#x540D;&#x4E0E;&#x540E;&#x53F0;&#x914D;&#x7F6E;&#x4E0D;&#x4E00;&#x81F4;<br>&#x770B;&#x4E00;&#x4E0B;&#x662F;&#x4E0D;&#x662F;&#x914D;&#x7F6E;&#x7684;&#x57DF;&#x540D;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x8FB9;&#x662F;&#x540E;&#x53F0;&#x8D1F;&#x8D23;&#x8FD9;&#x4E9B;&#xFF0C;&#x6240;&#x4EE5;&#x51FA;&#x73B0;&#x4E86;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x901A;&#x5E38;&#x53EB;&#x540E;&#x53F0;&#x68C0;&#x67E5;&#x4FEE;&#x6539;&#x5C31;&#x597D;&#x4E86;&#x3002;</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1451,7 +1426,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
