@@ -278,6 +278,130 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/08/20170208mongoose/" itemprop="url">
+                  使用mongoose遇到的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-08T21:49:39+08:00" content="2017-02-08">
+              2017-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/毕设/" itemprop="url" rel="index">
+                    <span itemprop="name">毕设</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&#x4ECA;&#x540E;&#x6211;&#x4EEC;&#x628A;&#x4F7F;&#x7528;mongoose&#x65F6;&#x6240;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x90FD;&#x5F52;&#x7EB3;&#x5230;&#x8FD9;&#x91CC;&#x3002;</p>
+<h2 id="&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;-2017-02-08"><a href="#&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;-2017-02-08" class="headerlink" title="&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;(2017-02-08)"></a>&#x591A;&#x4E2A;&#x76F8;&#x540C;Schema&#x7684;collection&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#xFF1F;(2017-02-08)</h2><p>&#x8FD9;&#x662F;&#x4ECA;&#x5929;&#x6240;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;<br>&#x6253;&#x5F00;&#x6211;&#x7684;Robomongo&#xFF0C;<br><img src="/2017/02/08/20170208mongoose/mongoose1.png" alt><br>&#x4ECE;text_20170205&#x5F00;&#x59CB;&#xFF0C;&#x6240;&#x6709;&#x7684;schema&#x90FD;&#x662F;&#x5982;&#x56FE;&#x4E0A;&#x7684;&#x7ED3;&#x6784;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prd_img_src</span><br><span class="line">prd_sku</span><br><span class="line">prd_price</span><br><span class="line">prd_url</span><br><span class="line">prd_name</span><br></pre></td></tr></table></figure>
+
+<p>&#x7136;&#x800C;&#x6211;&#x53EA;&#x60F3;&#x53D6;&#x8FD9;&#x51E0;&#x4E2A;collection&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x90A3;&#x6211;&#x8981;&#x5982;&#x4F55;&#x505A;&#x5462;&#xFF1F;</p>
+<p>&#x56DE;&#x5FC6;&#x4E4B;&#x524D;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x4F7F;&#x7528;mongoose&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x51E0;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A;schema,model,entity&#x3002;<br>&#x5728;models.js&#x4E2D;&#x5B9A;&#x4E49;Model&#x8FD9;&#x4E00;&#x6B65;&#x65F6;&#xFF0C;&#x666E;&#x901A;&#x7684;&#x662F;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _JD = new Schema({</span><br><span class="line">  prd_img_src: String,</span><br><span class="line">  prd_sku: String,</span><br><span class="line">  prd_price: String,</span><br><span class="line">  prd_url: String,</span><br><span class="line">  prd_name: String</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">exports.JD = mongoose.model(<span class="string">&apos;JD&apos;</span>, _JD);</span><br></pre></td></tr></table></figure>
+
+<p>&#x7136;&#x800C;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;collection&#x7684;&#x540D;&#x5B57;&#x6765;&#x5B9A;&#x4E49;model&#xFF0C;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.JD = mongoose.model(<span class="string">&apos;JD&apos;</span>, _JD, <span class="string">&apos;test_20170206&apos;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x6E20;&#x9053;&#x540D;&#x4E3A;&#x201C;test_20170206&#x201D;&#x7684;collection&#x3002;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/08/20170208stickyFooter/" itemprop="url">
                   Sticky footers
                 </a>
@@ -1316,146 +1440,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/07/20170107npmInstall/" itemprop="url">
-                  --save-dev 与 --save区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-07T15:22:14+08:00" content="2017-01-07">
-              2017-01-07
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/npm/" itemprop="url" rel="index">
-                    <span itemprop="name">npm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&#x6700;&#x8FD1;&#x5B89;&#x88C5;&#x4E00;&#x4E9B;npm&#x5305;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>--save-dev</code>&#xFF0C;&#x4E8C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>--save</code>&#xFF0C;&#x800C;&#x6709;&#x4E9B;&#x5462;&#x5219;&#x76F4;&#x63A5;<code>npm install</code>&#x3002;&#x8FD9;&#x4E9B;&#x5230;&#x5E95;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;</p>
-<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x7528;<b>vue-cli</b>&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<b>webpack</b>&#x9879;&#x76EE;&#xFF0C;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;&#x6709;&#x4E2A;<code>package.json</code>&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x770B;&#x4E00;&#x4E0B;&#x3002;<br>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x6709;<code>dependencies</code>&#x548C;<code>devDependencies</code>&#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;&#x901A;&#x8FC7;&#x7F51;&#x4E0A;&#x67E5;&#x9605;&#x8D44;&#x6599;&#xFF0C;&#x77E5;&#x9053;&#x4E86;<code>devDependencies</code>&#x91CC;&#x7684;&#x662F;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#xFF0C;&#x5373;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x5F00;&#x53D1;&#x65F6;&#x7528;&#x7684;&#xFF0C;<code>dependencies</code>&#x91CC;&#x7684;&#x662F;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#xFF0C;&#x5373;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x5B8C;&#x4E0A;&#x7EBF;&#x65F6;&#x9700;&#x8981;&#x7684;&#x3002;</p>
-<p>&#x597D;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x8BF4;&#x4E00;&#x4E0B;<code>npm install</code>&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;<br>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E2A;npm&#x5305;&#x540D;&#x5B57;&#x53EB;<b>hello</b>&#x5427;&#x3002;</p>
-<ol>
-<li>npm install hello</li>
-</ol>
-<ul>
-<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
-<li>&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;package.json</li>
-<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;<strong>&#x4E0D;&#x4F1A;</strong>&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello</li>
-</ul>
-<ol start="2">
-<li>npm install hello &#x2013;save</li>
-</ol>
-<ul>
-<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
-<li>&#x4F1A;&#x5728;package.json&#x7684;<b>dependencies</b>&#x5C5E;&#x6027;&#x4E0B;&#x6DFB;&#x52A0;hello</li>
-<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
-</ul>
-<ol start="3">
-<li>npm install hello &#x2013;save-dev</li>
-</ol>
-<ul>
-<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
-<li>&#x4F1A;&#x5728;package.json&#x7684;<b>devDependencies</b>&#x5C5E;&#x6027;&#x4E0B;&#x6DFB;&#x52A0;hello</li>
-<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
-</ul>
-<h4 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h4><p>&#x53EA;&#x662F;&#x5F00;&#x53D1;&#x65F6;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5C31;<code>--save-dev</code>&#xFF0C;&#x6BD4;&#x5982;<code>eslint</code>&#x7B49;&#xFF0C;&#x800C;&#x4E0A;&#x7EBF;&#x540E;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5C31;<code>--save</code>&#xFF0C;&#x6BD4;&#x5982;<code>jquery</code>&#x7B49;&#x3002;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1499,7 +1483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1516,7 +1500,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

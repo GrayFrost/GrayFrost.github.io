@@ -278,6 +278,146 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/07/20170107npmInstall/" itemprop="url">
+                  --save-dev 与 --save区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T15:22:14+08:00" content="2017-01-07">
+              2017-01-07
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/npm/" itemprop="url" rel="index">
+                    <span itemprop="name">npm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&#x6700;&#x8FD1;&#x5B89;&#x88C5;&#x4E00;&#x4E9B;npm&#x5305;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>--save-dev</code>&#xFF0C;&#x4E8C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>--save</code>&#xFF0C;&#x800C;&#x6709;&#x4E9B;&#x5462;&#x5219;&#x76F4;&#x63A5;<code>npm install</code>&#x3002;&#x8FD9;&#x4E9B;&#x5230;&#x5E95;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x7528;<b>vue-cli</b>&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<b>webpack</b>&#x9879;&#x76EE;&#xFF0C;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;&#x6709;&#x4E2A;<code>package.json</code>&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x770B;&#x4E00;&#x4E0B;&#x3002;<br>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x6709;<code>dependencies</code>&#x548C;<code>devDependencies</code>&#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;&#x901A;&#x8FC7;&#x7F51;&#x4E0A;&#x67E5;&#x9605;&#x8D44;&#x6599;&#xFF0C;&#x77E5;&#x9053;&#x4E86;<code>devDependencies</code>&#x91CC;&#x7684;&#x662F;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#xFF0C;&#x5373;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x5F00;&#x53D1;&#x65F6;&#x7528;&#x7684;&#xFF0C;<code>dependencies</code>&#x91CC;&#x7684;&#x662F;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#xFF0C;&#x5373;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x5B8C;&#x4E0A;&#x7EBF;&#x65F6;&#x9700;&#x8981;&#x7684;&#x3002;</p>
+<p>&#x597D;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x8BF4;&#x4E00;&#x4E0B;<code>npm install</code>&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;<br>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E2A;npm&#x5305;&#x540D;&#x5B57;&#x53EB;<b>hello</b>&#x5427;&#x3002;</p>
+<ol>
+<li>npm install hello</li>
+</ol>
+<ul>
+<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
+<li>&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;package.json</li>
+<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;<strong>&#x4E0D;&#x4F1A;</strong>&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello</li>
+</ul>
+<ol start="2">
+<li>npm install hello &#x2013;save</li>
+</ol>
+<ul>
+<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
+<li>&#x4F1A;&#x5728;package.json&#x7684;<b>dependencies</b>&#x5C5E;&#x6027;&#x4E0B;&#x6DFB;&#x52A0;hello</li>
+<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
+</ul>
+<ol start="3">
+<li>npm install hello &#x2013;save-dev</li>
+</ol>
+<ul>
+<li>&#x4F1A;&#x628A;hello&#x5305;&#x5B89;&#x88C5;&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
+<li>&#x4F1A;&#x5728;package.json&#x7684;<b>devDependencies</b>&#x5C5E;&#x6027;&#x4E0B;&#x6DFB;&#x52A0;hello</li>
+<li>&#x4E4B;&#x540E;&#x8FD0;&#x884C;npm install&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;hello&#x5230;node_modules&#x76EE;&#x5F55;&#x4E2D;</li>
+</ul>
+<h4 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h4><p>&#x53EA;&#x662F;&#x5F00;&#x53D1;&#x65F6;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5C31;<code>--save-dev</code>&#xFF0C;&#x6BD4;&#x5982;<code>eslint</code>&#x7B49;&#xFF0C;&#x800C;&#x4E0A;&#x7EBF;&#x540E;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5C31;<code>--save</code>&#xFF0C;&#x6BD4;&#x5982;<code>jquery</code>&#x7B49;&#x3002;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/03/20170103mongodb/" itemprop="url">
                   express+mongodb
                 </a>
@@ -1340,121 +1480,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/28/20160728queue/" itemprop="url">
-                  队列
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-28T19:58:00+08:00" content="2016-07-28">
-              2016-07-28
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="&#x5FAA;&#x73AF;&#x961F;&#x5217;"><a href="#&#x5FAA;&#x73AF;&#x961F;&#x5217;" class="headerlink" title="&#x5FAA;&#x73AF;&#x961F;&#x5217;"></a>&#x5FAA;&#x73AF;&#x961F;&#x5217;</h3><p>&#x5982;&#x4F55;&#x5224;&#x65AD;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x662F;&#x7A7A;&#x662F;&#x6EE1;&#xFF1F;<br>&#x529E;&#x6CD5;&#x4E00;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x53D8;&#x91CF;flag&#xFF0C;&#x5F53;front == rear&#xFF0C;&#x4E14;flag = 0&#x65F6;&#x4E3A;&#x961F;&#x5217;&#x7A7A;&#xFF0C;&#x5F53;front == rear&#xFF0C;&#x4E14;flag = 1&#x65F6;&#x4E3A;&#x961F;&#x5217;&#x6EE1;&#xFF1B;<br>&#x529E;&#x6CD5;&#x4E8C;&#xFF1A;&#x5F53;&#x961F;&#x5217;&#x7A7A;&#x65F6;&#xFF0C;&#x6761;&#x4EF6;&#x5C31;&#x662F;front == rear&#xFF0C;&#x5F53;&#x961F;&#x5217;&#x4E3A;&#x6EE1;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x5176;&#x6761;&#x4EF6;&#xFF0C;&#x4FDD;&#x7559;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7A7A;&#x95F4;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x961F;&#x5217;&#x6EE1;&#x65F6;&#xFF0C;&#x6570;&#x7EC4;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5355;&#x5143;&#x3002;</p>
-<p>&#x597D;&#x50CF;&#x901A;&#x5E38;&#x90FD;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#xFF01;<br>&#x7531;&#x4E8E;rear&#x53EF;&#x80FD;&#x6BD4;front&#x5927;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x6BD4;front&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x53EA;&#x76F8;&#x5DEE;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x65F6;&#x5C31;&#x8BF4;&#x6EE1;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x76F8;&#x5DEE;&#x6574;&#x6574;&#x4E00;&#x5708;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x82E5;&#x961F;&#x5217;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#x4E3A;N&#xFF0C;&#x90A3;&#x4E48;&#x961F;&#x5217;&#x6EE1;&#x7684;&#x6761;&#x4EF6;&#x662F;(rear + 1) % N == front</p>
-<p>&#x901A;&#x7528;&#x7684;&#x8BA1;&#x7B97;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x957F;&#x5EA6;&#x7684;&#x516C;&#x5F0F;&#xFF1A;(rear - front + N) % N</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1498,7 +1523,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1515,7 +1540,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
