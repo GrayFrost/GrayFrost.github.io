@@ -278,6 +278,117 @@
             
               
                 
+                <a class="post-title-link" href="/2017/11/04/20171104textOverflow/" itemprop="url">
+                  文字超出使用省略号
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-04T16:00:59+08:00" content="2017-11-04">
+              2017-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x6587;&#x5B57;&#x8FC7;&#x957F;&#x8D85;&#x51FA;&#x8303;&#x56F4;&#x65F6;&#x4F7F;&#x7528;&#x7701;&#x7565;&#x53F7;&#x4EE3;&#x66FF;&#xFF0C;&#x800C;&#x6587;&#x672C;&#x6EA2;&#x51FA;&#x6709;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;&#x5355;&#x884C;&#x548C;&#x591A;&#x884C;&#x3002;</p>
+<h2 id="&#x5355;&#x884C;&#x6587;&#x672C;"><a href="#&#x5355;&#x884C;&#x6587;&#x672C;" class="headerlink" title="&#x5355;&#x884C;&#x6587;&#x672C;"></a>&#x5355;&#x884C;&#x6587;&#x672C;</h2><p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: &#x5177;&#x4F53;&#x5BBD;&#x5EA6;;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x591A;&#x884C;&#x6587;&#x672C;"><a href="#&#x591A;&#x884C;&#x6587;&#x672C;" class="headerlink" title="&#x591A;&#x884C;&#x6587;&#x672C;"></a>&#x591A;&#x884C;&#x6587;&#x672C;</h2><p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: &#x5177;&#x4F53;&#x5BBD;&#x5EA6;;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">-webkit-line-clamp</span>: &#x884C;&#x6570;;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728;&#x6D4B;&#x8BD5;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x6211;&#x53D1;&#x73B0;&#x5982;&#x679C;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x4E2D;&#x4E0D;&#x662F;&#x5168;&#x90E8;&#x662F;&#x4E2D;&#x6587;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x3002;<br>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span>&gt;</span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#one</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x6548;&#x679C;<br><img src="/2017/11/04/20171104textOverflow/problem.png" alt></p>
+<p>&#x5982;&#x679C;&#x6362;&#x6210;&#x4E2D;&#x6587;&#xFF0C;&#x5219;&#x6CA1;&#x6709;&#x95EE;&#x9898;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;one&quot;</span>&gt;</span>&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;&#x554A;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x6548;&#x679C;<br><img src="/2017/11/04/20171104textOverflow/problem2.png" alt></p>
+<p>&#x6682;&#x65F6;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#xFF0C;&#x4E4B;&#x540E;&#x627E;&#x5230;&#x65B9;&#x6CD5;&#x518D;&#x8BF4;&#x3002;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/30/20171030rem/" itemprop="url">
                   rem
                 </a>
@@ -1258,123 +1369,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/09/20170309online/" itemprop="url">
-                  vue.js项目上线
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-09T22:03:45+08:00" content="2017-03-09">
-              2017-03-09
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/毕设/" itemprop="url" rel="index">
-                    <span itemprop="name">毕设</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x4ECA;&#x5929;&#x7EC8;&#x4E8E;&#x4E0B;&#x5B9A;&#x51B3;&#x5FC3;&#x5C1D;&#x8BD5;&#x628A;&#x9879;&#x76EE;&#x90E8;&#x7F72;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x56E0;&#x4E3A;&#x4E4B;&#x524D;&#x603B;&#x662F;&#x72B9;&#x72B9;&#x8C6B;&#x8C6B;&#xFF0C;&#x603B;&#x89C9;&#x5F97;&#x597D;&#x9EBB;&#x70E6;&#x3002;&#x5BF9;&#x4E8E;&#x5B66;&#x524D;&#x7AEF;&#x7684;&#x6211;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#x771F;&#x7684;&#x597D;&#x96BE;&#x5F04;&#xFF0C;&#x51E0;&#x4E4E;&#x5F04;&#x4E86;&#x4E00;&#x6574;&#x5929;&#xFF0C;&#x4E0D;&#x8FC7;&#x770B;&#x5230;&#x6210;&#x529F;&#x7684;&#x90A3;&#x4E00;&#x523B;&#xFF0C;&#x5FC3;&#x91CC;&#x8FD8;&#x662F;&#x5F88;&#x9AD8;&#x5174;&#x3002;<br>&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x90E8;&#x7F72;&#x3002;</p>
-<h2 id="&#x8D2D;&#x4E70;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;ECS"><a href="#&#x8D2D;&#x4E70;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;ECS" class="headerlink" title="&#x8D2D;&#x4E70;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;ECS"></a>&#x8D2D;&#x4E70;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;ECS</h2><h3 id="&#x914D;&#x7F6E;&#x9009;&#x578B;"><a href="#&#x914D;&#x7F6E;&#x9009;&#x578B;" class="headerlink" title="&#x914D;&#x7F6E;&#x9009;&#x578B;"></a>&#x914D;&#x7F6E;&#x9009;&#x578B;</h3><p><img src="/2017/03/09/20170309online/ecs1.png" alt></p>
-<p><img src="/2017/03/09/20170309online/ecs2.png" alt><br>&#x5927;&#x5BB6;&#x6839;&#x636E;&#x559C;&#x597D;&#x9009;&#x62E9;&#x5427;&#x3002;<br>&#x5982;&#x679C;&#x8D2D;&#x4E70;&#x6210;&#x529F;&#xFF0C;&#x5E94;&#x8BE5;&#x4F1A;&#x53D7;&#x5230;&#x77ED;&#x4FE1;&#x901A;&#x77E5;&#xFF0C;&#x5185;&#x542B;&#xFF08;&#x5B9E;&#x4F8B;&#x540D;&#x79F0;&#xFF0C;&#x516C;&#x7F51;ip&#xFF0C;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x540D;root&#xFF09;&#x7B49;&#x3002;&#x82E5;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x5B9E;&#x4F8B;&#x5BC6;&#x7801;&#xFF0C;&#x9700;&#x8981;&#x53BB;&#x63A7;&#x5236;&#x53F0;&#x8BBE;&#x7F6E;&#x3002;<br>&#x4E0B;&#x9762;&#x662F;&#x6211;&#x7684;&#x9009;&#x62E9;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/09/20170309online/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1418,7 +1412,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
