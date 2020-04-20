@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="&amp;#x6628;&amp;#x5929;&amp;#x4E0B;&amp;#x5348;&amp;#x7684;&amp;#x7B14;&amp;#x8BD5;&amp;#x9898;&amp;#x3002; &amp;#x7B2C;&amp;#x4E00;&amp;#x9898;&amp;#x95EE;&amp;#x9898;&amp;#x8BF4;&amp;#x51FA;&amp;#x8F93;&amp;#x51FA;&amp;#x65F6;&amp;#x95F4;&amp;#xFF0C;&amp;#x5E76;&amp;#x89E3;&amp;#x91CA;&amp;#x539F">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔试题">
+<meta property="og:url" content="https://grayfrost.github.io/2020/03/08/20200308tsInterview/index.html">
+<meta property="og:site_name" content="Gary&#39;s blog">
+<meta property="og:description" content="&amp;#x6628;&amp;#x5929;&amp;#x4E0B;&amp;#x5348;&amp;#x7684;&amp;#x7B14;&amp;#x8BD5;&amp;#x9898;&amp;#x3002; &amp;#x7B2C;&amp;#x4E00;&amp;#x9898;&amp;#x95EE;&amp;#x9898;&amp;#x8BF4;&amp;#x51FA;&amp;#x8F93;&amp;#x51FA;&amp;#x65F6;&amp;#x95F4;&amp;#xFF0C;&amp;#x5E76;&amp;#x89E3;&amp;#x91CA;&amp;#x539F">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-20T06:10:35.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔试题">
+<meta name="twitter:description" content="&amp;#x6628;&amp;#x5929;&amp;#x4E0B;&amp;#x5348;&amp;#x7684;&amp;#x7B14;&amp;#x8BD5;&amp;#x9898;&amp;#x3002; &amp;#x7B2C;&amp;#x4E00;&amp;#x9898;&amp;#x95EE;&amp;#x9898;&amp;#x8BF4;&amp;#x51FA;&amp;#x8F93;&amp;#x51FA;&amp;#x65F6;&amp;#x95F4;&amp;#xFF0C;&amp;#x5E76;&amp;#x89E3;&amp;#x91CA;&amp;#x539F">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 笔试题 | Gary's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Gary's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                笔试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-03-08T17:37:00+08:00" content="2020-03-08">
+              2020-03-08
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">面试题</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x6628;&#x5929;&#x4E0B;&#x5348;&#x7684;&#x7B14;&#x8BD5;&#x9898;&#x3002;</p>
+<h1 id="&#x7B2C;&#x4E00;&#x9898;"><a href="#&#x7B2C;&#x4E00;&#x9898;" class="headerlink" title="&#x7B2C;&#x4E00;&#x9898;"></a>&#x7B2C;&#x4E00;&#x9898;</h1><h2 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x8BF4;&#x51FA;&#x8F93;&#x51FA;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x89E3;&#x91CA;&#x539F;&#x56E0;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wait</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> {</span><br><span class="line">    setTimeout(resolve, <span class="number">10</span> * <span class="number">1000</span>)</span><br><span class="line">  })</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="built_in">console</span>.time();</span><br><span class="line">  <span class="keyword">let</span> a = wait();</span><br><span class="line">  <span class="keyword">let</span> b = wait();</span><br><span class="line">  <span class="keyword">let</span> c = wait();</span><br><span class="line">  <span class="keyword">await</span> a;</span><br><span class="line">  <span class="keyword">await</span> b;</span><br><span class="line">  <span class="keyword">await</span> c;</span><br><span class="line">  <span class="built_in">console</span>.timeEnd();</span><br><span class="line">}</span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x7B54;&#x6848;"><a href="#&#x7B54;&#x6848;" class="headerlink" title="&#x7B54;&#x6848;"></a>&#x7B54;&#x6848;</h2><p>&#x8FD9;&#x9898;&#x8FD8;&#x6CA1;&#x60F3;&#x660E;&#x767D;</p>
+<h1 id="&#x7B2C;&#x4E8C;&#x9898;"><a href="#&#x7B2C;&#x4E8C;&#x9898;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x9898;"></a>&#x7B2C;&#x4E8C;&#x9898;</h1><h2 id="&#x95EE;&#x9898;-1"><a href="#&#x95EE;&#x9898;-1" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x89E3;&#x6790;url&#x7684;&#x53C2;&#x6570;&#x90E8;&#x5206;&#xFF0C;&#x8F6C;&#x6210;&#x5BF9;&#x8C61;&#x5F62;&#x5F0F;.&#x91CD;&#x590D;&#x7684;&#x4EE5;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#xFF0C;&#x4E2D;&#x6587;&#x9700;&#x8981;&#x8F6C;&#x7801;&#xFF0C;&#x6CA1;&#x6709;&#x503C;&#x5F97;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;true&#x3002;</p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><code>http://www.domain.com/?user=anonymous&amp;id=123&amp;id=456&amp;city=%E5%8C%97%E4%BA%AC&amp;enabled</code><br>&#x8F6C;&#x6362;&#x540E;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  user: anonymouse,</span><br><span class="line">  id: [123, 456],</span><br><span class="line">  city: &apos;&#x5317;&#x4EAC;&apos;,</span><br><span class="line">  enabled: true</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x7B54;&#x6848;-1"><a href="#&#x7B54;&#x6848;-1" class="headerlink" title="&#x7B54;&#x6848;"></a>&#x7B54;&#x6848;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseParam</span>(<span class="params">str</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&quot;?&quot;</span>);</span><br><span class="line">  <span class="keyword">let</span> queryPart = arr.length &gt; <span class="number">1</span> ? arr[<span class="number">1</span>] : [];</span><br><span class="line">  <span class="keyword">if</span> (queryPart.length) {</span><br><span class="line">    <span class="keyword">let</span> obj = {};</span><br><span class="line">    <span class="keyword">let</span> paramsArr = queryPart.split(<span class="string">&quot;&amp;&quot;</span>); <span class="comment">// [&apos;user=anonymous&apos;, &apos;id=123&apos;, ..., &apos;enabled&apos;]</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; paramsArr.length; i++) {</span><br><span class="line">      <span class="keyword">let</span> item = paramsArr[i];</span><br><span class="line">      <span class="keyword">let</span> keyValArr = item.split(<span class="string">&quot;=&quot;</span>);</span><br><span class="line">      <span class="keyword">let</span> key = keyValArr[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">let</span> value =</span><br><span class="line">        keyValArr.length &gt; <span class="number">1</span> ? <span class="built_in">decodeURIComponent</span>(keyValArr[<span class="number">1</span>]) : <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">if</span> (key <span class="keyword">in</span> obj) {</span><br><span class="line">        <span class="comment">// &#x5DF2;&#x7ECF;&#x6709;&#x4E86;</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(obj[key])) {</span><br><span class="line">          <span class="comment">// &#x5982;&#x679C;&#x662F;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x4E86;</span></span><br><span class="line">          obj[key] = obj[key].push(value);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">          obj[key] = [obj[key], value];</span><br><span class="line">        }</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        obj[key] = value;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    <span class="keyword">return</span> {}; <span class="comment">// &#x6CA1;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7A7A;&#x5BF9;&#x8C61;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h1 id="&#x7B2C;&#x4E09;&#x9898;"><a href="#&#x7B2C;&#x4E09;&#x9898;" class="headerlink" title="&#x7B2C;&#x4E09;&#x9898;"></a>&#x7B2C;&#x4E09;&#x9898;</h1><h2 id="&#x95EE;&#x9898;-2"><a href="#&#x95EE;&#x9898;-2" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x3002;</p>
+<h2 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> template = <span class="string">&quot;&#x6211;&#x662F;{{name}}&#xFF0C;&#x5E74;&#x9F84;{{age}}&#xFF0C;&#x6027;&#x522B;{{sex}}&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> data = {</span><br><span class="line">  name: <span class="string">&quot;&#x59D3;&#x540D;&quot;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+<p>&#x66FF;&#x6362;&#x540E;&#x4E3A;&#xFF1A;<code>&#x6211;&#x662F;&#x59D3;&#x540D;&#xFF0C;&#x5E74;&#x9F84;18&#xFF0C;&#x6027;&#x522B;undefined</code></p>
+<h2 id="&#x7B54;&#x6848;-2"><a href="#&#x7B54;&#x6848;-2" class="headerlink" title="&#x7B54;&#x6848;"></a>&#x7B54;&#x6848;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">template, data</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> key, value, reg;</span><br><span class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> data) {</span><br><span class="line">    <span class="comment">// &#x904D;&#x5386;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</span></span><br><span class="line">    value = data[key];</span><br><span class="line">    reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;{{&quot;</span> + key + <span class="string">&quot;}}&quot;</span>, <span class="string">&quot;g&quot;</span>); <span class="comment">// &#x4E3A;&#x5BF9;&#x5E94;&#x5C5E;&#x6027;&#x751F;&#x6210;&#x76F8;&#x5E94;&#x6B63;&#x5219;</span></span><br><span class="line">    template = template.replace(reg, value);</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x5269;&#x4F59;&#x7684;&#x4E0D;&#x5728;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;</span></span><br><span class="line">  <span class="keyword">let</span> regs = <span class="regexp">/\{\{\w*\}\}/g</span>;</span><br><span class="line">  template = template.replace(regs, <span class="string">&quot;undefined&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> template;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h1 id="&#x7B2C;&#x56DB;&#x9898;"><a href="#&#x7B2C;&#x56DB;&#x9898;" class="headerlink" title="&#x7B2C;&#x56DB;&#x9898;"></a>&#x7B2C;&#x56DB;&#x9898;</h1><h2 id="&#x95EE;&#x9898;-3"><a href="#&#x95EE;&#x9898;-3" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x67E5;&#x770B;&#x77ED;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x957F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x7C7B;&#x4F3C;indexOf&#xFF0C;&#x2018;34&#x2019; &#x2018;1234567&#x2019; &#x8FD4;&#x56DE;2&#xFF0C;&#x6CA1;&#x627E;&#x5230;&#x8FD4;&#x56DE;-1&#x3002;</p>
+<h2 id="demo-2"><a href="#demo-2" class="headerlink" title="demo"></a>demo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;34&apos; &apos;1234567&apos; // 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x7B54;&#x6848;-3"><a href="#&#x7B54;&#x6848;-3" class="headerlink" title="&#x7B54;&#x6848;"></a>&#x7B54;&#x6848;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isContain</span>(<span class="params">shortStr, longStr</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> shortStr !== <span class="string">&quot;string&quot;</span> &amp;&amp; <span class="keyword">typeof</span> longStr !== <span class="string">&quot;string&quot;</span>) {</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Please input string&quot;</span>);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span> (shortStr.length &gt; longStr.length) {</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">let</span> shortArr = shortStr.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">let</span> longArr = longStr.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; longArr.length; i++) {</span><br><span class="line">    <span class="keyword">if</span> (shortArr[<span class="number">0</span>] === longArr[i]) {</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; shortArr.length; j++) {</span><br><span class="line">        <span class="keyword">if</span> (shortArr[j] !== longArr[i + j]) {</span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (j === shortArr.length - <span class="number">1</span>) {</span><br><span class="line">          <span class="keyword">return</span> i;</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h1 id="&#x7B2C;&#x4E94;&#x9898;"><a href="#&#x7B2C;&#x4E94;&#x9898;" class="headerlink" title="&#x7B2C;&#x4E94;&#x9898;"></a>&#x7B2C;&#x4E94;&#x9898;</h1><h2 id="&#x95EE;&#x9898;-4"><a href="#&#x95EE;&#x9898;-4" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x51FA;&#x4E24;&#x4E2A;&#x6570;&#x7B49;&#x4E8E;&#x76EE;&#x6807;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E0B;&#x6807;&#x3002;leetcode&#x4E2D;&#x6700;&#x7B80;&#x5355;&#x7684;&#x90A3;&#x9898;</p>
+<h2 id="demo-3"><a href="#demo-3" class="headerlink" title="demo"></a>demo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 7, 11, 15], 9 // [0, 1]</span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x7B54;&#x6848;-4"><a href="#&#x7B54;&#x6848;-4" class="headerlink" title="&#x7B54;&#x6848;"></a>&#x7B54;&#x6848;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findTwoNum</span>(<span class="params">nums, target</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(nums)) {</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;The first param is not an array&quot;</span>);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = nums.length; i &lt; len - <span class="number">1</span>; i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>, len = nums.length; j &lt; len; j++) {</span><br><span class="line">      <span class="keyword">if</span> (nums[i] + nums[j] === target) {</span><br><span class="line">        <span class="keyword">return</span> [i, j];</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x7B54;&#x6848;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x5F53;&#x65F6;&#x5199;&#x7684;&#xFF0C;&#x6709;&#x4E0D;&#x8DB3;&#x7684;&#x540E;&#x9762;&#x8FD8;&#x8981;&#x91CD;&#x65B0;&#x4F18;&#x5316;&#x4E00;&#x4E0B;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/29/20191229hexoLive2d/" rel="next" title="hexo添加动态人物背景">
+                <i class="fa fa-chevron-left"></i> hexo添加动态人物背景
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Gary">
+          <p class="site-author-name" itemprop="name">Gary</p>
+          <p class="site-description motion-element" itemprop="description">行止由心</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">60</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案"><span class="nav-number">1.2.</span> <span class="nav-text">答案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二题"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-number">2.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案-1"><span class="nav-number">2.3.</span> <span class="nav-text">答案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三题"><span class="nav-number">3.</span> <span class="nav-text">第三题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-2"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo-1"><span class="nav-number">3.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案-2"><span class="nav-number">3.3.</span> <span class="nav-text">答案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四题"><span class="nav-number">4.</span> <span class="nav-text">第四题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-3"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo-2"><span class="nav-number">4.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案-3"><span class="nav-number">4.3.</span> <span class="nav-text">答案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五题"><span class="nav-number">5.</span> <span class="nav-text">第五题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-4"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo-3"><span class="nav-number">5.2.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案-4"><span class="nav-number">5.3.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gary</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
